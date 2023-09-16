@@ -1,0 +1,40 @@
+.MyPage {
+  position: relative;
+}
+
+.main_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 70px;
+  left: 38px;
+  width: 85%;
+}
+
+.main_header .main_title {
+  margin-bottom: 10px;
+}
+
+.main_account::after {
+  content: ">";
+}
+
+.mid {
+  position: absolute;
+  top: 235px;
+}
+
+.mid div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mid hr {
+  width: 100vw;
+}
+
+.section_icons p {
+  font-size: 15px;
+}

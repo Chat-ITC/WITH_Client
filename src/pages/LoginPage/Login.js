@@ -15,7 +15,7 @@ import { NAVER_LINK, KAKAO_LINK } from "../../config/config";
 // } from "./style";
 
 import { Fragment } from "react";
-import "./Login.module.css";
+import styles from "./Login.module.css";
 
 import logo from "../../assets/logo/CoFe_logo.png";
 import kakao from "../../assets/loginButtons/kakao-button.png";
@@ -45,22 +45,22 @@ const Login = () => {
     //   </ButtonContainer>
     // </StyledContainer>
     <Fragment>
-      <header className="LoginPage">
-        <div className="LoginPage-title">
+      <header className={styles.Login_Page}>
+        <div className={styles.Login_title}>
           <img src={logo} alt="로고" />
           <h1>
             내 옆에 <br /> 코딩 친구
           </h1>
         </div>
       </header>
-      <footer className="LoginSection">
+      <footer className={styles.Login_section}>
         <div>
-          <span className="Login-desc">SNS 계정으로 간편 가입하기</span>
-          <div className="Login-buttons">
-            <button className="Login-button" onClick={kakaoLoginHandler}>
+          <span className={styles.Login_desc}>SNS 계정으로 간편 가입하기</span>
+          <div className={styles.Login_buttons}>
+            <button className={styles.Login_button} onClick={kakaoLoginHandler}>
               <img src={kakao} alt="카카오 로그인 버튼" />
             </button>
-            <button className="Login-button" onClick={naverLoginHandler}>
+            <button className={styles.Login_button} onClick={naverLoginHandler}>
               <img src={naver} alt="네이버 로그인 버튼" />
             </button>
           </div>
