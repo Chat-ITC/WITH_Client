@@ -1,10 +1,13 @@
-import './App.css';
+import { Fragment } from "react";
+import MyPage from "./pages/MyPage";
+import "./App.css";
+import "./reset.module.css";
 
 function App() {
   return (
-    <div className="App">
-        야성아!!!!!!! 병합해줘!!!
-    </div>
+    <Fragment>
+      <MyPage />
+    </Fragment>
   );
 }
 
