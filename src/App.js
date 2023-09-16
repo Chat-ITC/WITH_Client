@@ -5,6 +5,7 @@ function App() {
     <div className="App">
       <header>
         hihi
+        <span>helelo</span>
       </header>
       <div className="w-[390px] h-[844px] relative overflow-hidden bg-white">
         <div className="w-[360px] h-[90px] absolute left-[15px] top-[271px] rounded-md bg-white border border-[#b2b3b9]" />
