@@ -1,0 +1,19 @@
+.Header {
+  position: relative;
+}
+
+.Header div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: 71px;
+  left: 0;
+}
+
+.account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

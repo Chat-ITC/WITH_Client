@@ -1,0 +1,7 @@
+{
+  "editior.formatOnSave": true,
+  "prettier.semi": false,
+  "prettier.javascriptEnable": ["javascript", "javascriptreact"],
+  "prettier.printWidth": 2,
+  "prettier.useTabs": false
+}
