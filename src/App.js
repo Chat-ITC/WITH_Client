@@ -4,6 +4,7 @@ function App() {
   return (
     <div className="App">
       <header>
+<<<<<<< HEAD
         hihi
         <span>helelo</span>
       </header>
@@ -323,6 +324,10 @@ function App() {
           <line x1="-0.0103896" y1="5.0132" x2="389.99" y2="4.00021" stroke="#F7F8FA" stroke-width={8} />
         </svg>
       </div>;
+=======
+        야성아!!!!!!!
+      </header>
+>>>>>>> eb16f3f81e21583a6daaaae79e312c4b520642ba
     </div>
   );
 }
