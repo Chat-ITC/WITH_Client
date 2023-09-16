@@ -23,16 +23,13 @@
 .mid {
   position: absolute;
   top: 245px;
-}
-
-.mid div {
-  display: flex;
-}
-
-.mid div .mid hr {
+  left: 20px;
   width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: cetner;
 }
 
 .section_icons p {
-  font-size: 15px;
+  font-size: 13px;
 }

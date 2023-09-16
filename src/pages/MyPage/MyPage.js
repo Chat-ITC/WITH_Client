@@ -24,23 +24,47 @@ const MyPage = () => {
         <span className={styles.main_account}>계정 관리</span>
       </header>
       <section className={styles.mid}>
-        <div>
-          <div className={styles.section_icons}>
-            <img src={Scrab} alt="스크랩" />
-            <p>스크랩</p>
-          </div>
-          <div className={styles.section_icons}>
-            <img src={Recent} alt="최근 본 자료" />
-            <p>최근 본 자료</p>
-          </div>
-          <div className={styles.section_icons}>
-            <img src={C} alt="학습 언어 수정" />
-            <p>학습 언어 수정</p>
-          </div>
-          <hr />
+        <div className={styles.section_icons}>
+          <img src={Scrab} alt="스크랩" />
+          <p>스크랩</p>
+        </div>
+        <div className={styles.section_icons}>
+          <img src={Recent} alt="최근 본 자료" />
+          <p>최근 본 자료</p>
+        </div>
+        <div className={styles.section_icons}>
+          <img src={C} alt="학습 언어 수정" />
+          <p>학습 언어 수정</p>
         </div>
       </section>
-      <Bottom />
+      <hr />
+      <aside>
+        <ul>
+          <li>
+            <div>
+              <a href="/">
+                <img src={Tier} alt="" />내 실력 변경
+              </a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="/">
+                <img src={} alt="" />1 : 1 문의하기
+              </a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="/">
+                <img src="" alt="" />
+                로그아웃
+              </a>
+            </div>
+          </li>
+        </ul>
+      </aside>
+     
     </Fragment>
   );
 };
