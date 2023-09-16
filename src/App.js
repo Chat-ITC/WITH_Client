@@ -1,22 +1,29 @@
-//eslint-disable-next-line
 import { Fragment } from "react";
-import { BrowserRouter, Routes, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "../src/styles/screen/Reset.module.css";
 // global style
-// import GlobalStyle from "./styles/GlobalStyle";
+import GlobalStyle from "./styles/GlobalStyle";
 
 //pages
 import Login from "./pages/LoginPage/Login";
+import MyPage from "./pages/MyPage/MyPage";
+import Bottom from "./component/Bottom/Bottom";
 // import KakaoRedirection from "./Redirection/KakaoRedirection";
 // import NaverRedirection from "./Redirection/NaverRedirection";
 // import MyPage from "./pages/MyPage/MyPage";
 
 function App() {
   return (
-    <div className="div">
-      <Login />
-    </div>
+    <>
+      {/* <Login /> */}
+      {/* <MyPage /> */}
+      <Bottom />
+      <GlobalStyle />
+      <Router>
+        <Routes>{/* <Route path="/Login" element={<Login />} /> */}</Routes>
+      </Router>
+    </>
     // <BrowserRouter>
     //   <GlobalStyle />
     //   <Router>

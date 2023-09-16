@@ -1,6 +1,6 @@
 // login config
 //config파일에서 NAVER_LINK와 KAKAO_LINK 상수를 가져옴 해당 상수들은 로그인 링크로 사용됨
-// import { NAVER_LINK, KAKAO_LINK } from "../../config/config";
+import { NAVER_LINK, KAKAO_LINK } from "../../config/config";
 
 // style
 // import {
@@ -23,14 +23,14 @@ import naver from "../../assets/loginButtons/naver-button.png";
 
 //카카오 로그인을 처리하는 핸들러 함수. 클릭시 카카오 로그인 링크로 리다이력션.
 const Login = () => {
-  // const kakaoLoginHandler = () => {
-  //   window.location.href = KAKAO_LINK;
-  // };
+  const kakaoLoginHandler = () => {
+    window.location.href = KAKAO_LINK;
+  };
 
-  // //네이버 로그인을 처리하는 핸들러 함수. 클릭시 네이버 로그인 링크로 리다이력션.
-  // const naverLoginHandler = () => {
-  //   window.location.href = NAVER_LINK;
-  // };
+  //네이버 로그인을 처리하는 핸들러 함수. 클릭시 네이버 로그인 링크로 리다이력션.
+  const naverLoginHandler = () => {
+    window.location.href = NAVER_LINK;
+  };
 
   return (
     // <StyledContainer>
@@ -57,10 +57,10 @@ const Login = () => {
         <div>
           <span className="Login-desc">SNS 계정으로 간편 가입하기</span>
           <div className="Login-buttons">
-            <button className="Login-button">
+            <button className="Login-button" onClick={kakaoLoginHandler}>
               <img src={kakao} alt="카카오 로그인 버튼" />
             </button>
-            <button className="Login-button">
+            <button className="Login-button" onClick={naverLoginHandler}>
               <img src={naver} alt="네이버 로그인 버튼" />
             </button>
           </div>
