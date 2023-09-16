@@ -22,16 +22,14 @@
 
 .mid {
   position: absolute;
-  top: 235px;
+  top: 245px;
 }
 
 .mid div {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
 
-.mid hr {
+.mid div .mid hr {
   width: 100vw;
 }
 
