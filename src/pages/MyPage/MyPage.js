@@ -1,14 +1,11 @@
-// import { Fragment } from "react";
-// import classes from "./MyPage.module.css";
-// import Header from "./Header";
-// import Mid from "./Mid";
-// const MyPage = (name1, email1) => {
-//   return (
-//     <Fragment>
-//       <Header />
-//       <Mid />
-//     </Fragment>
-//   );
-// };
+import { Fragment } from "react";
+import "./MyPage.module.css";
 
-// export default MyPage;
+import SwitchOff from "../../assets/icons/switchOff.svg";
+import SwitchOn from "../../assets/icons/switch.png";
+import Scrab from "../../assets/icons/clip.png";
+import Recent from "../../assets/icons/recent.png";
+import C from "../../assets/icons/C.png";
+import Tier from "../../assets/icons/tier.png";
+import Question from "../../assets/icons/question.png";
+import Logout from "../../assets/icons/logout.png";
