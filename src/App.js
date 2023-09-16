@@ -3,6 +3,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <header>
+        hihi
+      </header>
       <div className="w-[390px] h-[844px] relative overflow-hidden bg-white">
         <div className="w-[360px] h-[90px] absolute left-[15px] top-[271px] rounded-md bg-white border border-[#b2b3b9]" />
         <p className="w-[214px] h-[19px] absolute left-6 top-[285px] text-sm text-left text-[#00f]">
