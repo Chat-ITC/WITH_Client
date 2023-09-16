@@ -1,19 +1,27 @@
 .Header {
-  position: relative;
+  position: absolute;
+  top: 71px;
+  width: 100vw;
 }
 
 .Header div {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
-  position: absolute;
-  top: 71px;
-  left: 0;
 }
 
 .account {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.account::after {
+  content: ">";
+}
+
+.accountEmail {
+  position: absolute;
+  left: 38px;
 }
