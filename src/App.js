@@ -21,21 +21,20 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/MyPage" element={<MyPage />} />
           <Route path="/Bottom" element={<Bottom />} />
-        <Route exact path="/kakao/callback" element={<KakaoRedirection />} />
-        <Route exact path="/naver/callback" element={<NaverRedirection />} /> 
+          <Route exact path="/kakao/callback" element={<KakaoRedirection />} />
+          <Route exact path="/naver/callback" element={<NaverRedirection />} />
         </Routes>
       </Router>
-      
     </>
-    // 
-  
+    //
+
     //   <Router>
     //     <Routes>
     //       <Route path="/Login" element={<Login />} />
-          
+
     //     </Routes>
     //   </Router>
-    // 
+    //
   );
 }
 
