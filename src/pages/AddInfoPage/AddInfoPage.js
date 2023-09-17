@@ -26,9 +26,13 @@ import { useLocation } from 'react-router-dom';
 // import { useHistory } from "react-router-dom";
 
 const AddInfoPage = () => {
+
   const location = useLocation();
   const key = location.state.key;
   console.log(key);
+  console.log(location);
+  
+  
 
   //라디오버튼
   const [x, setX] = useState({});
