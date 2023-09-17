@@ -31,7 +31,7 @@ const NaverRedirection = () => {
     console.log(accessToken);
     localStorage.setItem("accessToken", accessToken);
 
-    navigate("/");
+    navigate("/HomePage");
   }
 };
 
