@@ -25,9 +25,13 @@ import axios from 'axios';
 import React, { useState } from "react";
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+
 // import { useHistory } from "react-router-dom";
 
 const AddInfoPage = () => {
+
+  const navigate = useNavigate();
 
   //라디오버튼
   const location = useLocation();
@@ -56,7 +60,8 @@ const AddInfoPage = () => {
       skill_language: userVal2
     }
     sendJSONDataToSpringBoot(addUserInfo);
-
+    
+    navigate("/login");
   };
 
   //데이터전송
