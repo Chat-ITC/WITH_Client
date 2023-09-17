@@ -3,7 +3,7 @@
 nav {
   overflow: hidden;
   position: fixed;
-  bottom: 0;
+  bottom: 1px;
   left: 0;
   right: 0;
   border: 1px solid #b2b3b9;
@@ -22,7 +22,7 @@ ul {
   align-items: center;
 }
 
-img {
+.bottom_img {
   width: 40px;
   height: 40px;
   display: block;

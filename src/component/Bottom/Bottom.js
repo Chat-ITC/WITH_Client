@@ -12,34 +12,32 @@ const Contact = () => <h1>내 정보</h1>;
 
 const Bottom = () => {
   return (
-    <Router>
-      <div className={styles.bottomContainer}>
-        <nav>
-          <ul>
-            <li className={styles.bottomLink}>
-              <Link to="/Quiz">
-                <img src={Quiz} alt="퀴즈" />
-                퀴즈
-              </Link>
-            </li>
-            <li className={styles.bottomLink}>
-              <Link to="/Home">
-                <img src={Logo} alt="홈" />홈
-              </Link>
-            </li>
-            <li className={styles.bottomLink}>
-              <img src={MyPage} alt="내 정보" />
-              <Link to="/MyPage">내 정보</Link>
-            </li>
-          </ul>
-        </nav>
+    <div className={styles.bottomContainer}>
+      <nav>
+        <ul>
+          <li className={styles.bottomLink}>
+            <Link to="/Quiz">
+              <img className={styles.bottom_img} src={Quiz} alt="퀴즈" />
+              퀴즈
+            </Link>
+          </li>
+          <li className={styles.bottomLink}>
+            <Link to="/Home">
+              <img className={styles.bottom_img} src={Logo} alt="홈" />홈
+            </Link>
+          </li>
+          <li className={styles.bottomLink}>
+            <img className={styles.bottom_img} src={MyPage} alt="내 정보" />
+            <Link to="/MyPage">내 정보</Link>
+          </li>
+        </ul>
+      </nav>
 
-        {/* 각 탭에 대한 라우팅 설정 */}
-        {/* <Route path="/Quiz" exact component={퀴즈} />
+      {/* 각 탭에 대한 라우팅 설정 */}
+      {/* <Route path="/Quiz" exact component={퀴즈} />
         <Route path="/Home" component={홈} />
         <Route path="/MyPage" component={내정보} /> */}
-      </div>
-    </Router>
+    </div>
   );
 };
 

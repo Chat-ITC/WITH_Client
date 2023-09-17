@@ -9,6 +9,8 @@ import Tier from "../../assets/icons/tier.png";
 import Question from "../../assets/icons/question.png";
 import Logout from "../../assets/icons/logout.png";
 
+import Bottom from "../../component/Bottom/Bottom";
+
 const MyPage = () => {
   return (
     <Fragment>
@@ -21,50 +23,57 @@ const MyPage = () => {
         </div>
         <span className={styles.main_account}>계정 관리</span>
       </header>
+
       <section className={styles.mid}>
-        <div>
+        <div className={styles.mid_items}>
           <div className={styles.section_icons}>
-            <img src={Scrab} alt="스크랩" />
+            <img className={styles.section_img} src={Scrab} alt="스크랩" />
             <p>스크랩</p>
           </div>
           <div className={styles.section_icons}>
-            <img src={Recent} alt="최근 본 자료" />
+            <img
+              className={styles.section_img}
+              src={Recent}
+              alt="최근 본 자료"
+            />
             <p>최근 본 자료</p>
           </div>
           <div className={styles.section_icons}>
-            <img src={C} alt="학습 언어 수정" />
+            <img className={styles.section_img} src={C} alt="학습 언어 수정" />
             <p>학습 언어 수정</p>
           </div>
-          <hr />
         </div>
       </section>
 
-      <aside>
-        <ul>
-          <li>
-            <div>
-              <a href="/">
-                <img src={Tier} alt="" />내 실력 변경
-              </a>
-            </div>
+      <aside className={styles.bottom}>
+        <ul className={styles.info_lists}>
+          <li className={styles.info_list}>
+            <a href="/">
+              <div className={styles.info_item}>
+                <img className={styles.info_img} src={Tier} alt="" />
+                <span className={styles.info_desc}>내 실력 변경</span>
+              </div>
+            </a>
           </li>
-          <li>
-            <div>
-              <a href="/">
-                <img src={Tier} alt="" />1 : 1 문의하기
-              </a>
-            </div>
+          <li className={styles.info_list}>
+            <a href="/">
+              <div className={styles.info_item}>
+                <img className={styles.info_img} src={Question} alt="" />
+                <span className={styles.info_desc}>1 : 1 문의하기</span>
+              </div>
+            </a>
           </li>
-          <li>
-            <div>
-              <a href="/">
-                <img src="" alt="" />
-                로그아웃
-              </a>
-            </div>
+          <li className={styles.info_list}>
+            <a href="/">
+              <div className={styles.info_item}>
+                <img className={styles.info_img} src={Logout} alt="" />
+                <span className={styles.info_desc}>로그 아웃</span>
+              </div>
+            </a>
           </li>
         </ul>
       </aside>
+      <Bottom />
     </Fragment>
   );
 };

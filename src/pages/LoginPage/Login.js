@@ -47,7 +47,7 @@ const Login = () => {
     <Fragment>
       <header className={styles.Login_Page}>
         <div className={styles.Login_title}>
-          <img src={logo} alt="로고" />
+          <img className={styles.Login_img} src={logo} alt="로고" />
           <h1>
             내 옆에 <br /> 코딩 친구
           </h1>

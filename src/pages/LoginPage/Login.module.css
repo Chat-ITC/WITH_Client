@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.Login_title img {
+.Login_title .Login_img {
   width: 65px;
   height: 65px;
   margin-right: 18px;
