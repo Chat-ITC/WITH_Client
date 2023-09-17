@@ -1,4 +1,6 @@
 import { Fragment } from "react";
+import { useState } from "react";
+import Modal from "../../Modal/Modal";
 import styles from "./MyPage.module.css";
 
 import SwitchOff from "../../assets/icons/switchOff.svg";
@@ -13,6 +15,11 @@ import Logout from "../../assets/icons/logout.png";
 import Bottom from "../../component/Bottom/Bottom";
 
 const MyPage = () => {
+  const [isModalOpen, sestIsModalOpen] = useState(false);
+
+  const openModal = () => sestIsModalOpen(true);
+  const closeModal = () => sestIsModalOpen(false);
+
   return (
     <Fragment>
       <header className={styles.main_header}>
@@ -20,6 +27,7 @@ const MyPage = () => {
           <h1 className={styles.main_title}>
             안녕하세요 <br /> 이녀석님
           </h1>
+
           <p className={styles.main_email}>dlwltjd0505@naver.com</p>
         </div>
         <span className={styles.main_account}>계정 관리</span>
@@ -46,18 +54,61 @@ const MyPage = () => {
         </div>
       </section>
 
+      <div
+        className={styles.modal_block}
+        style={{ display: isModalOpen ? "block" : "none" }}
+      >
+        <Modal isOpen={isModalOpen} closeModal={closeModal}>
+          <p className={styles.modal_header}>내 설정 변경</p>
+          <div>
+            <button
+              className={styles.modal_ability}
+              type="button"
+              onClick={closeModal}
+            >
+              입문자
+            </button>
+            <button
+              className={styles.modal_ability}
+              type="button"
+              onClick={closeModal}
+            >
+              초보자
+            </button>
+            <button
+              className={styles.modal_ability}
+              type="button"
+              onClick={closeModal}
+            >
+              중급자
+            </button>
+            <button
+              className={styles.modal_ability}
+              type="button"
+              onClick={closeModal}
+            >
+              상급자
+            </button>
+          </div>
+        </Modal>
+      </div>
+
       <aside className={styles.bottom}>
         <ul className={styles.info_lists}>
           <li className={styles.info_list}>
-            <a href="/">
+            <button
+              type="button"
+              onClick={openModal}
+              className={styles.info_link}
+            >
               <div className={styles.info_item}>
                 <img className={styles.info_img} src={Tier} alt="" />
                 <span className={styles.info_desc}>내 실력 변경</span>
               </div>
-            </a>
+            </button>
           </li>
           <li className={styles.info_list}>
-            <a href="/">
+            <a href="/" className={styles.info_link}>
               <div className={styles.info_item}>
                 <img className={styles.info_img} src={Question} alt="" />
                 <span className={styles.info_desc}>1 : 1 문의하기</span>
@@ -65,7 +116,7 @@ const MyPage = () => {
             </a>
           </li>
           <li className={styles.info_list}>
-            <a href="/">
+            <a href="/" className={styles.info_link}>
               <div className={styles.info_item}>
                 <img className={styles.info_img} src={Logout} alt="" />
                 <span className={styles.info_desc}>로그 아웃</span>

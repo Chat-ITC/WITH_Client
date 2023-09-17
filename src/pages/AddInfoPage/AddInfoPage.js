@@ -232,7 +232,6 @@ const AddInfoPage = () => {
             {/* 선택된 언어 목록 표시 */}
             {selectedLanguages.length > 0 && (
               <>
-                <h3>선택한 언어:</h3>
                 <ul>
                   {selectedLanguages.map((language) => (
                     <li key={language}>{language}</li>
