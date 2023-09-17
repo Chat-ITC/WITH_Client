@@ -36,14 +36,14 @@ const MyPage = () => {
         // 원하는 페이지 이동 (예를 들면 마이페이지 등)
         // window.location.href = "/HomePage";
         console.log("성공");
-        console.log("config");
+        console.log(config);
       })
       .catch(function () { // 실패
         // 원하는 페이지 이동 (예를 들면 로그인페이지 등)
         // window.location.href = "/login";
         
         console.log("실패");
-        console.log("config");
+        console.log(config);
       })
 
   };
