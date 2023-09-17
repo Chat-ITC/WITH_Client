@@ -8,12 +8,12 @@
 
 .content1 {
   position: relative;
-  padding-top: 39px;
+  padding-top: 50px;
 }
 
 .content2 {
   position: relative;
-  padding-top: 275px;
+  padding-top: 150px;
 }
 
 .content1 .title,
@@ -46,8 +46,6 @@
   width: auto;
   height: auto;
   padding: 0.5rem 0.8rem;
-  border: 1px solid #b2b3b9;
-  border-radius: 50%;
 }
 
 .nextButton {

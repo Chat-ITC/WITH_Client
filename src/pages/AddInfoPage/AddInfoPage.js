@@ -19,6 +19,7 @@ import Swift from "../../assets/AddInfoIcons/swift.png";
 import Typescript from "../../assets/AddInfoIcons/Typescript.png";
 import R from "../../assets/AddInfoIcons/R.png";
 import Csharp from "../../assets/AddInfoIcons/C#.png";
+import HTML from "../../assets/AddInfoIcons/HTML.png";
 
 import React, { useState } from "react";
 // import { useHistory } from "react-router-dom";
@@ -108,47 +109,47 @@ const AddInfoPage = () => {
     },
     {
       name: "파이썬",
-      image: CPlus,
+      image: Python,
     },
     {
       name: "자바",
-      image: CPlus,
+      image: Java,
     },
     {
       name: "C언어",
-      image: CPlus,
+      image: C,
     },
     {
       name: "CSS",
-      image: CPlus,
+      image: CSS,
     },
     {
       name: "HTML",
-      image: CPlus,
+      image: HTML,
     },
     {
       name: "자바스크립트",
-      image: CPlus,
+      image: Javascript,
     },
     {
       name: "Ruby",
-      image: CPlus,
+      image: Ruby,
     },
     {
       name: "Php",
-      image: CPlus,
+      image: Php,
     },
     {
       name: "Go",
-      image: CPlus,
+      image: Go,
     },
     {
       name: "Swift",
-      image: CPlus,
+      image: Swift,
     },
     {
       name: "타입스크립트",
-      image: CPlus,
+      image: Typescript,
     },
     {
       name: "R",
