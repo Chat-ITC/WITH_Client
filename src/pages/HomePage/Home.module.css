@@ -1,12 +1,11 @@
 .Home_header {
   position: absolute;
-  top: 91px;
-  margin: 0 auto;
-  background-color: aquamarine;
+  top: 110px;
+  left: 40px;
   width: 334px;
   height: 134px;
   border: 1px solid #bababa;
-  border-radius: 6px;
+  border-radius: 20px;
 }
 
 .SendBtn {
@@ -14,11 +13,74 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 25px auto;
+  margin: 35px auto;
 }
 
 .Btn {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   margin-bottom: 10px;
+}
+
+.main {
+  position: absolute;
+  top: 34px;
+  left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_img {
+  width: 34px;
+  height: 34px;
+  margin-right: 10px;
+}
+
+.main_title {
+  font-size: 14px;
+}
+
+.scrab {
+  position: relative;
+  top: 280px;
+  left: 320px;
+}
+
+.scrab::after {
+  content: " v";
+}
+
+.HomeModal {
+  position: absolute;
+  top: 300px;
+  right: 20px;
+
+  text-align: center;
+  border: 1px solid #bababa;
+  border-radius: 6px;
+}
+
+.modalBtn {
+  display: block;
+}
+
+.modalBtn:first-child {
+  margin: 0 auto;
+}
+
+.HomePopup {
+  position: absolute;
+  top: 248px;
+  right: 20px;
+  background-color: antiquewhite;
+}
+
+.descForm {
+  position: absolute;
+  top: 272px;
+  border: 1px solid #bababa;
+  width: 100%;
+  height: 90px;
+  border-radius: 6px;
 }
