@@ -37,7 +37,7 @@ const MyPage = () => {
         <div className={styles.mid_items}>
           <div className={styles.section_icons}>
             <img className={styles.section_img} src={Scrab} alt="스크랩" />
-            <p>스크랩</p>
+            <p className={styles.section_desc}>스크랩</p>
           </div>
           <div className={styles.section_icons}>
             <img
@@ -45,11 +45,11 @@ const MyPage = () => {
               src={Recent}
               alt="최근 본 자료"
             />
-            <p>최근 본 자료</p>
+            <p className={styles.section_desc}>최근 본 자료</p>
           </div>
           <div className={styles.section_icons}>
             <img className={styles.section_img} src={C} alt="학습 언어 수정" />
-            <p>학습 언어 수정</p>
+            <p className={styles.section_desc}>학습 언어 수정</p>
           </div>
         </div>
       </section>
@@ -59,7 +59,7 @@ const MyPage = () => {
         style={{ display: isModalOpen ? "block" : "none" }}
       >
         <Modal isOpen={isModalOpen} closeModal={closeModal}>
-          <p className={styles.modal_header}>내 설정 변경</p>
+          <p className={styles.modal_header}>내 실력 변경</p>
           <div>
             <button
               className={styles.modal_ability}

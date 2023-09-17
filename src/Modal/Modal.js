@@ -7,9 +7,7 @@ function Modal({ isOpen, children, closeModal }) {
       className={styles.main_skill}
       style={{ display: isOpen ? "block" : "none" }}
     >
-      <div>
-        <div>{children}</div>
-      </div>
+      <div>{children}</div>
     </div>
   );
 }

@@ -16,16 +16,21 @@ const Bottom = () => {
       <nav>
         <ul className={styles.BottomInfo}>
           <li className={styles.bottomLink}>
-            <img className={styles.bottom_img} src={Quiz} alt="퀴즈" />
-            <Link to="/Quiz">퀴즈</Link>
+            <Link className={styles.bottom_Link} to="/Quiz">
+              <img className={styles.bottom_img} src={Quiz} alt="퀴즈" />
+              퀴즈
+            </Link>
           </li>
           <li className={styles.bottomLink}>
-            <img className={styles.bottom_img} src={Logo} alt="홈" />
-            <Link to="/Home">홈</Link>
+            <Link to="/HomePage">
+              <img className={styles.bottom_img} src={Logo} alt="홈" />홈
+            </Link>
           </li>
           <li className={styles.bottomLink}>
-            <img className={styles.bottom_img} src={MyPage} alt="내 정보" />
-            <Link to="/MyPage">내 정보</Link>
+            <Link to="/MyPage">
+              <img className={styles.bottom_img} src={MyPage} alt="내 정보" />내
+              정보
+            </Link>
           </li>
         </ul>
       </nav>
