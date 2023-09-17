@@ -26,30 +26,26 @@ import { useLocation } from 'react-router-dom';
 // import { useHistory } from "react-router-dom";
 
 const AddInfoPage = () => {
-
-  
-
   const location = useLocation();
+  const [userVal1, setuserVal1] = useState('');
+  const [userVal2, setuserVal2] = useState('');
  
   
 
   //라디오버튼
   const [x, setX] = useState({});
   const handleClickRadioButton1 = (e) => {
-    return e.target.value;
+   const value = e.target.value;
+   setuserVal1(value);
   };
-  console.log(handleClickRadioButton1.e.target.value);
-
+  console.log(userVal1);
+  
   const [y, setY] = useState({});
   const handleClickRadioButton2 = (e) => {
-    return e.target.value;
+    const value = e.target.value;
+    setuserVal2(value);
   };
-  console.log(handleClickRadioButton2.e.target.value);
-
-
-  
-
-  
+  console.log(userVal2);
 
   const [selectedSkill, setSelectedSkill] = useState("");
   const [selectedLanguages, setSelectedLanguages] = useState([]);
@@ -61,8 +57,8 @@ const AddInfoPage = () => {
       email : location.state.data.email,
       loginProvider : location.state.data.loginProvider,
       snsId : location.state.data.snsId,
-      fav_language: handleClickRadioButton1.e.target.value,
-      skill_language: handleClickRadioButton2.e.target.value
+      fav_language: userVal1,
+      skill_language: userVal2
     }
     console.log(addUserInfo);
   };
