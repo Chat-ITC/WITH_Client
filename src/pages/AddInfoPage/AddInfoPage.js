@@ -22,15 +22,19 @@ import Csharp from "../../assets/AddInfoIcons/C#.png";
 import HTML from "../../assets/AddInfoIcons/HTML.png";
 
 import React, { useState } from "react";
-
+import { useLocation } from 'react-router-dom';
 // import { useHistory } from "react-router-dom";
 
 const AddInfoPage = () => {
+  const location = useLocation();
+  const key = location.state.key;
+  console.log(key);
+
+  //라디오버튼
   const [x, setX] = useState({});
   const handleClickRadioButton1 = (e) => {
     console.log(e.target.value);
   };
-
   const [y, setY] = useState({});
   const handleClickRadioButton2 = (e) => {
     console.log(e.target.value);
