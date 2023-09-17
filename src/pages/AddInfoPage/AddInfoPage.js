@@ -30,8 +30,8 @@ const AddInfoPage = () => {
   const location = useLocation();
   const key = location.state.key;
   console.log(key);
-  console.log(location);
-  
+  console.log(location.state.data);
+
   
 
   //라디오버튼
