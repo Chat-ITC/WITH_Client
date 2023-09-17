@@ -31,7 +31,7 @@ const MyPage = () => {
   };
 
   const jwtTest = () => {
-    axios.get(`${process.env.REACT_APP_SERVER_URL}/member/update`, config)
+    axios.patch(`${process.env.REACT_APP_SERVER_URL}/member/update`, config)
       .then(function () { // 성공
         // 원하는 페이지 이동 (예를 들면 마이페이지 등)
         // window.location.href = "/HomePage";
