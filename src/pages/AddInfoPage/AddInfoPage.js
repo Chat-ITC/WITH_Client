@@ -22,9 +22,15 @@ import Csharp from "../../assets/AddInfoIcons/C#.png";
 import HTML from "../../assets/AddInfoIcons/HTML.png";
 
 import React, { useState } from "react";
+
 // import { useHistory } from "react-router-dom";
 
 const AddInfoPage = () => {
+  const [x, setX] = useState({});
+  const handleClickRadioButton2 = (e) => {
+    console.log(e.target.value);
+  };
+
   const [selectedSkill, setSelectedSkill] = useState("");
   const [selectedLanguages, setSelectedLanguages] = useState([]);
   //   const history = useHistory();
@@ -168,6 +174,15 @@ const AddInfoPage = () => {
           <div className={styles.content1}>
             <h1 className={styles.title}>자신의 실력을 선택하세요</h1>
             <div className={styles.ability}>
+              <div>
+              <input type="radio"
+              value="1"
+              cheched={x === '1'}
+              onChange={handleClickRadioButton2}/>
+              <label>
+                분류값
+              </label>
+              </div>
               <button
                 className={styles.button1}
                 onClick={() => handleSkillSelect("입문자")}
