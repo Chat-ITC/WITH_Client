@@ -65,8 +65,6 @@ const AddInfoPage = () => {
   };
 
   //데이터전송
-
-  
   const sendJSONDataToSpringBoot = async (userprop) => {
     try {
       const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/member/signup`, userprop);

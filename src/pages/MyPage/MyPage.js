@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { useState } from "react";
 import Modal from "../../Modal/Modal";
 import styles from "./MyPage.module.css";
+import axios from 'axios';
 
 import SwitchOff from "../../assets/icons/switchOff.svg";
 import SwitchOn from "../../assets/icons/switch.png";
@@ -19,6 +20,42 @@ const MyPage = () => {
 
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
+
+  //jwt테스트
+  const config = {
+    headers: {
+      Authorization: `${localStorage.getItem("accessToken")}`,
+      // localStorage에 token이 저장되어 있는지 확인하기
+    },
+  };
+
+  const jwtTest = () => {
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/member/update"`, config)
+      .then(function () { // 성공
+        // 원하는 페이지 이동 (예를 들면 마이페이지 등)
+        window.location.href = "/HomePage";
+      })
+      .catch(function () { // 실패
+        // 원하는 페이지 이동 (예를 들면 로그인페이지 등)
+        window.location.href = "/login";
+      })
+
+  };
+
+  
+
+
+  // const sendJSONDataToSpringBoot = async (userprop) => {
+  //   try {
+  //     const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/member/signup`, userprop);
+  //     console.log(response.data); // 서버로부터 받은 응답 데이터 처리
+  //   } catch (error) {
+  //     console.error(error); // 에러 처리
+  //   }
+  // };
+
+
+
 
   return (
     <Fragment>
@@ -122,6 +159,18 @@ const MyPage = () => {
                 <span className={styles.info_desc}>로그 아웃</span>
               </div>
             </a>
+          </li>
+          <li className={styles.info_list}>
+            <button
+              type="button"
+              onClick={jwtTest}
+              className={styles.info_link}
+            >
+              <div className={styles.info_item}>
+                <img className={styles.info_img} src={Tier} alt="" />
+                <span className={styles.info_desc}>jwt 테스트</span>
+              </div>
+            </button>
           </li>
         </ul>
       </aside>
