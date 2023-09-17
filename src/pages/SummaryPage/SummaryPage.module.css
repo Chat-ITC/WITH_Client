@@ -1,9 +1,9 @@
 .SumTitle {
-  background-color: aqua;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 25px 20px 0;
+  margin-bottom: 20px;
 }
 
 .SumLeft,
@@ -20,9 +20,41 @@
   height: 274px;
   border: 1px solid #bababa;
   border-radius: 6px;
-  background-color: aquamarine;
+  margin: 0 auto 15px;
 }
 
-.article:first-child {
-  margin-bottom: 20px;
+.article:last-child {
+  margin-bottom: 0;
+}
+
+.Copy {
+  position: relative;
+  left: 330px;
+  top: 5px;
+}
+
+.articleDesc {
+  position: relative;
+  left: 10px;
+  margin-bottom: 10px;
+}
+
+.articleImg {
+  margin-right: 5px;
+}
+
+.articleBtn {
+  margin: 0 auto;
+  text-align: center;
+  width: 334px;
+  height: 60px;
+  border: 1px solid #bababa;
+  border-radius: 6px;
+  padding: 17px 0;
+  background-color: #3da5f5;
+}
+
+.Button {
+  font-size: 14px;
+  color: white;
 }

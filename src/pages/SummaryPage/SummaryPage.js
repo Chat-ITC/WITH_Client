@@ -4,6 +4,8 @@ import Scrab from "../../assets/icons/clip.png";
 import Copy from "../../assets/AddInfoIcons/Copy.png";
 import Careful from "../../assets/AddInfoIcons/Becareful.png";
 
+import Bottom from "../../component/Bottom/Bottom";
+
 const SummaryPage = () => {
   return (
     <>
@@ -24,17 +26,29 @@ const SummaryPage = () => {
             <span className={styles.scrab}>스크랩하기</span>
           </div>
         </div>
-        <article className={styles.article}>
-          <button type="button">
-            <img src={Copy} alt="복사" />
-          </button>
-        </article>
-        <article className={styles.article}>
-          <button type="button">
-            <img src={Copy} alt="복사" />
-          </button>
-        </article>
       </header>
+      <article className={styles.article}>
+        <button type="button">
+          <img className={styles.Copy} src={Copy} alt="복사" />
+        </button>
+      </article>
+      <article className={styles.article}>
+        <button type="button">
+          <img className={styles.Copy} src={Copy} alt="복사" />
+        </button>
+      </article>
+      <footer>
+        <div className={styles.articleDesc}>
+          <img className={styles.articleImg} src={Careful} alt="주의" />
+          <span>내용이 정확하지 않을 수 있습니다</span>
+        </div>
+        <div className={styles.articleBtn}>
+          <button className={styles.Button} type="button">
+            새로운 사진 촬영
+          </button>
+        </div>
+      </footer>
+      <Bottom />
     </>
   );
 };
