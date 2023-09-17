@@ -24,9 +24,10 @@ const MyPage = () => {
   //jwt테스트
   const config = {
     headers: {
-      Authorization: `${localStorage.getItem("accessToken")}`,
+      'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
       // localStorage에 token이 저장되어 있는지 확인하기
     },
+    
   };
 
   const jwtTest = () => {
