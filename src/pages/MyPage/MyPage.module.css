@@ -52,6 +52,29 @@
   font-size: 13px;
 }
 
+.modal {
+  position: absolute;
+  top: 356px;
+  right: 40px;
+  border: 1px solid #000;
+  border-radius: 6px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.modal .modal_title {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.modal .modal_desc {
+  margin-bottom: 4px;
+}
+
 .bottom {
   position: absolute;
   top: 360px;

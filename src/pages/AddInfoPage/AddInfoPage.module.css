@@ -1,0 +1,64 @@
+/* AddInfoPage.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content1 {
+  position: relative;
+  padding-top: 39px;
+}
+
+.content2 {
+  position: relative;
+  padding-top: 275px;
+}
+
+.content1 .title,
+.content2 .title {
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.language_section .grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.ability {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* 버튼들이 한 줄에 맞지 않을 경우 여러 줄에 걸쳐 표시되도록 설정 */
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #b2b3b9;
+  border-radius: 50%;
+}
+
+.nextButton {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  height: 70px;
+  background-color: #3da5f5;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+}

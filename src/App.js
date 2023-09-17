@@ -9,6 +9,7 @@ import GlobalStyle from "./styles/GlobalStyle";
 import Login from "./pages/LoginPage/Login";
 import MyPage from "./pages/MyPage/MyPage";
 import Bottom from "./component/Bottom/Bottom";
+import AddInfo from "./pages/AddInfoPage/AddInfoPage";
 import KakaoRedirection from "./Redirection/KakaoRedirection";
 import NaverRedirection from "./Redirection/NaverRedirection";
 // import MyPage from "./pages/MyPage/MyPage";
@@ -20,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/Login" element={<Login />} />
           <Route path="/MyPage" element={<MyPage />} />
-          <Route path="/Bottom" element={<Bottom />} />
+          <Route path="/AddInfoPage" element={<AddInfo />} />
         </Routes>
       </Router>
 

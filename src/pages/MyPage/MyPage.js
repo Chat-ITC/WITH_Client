@@ -45,6 +45,8 @@ const MyPage = () => {
         </div>
       </section>
 
+      <Modal />
+
       <aside className={styles.bottom}>
         <ul className={styles.info_lists}>
           <li className={styles.info_list}>
@@ -78,4 +80,24 @@ const MyPage = () => {
   );
 };
 
+//디자인이 먼저라서 팝업 효과는 좀 이따가
+function Modal() {
+  return (
+    <div className={styles.modal}>
+      <h1 className={styles.modal_title}>내 실력 변경</h1>
+      <p className={styles.modal_desc}>
+        <button type="button">입문자</button>
+      </p>
+      <p className={styles.modal_desc}>
+        <button type="button">초보자</button>
+      </p>
+      <p className={styles.modal_desc}>
+        <button type="button">중급자</button>
+      </p>
+      <p className={styles.modal_desc}>
+        <button type="button">상급자</button>
+      </p>
+    </div>
+  );
+}
 export default MyPage;
