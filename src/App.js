@@ -13,7 +13,7 @@ import Home from "./pages/HomePage/HomePage";
 import Description from "./component/Description/Description";
 import KakaoRedirection from "./Redirection/KakaoRedirection";
 import NaverRedirection from "./Redirection/NaverRedirection";
-import Popup from "./component/PopupButton/Popup";
+import SummaryPage from "./pages/SummaryPage/SummaryPage";
 // import MyPage from "./pages/MyPage/MyPage";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
           <Route path="/MyPage" element={<MyPage />} />
           <Route path="/AddInfoPage" element={<AddInfo />} />
           <Route path="/HomePage" element={<Home />} />
-          <Route path="/Popup" element={<Popup />} />
+          <Route path="/SummaryPage" element={<SummaryPage />} />
           <Route exact path="/kakao/callback" element={<KakaoRedirection />} />
           <Route exact path="/naver/callback" element={<NaverRedirection />} />
         </Routes>

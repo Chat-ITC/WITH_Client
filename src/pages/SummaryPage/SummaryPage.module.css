@@ -1,0 +1,28 @@
+.SumTitle {
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.SumLeft,
+.SumRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.article {
+  display: block;
+  width: 366px;
+  height: 274px;
+  border: 1px solid #bababa;
+  border-radius: 6px;
+  background-color: aquamarine;
+}
+
+.article:first-child {
+  margin-bottom: 20px;
+}
