@@ -45,17 +45,9 @@ const AddInfoPage = () => {
     return e.target.value;
   };
   console.log(handleClickRadioButton2.e.target.value);
-  
 
-  const addUserInfo = {
-    name : location.state.data.name,
-    email : location.state.data.email,
-    loginProvider : location.state.data.loginProvider,
-    snsId : location.state.data.snsId,
-    fav_language: handleClickRadioButton1.e.target.value,
-    skill_language: handleClickRadioButton2.e.target.value
-  }
-  console.log(addUserInfo);
+
+  
 
   
 
@@ -64,8 +56,15 @@ const AddInfoPage = () => {
   //   const history = useHistory();
 
   const handleNextPage = () => {
-    // 다음 페이지로 이동하는 동작 구현
-    // history.push("/next-page");
+    const addUserInfo = {
+      name : location.state.data.name,
+      email : location.state.data.email,
+      loginProvider : location.state.data.loginProvider,
+      snsId : location.state.data.snsId,
+      fav_language: handleClickRadioButton1.e.target.value,
+      skill_language: handleClickRadioButton2.e.target.value
+    }
+    console.log(addUserInfo);
   };
 
   const handleSkillSelect = (skill) => {
