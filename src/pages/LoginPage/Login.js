@@ -33,17 +33,6 @@ const Login = () => {
   };
 
   return (
-    // <StyledContainer>
-    //   <Logo>CodingFriend</Logo>
-    //   <TitleMessage>내 옆에 코딩 친구</TitleMessage>
-    //   <ButtonContainer>
-    //     <LoginMessage>SNS 계정으로 간편 로그인하기</LoginMessage>
-    //     <ButtonInnerContainer>
-    //       {/* <Kakao onClick={kakaoLoginHandler} />
-    //       <Naver onClick={naverLoginHandler} /> */}
-    //     </ButtonInnerContainer>
-    //   </ButtonContainer>
-    // </StyledContainer>
     <Fragment>
       <header className={styles.Login_Page}>
         <div className={styles.Login_title}>

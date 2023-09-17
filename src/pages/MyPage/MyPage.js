@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import styles from "./MyPage.module.css";
+
 import SwitchOff from "../../assets/icons/switchOff.svg";
 import SwitchOn from "../../assets/icons/switch.png";
 import Scrab from "../../assets/icons/clip.png";
