@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Fragment } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -10,11 +12,9 @@ import Login from "./pages/LoginPage/Login";
 import MyPage from "./pages/MyPage/MyPage";
 import AddInfo from "./pages/AddInfoPage/AddInfoPage";
 import Home from "./pages/HomePage/HomePage";
-import Description from "./component/Description/Description";
 import KakaoRedirection from "./Redirection/KakaoRedirection";
 import NaverRedirection from "./Redirection/NaverRedirection";
 import SummaryPage from "./pages/SummaryPage/SummaryPage";
-// import MyPage from "./pages/MyPage/MyPage";
 
 function App() {
   return (
