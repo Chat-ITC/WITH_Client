@@ -21,19 +21,66 @@ import R from "../../assets/AddInfoIcons/R.png";
 import Csharp from "../../assets/AddInfoIcons/C#.png";
 import HTML from "../../assets/AddInfoIcons/HTML.png";
 
+import axios from 'axios';
 import React, { useState } from "react";
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+
 // import { useHistory } from "react-router-dom";
 
 const AddInfoPage = () => {
+
+  const navigate = useNavigate();
+
+  //라디오버튼
+  const location = useLocation();
+  const [userVal1, setuserVal1] = useState('');
+  const [userVal2, setuserVal2] = useState('');
+  const [x, setX] = useState({});
+  const handleClickRadioButton1 = (e) => {
+   const value = e.target.value;
+   setuserVal1(value);
+  };
+  const [y, setY] = useState({});
+  const handleClickRadioButton2 = (e) => {
+    const value = e.target.value;
+    setuserVal2(value);
+  };
+
+  //데이터묶기
+  
+  const handleNextPage = () => {
+    const addUserInfo = {
+      name : location.state.data.name,
+      email : location.state.data.email,
+      loginProvider : location.state.data.loginProvider,
+      snsId : location.state.data.snsId,
+      fav_language: userVal1,
+      skill_language: userVal2
+    }
+    sendJSONDataToSpringBoot(addUserInfo);
+    
+    navigate("/login");
+  };
+
+  //데이터전송
+
+  
+  const sendJSONDataToSpringBoot = async (userprop) => {
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/member/signup`, userprop);
+      console.log(response.data); // 서버로부터 받은 응답 데이터 처리
+    } catch (error) {
+      console.error(error); // 에러 처리
+    }
+  };
+
+
+
   const [selectedSkill, setSelectedSkill] = useState("");
   const [selectedLanguages, setSelectedLanguages] = useState([]);
   //   const history = useHistory();
-
-  const handleNextPage = () => {
-    // 다음 페이지로 이동하는 동작 구현
-    // history.push("/next-page");
-  };
-
   const handleSkillSelect = (skill) => {
     if (selectedSkill.includes(skill)) {
       // 이미 선택된 스킬인 경우 선택 해제
@@ -55,29 +102,8 @@ const AddInfoPage = () => {
       setSelectedLanguages([...selectedLanguages, language]);
     }
 
-    handleSubmit(); // 버튼 클릭 시 바로 서버로 데이터 전송
   };
 
-  const handleSubmit = () => {
-    // 서버로 데이터 전송
-    const data = {
-      skill: selectedSkill,
-      languages: selectedLanguages,
-    };
-
-    //"/api/submit-data" 실제 백엔드 API URL에 맞게 수정되어야 한다.
-    fetch("/api/submit-data", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        window.location.href = "/next-page";
-      })
-      .catch((error) => console.error("Error:", error));
-  };
 
   const skill = [
     {
@@ -168,6 +194,28 @@ const AddInfoPage = () => {
           <div className={styles.content1}>
             <h1 className={styles.title}>자신의 실력을 선택하세요</h1>
             <div className={styles.ability}>
+              <div>
+                <input 
+                name="tier"
+                type="radio"
+                  value="입문자"
+                  cheched={x === '1'}
+                  onChange={handleClickRadioButton1} />
+                <label>
+                  입문자
+                </label>
+
+                <label>
+                  <input
+                  name="tier"
+                    type="radio"
+                    value="초보자"
+                    cheched={x === '2'}
+                    onChange={handleClickRadioButton1}
+                  />
+                  초보자
+                </label>
+              </div>
               <button
                 className={styles.button1}
                 onClick={() => handleSkillSelect("입문자")}
@@ -205,21 +253,42 @@ const AddInfoPage = () => {
           <div className={styles.content2}>
             {/* 프로그래밍 언어 선택 부분 */}
             <h2 className={styles.title}>배우고 싶은 언어를 선택하세요</h2>
+            <div>
+              <input 
+               name="lan"
+              type="radio"
+                value="상관없음"
+                cheched={y === '1'}
+                onChange={handleClickRadioButton2} />
+              <label>
+                상관없음
+              </label>
+
+              <label>
+                <input
+                name="lan"
+                  type="radio"
+                  value="C"
+                  cheched={y === '2'}
+                  onChange={handleClickRadioButton2}
+                />
+
+                c언어
+              </label>
+            </div>
             <div className={styles.grid}>
               {languages.map((language) => (
                 <button
                   key={language.name}
-                  className={`${styles.button} ${
-                    selectedLanguages.includes(language.name)
-                      ? styles.selected
-                      : ""
-                  }`}
+                  className={`${styles.button} ${selectedLanguages.includes(language.name)
+                    ? styles.selected
+                    : ""
+                    }`}
                   onClick={() => handleLanguageSelect(language.name)}
                 >
                   <div
-                    className={`${styles.imageWrapper} ${
-                      styles[language.name]
-                    }`}
+                    className={`${styles.imageWrapper} ${styles[language.name]
+                      }`}
                   >
                     {/* 이미지 원형으로 만들기 */}
                     <img src={language.image} alt={language.name} />

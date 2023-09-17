@@ -21,14 +21,14 @@ const KakaoRedirection = () => {
   if (loading) return <p>로그인 중입니다. 잠시만 기다려주세요.</p>;
   if (error) {
     const data = error.response.data;
-    navigate("/signup", { state: { data: data } });
+    navigate("/AddInfoPage", { state: { data: data } });
   }
   if (data) {
     const accessToken = data.headers["accesstoken"];
     console.log(accessToken);
     localStorage.setItem("accessToken", accessToken);
 
-    navigate("/");
+    navigate("/HomePage");
   }
 };
 
