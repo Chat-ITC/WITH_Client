@@ -180,8 +180,10 @@ const AddInfoPage = () => {
             <h1 className={styles.title}>자신의 실력을 선택하세요</h1>
             <div className={styles.ability}>
               <div>
-                <input type="radio"
-                  value="1"
+                <input 
+                name="tier"
+                type="radio"
+                  value="입문자"
                   cheched={x === '1'}
                   onChange={handleClickRadioButton1} />
                 <label>
@@ -190,12 +192,13 @@ const AddInfoPage = () => {
 
                 <label>
                   <input
+                  name="tier"
                     type="radio"
-                    value="2"
+                    value="초보자"
                     cheched={x === '2'}
                     onChange={handleClickRadioButton1}
                   />
-                  c언어
+                  초보자
                 </label>
               </div>
               <button
@@ -236,8 +239,10 @@ const AddInfoPage = () => {
             {/* 프로그래밍 언어 선택 부분 */}
             <h2 className={styles.title}>배우고 싶은 언어를 선택하세요</h2>
             <div>
-              <input type="radio"
-                value="1"
+              <input 
+               name="lan"
+              type="radio"
+                value="상관없음"
                 cheched={y === '1'}
                 onChange={handleClickRadioButton2} />
               <label>
@@ -246,8 +251,9 @@ const AddInfoPage = () => {
 
               <label>
                 <input
+                name="lan"
                   type="radio"
-                  value="2"
+                  value="C"
                   cheched={y === '2'}
                   onChange={handleClickRadioButton2}
                 />
