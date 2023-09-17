@@ -27,6 +27,11 @@ import React, { useState } from "react";
 
 const AddInfoPage = () => {
   const [x, setX] = useState({});
+  const handleClickRadioButton1 = (e) => {
+    console.log(e.target.value);
+  };
+
+  const [y, setY] = useState({});
   const handleClickRadioButton2 = (e) => {
     console.log(e.target.value);
   };
@@ -175,13 +180,23 @@ const AddInfoPage = () => {
             <h1 className={styles.title}>자신의 실력을 선택하세요</h1>
             <div className={styles.ability}>
               <div>
-              <input type="radio"
-              value="1"
-              cheched={x === '1'}
-              onChange={handleClickRadioButton2}/>
-              <label>
-                분류값
-              </label>
+                <input type="radio"
+                  value="1"
+                  cheched={x === '1'}
+                  onChange={handleClickRadioButton1} />
+                <label>
+                  입문자
+                </label>
+
+                <label>
+                  <input
+                    type="radio"
+                    value="2"
+                    cheched={x === '2'}
+                    onChange={handleClickRadioButton1}
+                  />
+                  c언어
+                </label>
               </div>
               <button
                 className={styles.button1}
@@ -220,21 +235,39 @@ const AddInfoPage = () => {
           <div className={styles.content2}>
             {/* 프로그래밍 언어 선택 부분 */}
             <h2 className={styles.title}>배우고 싶은 언어를 선택하세요</h2>
+            <div>
+              <input type="radio"
+                value="1"
+                cheched={y === '1'}
+                onChange={handleClickRadioButton2} />
+              <label>
+                상관없음
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  value="2"
+                  cheched={y === '2'}
+                  onChange={handleClickRadioButton2}
+                />
+
+                c언어
+              </label>
+            </div>
             <div className={styles.grid}>
               {languages.map((language) => (
                 <button
                   key={language.name}
-                  className={`${styles.button} ${
-                    selectedLanguages.includes(language.name)
-                      ? styles.selected
-                      : ""
-                  }`}
+                  className={`${styles.button} ${selectedLanguages.includes(language.name)
+                    ? styles.selected
+                    : ""
+                    }`}
                   onClick={() => handleLanguageSelect(language.name)}
                 >
                   <div
-                    className={`${styles.imageWrapper} ${
-                      styles[language.name]
-                    }`}
+                    className={`${styles.imageWrapper} ${styles[language.name]
+                      }`}
                   >
                     {/* 이미지 원형으로 만들기 */}
                     <img src={language.image} alt={language.name} />
