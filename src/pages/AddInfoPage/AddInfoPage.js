@@ -169,28 +169,28 @@ const AddInfoPage = () => {
             <h1 className={styles.title}>자신의 실력을 선택하세요</h1>
             <div className={styles.ability}>
               <button
-                className={styles.button}
+                className={styles.button1}
                 onClick={() => handleSkillSelect("입문자")}
               >
                 <img className={styles.image} src={Baby} alt="입문자" />
                 <span>입문자</span>
               </button>
               <button
-                className={styles.button}
+                className={styles.button1}
                 onClick={() => handleSkillSelect("초보자")}
               >
                 <img className={styles.image} src={Boy} alt="초보자" />
                 <span>초보자</span>
               </button>
               <button
-                className={styles.button}
+                className={styles.button1}
                 onClick={() => handleSkillSelect("중급자")}
               >
                 <img className={styles.image} src={Adult} alt="중급자" />
                 <span>중급자</span>
               </button>
               <button
-                className={styles.button}
+                className={styles.button1}
                 onClick={() => handleSkillSelect("상급자")}
               >
                 <img className={styles.image} src={Grand} alt="상급자" />
@@ -216,7 +216,14 @@ const AddInfoPage = () => {
                   }`}
                   onClick={() => handleLanguageSelect(language.name)}
                 >
-                  <img src={language.image} alt={language.name} />
+                  <div
+                    className={`${styles.imageWrapper} ${
+                      styles[language.name]
+                    }`}
+                  >
+                    {/* 이미지 원형으로 만들기 */}
+                    <img src={language.image} alt={language.name} />
+                  </div>
                   <span>{language.name}</span>
                 </button>
               ))}
