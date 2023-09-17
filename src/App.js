@@ -8,7 +8,6 @@ import GlobalStyle from "./styles/GlobalStyle";
 //pages
 import Login from "./pages/LoginPage/Login";
 import MyPage from "./pages/MyPage/MyPage";
-import Bottom from "./component/Bottom/Bottom";
 import AddInfo from "./pages/AddInfoPage/AddInfoPage";
 import Home from "./pages/HomePage/HomePage";
 import KakaoRedirection from "./Redirection/KakaoRedirection";
@@ -24,11 +23,10 @@ function App() {
           <Route path="/MyPage" element={<MyPage />} />
           <Route path="/AddInfoPage" element={<AddInfo />} />
           <Route path="/HomePage" element={<Home />} />
+          <Route exact path="/kakao/callback" element={<KakaoRedirection />} />
+          <Route exact path="/naver/callback" element={<NaverRedirection />} />
         </Routes>
       </Router>
-
-      {/* <Route exact path="/kakao/callback" element={<KakaoRedirection />} />
-      <Route exact path="/naver/callback" element={<NaverRedirection />} /> */}
     </>
   );
 }
