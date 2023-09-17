@@ -21,36 +21,31 @@ import R from "../../assets/AddInfoIcons/R.png";
 import Csharp from "../../assets/AddInfoIcons/C#.png";
 import HTML from "../../assets/AddInfoIcons/HTML.png";
 
+import axios from 'axios';
 import React, { useState } from "react";
 import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 // import { useHistory } from "react-router-dom";
 
 const AddInfoPage = () => {
+
+  //라디오버튼
   const location = useLocation();
   const [userVal1, setuserVal1] = useState('');
   const [userVal2, setuserVal2] = useState('');
- 
-  
-
-  //라디오버튼
   const [x, setX] = useState({});
   const handleClickRadioButton1 = (e) => {
    const value = e.target.value;
    setuserVal1(value);
   };
-  console.log(userVal1);
-  
   const [y, setY] = useState({});
   const handleClickRadioButton2 = (e) => {
     const value = e.target.value;
     setuserVal2(value);
   };
-  console.log(userVal2);
 
-  const [selectedSkill, setSelectedSkill] = useState("");
-  const [selectedLanguages, setSelectedLanguages] = useState([]);
-  //   const history = useHistory();
-
+  //데이터묶기
+  
   const handleNextPage = () => {
     const addUserInfo = {
       name : location.state.data.name,
@@ -60,9 +55,27 @@ const AddInfoPage = () => {
       fav_language: userVal1,
       skill_language: userVal2
     }
-    console.log(addUserInfo);
+    sendJSONDataToSpringBoot(addUserInfo);
+
   };
 
+  //데이터전송
+
+  
+  const sendJSONDataToSpringBoot = async (userprop) => {
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/member/signup`, userprop);
+      console.log(response.data); // 서버로부터 받은 응답 데이터 처리
+    } catch (error) {
+      console.error(error); // 에러 처리
+    }
+  };
+
+
+
+  const [selectedSkill, setSelectedSkill] = useState("");
+  const [selectedLanguages, setSelectedLanguages] = useState([]);
+  //   const history = useHistory();
   const handleSkillSelect = (skill) => {
     if (selectedSkill.includes(skill)) {
       // 이미 선택된 스킬인 경우 선택 해제
@@ -84,29 +97,8 @@ const AddInfoPage = () => {
       setSelectedLanguages([...selectedLanguages, language]);
     }
 
-    handleSubmit(); // 버튼 클릭 시 바로 서버로 데이터 전송
   };
 
-  const handleSubmit = () => {
-    // 서버로 데이터 전송
-    const data = {
-      skill: selectedSkill,
-      languages: selectedLanguages,
-    };
-
-    //"/api/submit-data" 실제 백엔드 API URL에 맞게 수정되어야 한다.
-    fetch("/api/submit-data", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        window.location.href = "/next-page";
-      })
-      .catch((error) => console.error("Error:", error));
-  };
 
   const skill = [
     {
