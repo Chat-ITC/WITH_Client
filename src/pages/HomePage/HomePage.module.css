@@ -43,17 +43,17 @@
 }
 
 .camera_content {
+  background-color: aqua;
+  border: 1px solid #bababa;
+  border-radius: 4px;
+  width: 80px;
+  height: 75px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid #bababa;
-  border-radius: 4px;
-  width: 100px;
-  padding: 10px 0;
 }
 
 .camera_content_Btn {
-  display: block;
-  z-index: 2;
+  margin-bottom: 4px;
 }
