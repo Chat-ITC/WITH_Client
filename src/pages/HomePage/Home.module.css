@@ -16,3 +16,9 @@
   align-items: center;
   margin: 25px auto;
 }
+
+.Btn {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 10px;
+}
