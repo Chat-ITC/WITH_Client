@@ -133,15 +133,6 @@ const AddInfoPage = () => {
               </button>
             </div>
           </div>
-
-          {selectedSkill && (
-            <>
-              {/* 선택된 실력과 관련된 내용 표시 */}
-              {/* 추가적인 로직 구현 */}
-              {/* 예시로 다음 페이지로 이동하는 링크를 제공합니다 */}
-              <a href="/next-page">다음 페이지로 이동</a>
-            </>
-          )}
         </div>
       </section>
       <section className={styles.language_section}>

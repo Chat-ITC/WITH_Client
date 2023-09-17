@@ -1,0 +1,18 @@
+.Home_header {
+  position: absolute;
+  top: 91px;
+  margin: 0 auto;
+  background-color: aquamarine;
+  width: 334px;
+  height: 134px;
+  border: 1px solid #bababa;
+  border-radius: 6px;
+}
+
+.SendBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 25px auto;
+}
