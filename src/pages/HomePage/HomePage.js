@@ -1,16 +1,9 @@
 import styles from "./HomePage.module.css";
-import { Fragment } from "react";
-import { useState } from "react";
-import Modal from "../../Modal/Modal";
 
 import Logo from "../../assets/logo/CoFe_logo.png";
 import Bottom from "../../component/Bottom/Bottom";
 import Camera from "../../assets/etc/addimage.png";
 const HomePage = () => {
-  const [isModalOpen, sestIsModalOpen] = useState(false);
-
-  const openModal = () => sestIsModalOpen(true);
-  const closeModal = () => sestIsModalOpen(false);
   return (
     <>
       <header className={styles.main}>
@@ -20,7 +13,7 @@ const HomePage = () => {
         </h1>
       </header>
       <div className={styles.camera}>
-        <button className={styles.Camera_Btn} onClick={openModal}>
+        <button className={styles.Camera_Btn} onClick={handleButtonClick}>
           <img
             className={styles.camera_img}
             src={Camera}
@@ -28,37 +21,23 @@ const HomePage = () => {
           />
           <span>사진을 찍어보세요</span>
         </button>
+        <input
+          type="file"
+          id="camera"
+          name="camera"
+          capture="camera"
+          accept="image/*"
+          style={{ display: "none" }}
+        />
       </div>
-      <Modal
-        className={styles.camera_content}
-        isOpen={isModalOpen}
-        closeModal={closeModal}
-      >
-        <button
-          className={styles.camera_content_Btn}
-          type="button"
-          onClick={closeModal}
-        >
-          사진찍기
-        </button>
-        <button
-          className={styles.camera_content_Btn}
-          type="button"
-          onClick={closeModal}
-        >
-          사진 보관함
-        </button>
-        <button
-          className={styles.camera_content_Btn}
-          type="button"
-          onClick={closeModal}
-        >
-          첨부파일
-        </button>
-      </Modal>
       <Bottom />
     </>
   );
 };
-
+const handleButtonClick = () => {
+  const fileInput = document.getElementById("camera");
+  if (fileInput) {
+    fileInput.click();
+  }
+};
 export default HomePage;
