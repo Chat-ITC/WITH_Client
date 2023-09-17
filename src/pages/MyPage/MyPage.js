@@ -33,11 +33,13 @@ const MyPage = () => {
     axios.get(`${process.env.REACT_APP_SERVER_URL}/member/update"`, config)
       .then(function () { // 성공
         // 원하는 페이지 이동 (예를 들면 마이페이지 등)
-        window.location.href = "/HomePage";
+        // window.location.href = "/HomePage";
+        console.log("성공");
       })
       .catch(function () { // 실패
         // 원하는 페이지 이동 (예를 들면 로그인페이지 등)
-        window.location.href = "/login";
+        // window.location.href = "/login";
+        console.log("실패");
       })
 
   };
