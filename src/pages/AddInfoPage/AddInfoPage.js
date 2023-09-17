@@ -27,22 +27,37 @@ import { useLocation } from 'react-router-dom';
 
 const AddInfoPage = () => {
 
+  
+
   const location = useLocation();
-  const key = location.state.key;
-  console.log(key);
-  console.log(location.state.data);
-  console.log(location.state.data.email);
-  console.log(location.state.data.name);
+ 
+  
 
   //라디오버튼
   const [x, setX] = useState({});
   const handleClickRadioButton1 = (e) => {
-    console.log(e.target.value);
+    return e.target.value;
   };
+  console.log(handleClickRadioButton1.e.target.value);
+
   const [y, setY] = useState({});
   const handleClickRadioButton2 = (e) => {
-    console.log(e.target.value);
+    return e.target.value;
   };
+  console.log(handleClickRadioButton2.e.target.value);
+  
+
+  const addUserInfo = {
+    name : location.state.data.name,
+    email : location.state.data.email,
+    loginProvider : location.state.data.loginProvider,
+    snsId : location.state.data.snsId,
+    fav_language: handleClickRadioButton1.e.target.value,
+    skill_language: handleClickRadioButton2.e.target.value
+  }
+  console.log(addUserInfo);
+
+  
 
   const [selectedSkill, setSelectedSkill] = useState("");
   const [selectedLanguages, setSelectedLanguages] = useState([]);
