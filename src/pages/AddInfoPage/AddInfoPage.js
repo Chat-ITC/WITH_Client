@@ -7,6 +7,18 @@ import Grand from "../../assets/AddInfoIcons/grand.png";
 
 import Unknown from "../../assets/AddInfoIcons/unknown.png";
 import CPlus from "../../assets/AddInfoIcons/c++.png";
+import Python from "../../assets/AddInfoIcons/python.png";
+import Java from "../../assets/AddInfoIcons/java.png";
+import C from "../../assets/AddInfoIcons/C.png";
+import CSS from "../../assets/AddInfoIcons/CSS.png";
+import Javascript from "../../assets/AddInfoIcons/JavaScript.png";
+import Ruby from "../../assets/AddInfoIcons/Ruby.png";
+import Php from "../../assets/AddInfoIcons/php.png";
+import Go from "../../assets/AddInfoIcons/Go.png";
+import Swift from "../../assets/AddInfoIcons/swift.png";
+import Typescript from "../../assets/AddInfoIcons/Typescript.png";
+import R from "../../assets/AddInfoIcons/R.png";
+import Csharp from "../../assets/AddInfoIcons/C#.png";
 
 import React, { useState } from "react";
 // import { useHistory } from "react-router-dom";
@@ -93,6 +105,58 @@ const AddInfoPage = () => {
     {
       name: "C++",
       image: CPlus,
+    },
+    {
+      name: "파이썬",
+      image: CPlus,
+    },
+    {
+      name: "자바",
+      image: CPlus,
+    },
+    {
+      name: "C언어",
+      image: CPlus,
+    },
+    {
+      name: "CSS",
+      image: CPlus,
+    },
+    {
+      name: "HTML",
+      image: CPlus,
+    },
+    {
+      name: "자바스크립트",
+      image: CPlus,
+    },
+    {
+      name: "Ruby",
+      image: CPlus,
+    },
+    {
+      name: "Php",
+      image: CPlus,
+    },
+    {
+      name: "Go",
+      image: CPlus,
+    },
+    {
+      name: "Swift",
+      image: CPlus,
+    },
+    {
+      name: "타입스크립트",
+      image: CPlus,
+    },
+    {
+      name: "R",
+      image: R,
+    },
+    {
+      name: "C#",
+      image: Csharp,
     },
   ];
 

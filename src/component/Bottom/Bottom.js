@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styles from "./Bottom.module.css";
 
 import Quiz from "../../assets/icons/quiz.png";
-import Logo from "../../assets/logo/CoFe_logo.png";
+import Logo from "../../assets/AddInfoIcons/NotLofo.png";
 import MyPage from "../../assets/icons/mypage.png";
 
 const Home = () => <h1>퀴즈</h1>;
@@ -14,17 +14,14 @@ const Bottom = () => {
   return (
     <div className={styles.bottomContainer}>
       <nav>
-        <ul>
+        <ul className={styles.BottomInfo}>
           <li className={styles.bottomLink}>
-            <Link to="/Quiz">
-              <img className={styles.bottom_img} src={Quiz} alt="퀴즈" />
-              퀴즈
-            </Link>
+            <img className={styles.bottom_img} src={Quiz} alt="퀴즈" />
+            <Link to="/Quiz">퀴즈</Link>
           </li>
           <li className={styles.bottomLink}>
-            <Link to="/Home">
-              <img className={styles.bottom_img} src={Logo} alt="홈" />홈
-            </Link>
+            <img className={styles.bottom_img} src={Logo} alt="홈" />
+            <Link to="/Home">홈</Link>
           </li>
           <li className={styles.bottomLink}>
             <img className={styles.bottom_img} src={MyPage} alt="내 정보" />

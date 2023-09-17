@@ -1,34 +1,30 @@
 /* nav태그 아래의 자식들을 수평정렬하기 위한 설정 */
 
 nav {
-  overflow: hidden;
   position: fixed;
-  bottom: 1px;
-  left: 0;
-  right: 0;
+  width: 100%;
+  bottom: 0;
+  margin: 0 auto;
   border: 1px solid #b2b3b9;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   border-bottom: none;
   height: 86px;
 }
 
 ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  padding: 10px 0;
+}
+
+.bottomLink {
+  text-align: center;
 }
 
 .bottom_img {
   width: 40px;
   height: 40px;
   display: block;
-  margin-right: 80px;
-}
-
-li:last-child img {
-  margin-right: 0;
 }

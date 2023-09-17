@@ -9,22 +9,22 @@ import Bottom from "../../component/Bottom/Bottom";
 const SummaryPage = () => {
   return (
     <>
-      <header className={styles.SumHeader}>
-        <div className={styles.SumTitle}>
-          <div className={styles.SumLeft}>
-            <div>
-              <button type="button">
-                <img src={Back} alt="뒤로가기" />
-              </button>
-            </div>
-            <span className={styles.selectLang}>C언어</span>
+      <header className={styles.SumTitle}>
+        <div className={styles.SumLeft}>
+          <div>
+            <button type="button">
+              <img src={Back} alt="뒤로가기" />
+            </button>
           </div>
-          <div className={styles.SumRight}>
+          <span className={styles.selectLang}>C언어</span>
+        </div>
+        <div className={styles.SumRight}>
+          <div>
             <button type="button">
               <img src={Scrab} alt="스크랩" />
             </button>
-            <span className={styles.scrab}>스크랩하기</span>
           </div>
+          <span className={styles.scrab}>스크랩하기</span>
         </div>
       </header>
       <article className={styles.article}>

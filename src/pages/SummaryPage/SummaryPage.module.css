@@ -2,8 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 20px 0;
-  margin-bottom: 20px;
 }
 
 .SumLeft,
@@ -16,7 +14,7 @@
 
 .article {
   display: block;
-  width: 366px;
+  width: 360px;
   height: 274px;
   border: 1px solid #bababa;
   border-radius: 6px;
