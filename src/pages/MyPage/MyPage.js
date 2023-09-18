@@ -38,7 +38,7 @@ const MyPage = () => {
       axios.defaults.headers.common['Authorization'] = null;
     }
   
-    const response = await axios.post(
+    const response = await axios.get(
       `${process.env.REACT_APP_SERVER_URL}/member/update`,
       {
         headers: {
