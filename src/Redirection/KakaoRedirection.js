@@ -37,7 +37,7 @@ const KakaoRedirection = () => {
       }
     }
     else if (statusCode === 404) {
-      const errorHeader = data.headers["Validation"];
+      const errorHeader = error.headers["Validation"];
       console.log("404에러");
       if (errorHeader === 'no') {
         console.log("No Account");
