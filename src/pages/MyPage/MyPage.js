@@ -38,7 +38,25 @@ const MyPage = () => {
   //데이터 받아온 후 이름과 이메일 표기
   axios.defaults.withCredentials = true;
 
-  let a = 0;
+  const [myVariable, setMyVariable] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // 31초마다 myVariable 값을 변경
+      setMyVariable(prevValue => prevValue + 1);
+    }, 31000); // 31초마다 실행하려면 31000 밀리초(31 * 1000)를 사용합니다.
+
+    // 컴포넌트가 언마운트될 때 setInterval을 정리(clear)합니다.
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div>
+      <h1>변수 값: {myVariable}</h1>
+    </div>
+  );
+}
+
 
   const authReq = async () => {
     const accessToken = localStorage.getItem("accessToken");
@@ -61,9 +79,10 @@ const MyPage = () => {
     return response;
   };
   //정보 받아오기
+  
   useEffect(() => {
-    a = a+1;
-    console.log(a);
+    
+    
     // authReq 함수를 호출하고 데이터를 받아옵니다.
     authReq()
       .then((response) => {
@@ -115,7 +134,7 @@ const MyPage = () => {
             });
         }
       });
-  },[a]);
+  },[myVariable]);
 
   //내 실력 변경(일단 입문자만)
   const handleChangeTeir = (props) => {
