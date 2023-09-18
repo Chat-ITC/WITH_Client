@@ -20,9 +20,9 @@ const ScrapItem = () => {
 
   return (
     <div className={styles.ScrapItem}>
-      <h2>{title}</h2>
-      <p>{content}</p>
-      <p>올린 시간: {timestamp}</p>
+      <h2 className={styles.Title}>{styles.title}</h2>
+      <p className={styles.Content}>{styles.content}</p>
+      <p className={styles.Timestamp}>올린 시간: {styles.timestamp}</p>
     </div>
   );
 };
