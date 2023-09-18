@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+//css
 import Lang from "./LangModal.module.css";
+//library
+import React, { useState } from "react";
+
 const LangModal = ({ isOpen, onClose }) => {
   const languages = [
     "상관없음",

@@ -1,15 +1,19 @@
+//css
 import styles from "./HomePage.module.css";
-
+//png
 import Logo from "../../assets/logo/CoFe_logo.png";
-import Bottom from "../../component/Bottom/Bottom";
 import Camera from "../../assets/etc/addimage.png";
 import Becareful from "../../assets/AddInfoIcons/Becareful.png";
-
-import { useState } from "react";
+//component
+import Bottom from "../../component/Bottom/Bottom";
+//modal
 import SelectModal from "../../Modal/SelectModal/SelectModal";
 import LangModal from "../../Modal/LangModal/LangModal";
 import Scrab from "../../Modal/Scrab/scrab";
 import SubModal from "../../Modal/Subject/Subject";
+//library
+import { useState } from "react";
+
 const HomePage = () => {
   const [isModalOpen, sestIsModalOpen] = useState(false);
 
@@ -20,6 +24,11 @@ const HomePage = () => {
   const [isModalOpen1, sestIsModalOpen1] = useState(false);
   const openModal1 = () => sestIsModalOpen1(true);
   const closeModal1 = () => sestIsModalOpen1(false);
+
+  //주제
+  const [isModalOpen2, sestIsModalOpen2] = useState(false);
+  const openModal2 = () => sestIsModalOpen2(true);
+  const closeModal2 = () => sestIsModalOpen2(false);
 
   const handleButtonClick = () => {
     const fileInput = document.getElementById("camera");
