@@ -92,13 +92,19 @@ const MyPage = () => {
           })
             .then((postResponse) => {
               // POST 요청 성공 처리
+              localStorage.removeItem("accessToken");
+              localStorage.removeItem("refreshToken");
+
+              const accessToken = postResponse.headers["accesstoken"];
+              const refreshToken = postResponse.headers["refreshtoken"];
+
               console.log("POST request successful:", postResponse.data);
 
-              const responseHeaders = postResponse.headers;
-              console.log("응답 헤더:", responseHeaders);
+              localStorage.setItem("accessToken", accessToken);
+              console.log(accessToken);
+              localStorage.setItem("refreshToken", refreshToken);
+              console.log(refreshToken);
 
-              const responseBody = postResponse.data;
-              console.log("응답 바디:", responseBody);
 
               // 여기에서 필요한 작업을 수행할 수 있습니다.
             })
