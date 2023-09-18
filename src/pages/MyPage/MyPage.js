@@ -73,11 +73,7 @@ const MyPage = () => {
           console.log("401에러");
 
           const refreshToken = localStorage.getItem("refreshToken");
-          if (refreshToken) {
-            axios.defaults.headers.common["Authorization"] = `Bearer ${refreshToken}`;
-          } else {
-            axios.defaults.headers.common["Authorization"] = null;
-          }
+          
           console.log("refreshToken: ", refreshToken);
           // 서버에 POST 요청 보내기
 
