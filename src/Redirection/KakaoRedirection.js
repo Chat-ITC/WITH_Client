@@ -23,7 +23,7 @@ const KakaoRedirection = () => {
     const data = error.response.data;
     const statusCode = error.response.status;
     const errorMessage = error.response.data.message;
-
+    const errorHeaders = error.response.headers;
     
 
     if (statusCode === 401) {
@@ -37,9 +37,8 @@ const KakaoRedirection = () => {
       }
     }
     else if (statusCode === 404) {
-      const errorHeader = error.headers["validation"];
       console.log("404에러");
-      if (errorHeader === 'no') {
+      if (errorHeaders === 'no') {
         console.log("No Account");
         navigate("/AddInfoPage", { state: { data: data } });
       }
