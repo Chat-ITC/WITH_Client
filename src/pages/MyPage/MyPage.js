@@ -1,11 +1,5 @@
-import { Fragment } from "react";
-import { useState } from "react";
-import Modal from "../../Modal/Modal";
+//css
 import styles from "./MyPage.module.css";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import LangModal from "../../Modal/LangModal/LangModal";
-
 import SwitchOff from "../../assets/icons/switchOff.svg";
 import SwitchOn from "../../assets/icons/switch.png";
 import Scrab from "../../assets/icons/clip.png";
@@ -14,9 +8,15 @@ import C from "../../assets/icons/C.png";
 import Tier from "../../assets/icons/tier.png";
 import Question from "../../assets/icons/question.png";
 import Logout from "../../assets/icons/logout.png";
-
+//modal
+import LangModal from "../../Modal/LangModal/LangModal";
+//component
 import Bottom from "../../component/Bottom/Bottom";
-import ProgramModal from "../../Modal/ProgrammingModal/ProgrammingModal";
+//library
+import { Fragment } from "react";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import React, { useEffect } from "react";
 
 const MyPage = () => {
@@ -65,19 +65,17 @@ const MyPage = () => {
         const errorMessage = error.response.data.message;
         if (statusCode === 401) {
           // 400 상태 코드 처리
-          if (errorMessage === 'there is no refreshToken in redis') {
-            alert('세션이 만료되었습니다. 다시 로그인해 주세요')
+          if (errorMessage === "there is no refreshToken in redis") {
+            alert("세션이 만료되었습니다. 다시 로그인해 주세요");
             navigate("/login");
-          } else if (errorMessage === 'your token has been expired') {
-            console.error('토큰 재발급 필요');
+          } else if (errorMessage === "your token has been expired") {
+            console.error("토큰 재발급 필요");
           }
-        }
-        else if (statusCode === 404) {
-          if (errorMessage === 'No Account') {
+        } else if (statusCode === 404) {
+          if (errorMessage === "No Account") {
           }
-        }
-        else if (statusCode === 409) {
-          alert('세션이 만료되었습니다. 다시 로그인해 주세요')
+        } else if (statusCode === 409) {
+          alert("세션이 만료되었습니다. 다시 로그인해 주세요");
           navigate("/login");
         }
       });
@@ -118,19 +116,17 @@ const MyPage = () => {
         const errorMessage = error.response.data.message;
         if (statusCode === 401) {
           // 400 상태 코드 처리
-          if (errorMessage === 'there is no refreshToken in redis') {
-            alert('세션이 만료되었습니다. 다시 로그인해 주세요')
+          if (errorMessage === "there is no refreshToken in redis") {
+            alert("세션이 만료되었습니다. 다시 로그인해 주세요");
             navigate("/login");
-          } else if (errorMessage === 'your token has been expired') {
-            console.error('토큰 재발급 필요');
+          } else if (errorMessage === "your token has been expired") {
+            console.error("토큰 재발급 필요");
           }
-        }
-        else if (statusCode === 404) {
-          if (errorMessage === 'No Account') {
+        } else if (statusCode === 404) {
+          if (errorMessage === "No Account") {
           }
-        }
-        else if (statusCode === 409) {
-          alert('세션이 만료되었습니다. 다시 로그인해 주세요')
+        } else if (statusCode === 409) {
+          alert("세션이 만료되었습니다. 다시 로그인해 주세요");
           navigate("/login");
         }
       });
@@ -172,31 +168,20 @@ const MyPage = () => {
             />
             <p className={styles.section_desc}>최근 본 자료</p>
           </button>
-          <button onClick={openModal} className={styles.section_icons}>
+          <button type="button" onClick={openModal}>
             <img className={styles.section_img} src={C} alt="학습 언어 수정" />
             <p className={styles.section_desc}>학습 언어 수정</p>
           </button>
         </div>
-        <div
-          className={`${styles.Program} ${isModalOpen ? styles.modal_open : ""
-            }`}
-          style={{ display: isModalOpen ? "block" : "none" }}
-        >
-          <button type="button" onClick={openModal}>
-            open
-          </button>
-          <ProgramModal isOpen={isModalOpen} closeModal={closeModal}>
-            <h3>학습 언어 수정</h3>
-          </ProgramModal>
-        </div>
-        <div
-          className={`${styles.Program} ${isModalOpen ? styles.modal_open : ""
-            }`}
-          style={{ display: isModalOpen ? "block" : "none" }}
-        >
-          <LangModal isOpen={isModalOpen} onClose={closeModal}></LangModal>
-        </div>
       </section>
+      <div
+        className={`${styles.MyPage_Lang} ${
+          isModalOpen ? styles.modal_open : ""
+        }`}
+        style={{ display: isModalOpen ? "block" : "none" }}
+      >
+        <LangModal isOpen={isModalOpen} onClose={closeModal}></LangModal>
+      </div>
 
       {/* <div
         className={`${styles.modal_block} ${
@@ -228,11 +213,7 @@ const MyPage = () => {
       <aside className={styles.bottom}>
         <ul className={styles.info_lists}>
           <li className={styles.info_list}>
-            <button
-              type="button"
-              onClick={openModal}
-              className={styles.info_link}
-            >
+            <button type="button" className={styles.info_link}>
               <div className={styles.info_item}>
                 <img className={styles.info_img} src={Tier} alt="" />
                 <span className={styles.info_desc}>내 실력 변경</span>
