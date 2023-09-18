@@ -26,9 +26,6 @@ const MyPage = () => {
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
 
-  const [isModalOpen2, sestIsModalOpen2] = useState(false);
-  const openModal2 = () => sestIsModalOpen(true);
-  const closeModal2 = () => sestIsModalOpen(false);
   const [userInfo, setUserInfo] = useState(0);
   const [userTier, setUserTier] = useState(0);
   const [userLan, setUserLan] = useState(0);
@@ -64,24 +61,24 @@ const MyPage = () => {
         setUserInfo(response.data);
       })
       .catch((error) => {
-        alert('세션이 만료되었습니다. 다시 로그인해 주세요')
-        navigate("/login");
+        // alert("세션이 만료되었습니다. 다시 로그인해 주세요");
+        // navigate("/login");
         console.error("Error fetching data:", error);
       });
   }, []);
 
   //내 실력 변경(일단 입문자만)
   const handleChangeTeir = (props) => {
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+      axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
     } else {
-      axios.defaults.headers.common['Authorization'] = null;
+      axios.defaults.headers.common["Authorization"] = null;
     }
 
     const newTierData = {
-      user_level : props
-    };  // 나중에 변수로 바꾸기 임시적으로 하드코딩.
+      user_level: props,
+    }; // 나중에 변수로 바꾸기 임시적으로 하드코딩.
 
     axios
       .patch(
@@ -101,8 +98,8 @@ const MyPage = () => {
         setUserTier(newTierData.tier); // 수정된 티어 데이터를 화면에 반영
       })
       .catch((error) => {
-        alert('세션이 만료되었습니다. 다시 로그인해 주세요')
-        navigate("/login");
+        // alert("세션이 만료되었습니다. 다시 로그인해 주세요");
+        // navigate("/login");
         console.error("Error updating tier:", error);
       });
   };
@@ -150,20 +147,20 @@ const MyPage = () => {
         </div>
         <div
           className={`${styles.Program} ${
-            isModalOpen2 ? styles.modal_open : ""
+            isModalOpen ? styles.modal_open : ""
           }`}
-          style={{ display: isModalOpen2 ? "block" : "none" }}
+          style={{ display: isModalOpen ? "block" : "none" }}
         >
-          <button type="button" onClick={openModal2}>
+          <button type="button" onClick={openModal}>
             open
           </button>
-          <ProgramModal isOpen={isModalOpen2} closeModal={closeModal2}>
+          <ProgramModal isOpen={isModalOpen} closeModal={closeModal}>
             <h3>학습 언어 수정</h3>
           </ProgramModal>
         </div>
       </section>
 
-      <div
+      {/* <div
         className={`${styles.modal_block} ${
           isModalOpen ? styles.modal_open : ""
         }`}
@@ -188,7 +185,7 @@ const MyPage = () => {
             </button>
           </div>
         </Modal>
-      </div>
+      </div> */}
 
       <aside className={styles.bottom}>
         <ul className={styles.info_lists}>
