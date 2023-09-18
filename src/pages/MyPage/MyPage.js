@@ -198,7 +198,7 @@ const MyPage = () => {
             />
             <p className={styles.section_desc}>최근 본 자료</p>
           </button>
-          <button type="button" onClick={openModal}>
+          <button type="button" onClick={()=>openModal}>
             <img className={styles.section_img} src={C} alt="학습 언어 수정" />
             <p className={styles.section_desc}>학습 언어 수정</p>
           </button>
@@ -209,7 +209,7 @@ const MyPage = () => {
           }`}
         style={{ display: isModalOpen ? "block" : "none" }}
       >
-        <LangModal isOpen={isModalOpen} onClose={closeModal}></LangModal>
+        <LangModal isOpen={isModalOpen} onClose={()=>closeModal}></LangModal>
       </div>
 
       <aside className={styles.bottom}>
@@ -218,7 +218,7 @@ const MyPage = () => {
             <button type="button" className={styles.info_link}>
               <div className={styles.info_item}>
                 <img className={styles.info_img} src={Tier} alt="" />
-                <span className={styles.info_desc} onClick={openModal2}>
+                <span className={styles.info_desc} onClick={()=>openModal2}>
                   내 실력 변경
                 </span>
               </div>
@@ -247,7 +247,7 @@ const MyPage = () => {
           }`}
         style={{ display: isModalOpen2 ? "block" : "none" }}
       >
-        <Abil isOpen={isModalOpen2} onClose={closeModal2}></Abil>
+        <Abil isOpen={isModalOpen2} onClose={()=>closeModal2}></Abil>
       </div>
       <Bottom />
     </Fragment>
