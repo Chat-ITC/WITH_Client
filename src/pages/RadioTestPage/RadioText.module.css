@@ -1,0 +1,67 @@
+.ability_title {
+  position: absolute;
+  text-align: center;
+  padding: 0 15px;
+  width: 100%;
+  top: 58px;
+}
+
+.ability_section {
+  position: absolute;
+  text-align: center;
+  padding: 0 15px;
+  width: 100%;
+  top: 106px;
+}
+
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 45px;
+  height: 45px;
+  margin: 0 20px;
+}
+
+.itemContainer2 {
+  margin: 25px;
+}
+
+.language_title {
+  position: absolute;
+  text-align: center;
+  padding: 0 15px;
+  width: 100%;
+  top: 220px;
+}
+
+.language_section {
+  position: absolute;
+  text-align: center;
+  padding: 0 15px;
+  width: 100%;
+  height: 370px;
+  top: 260px;
+}
+
+.language_section .grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-center;
+  gap: 20px;
+}
+
+.nextButton {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  height: 70px;
+  background-color: #3da5f5;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+}

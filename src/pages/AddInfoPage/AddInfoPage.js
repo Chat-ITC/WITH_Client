@@ -1,10 +1,11 @@
+//css
 import styles from "./AddInfoPage.module.css";
-
+//png ability
 import Baby from "../../assets/AddInfoIcons/baby.png";
 import Boy from "../../assets/AddInfoIcons/boy.png";
 import Adult from "../../assets/AddInfoIcons/adult.png";
 import Grand from "../../assets/AddInfoIcons/grand.png";
-
+//png programming language
 import Unknown from "../../assets/AddInfoIcons/unknown.png";
 import CPlus from "../../assets/AddInfoIcons/c++.png";
 import Python from "../../assets/AddInfoIcons/python.png";
@@ -20,23 +21,22 @@ import Typescript from "../../assets/AddInfoIcons/Typescript.png";
 import R from "../../assets/AddInfoIcons/R.png";
 import Csharp from "../../assets/AddInfoIcons/C#.png";
 import HTML from "../../assets/AddInfoIcons/HTML.png";
-
-import axios from 'axios';
+//library
+import axios from "axios";
 import React, { useState } from "react";
-import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // import { useHistory } from "react-router-dom";
 
 const AddInfoPage = () => {
-
   const navigate = useNavigate();
 
   //라디오버튼
   const location = useLocation();
-  const [userVal1, setuserVal1] = useState('');
-  const [userVal2, setuserVal2] = useState('');
+  const [userVal1, setuserVal1] = useState("");
+  const [userVal2, setuserVal2] = useState("");
   const [x, setX] = useState({});
   const handleClickRadioButton1 = (e) => {
     const value = e.target.value;
@@ -57,8 +57,8 @@ const AddInfoPage = () => {
       loginProvider: location.state.data.loginProvider,
       snsId: location.state.data.snsId,
       user_level: userVal1,
-      skill_language: userVal2
-    }
+      skill_language: userVal2,
+    };
     sendJSONDataToSpringBoot(addUserInfo);
 
     navigate("/login");
@@ -67,31 +67,30 @@ const AddInfoPage = () => {
   //데이터전송
   const sendJSONDataToSpringBoot = async (userprop) => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/member/signup`, userprop);
+      const response = await axios.post(
+        `${process.env.REACT_APP_SERVER_URL}/member/signup`,
+        userprop
+      );
       console.log(response.data); // 서버로부터 받은 응답 데이터 처리
     } catch (error) {
       const statusCode = error.response.status;
-      
+
       if (statusCode === 401) {
-        console.alert('토큰 재발급 필요');
+        console.alert("토큰 재발급 필요");
         window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
-      }
-      else if (statusCode === 404) {
-        console.log("404에러");  
-      }
-      else if (statusCode === 409) {
-        alert('세션이 만료되었습니다. 다시 로그인해 주세요')
+      } else if (statusCode === 404) {
+        console.log("404에러");
+      } else if (statusCode === 409) {
+        alert("세션이 만료되었습니다. 다시 로그인해 주세요");
         navigate("/login");
       }
-
     }
   };
-
-
 
   const [selectedSkill, setSelectedSkill] = useState("");
   const [selectedLanguages, setSelectedLanguages] = useState([]);
   //   const history = useHistory();
+
   const handleSkillSelect = (skill) => {
     if (selectedSkill.includes(skill)) {
       // 이미 선택된 스킬인 경우 선택 해제
@@ -112,9 +111,7 @@ const AddInfoPage = () => {
       // 새로운 언어를 선택한 경우 추가
       setSelectedLanguages([...selectedLanguages, language]);
     }
-
   };
-
 
   const skill = [
     {
@@ -210,18 +207,17 @@ const AddInfoPage = () => {
                   name="tier"
                   type="radio"
                   value="입문자"
-                  cheched={x === '1'}
-                  onChange={handleClickRadioButton1} />
-                <label>
-                  입문자
-                </label>
+                  cheched={x === "1"}
+                  onChange={handleClickRadioButton1}
+                />
+                <label>입문자</label>
 
                 <label>
                   <input
                     name="tier"
                     type="radio"
                     value="초보자"
-                    cheched={x === '2'}
+                    cheched={x === "2"}
                     onChange={handleClickRadioButton1}
                   />
                   초보자
@@ -269,21 +265,19 @@ const AddInfoPage = () => {
                 name="lan"
                 type="radio"
                 value="상관없음"
-                cheched={y === '1'}
-                onChange={handleClickRadioButton2} />
-              <label>
-                상관없음
-              </label>
+                cheched={y === "1"}
+                onChange={handleClickRadioButton2}
+              />
+              <label>상관없음</label>
 
               <label>
                 <input
                   name="lan"
                   type="radio"
                   value="C"
-                  cheched={y === '2'}
+                  cheched={y === "2"}
                   onChange={handleClickRadioButton2}
                 />
-
                 c언어
               </label>
             </div>
@@ -291,15 +285,17 @@ const AddInfoPage = () => {
               {languages.map((language) => (
                 <button
                   key={language.name}
-                  className={`${styles.button} ${selectedLanguages.includes(language.name)
-                    ? styles.selected
-                    : ""
-                    }`}
+                  className={`${styles.button} ${
+                    selectedLanguages.includes(language.name)
+                      ? styles.selected
+                      : ""
+                  }`}
                   onClick={() => handleLanguageSelect(language.name)}
                 >
                   <div
-                    className={`${styles.imageWrapper} ${styles[language.name]
-                      }`}
+                    className={`${styles.imageWrapper} ${
+                      styles[language.name]
+                    }`}
                   >
                     {/* 이미지 원형으로 만들기 */}
                     <img src={language.image} alt={language.name} />
