@@ -71,14 +71,12 @@ const MyPage = () => {
         const errorMessage = error.response.data.message;
         if (statusCode === 401) {
           // 400 상태 코드 처리
-          console.alert('토큰 재발급 필요');
+          console.alert("토큰 재발급 필요");
           window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
-        }
-        else if (statusCode === 404) {
+        } else if (statusCode === 404) {
           if (errorMessage === "No Account") {
           }
-        }
-        else if (statusCode === 409) {
+        } else if (statusCode === 409) {
           alert("세션이 만료되었습니다. 다시 로그인해 주세요");
           navigate("/login");
         }
@@ -120,14 +118,12 @@ const MyPage = () => {
         const errorMessage = error.response.data.message;
         if (statusCode === 401) {
           // 400 상태 코드 처리
-          console.alert('토큰 재발급 필요');
+          console.alert("토큰 재발급 필요");
           window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
-        }
-        else if (statusCode === 404) {
+        } else if (statusCode === 404) {
           if (errorMessage === "No Account") {
           }
-        }
-        else if (statusCode === 409) {
+        } else if (statusCode === 409) {
           alert("세션이 만료되었습니다. 다시 로그인해 주세요");
           navigate("/login");
         }
@@ -177,8 +173,9 @@ const MyPage = () => {
         </div>
       </section>
       <div
-        className={`${styles.MyPage_Lang} ${isModalOpen ? styles.modal_open : ""
-          }`}
+        className={`${styles.MyPage_Lang} ${
+          isModalOpen ? styles.modal_open : ""
+        }`}
         style={{ display: isModalOpen ? "block" : "none" }}
       >
         <LangModal isOpen={isModalOpen} onClose={closeModal}></LangModal>
@@ -239,8 +236,9 @@ const MyPage = () => {
           </li>
         </ul>
         <div
-          className={`${styles.MyPage_Abil} ${isModalOpen2 ? styles.modal_open : ""
-            }`}
+          className={`${styles.MyPage_Abil} ${
+            isModalOpen2 ? styles.modal_open : ""
+          }`}
           style={{ display: isModalOpen2 ? "block" : "none" }}
         >
           <Abil isOpen={isModalOpen2} onClose={closeModal2}></Abil>
