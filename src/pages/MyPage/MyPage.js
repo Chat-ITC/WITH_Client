@@ -60,6 +60,7 @@ const MyPage = () => {
         console.error("Error fetching data:", error);
       });
   }, []);
+
     console.log("req이게 뭘까?", userInfo.name);
     console.log("req이게 뭘까?", userInfo.email);
     
@@ -117,10 +118,10 @@ const MyPage = () => {
       <header className={styles.main_header}>
         <div className={styles.main_top}>
           <h1 className={styles.main_title}>
-            안녕하세요 <br /> {name}님
+            안녕하세요 <br /> {userInfo.name}님
           </h1>
 
-          <p className={styles.main_email}>{email}</p>
+          <p className={styles.main_email}>{userInfo.email}</p>
         </div>
         <span className={styles.main_account}>계정 관리</span>
       </header>
