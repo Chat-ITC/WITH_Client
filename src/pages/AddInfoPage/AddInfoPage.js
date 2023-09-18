@@ -65,25 +65,42 @@ const AddInfoPage = () => {
   };
 
   //데이터전송
-  const sendJSONDataToSpringBoot = async (userprop) => {
-    try {
-      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/member/signup`, userprop);
-      console.log(response.data); // 서버로부터 받은 응답 데이터 처리
-    } catch (error) {
-      const statusCode = error.response.status;
-      if (statusCode === 401) {
-        console.alert('토큰 재발급 필요');
-        window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
-      }
-      else if (statusCode === 404) {
-        console.log("404에러");  
-      }
-      else if (statusCode === 409) {
-        alert('세션이 만료되었습니다. 다시 로그인해 주세요')
-        navigate("/login");
-      }
-
+  const sendJSONDataToSpringBoot =  (userprop) => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+    } else {
+      axios.defaults.headers.common["Authorization"] = null;
     }
+
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/member/signup`, userprop,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+
+
+      .catch((error) => {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          console.alert('토큰 재발급 필요');
+          window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
+        }
+        else if (statusCode === 404) {
+          console.log("404에러");
+        }
+        else if (statusCode === 409) {
+          alert('세션이 만료되었습니다. 다시 로그인해 주세요')
+          navigate("/login");
+        }
+
+      });
   };
 
 
