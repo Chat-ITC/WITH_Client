@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { useState } from "react";
 import Modal from "../../Modal/Modal";
 import styles from "./MyPage.module.css";
+import axios from "axios";
 
 import SwitchOff from "../../assets/icons/switchOff.svg";
 import SwitchOn from "../../assets/icons/switch.png";
@@ -24,33 +25,68 @@ const MyPage = () => {
 
   const [data, setData] = useState();
 
+
+  const authReq = async () => {
+    axios.defaults.withCredentials = true;
+  
+    const accessToken = localStorage.getItem('accessToken');
+  
+    if (accessToken) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+    } else {
+      axios.defaults.headers.common['Authorization'] = null;
+    }
+  
+    const response = await axios.post(
+      `${process.env.REACT_APP_SERVER_URL}/users/auth`,
+      {
+        headers: {
+          Authorization: accessToken,
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+  
+    return response;
+  };
   //jwt테스트
   useEffect(() => {
-    const token = localStorage.getItem("accessToken")
-    console.log(token);
-    fetch(`${process.env.REACT_APP_SERVER_URL}/member/update`, {
-      method: 'GET', // GET은 기본값이므로 안써줘도 작동한다.
-      headers: { authorization: token } //토큰형식은 백엔드와 키값을 맞춰야합니다.
+    const req =authReq();
+    console.log(req);
+    
+    // const token = localStorage.getItem("accessToken")
+    // console.log(token);
+    // fetch(`${process.env.REACT_APP_SERVER_URL}/member/update`, {
+    //   method: 'GET', // GET은 기본값이므로 안써줘도 작동한다.
+    //   headers: { authorization: token } //토큰형식은 백엔드와 키값을 맞춰야합니다.
       
-    }) // 데이터를 받을때는 보내줄 데이터가 없기때문에 토큰만 전해준다! 
-    .then(function () { // 성공
-      // 원하는 페이지 이동 (예를 들면 마이페이지 등)
-      // window.location.href = "/HomePage";
-      console.log("성공");
-    })  
-    .then(res => res.json())
-      // 서버에서 전송받은데이터를 자바스크립트의 형식으로 변경해준다고 생각해주세용
-      .then(data => setData(data))
-      // 우리가 페이지에서 사용 할 수 있도록 state훅에 저장~
-      .catch(error => {
-        // 에러 처리
-        console.error(error);
-        console.error("실패");
-      })
-      console.log(data);
+    // }) // 데이터를 받을때는 보내줄 데이터가 없기때문에 토큰만 전해준다! 
+    // .then(function () { // 성공
+    //   // 원하는 페이지 이동 (예를 들면 마이페이지 등)
+    //   // window.location.href = "/HomePage";
+    //   console.log("성공");
+    // })  
+    // .then(res => res.json())
+    //   // 서버에서 전송받은데이터를 자바스크립트의 형식으로 변경해준다고 생각해주세용
+    //   .then(data => setData(data))
+    //   // 우리가 페이지에서 사용 할 수 있도록 state훅에 저장~
+    //   .catch(error => {
+    //     // 에러 처리
+    //     console.error(error);
+    //     console.error("실패");
+    //   })
+    //   console.log(data);
+    
   }, [])
 
+ 
+
+  
+
   //이제 가져온 데이터 처리.
+
+
   
 
   
