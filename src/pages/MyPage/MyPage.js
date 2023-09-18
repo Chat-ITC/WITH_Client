@@ -19,13 +19,9 @@ import React, { useEffect } from 'react';
 
 const MyPage = () => {
   const [isModalOpen, sestIsModalOpen] = useState(false);
-
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
-
   const [data, setData] = useState();
-
-
   const authReq = async () => {
     axios.defaults.withCredentials = true;
     console.log("실행 몇번?")
@@ -37,7 +33,7 @@ const MyPage = () => {
     } else {
       axios.defaults.headers.common['Authorization'] = null;
     }
-  
+
     const response = await axios.get(
       `${process.env.REACT_APP_SERVER_URL}/member/update`,
       {
