@@ -1,5 +1,5 @@
 //css
-import Abil from ".//Ability.module.css";
+import Abil from "./Ability.module.css";
 //library
 import React, { useState } from "react";
 
@@ -19,8 +19,6 @@ const AbilModal = ({ isOpen, onClose }) => {
   return (
     <div className={`modal ${isOpen ? "open" : ""}`}>
       <div className="modal-content">
-        <h2 className={Abil.MyAbilTitle}>학습 언어</h2>
-        <span className={Abil.MyAbilDesc}>내 실력 변경</span>
         <ul className="ability-list">
           {abilities.map((ability, index) => (
             <li key={index}>
@@ -38,4 +36,4 @@ const AbilModal = ({ isOpen, onClose }) => {
   );
 };
 
-export default Abil;
+export default AbilModal;
