@@ -4,7 +4,7 @@ import Abil from ".//Ability.module.css";
 import React, { useState } from "react";
 
 const AbilModal = ({ isOpen, onClose }) => {
-  const ability = ["입문자", "초보자", "중급자", "상급자"];
+  const abilities = ["입문자", "초보자", "중급자", "상급자"];
 
   const [selectedability, setSelectedability] = useState(null);
 
@@ -22,7 +22,7 @@ const AbilModal = ({ isOpen, onClose }) => {
         <h2 className={Abil.MyAbilTitle}>학습 언어</h2>
         <span className={Abil.MyAbilDesc}>내 실력 변경</span>
         <ul className="ability-list">
-          {ability.map((ability, index) => (
+          {abilities.map((ability, index) => (
             <li key={index}>
               <button
                 className={Abil.HomeAbilBtn}
