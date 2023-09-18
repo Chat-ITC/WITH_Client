@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 const LangModal = ({ isOpen, onClose }) => {
   const languages = [
     "상관없음",
@@ -18,9 +18,14 @@ const LangModal = ({ isOpen, onClose }) => {
     "C#",
   ];
 
+  const [selectedLanguage, setSelectedLanguage] = useState(null);
+
   const handleLanguageClick = (language) => {
-    onClose(); // 모달 창 닫기
-    // 선택한 언어에 대한 추가적인 동작 수행 가능
+    if (onClose && typeof onClose === "function") {
+      setSelectedLanguage(language); // 선택한 언어 설정
+      onClose(); // 모달 창 닫기
+      // 선택한 언어에 대한 추가적인 동작 수행 가능
+    }
   };
 
   return (

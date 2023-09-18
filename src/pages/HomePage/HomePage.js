@@ -15,6 +15,11 @@ const HomePage = () => {
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
 
+  //학습 언어
+  const [isModalOpen1, sestIsModalOpen1] = useState(false);
+  const openModal1 = () => sestIsModalOpen1(true);
+  const closeModal1 = () => sestIsModalOpen1(false);
+
   const handleButtonClick = () => {
     const fileInput = document.getElementById("camera");
     if (fileInput) {
@@ -61,7 +66,11 @@ const HomePage = () => {
         <SelectModal isOpen={isModalOpen} closeModal={closeModal}>
           <div className={styles.SelectUp}>
             <em className={styles.SelectLang}>학습언어</em>
-            <button className={styles.SelectLanguage} type="button">
+            <button
+              className={styles.SelectLanguage}
+              type="button"
+              onClick={openModal1}
+            >
               C언어
             </button>
           </div>
@@ -75,7 +84,11 @@ const HomePage = () => {
             </button>
           </div>
           <div className={styles.SelectBottom}>
-            <button className={styles.SelectBtn} type="button">
+            <button
+              className={styles.SelectBtn}
+              type="button"
+              onClick={openModal}
+            >
               확인
             </button>
             <button
@@ -87,6 +100,15 @@ const HomePage = () => {
             </button>
           </div>
         </SelectModal>
+      </div>
+
+      <div
+        className={`${styles.HomePage_Lang} ${
+          isModalOpen1 ? styles.modal_open : ""
+        }`}
+        style={{ display: isModalOpen1 ? "block" : "none" }}
+      >
+        <LangModal isOpen={isModalOpen1} onClose={closeModal1}></LangModal>
       </div>
       <Bottom />
     </>
