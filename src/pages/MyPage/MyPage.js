@@ -64,7 +64,8 @@ const MyPage = () => {
         setUserInfo(response.data);
       })
       .catch((error) => {
-        // 오류가 발생했을 때 처리
+        alert('세션이 만료되었습니다. 다시 로그인해 주세요')
+        navigate("/login");
         console.error("Error fetching data:", error);
       });
   }, []);
@@ -100,7 +101,7 @@ const MyPage = () => {
         setUserTier(newTierData.tier); // 수정된 티어 데이터를 화면에 반영
       })
       .catch((error) => {
-        // 오류 발생 시 처리
+        alert('세션이 만료되었습니다. 다시 로그인해 주세요')
         navigate("/login");
         console.error("Error updating tier:", error);
       });
@@ -173,32 +174,16 @@ const MyPage = () => {
             내 실력 변경-현재 실력: {userInfo.user_level}
           </p>
           <div>
-            <button
-              className={styles.modal_ability}
-              type="button"
-              onClick={handleChangeTeir}
-            >
+          <button className={styles.modal_ability} type="button" onClick={handleChangeTeir('입문자')}>
               입문자
             </button>
-            <button
-              className={styles.modal_ability}
-              type="button"
-              onClick={closeModal}
-            >
+            <button className={styles.modal_ability} type="button" onClick={handleChangeTeir('초보자')}>
               초보자
             </button>
-            <button
-              className={styles.modal_ability}
-              type="button"
-              onClick={closeModal}
-            >
+            <button className={styles.modal_ability} type="button" onClick={handleChangeTeir('중급자')}>
               중급자
             </button>
-            <button
-              className={styles.modal_ability}
-              type="button"
-              onClick={closeModal}
-            >
+            <button className={styles.modal_ability} type="button" onClick={handleChangeTeir('상급자')}>
               상급자
             </button>
           </div>
