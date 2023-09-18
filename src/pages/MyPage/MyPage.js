@@ -21,6 +21,7 @@ const MyPage = () => {
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
+  const [userInfo, setUserInfo] = useState(0);
   const [name, setName] = useState(0);
   const [email, setEmail] = useState(0);
 
@@ -47,17 +48,21 @@ const MyPage = () => {
     );
     return response;
   };
-
   useEffect(() => {
-    const { data: { name, email } } = authReq();
-    console.log("req이게 뭘까?", name);
-    console.log("req이게 뭘까?", email);
+    // authReq 함수를 호출하고 데이터를 받아옵니다.
+    authReq()
+      .then((response) => {
+        // 데이터를 성공적으로 받아왔을 때 처리
+        setUserInfo(response.data);
+      })
+      .catch((error) => {
+        // 오류가 발생했을 때 처리
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+    console.log("req이게 뭘까?", userInfo.name);
+    console.log("req이게 뭘까?", userInfo.email);
     
-    // console.log("이름", req.data.name);
-    // console.log("이메일", req.data.email);
-    // setName(req.data.name);
-    // setEmail(req.data.email);
-  }, [])
 
 
 
