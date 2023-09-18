@@ -23,6 +23,9 @@ const KakaoRedirection = () => {
     const data = error.response.data;
     const statusCode = error.response.status;
     const errorMessage = error.response.data.message;
+
+    
+
     if (statusCode === 401) {
       // 400 상태 코드 처리
       if (errorMessage === 'there is no refreshToken in redis') {
@@ -34,8 +37,9 @@ const KakaoRedirection = () => {
       }
     }
     else if (statusCode === 404) {
+      const errorHeader = data.headers["validation"];
       console.log("404에러");
-      if (errorMessage === 'No Account') {
+      if (errorHeader === 'no') {
         console.log("No Account");
         navigate("/AddInfoPage", { state: { data: data } });
       }
