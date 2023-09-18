@@ -71,16 +71,9 @@ const AddInfoPage = () => {
       console.log(response.data); // 서버로부터 받은 응답 데이터 처리
     } catch (error) {
       const statusCode = error.response.status;
-      const errorMessage = error.response.data.message;
       if (statusCode === 401) {
-        // 400 상태 코드 처리
-        if (errorMessage === 'there is no refreshToken in redis') {
-          alert('세션이 만료되었습니다. 다시 로그인해 주세요')
-          navigate("/login");
-        } else if (errorMessage === 'your token has been expired') {
-          console.log("토큰 재발급 필요");
-          console.error('토큰 재발급 필요');
-        }
+        console.alert('토큰 재발급 필요');
+        window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
       }
       else if (statusCode === 404) {
         console.log("404에러");  
