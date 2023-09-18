@@ -97,7 +97,7 @@ const HomePage = () => {
       <hr className={styles.Homehr} />
 
       {/*한번 스크랩 아이템 작성해봄*/}
-      <div className={styles.HomePage}>
+      {/* <div className={styles.HomePage}>
         {scraps.map((scrap) => (
           <div className={styles.ScrapItem} key={scrap.id}>
             <h2 className={styles.Title}>{scrap.title}</h2>
@@ -105,7 +105,7 @@ const HomePage = () => {
             <p className={styles.Timestamp}>올린 시간: {scrap.timestamp}</p>
           </div>
         ))}
-      </div>
+      </div> */}
       <div
         className={`${styles.HomeScrab} ${
           isModalOpen3 ? styles.modal_open : ""
