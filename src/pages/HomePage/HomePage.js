@@ -89,7 +89,11 @@ const HomePage = () => {
               <em className={styles.SelectSub}>주제</em>
               <img src={Becareful} alt="경고" />
             </span>
-            <button className={styles.SelectSubject} type="button">
+            <button
+              className={styles.SelectSubject}
+              type="button"
+              onClick={openModal2}
+            >
               선택없음
             </button>
           </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Subject from "./Subject.module.css";
+import Sub from "./Subject.module.css";
 const SubModal = ({ isOpen, onClose }) => {
   const subjects = [
     "이 문장의 내용을 요약해줘",
@@ -9,9 +9,9 @@ const SubModal = ({ isOpen, onClose }) => {
 
   const [selectedSubject, setSelectedSubject] = useState(null);
 
-  const handleSubjectClick = (subjects) => {
+  const handleSubjectClick = (subject) => {
     if (onClose && typeof onClose === "function") {
-      setSelectedSubject(Subject); // 선택한 언어 설정
+      setSelectedSubject(subject); // 선택한 언어 설정
       onClose(); // 모달 창 닫기
       // 선택한 언어에 대한 추가적인 동작 수행 가능
     }
@@ -20,15 +20,15 @@ const SubModal = ({ isOpen, onClose }) => {
   return (
     <div className={`modal ${isOpen ? "open" : ""}`}>
       <div className="modal-content">
-        <h2 className={Subject.HomeSubTitle}>주제</h2>
+        <h2 className={Sub.HomeSubTitle}>주제</h2>
         <ul className="subject-list">
           {subjects.map((Subject, index) => (
             <li key={index}>
               <button
-                className={Subject.HomeSubBtn}
+                className={Sub.HomeSubBtn}
                 onClick={() => handleSubjectClick(Subject)}
               >
-                {subjects}
+                {Subject}
               </button>
             </li>
           ))}
