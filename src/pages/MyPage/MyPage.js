@@ -24,12 +24,12 @@ const MyPage = () => {
   const [data, setData] = useState();
   const authReq = async () => {
     axios.defaults.withCredentials = true;
-    console.log("실행 몇번?")
   
     const accessToken = localStorage.getItem('accessToken');
     console.log("accessToken이게 뭘까?", accessToken);
     if (accessToken) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+      console.log(`Bearer ${accessToken}`);
     } else {
       axios.defaults.headers.common['Authorization'] = null;
     }
@@ -38,7 +38,7 @@ const MyPage = () => {
       `${process.env.REACT_APP_SERVER_URL}/member/update`,
       {
         headers: {
-          Authorization: accessToken,
+          Authorization: `Bearer ${accessToken}`,
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',
         },
