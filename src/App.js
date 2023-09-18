@@ -13,6 +13,7 @@ import MyPage from "./pages/MyPage/MyPage";
 import AddInfo from "./pages/AddInfoPage/AddInfoPage";
 import Home from "./pages/HomePage/HomePage";
 import Quiz from "./pages/Quiz/Quiz";
+import Skeleton from "./pages/Skeleton/Skeleton";
 import KakaoRedirection from "./Redirection/KakaoRedirection";
 import NaverRedirection from "./Redirection/NaverRedirection";
 import SummaryPage from "./pages/SummaryPage/SummaryPage";
@@ -27,6 +28,7 @@ function App() {
           <Route path="/AddInfoPage" element={<AddInfo />} />
           <Route path="/HomePage" element={<Home />} />
           <Route path="/Quiz" element={<Quiz />} />
+          <Route path="/Skeleton" element={<Skeleton />} />
           <Route path="/SummaryPage" element={<SummaryPage />} />
           <Route exact path="/kakao/callback" element={<KakaoRedirection />} />
           <Route exact path="/naver/callback" element={<NaverRedirection />} />

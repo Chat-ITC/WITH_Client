@@ -4,15 +4,14 @@ import Logo from "../../assets/logo/CoFe_logo.png";
 import Bottom from "../../component/Bottom/Bottom";
 import Camera from "../../assets/etc/addimage.png";
 
-import React, { useState } from "react";
+import { Fragment } from "react";
+import { useState } from "react";
 import LangModal from "../../Modal/HomePage_Modal/LangModal";
-import style from "../../Modal/HomePage_Modal/LangModal.module.css";
 const HomePage = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [isModalOpen, sestIsModalOpen] = useState(false);
 
-  const handleCloseModal = () => {
-    setModalOpen(false);
-  };
+  const openModal = () => sestIsModalOpen(true);
+  const closeModal = () => sestIsModalOpen(false);
 
   const handleButtonClick = () => {
     const fileInput = document.getElementById("camera");
@@ -46,8 +45,13 @@ const HomePage = () => {
         accept="image/*"
         style={{ display: "none" }}
       />
-      <button onClick={() => setModalOpen(true)}>모달창 열기</button>
-      <LangModal isOpen={modalOpen} onClose={handleCloseModal} />
+      {/*<button onClick={() => setModalOpen(true)}>모달창 열기</button>*/}
+      {/*<LangModal isOpen={modalOpen} onClose={handleCloseModal}>
+        <h2 className={styles.LangTitle}>학습 언어</h2>
+        <span className={styles.LangDesc}>
+          요약을 원하는 언어를 선택해 주세요
+        </span>
+  </LangModal>*/}
       <Bottom />
     </>
   );
