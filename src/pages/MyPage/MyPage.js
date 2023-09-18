@@ -9,8 +9,8 @@ import Tier from "../../assets/icons/tier.png";
 import Question from "../../assets/icons/question.png";
 import Logout from "../../assets/icons/logout.png";
 //modal
-import LangModal from "../../Modal/LangModal/LangModal";
 import Abil from "../../Modal/Ability/Ability";
+import LangModal from "../../Modal/LangModal/LangModal";
 //component
 import Bottom from "../../component/Bottom/Bottom";
 //library
@@ -27,7 +27,6 @@ const MyPage = () => {
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
 
-  //내 실력
   const [isModalOpen2, sestIsModalOpen2] = useState(false);
   const openModal2 = () => sestIsModalOpen(true);
   const closeModal2 = () => sestIsModalOpen(false);
@@ -71,8 +70,12 @@ const MyPage = () => {
         const errorMessage = error.response.data.message;
         if (statusCode === 401) {
           // 400 상태 코드 처리
-          console.alert("토큰 재발급 필요");
-          window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
+          if (errorMessage === "there is no refreshToken in redis") {
+            alert("세션이 만료되었습니다. 다시 로그인해 주세요");
+            navigate("/login");
+          } else if (errorMessage === "your token has been expired") {
+            console.error("토큰 재발급 필요");
+          }
         } else if (statusCode === 404) {
           if (errorMessage === "No Account") {
           }
@@ -118,8 +121,12 @@ const MyPage = () => {
         const errorMessage = error.response.data.message;
         if (statusCode === 401) {
           // 400 상태 코드 처리
-          console.alert("토큰 재발급 필요");
-          window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
+          if (errorMessage === "there is no refreshToken in redis") {
+            alert("세션이 만료되었습니다. 다시 로그인해 주세요");
+            navigate("/login");
+          } else if (errorMessage === "your token has been expired") {
+            console.error("토큰 재발급 필요");
+          }
         } else if (statusCode === 404) {
           if (errorMessage === "No Account") {
           }
@@ -166,7 +173,7 @@ const MyPage = () => {
             />
             <p className={styles.section_desc}>최근 본 자료</p>
           </button>
-          <button type="button" onClick={openModal2}>
+          <button type="button" onClick={openModal}>
             <img className={styles.section_img} src={C} alt="학습 언어 수정" />
             <p className={styles.section_desc}>학습 언어 수정</p>
           </button>
@@ -211,7 +218,11 @@ const MyPage = () => {
       <aside className={styles.bottom}>
         <ul className={styles.info_lists}>
           <li className={styles.info_list}>
-            <button type="button" className={styles.info_link}>
+            <button
+              type="button"
+              className={styles.info_link}
+              onClick={openModal2}
+            >
               <div className={styles.info_item}>
                 <img className={styles.info_img} src={Tier} alt="" />
                 <span className={styles.info_desc}>내 실력 변경</span>
@@ -235,15 +246,14 @@ const MyPage = () => {
             </a>
           </li>
         </ul>
-        <div
-          className={`${styles.MyPage_Abil} ${
-            isModalOpen2 ? styles.modal_open : ""
-          }`}
-          style={{ display: isModalOpen2 ? "block" : "none" }}
-        >
-          <Abil isOpen={isModalOpen2} onClose={closeModal2}></Abil>
-        </div>
       </aside>
+      <div
+        className={`${styles.MyPage_Abil} ${
+          isModalOpen2 ? styles.modal_open : ""
+        }`}
+      >
+        <Abil isOpen={isModalOpen2} onClose={closeModal2}></Abil>
+      </div>
       <Bottom />
     </Fragment>
   );
