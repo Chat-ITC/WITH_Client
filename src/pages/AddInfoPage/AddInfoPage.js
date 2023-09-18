@@ -39,8 +39,8 @@ const AddInfoPage = () => {
   const [userVal2, setuserVal2] = useState('');
   const [x, setX] = useState({});
   const handleClickRadioButton1 = (e) => {
-   const value = e.target.value;
-   setuserVal1(value);
+    const value = e.target.value;
+    setuserVal1(value);
   };
   const [y, setY] = useState({});
   const handleClickRadioButton2 = (e) => {
@@ -49,18 +49,18 @@ const AddInfoPage = () => {
   };
 
   //데이터묶기
-  
+
   const handleNextPage = () => {
     const addUserInfo = {
-      name : location.state.data.name,
-      email : location.state.data.email,
-      loginProvider : location.state.data.loginProvider,
-      snsId : location.state.data.snsId,
+      name: location.state.data.name,
+      email: location.state.data.email,
+      loginProvider: location.state.data.loginProvider,
+      snsId: location.state.data.snsId,
       user_level: userVal1,
       skill_language: userVal2
     }
     sendJSONDataToSpringBoot(addUserInfo);
-    
+
     navigate("/login");
   };
 
@@ -70,7 +70,26 @@ const AddInfoPage = () => {
       const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/member/signup`, userprop);
       console.log(response.data); // 서버로부터 받은 응답 데이터 처리
     } catch (error) {
-      console.error(error); // 에러 처리
+      const statusCode = error.response.status;
+      const errorMessage = error.response.data.message;
+      if (statusCode === 401) {
+        // 400 상태 코드 처리
+        if (errorMessage === 'there is no refreshToken in redis') {
+          alert('세션이 만료되었습니다. 다시 로그인해 주세요')
+          navigate("/login");
+        } else if (errorMessage === 'your token has been expired') {
+          console.log("토큰 재발급 필요");
+          console.error('토큰 재발급 필요');
+        }
+      }
+      else if (statusCode === 404) {
+        console.log("404에러");  
+      }
+      else if (statusCode === 409) {
+        alert('세션이 만료되었습니다. 다시 로그인해 주세요')
+        navigate("/login");
+      }
+
     }
   };
 
@@ -193,9 +212,9 @@ const AddInfoPage = () => {
             <h1 className={styles.title}>자신의 실력을 선택하세요</h1>
             <div className={styles.ability}>
               <div>
-                <input 
-                name="tier"
-                type="radio"
+                <input
+                  name="tier"
+                  type="radio"
                   value="입문자"
                   cheched={x === '1'}
                   onChange={handleClickRadioButton1} />
@@ -205,7 +224,7 @@ const AddInfoPage = () => {
 
                 <label>
                   <input
-                  name="tier"
+                    name="tier"
                     type="radio"
                     value="초보자"
                     cheched={x === '2'}
@@ -252,9 +271,9 @@ const AddInfoPage = () => {
             {/* 프로그래밍 언어 선택 부분 */}
             <h2 className={styles.title}>배우고 싶은 언어를 선택하세요</h2>
             <div>
-              <input 
-               name="lan"
-              type="radio"
+              <input
+                name="lan"
+                type="radio"
                 value="상관없음"
                 cheched={y === '1'}
                 onChange={handleClickRadioButton2} />
@@ -264,7 +283,7 @@ const AddInfoPage = () => {
 
               <label>
                 <input
-                name="lan"
+                  name="lan"
                   type="radio"
                   value="C"
                   cheched={y === '2'}
