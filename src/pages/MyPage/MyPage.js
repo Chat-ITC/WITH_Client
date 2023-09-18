@@ -38,19 +38,6 @@ const MyPage = () => {
   //데이터 받아온 후 이름과 이메일 표기
   axios.defaults.withCredentials = true;
 
-  const [myVariable, setMyVariable] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // 31초마다 myVariable 값을 변경
-      setMyVariable(prevValue => prevValue + 1);
-    }, 31000); // 31초마다 실행하려면 31000 밀리초(31 * 1000)를 사용합니다.
-
-    // 컴포넌트가 언마운트될 때 setInterval을 정리(clear)합니다.
-    return () => clearInterval(interval);
-  }, []);
-
-
   const authReq = async () => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
@@ -72,10 +59,7 @@ const MyPage = () => {
     return response;
   };
   //정보 받아오기
-  
   useEffect(() => {
-    
-    
     // authReq 함수를 호출하고 데이터를 받아옵니다.
     authReq()
       .then((response) => {
@@ -106,28 +90,31 @@ const MyPage = () => {
             .then((postResponse) => {
               
               // POST 요청 성공 처리
-              
-
-              // 여기에서 필요한 작업을 수행할 수 있습니다.
-            })
-            .catch((postError) => {
               localStorage.removeItem("accessToken");
               localStorage.removeItem("refreshToken");
 
-              const accessToken = postError.headers["accesstoken"];
-              const refreshToken = postError.headers["refreshtoken"];
+              const accessToken = postResponse.headers["accesstoken"];
+              const refreshToken = postResponse.headers["refreshtoken"];
 
-              console.log("POST request successful:", postError.data);
+              console.log("POST request successful:", postResponse.data);
 
               localStorage.setItem("accessToken", accessToken);
               console.log("최종accessToken값: ", accessToken);
               localStorage.setItem("refreshToken", refreshToken);
               console.log("최종refreshToken값: ", refreshToken);
               
+
+              // 여기에서 필요한 작업을 수행할 수 있습니다.
+            })
+            .catch((postError) => {
+              // POST 요청 오류 처리
+              console.error("Error sending POST request:", postError);
+
+
             });
         }
       });
-  },[myVariable]);
+  },[]);
 
   //내 실력 변경(일단 입문자만)
   const handleChangeTeir = (props) => {
