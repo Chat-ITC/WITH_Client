@@ -88,29 +88,26 @@ const MyPage = () => {
             },
           })
             .then((postResponse) => {
-              setRef(postResponse);
+              
               // POST 요청 성공 처리
+              
+
+              // 여기에서 필요한 작업을 수행할 수 있습니다.
+            })
+            .catch((postError) => {
               localStorage.removeItem("accessToken");
               localStorage.removeItem("refreshToken");
 
-              const accessToken = postResponse.headers["accesstoken"];
-              const refreshToken = postResponse.headers["refreshtoken"];
+              const accessToken = postError.headers["accesstoken"];
+              const refreshToken = postError.headers["refreshtoken"];
 
-              console.log("POST request successful:", postResponse.data);
+              console.log("POST request successful:", postError.data);
 
               localStorage.setItem("accessToken", accessToken);
               console.log("최종accessToken값: ", accessToken);
               localStorage.setItem("refreshToken", refreshToken);
               console.log("최종refreshToken값: ", refreshToken);
-
-
-              // 여기에서 필요한 작업을 수행할 수 있습니다.
-            })
-            .catch((postError) => {
-              // POST 요청 오류 처리
-              console.error("Error sending POST request:", postError);
-
-
+              setRef(refreshToken);
             });
         }
       });
