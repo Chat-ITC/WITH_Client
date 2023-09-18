@@ -39,7 +39,7 @@ const MyPage = () => {
     }
   
     const response = await axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/users/auth`,
+      `${process.env.REACT_APP_SERVER_URL}/member/update`,
       {
         headers: {
           Authorization: accessToken,
