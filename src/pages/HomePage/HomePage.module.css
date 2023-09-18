@@ -168,6 +168,7 @@ SelectLanguage::after {
   height: 177px;
   z-index: 2;
   position: fixed;
+
   bottom: 0;
   border: 1px solid #bababa;
   border-top-left-radius: 6px;
