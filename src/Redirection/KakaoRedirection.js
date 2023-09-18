@@ -38,8 +38,8 @@ const KakaoRedirection = () => {
     }
     else if (statusCode === 404) {
       console.log("404에러");
-      console.log(errorHeaders);
-      if (errorHeaders === 'no') {
+      console.log(errorHeaders.validation);
+      if (errorHeaders.validation === 'no') {
         console.log("No Account");
         navigate("/AddInfoPage", { state: { data: data } });
       }
