@@ -89,7 +89,7 @@ const AddInfoPage = () => {
       .catch((error) => {
         const statusCode = error.response.status;
         if (statusCode === 401) {
-          console.alert('토큰 재발급 필요');
+          alert('토큰 재발급 필요');
           window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
         }
         else if (statusCode === 404) {
