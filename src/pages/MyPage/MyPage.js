@@ -86,15 +86,6 @@ const MyPage = () => {
     return response;
   };
 
-  useEffect(() => {
-    const req =authReq();
-
-    console.log("이름", req.data.name);
-    console.log("이메일", req.data.email);
-    // setName(req.data.name);
-    // setEmail(req.data.email);
-  }, [])
-
   const changeTeir = () => {
     const req = authReqTeir();
     console.log("req이게 뭘까?", req);
