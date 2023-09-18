@@ -92,8 +92,8 @@ const MyPage = () => {
               localStorage.removeItem("accessToken");
               localStorage.removeItem("refreshToken");
 
-              const accessToken = postResponse.headers["accesstoken"];
-              const refreshToken = postResponse.headers["refreshtoken"];
+              const accessToken = postResponse.headers["accessToken"];
+              const refreshToken = postResponse.headers["refreshToken"];
 
               console.log("POST request successful:", postResponse.data);
 
@@ -109,8 +109,8 @@ const MyPage = () => {
               localStorage.removeItem("accessToken");
               localStorage.removeItem("refreshToken");
 
-              const accessToken = postError.headers["accesstoken"];
-              const refreshToken = postError.headers["refreshtoken"];
+              const accessToken = postError.headers["accessToken"];
+              const refreshToken = postError.headers["refreshToken"];
 
               console.log("POST request successful:", postError.data);
 
