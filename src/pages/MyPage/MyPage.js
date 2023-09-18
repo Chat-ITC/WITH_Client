@@ -50,13 +50,6 @@ const MyPage = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return (
-    <div>
-      <h1>변수 값: {myVariable}</h1>
-    </div>
-  );
-}
-
 
   const authReq = async () => {
     const accessToken = localStorage.getItem("accessToken");
