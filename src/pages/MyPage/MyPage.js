@@ -112,7 +112,7 @@ const MyPage = () => {
             });
         }
       });
-  }, []);
+  });
 
   //내 실력 변경(일단 입문자만)
   const handleChangeTeir = (props) => {
