@@ -1,6 +1,4 @@
-//css
 import Abil from "./Ability.module.css";
-//library
 import React, { useState } from "react";
 
 const AbilModal = ({ isOpen, onClose }) => {
@@ -24,7 +22,10 @@ const AbilModal = ({ isOpen, onClose }) => {
             <li key={index}>
               <button
                 className={Abil.HomeAbilBtn}
-                onClick={() => handleAbilityClick(ability)}
+                onClick={() => {
+                  handleAbilityClick(ability);
+                  onClose(); // 버튼 클릭 후 모달 창 닫기
+                }}
               >
                 {ability}
               </button>

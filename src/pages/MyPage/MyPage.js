@@ -28,8 +28,8 @@ const MyPage = () => {
   const closeModal = () => sestIsModalOpen(false);
 
   const [isModalOpen2, sestIsModalOpen2] = useState(false);
-  const openModal2 = () => sestIsModalOpen(true);
-  const closeModal2 = () => sestIsModalOpen(false);
+  const openModal2 = () => sestIsModalOpen2(true);
+  const closeModal2 = () => sestIsModalOpen2(false);
 
   const [userInfo, setUserInfo] = useState(0);
   const [userTier, setUserTier] = useState(0);
@@ -188,44 +188,15 @@ const MyPage = () => {
         <LangModal isOpen={isModalOpen} onClose={closeModal}></LangModal>
       </div>
 
-      {/* <div
-        className={`${styles.modal_block} ${
-          isModalOpen ? styles.modal_open : ""
-        }`}
-        style={{ display: isModalOpen ? "block" : "none" }}
-      >
-        <Modal isOpen={isModalOpen} closeModal={closeModal}>
-          <p className={styles.modal_header}>
-            내 실력 변경-현재 실력: {userInfo.user_level}
-          </p>
-          <div>
-          <button className={styles.modal_ability} type="button" onClick={() => handleChangeTeir('입문자')}>
-              입문자
-            </button>
-            <button className={styles.modal_ability} type="button" onClick={() => handleChangeTeir('초보자')}>
-              초보자
-            </button>
-            <button className={styles.modal_ability} type="button" onClick={() => handleChangeTeir('중급자')}>
-              중급자
-            </button>
-            <button className={styles.modal_ability} type="button" onClick={() => handleChangeTeir('상급자')}>
-              상급자
-            </button>
-          </div>
-        </Modal>
-      </div> */}
-
       <aside className={styles.bottom}>
         <ul className={styles.info_lists}>
           <li className={styles.info_list}>
-            <button
-              type="button"
-              className={styles.info_link}
-              onClick={openModal2}
-            >
+            <button type="button" className={styles.info_link}>
               <div className={styles.info_item}>
                 <img className={styles.info_img} src={Tier} alt="" />
-                <span className={styles.info_desc}>내 실력 변경</span>
+                <span className={styles.info_desc} onClick={openModal2}>
+                  내 실력 변경
+                </span>
               </div>
             </button>
           </li>
@@ -251,8 +222,9 @@ const MyPage = () => {
         className={`${styles.MyPage_Abil} ${
           isModalOpen2 ? styles.modal_open : ""
         }`}
+        style={{ display: isModalOpen2 ? "block" : "none" }}
       >
-        <Abil isOpen={isModalOpen2} onClose={closeModal2}></Abil>
+        <Abil isOpen={isModalOpen2} closeModal={closeModal2}></Abil>
       </div>
       <Bottom />
     </Fragment>
