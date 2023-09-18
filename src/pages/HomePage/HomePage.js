@@ -37,11 +37,28 @@ const HomePage = () => {
   const closeModal3 = () => sestIsModalOpen3(false);
 
   //ScrapItem
-  const [searchQuery, setSearchQuery] = useState("");
+  const [scraps, setScraps] = useState([]);
 
-  const handleSearch = (e) => {
-    setSearchQuery(e.target.value);
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("백엔드 API 주소");
+        setScraps(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    // 초기 데이터 가져오기
+    fetchData();
+
+    // 일정 간격으로 데이터 업데이트
+    const intervalId = setInterval(fetchData, 5000); // 5초마다 호출
+
+    return () => {
+      clearInterval(intervalId); // 컴포넌트 언마운트 시 인터벌 제거
+    };
+  }, []);
 
   const handleButtonClick = () => {
     const fileInput = document.getElementById("camera");
@@ -78,6 +95,17 @@ const HomePage = () => {
         />
       </div>
       <hr className={styles.Homehr} />
+
+      {/*한번 스크랩 아이템 작성해봄*/}
+      <div className={styles.HomePage}>
+        {scraps.map((scrap) => (
+          <div className={styles.ScrapItem} key={scrap.id}>
+            <h2 className={styles.Title}>{scrap.title}</h2>
+            <p className={styles.Content}>{scrap.content}</p>
+            <p className={styles.Timestamp}>올린 시간: {scrap.timestamp}</p>
+          </div>
+        ))}
+      </div>
       <div
         className={`${styles.HomeScrab} ${
           isModalOpen3 ? styles.modal_open : ""
