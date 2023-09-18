@@ -10,7 +10,7 @@ const AbilModal = ({ isOpen, onClose }) => {
 
   const handleAbilityClick = (ability) => {
     if (onClose && typeof onClose === "function") {
-      setSelectedAbility(ability); // 선택한 언어 설정
+      setSelectedability(ability); // 선택한 언어 설정
       onClose(); // 모달 창 닫기
       // 선택한 언어에 대한 추가적인 동작 수행 가능
     }
@@ -20,7 +20,7 @@ const AbilModal = ({ isOpen, onClose }) => {
     <div className={`modal ${isOpen ? "open" : ""}`}>
       <div className="modal-content">
         <h2 className={Abil.MyAbilTitle}>학습 언어</h2>
-        <span className={Lang.MyAbilDesc}>내 실력 변경</span>
+        <span className={Abil.MyAbilDesc}>내 실력 변경</span>
         <ul className="ability-list">
           {ability.map((ability, index) => (
             <li key={index}>

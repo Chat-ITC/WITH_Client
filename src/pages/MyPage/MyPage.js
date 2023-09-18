@@ -10,6 +10,7 @@ import Question from "../../assets/icons/question.png";
 import Logout from "../../assets/icons/logout.png";
 //modal
 import LangModal from "../../Modal/LangModal/LangModal";
+import Abil from "../../Modal/Ability/Ability";
 //component
 import Bottom from "../../component/Bottom/Bottom";
 //library
@@ -25,6 +26,11 @@ const MyPage = () => {
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
+
+  //내 실력
+  const [isModalOpen2, sestIsModalOpen2] = useState(false);
+  const openModal2 = () => sestIsModalOpen(true);
+  const closeModal2 = () => sestIsModalOpen(false);
 
   const [userInfo, setUserInfo] = useState(0);
   const [userTier, setUserTier] = useState(0);
@@ -168,7 +174,7 @@ const MyPage = () => {
             />
             <p className={styles.section_desc}>최근 본 자료</p>
           </button>
-          <button type="button" onClick={openModal}>
+          <button type="button" onClick={openModal2}>
             <img className={styles.section_img} src={C} alt="학습 언어 수정" />
             <p className={styles.section_desc}>학습 언어 수정</p>
           </button>
@@ -237,6 +243,14 @@ const MyPage = () => {
             </a>
           </li>
         </ul>
+        <div
+          className={`${styles.MyPage_Abil} ${
+            isModalOpen2 ? styles.modal_open : ""
+          }`}
+          style={{ display: isModalOpen2 ? "block" : "none" }}
+        >
+          <Abil isOpen={isModalOpen2} onClose={closeModal2}></Abil>
+        </div>
       </aside>
       <Bottom />
     </Fragment>
