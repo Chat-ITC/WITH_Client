@@ -46,8 +46,11 @@ const NaverRedirection = () => {
   }
   if (data) {
     const accessToken = data.headers["accesstoken"];
+    const refreshToken = data.headers["refreshtoken"];
     console.log(accessToken);
+    console.log(refreshToken);
     localStorage.setItem("accessToken", accessToken);
+    localStorage.setItem("refreshToken", refreshToken);
 
     navigate("/HomePage");
   }
