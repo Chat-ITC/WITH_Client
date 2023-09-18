@@ -173,7 +173,7 @@ const MyPage = () => {
 
   return (
     <Fragment>
-      <header className={styles.main_header}>
+      {/* <header className={styles.main_header}>
         <div className={styles.main_top}>
           <h1 className={styles.main_title}>
             안녕하세요 <br /> {userInfo.name}님
@@ -249,6 +249,7 @@ const MyPage = () => {
       >
         <Abil isOpen={isModalOpen2} onClose={()=>closeModal2}></Abil>
       </div>
+       */}
       <Bottom />
     </Fragment>
   );
