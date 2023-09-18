@@ -28,9 +28,10 @@ const MyPage = () => {
 
   const authReq = async () => {
     axios.defaults.withCredentials = true;
+    console.log("실행 몇번?")
   
     const accessToken = localStorage.getItem('accessToken');
-  
+    console.log("accessToken이게 뭘까?", accessToken);
     if (accessToken) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
     } else {
@@ -47,13 +48,13 @@ const MyPage = () => {
         },
       }
     );
-  
+    console.log("response이게 뭘까?", response);
     return response;
   };
   //jwt테스트
   useEffect(() => {
     const req =authReq();
-    console.log(req);
+    console.log("req이게 뭘까?", req);
     
     // const token = localStorage.getItem("accessToken")
     // console.log(token);
