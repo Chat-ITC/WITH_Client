@@ -21,15 +21,16 @@ const MyPage = () => {
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
-  const [data, setData] = useState();
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+
+  //데이터 받아온 후 이름과 이메일 표기
   const authReq = async () => {
     axios.defaults.withCredentials = true;
   
     const accessToken = localStorage.getItem('accessToken');
-    console.log("accessToken이게 뭘까?", accessToken);
     if (accessToken) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-      console.log(`Bearer ${accessToken}`);
     } else {
       axios.defaults.headers.common['Authorization'] = null;
     }
@@ -44,49 +45,63 @@ const MyPage = () => {
         },
       }
     );
-    console.log("response이게 뭘까?", response);
     return response;
   };
-  //jwt테스트
+
   useEffect(() => {
     const req =authReq();
     console.log("req이게 뭘까?", req);
-    
-    // const token = localStorage.getItem("accessToken")
-    // console.log(token);
-    // fetch(`${process.env.REACT_APP_SERVER_URL}/member/update`, {
-    //   method: 'GET', // GET은 기본값이므로 안써줘도 작동한다.
-    //   headers: { authorization: token } //토큰형식은 백엔드와 키값을 맞춰야합니다.
-      
-    // }) // 데이터를 받을때는 보내줄 데이터가 없기때문에 토큰만 전해준다! 
-    // .then(function () { // 성공
-    //   // 원하는 페이지 이동 (예를 들면 마이페이지 등)
-    //   // window.location.href = "/HomePage";
-    //   console.log("성공");
-    // })  
-    // .then(res => res.json())
-    //   // 서버에서 전송받은데이터를 자바스크립트의 형식으로 변경해준다고 생각해주세용
-    //   .then(data => setData(data))
-    //   // 우리가 페이지에서 사용 할 수 있도록 state훅에 저장~
-    //   .catch(error => {
-    //     // 에러 처리
-    //     console.error(error);
-    //     console.error("실패");
-    //   })
-    //   console.log(data);
-    
+    console.log("이름", req.data.name);
+    console.log("이메일", req.data.email);
+    setName(req.data.name);
+    setEmail(req.data.email);
   }, [])
 
- 
 
+
+  //내 실력 변경(일단 입문자만)
+  const authReqTeir = async () => {
+    axios.defaults.withCredentials = true;
   
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+    } else {
+      axios.defaults.headers.common['Authorization'] = null;
+    }
 
-  //이제 가져온 데이터 처리.
+    const response = await axios.patch(
+      `${process.env.REACT_APP_SERVER_URL}/member/update/skill`,
+      {
+        fav_language : "입문자"
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    return response;
+  };
 
+  useEffect(() => {
+    const req =authReq();
 
+    console.log("이름", req.data.name);
+    console.log("이메일", req.data.email);
+    setName(req.data.name);
+    setEmail(req.data.email);
+  }, [])
+
+  const changeTeir = () => {
+    const req = authReqTeir();
+    console.log("req이게 뭘까?", req);
+    console.log("내 실력", req.data.skill);
   
+  }
 
-  
 
 
 
@@ -104,10 +119,10 @@ const MyPage = () => {
       <header className={styles.main_header}>
         <div className={styles.main_top}>
           <h1 className={styles.main_title}>
-            안녕하세요 <br /> 이녀석님
+            안녕하세요 <br /> {name}님
           </h1>
 
-          <p className={styles.main_email}>dlwltjd0505@naver.com</p>
+          <p className={styles.main_email}>{email}</p>
         </div>
         <span className={styles.main_account}>계정 관리</span>
       </header>
@@ -141,7 +156,7 @@ const MyPage = () => {
         <Modal isOpen={isModalOpen} closeModal={closeModal}>
           <p className={styles.modal_header}>내 실력 변경</p>
           <div>
-            <button className={styles.modal_ability} type="button" onClick={{}}>
+            <button className={styles.modal_ability} type="button" onClick={{changeTeir}}>
               입문자
             </button>
             <button className={styles.modal_ability} type="button" onClick={{}}>
