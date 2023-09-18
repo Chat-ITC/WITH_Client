@@ -16,7 +16,6 @@ import { useState } from "react";
 
 const HomePage = () => {
   const [isModalOpen, sestIsModalOpen] = useState(false);
-
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
 
@@ -71,16 +70,26 @@ const HomePage = () => {
       </div>
       <hr className={styles.Homehr} />
       <div
-        className={`${styles.HomePage_Scrab} ${
+        className={`${styles.HomeScrab} ${
           isModalOpen3 ? styles.modal_open : ""
         }`}
         style={{ display: isModalOpen3 ? "block" : "none" }}
       >
-        <button type="button">스크랩</button>
+        <button type="button" onClick="openModal3">
+          스크랩
+        </button>
         <Scrab isOpen={isModalOpen3} onClose={closeModal3}>
-          <div>
-            <button className={styles.ScrabBtn}>스크랩</button>
-            <button className={styles.ScrabBtn}>최근 본 내역</button>
+          <div className={Scrab.ScrabBtns}>
+            <button
+              type="button"
+              className={styles.ScrabBtn}
+              onClick="closeModal3"
+            >
+              스크랩
+            </button>
+            <button type="button" className={styles.ScrabBtn}>
+              최근 본 항목
+            </button>
           </div>
         </Scrab>
       </div>
