@@ -28,7 +28,7 @@ const MyPage = () => {
   useEffect(() => {
     const token = localStorage.getItem("accessToken")
     console.log(token);
-    fetch(`${process.env.REACT_APP_SERVER_URL}/작성해야함`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/member/update`, {
       method: 'GET', // GET은 기본값이므로 안써줘도 작동한다.
       headers: { authorization: token } //토큰형식은 백엔드와 키값을 맞춰야합니다.
       
