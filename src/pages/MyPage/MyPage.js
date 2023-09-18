@@ -19,7 +19,6 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from "react";
-axios.defaults.withCredentials = true;
 
 const MyPage = () => {
   const navigate = useNavigate();
@@ -63,25 +62,47 @@ const MyPage = () => {
     // authReq 함수를 호출하고 데이터를 받아옵니다.
     authReq()
       .then((response) => {
-        const { accessToken } = response.data;
-        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
         // 데이터를 성공적으로 받아왔을 때 처리
         setUserInfo(response.data);
       })
       .catch((error) => {
+
+        console.error("Error fetching data:", error);
         const statusCode = error.response.status;
-        const errorMessage = error.response.data.message;
         if (statusCode === 401) {
-          alert('토큰 재발급 필요');
-          window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
-        }
-        else if (statusCode === 404) {
-          if (errorMessage === "No Account") {
+          console.log("401에러");
+          
+          const refreshToken = localStorage.getItem("refreshToken");
+          if (refreshToken) {
+            axios.defaults.headers.common["Authorization"] = `Bearer ${refreshToken}`;
+          } else {
+            axios.defaults.headers.common["Authorization"] = null;
           }
-        }
-        else if (statusCode === 409) {
-          alert("세션이 만료되었습니다. 다시 로그인해 주세요");
-          navigate("/login");
+
+          
+          console.log("refreshToken: ", refreshToken);
+          // 서버에 POST 요청 보내기
+          const postData = {};
+
+          axios.post(`${process.env.REACT_APP_SERVER_URL}/member/refreshToken`, postData, {
+            headers: {
+              refreshToken: `${refreshToken}`,
+              "Access-Control-Allow-Origin": "*",
+              "Content-Type": "application/json",
+            },
+          })
+            .then((postResponse) => {
+              // POST 요청 성공 처리
+              console.log("POST request successful:", postResponse.data);
+
+              // 여기에서 필요한 작업을 수행할 수 있습니다.
+            })
+            .catch((postError) => {
+              // POST 요청 오류 처리
+              console.error("Error sending POST request:", postError);
+
+
+            });
         }
       });
   }, []);
