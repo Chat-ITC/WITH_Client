@@ -70,17 +70,17 @@ const MyPage = () => {
   }, []);
 
   //내 실력 변경(일단 입문자만)
-  const handleChangeTeir = () => {
-    const accessToken = localStorage.getItem("accessToken");
+  const handleChangeTeir = (props) => {
+    const accessToken = localStorage.getItem('accessToken');
     if (accessToken) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+      axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
     } else {
-      axios.defaults.headers.common["Authorization"] = null;
+      axios.defaults.headers.common['Authorization'] = null;
     }
 
     const newTierData = {
-      user_level: "입문자",
-    }; // 나중에 변수로 바꾸기 임시적으로 하드코딩.
+      user_level: props
+    };  // 나중에 변수로 바꾸기 임시적으로 하드코딩.
 
     axios
       .patch(
@@ -173,34 +173,19 @@ const MyPage = () => {
             내 실력 변경-현재 실력: {userInfo.user_level}
           </p>
           <div>
-            <button
-              className={styles.modal_ability}
-              type="button"
-              onClick={handleChangeTeir}
-            >
+            <button className={styles.modal_ability} type="button" onClick={handleChangeTeir('입문자')}>
               입문자
             </button>
-            <button
-              className={styles.modal_ability}
-              type="button"
-              onClick={closeModal}
-            >
+            <button className={styles.modal_ability} type="button" onClick={handleChangeTeir('초보자')}>
               초보자
             </button>
-            <button
-              className={styles.modal_ability}
-              type="button"
-              onClick={closeModal}
-            >
+            <button className={styles.modal_ability} type="button" onClick={handleChangeTeir('중급자')}>
               중급자
             </button>
-            <button
-              className={styles.modal_ability}
-              type="button"
-              onClick={closeModal}
-            >
+            <button className={styles.modal_ability} type="button" onClick={handleChangeTeir('상급자')}>
               상급자
             </button>
+
           </div>
         </Modal>
       </div>
