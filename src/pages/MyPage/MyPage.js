@@ -19,6 +19,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from "react";
+axios.defaults.withCredentials = true;
 
 const MyPage = () => {
   const navigate = useNavigate();
@@ -62,6 +63,8 @@ const MyPage = () => {
     // authReq 함수를 호출하고 데이터를 받아옵니다.
     authReq()
       .then((response) => {
+        const { accessToken } = response.data;
+        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
         // 데이터를 성공적으로 받아왔을 때 처리
         setUserInfo(response.data);
       })
