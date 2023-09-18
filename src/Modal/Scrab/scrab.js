@@ -1,6 +1,6 @@
 import styles from "./scrab.module.css";
 
-function Modal({ isOpen, children, closeModal }) {
+function Scrab({ isOpen, children, closeModal }) {
   return (
     <div
       className={styles.ModalScrab}

@@ -7,6 +7,8 @@ import Becareful from "../../assets/AddInfoIcons/Becareful.png";
 
 import { useState } from "react";
 import SelectModal from "../../Modal/SelectModal/SelectModal";
+import LangModal from "../../Modal/LangModal/LangModal";
+import Scrab from "../../Modal/Scrab/scrab";
 const HomePage = () => {
   const [isModalOpen, sestIsModalOpen] = useState(false);
 
@@ -46,6 +48,10 @@ const HomePage = () => {
           accept="image/*"
           style={{ display: "none" }}
         />
+      </div>
+
+      <div>
+        <Scrab></Scrab>
       </div>
 
       <div className={styles.HomeMainModal}>

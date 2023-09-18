@@ -43,7 +43,6 @@
 }
 
 .camera_content {
-  background-color: aqua;
   border: 1px solid #bababa;
   border-radius: 4px;
   width: 80px;
@@ -56,10 +55,6 @@
 
 .camera_content_Btn {
   margin-bottom: 4px;
-}
-
-.camera_border {
-  background-color: aqua;
 }
 
 .HomeMainModal {
