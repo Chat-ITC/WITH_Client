@@ -30,6 +30,11 @@ const HomePage = () => {
   const openModal2 = () => sestIsModalOpen2(true);
   const closeModal2 = () => sestIsModalOpen2(false);
 
+  //스크랩
+  const [isModalOpen3, sestIsModalOpen3] = useState(false);
+  const openModal3 = () => sestIsModalOpen3(true);
+  const closeModal3 = () => sestIsModalOpen3(false);
+
   const handleButtonClick = () => {
     const fileInput = document.getElementById("camera");
     if (fileInput) {
@@ -64,11 +69,21 @@ const HomePage = () => {
           style={{ display: "none" }}
         />
       </div>
-
-      <div>
-        <Scrab></Scrab>
+      <hr className={styles.Homehr} />
+      <div
+        className={`${styles.HomePage_Scrab} ${
+          isModalOpen3 ? styles.modal_open : ""
+        }`}
+        style={{ display: isModalOpen3 ? "block" : "none" }}
+      >
+        <button type="button">스크랩</button>
+        <Scrab isOpen={isModalOpen3} onClose={closeModal3}>
+          <div>
+            <button className={styles.ScrabBtn}>스크랩</button>
+            <button className={styles.ScrabBtn}>최근 본 내역</button>
+          </div>
+        </Scrab>
       </div>
-
       <div className={styles.HomeMainModal}>
         <button type="button" onClick={openModal}>
           open
@@ -115,7 +130,6 @@ const HomePage = () => {
           </div>
         </SelectModal>
       </div>
-
       <div
         className={`${styles.HomePage_Lang} ${
           isModalOpen1 ? styles.modal_open : ""
@@ -130,6 +144,7 @@ const HomePage = () => {
         className={`${styles.HomePage_Sub} ${
           isModalOpen2 ? styles.modal_open : ""
         }`}
+        style={{ display: isModalOpen2 ? "block" : "none" }}
       >
         <SubModal isOpen={isModalOpen2} onClose={closeModal2}></SubModal>
       </div>

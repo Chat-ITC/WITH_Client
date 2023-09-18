@@ -16,8 +16,8 @@ const AbilModal = ({ isOpen, onClose }) => {
 
   return (
     <div className={`modal ${isOpen ? "open" : ""}`}>
-      <div className="modal-content">
-        <ul className="ability-list">
+      <div className={Abil.Abil_title}>
+        <ul className={Abil.Abil_lists}>
           {abilities.map((ability, index) => (
             <li key={index}>
               <button

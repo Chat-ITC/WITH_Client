@@ -57,6 +57,11 @@
   margin-bottom: 4px;
 }
 
+.Homehr {
+  position: relative;
+  top: 120px;
+}
+
 .HomeMainModal {
   background-color: #fff;
   position: relative;

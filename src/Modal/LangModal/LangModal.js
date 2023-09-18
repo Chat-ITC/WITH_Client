@@ -34,7 +34,7 @@ const LangModal = ({ isOpen, onClose }) => {
 
   return (
     <div className={`modal ${isOpen ? "open" : ""}`}>
-      <div className="modal-content">
+      <div className={Lang.HomeSub}>
         <h2 className={Lang.HomeLangTitle}>학습 언어</h2>
         <span className={Lang.HomeLangDesc}>
           요약을 원하는 언어를 선택해 주세요

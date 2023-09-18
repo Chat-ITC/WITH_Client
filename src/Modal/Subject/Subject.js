@@ -11,24 +11,26 @@ const SubModal = ({ isOpen, onClose }) => {
 
   const handleSubjectClick = (subject) => {
     if (onClose && typeof onClose === "function") {
-      setSelectedSubject(subject); // 선택한 언어 설정
+      setSelectedSubject(subject);
       onClose(); // 모달 창 닫기
-      // 선택한 언어에 대한 추가적인 동작 수행 가능
     }
   };
 
   return (
     <div className={`modal ${isOpen ? "open" : ""}`}>
-      <div className="modal-content">
+      <div className={Sub.Sub_content}>
         <h2 className={Sub.HomeSubTitle}>주제</h2>
-        <ul className="subject-list">
-          {subjects.map((Subject, index) => (
+        <ul className={Sub.sub_lists}>
+          {subjects.map((subject, index) => (
             <li key={index}>
               <button
                 className={Sub.HomeSubBtn}
-                onClick={() => handleSubjectClick(Subject)}
+                onClick={() => {
+                  handleSubjectClick(subject);
+                  onClose(); // 버튼 클릭 후 모달 창 닫기
+                }}
               >
-                {Subject}
+                {subject}
               </button>
             </li>
           ))}
