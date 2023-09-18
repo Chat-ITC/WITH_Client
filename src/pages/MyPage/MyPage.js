@@ -89,7 +89,6 @@ const MyPage = () => {
           })
             .then((postResponse) => {
               
-              // POST 요청 성공 처리
               localStorage.removeItem("accessToken");
               localStorage.removeItem("refreshToken");
 
@@ -102,7 +101,7 @@ const MyPage = () => {
               console.log("최종accessToken값: ", accessToken);
               localStorage.setItem("refreshToken", refreshToken);
               console.log("최종refreshToken값: ", refreshToken);
-              
+              setRef(refreshToken);
 
               // 여기에서 필요한 작업을 수행할 수 있습니다.
             })
@@ -114,7 +113,7 @@ const MyPage = () => {
             });
         }
       });
-  },[]);
+  },[ref]);
 
   //내 실력 변경(일단 입문자만)
   const handleChangeTeir = (props) => {
