@@ -4,6 +4,7 @@ import Modal from "../../Modal/Modal";
 import styles from "./MyPage.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import LangModal from "../../Modal/LangModal/LangModal";
 
 import SwitchOff from "../../assets/icons/switchOff.svg";
 import SwitchOn from "../../assets/icons/switch.png";
@@ -16,7 +17,6 @@ import Logout from "../../assets/icons/logout.png";
 
 import Bottom from "../../component/Bottom/Bottom";
 import ProgramModal from "../../Modal/ProgrammingModal/ProgrammingModal";
-
 import React, { useEffect } from "react";
 
 const MyPage = () => {
@@ -157,6 +157,14 @@ const MyPage = () => {
           <ProgramModal isOpen={isModalOpen} closeModal={closeModal}>
             <h3>학습 언어 수정</h3>
           </ProgramModal>
+        </div>
+        <div
+          className={`${styles.Program} ${
+            isModalOpen ? styles.modal_open : ""
+          }`}
+          style={{ display: isModalOpen ? "block" : "none" }}
+        >
+          <LangModal isOpen={isModalOpen} onClose={closeModal}></LangModal>
         </div>
       </section>
 
