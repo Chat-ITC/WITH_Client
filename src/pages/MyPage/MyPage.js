@@ -15,7 +15,7 @@ import Logout from "../../assets/icons/logout.png";
 
 import Bottom from "../../component/Bottom/Bottom";
 
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
 const MyPage = () => {
   const [isModalOpen, sestIsModalOpen] = useState(false);
@@ -24,6 +24,7 @@ const MyPage = () => {
   const closeModal = () => sestIsModalOpen(false);
 
   const [data, setData] = useState();
+
 
   const authReq = async () => {
     axios.defaults.withCredentials = true;
@@ -52,21 +53,21 @@ const MyPage = () => {
   };
   //jwt테스트
   useEffect(() => {
-    const req = authReq();
+    const req =authReq();
     console.log("req이게 뭘까?", req);
-
+    
     // const token = localStorage.getItem("accessToken")
     // console.log(token);
     // fetch(`${process.env.REACT_APP_SERVER_URL}/member/update`, {
     //   method: 'GET', // GET은 기본값이므로 안써줘도 작동한다.
     //   headers: { authorization: token } //토큰형식은 백엔드와 키값을 맞춰야합니다.
-
-    // }) // 데이터를 받을때는 보내줄 데이터가 없기때문에 토큰만 전해준다!
+      
+    // }) // 데이터를 받을때는 보내줄 데이터가 없기때문에 토큰만 전해준다! 
     // .then(function () { // 성공
     //   // 원하는 페이지 이동 (예를 들면 마이페이지 등)
     //   // window.location.href = "/HomePage";
     //   console.log("성공");
-    // })
+    // })  
     // .then(res => res.json())
     //   // 서버에서 전송받은데이터를 자바스크립트의 형식으로 변경해준다고 생각해주세용
     //   .then(data => setData(data))
@@ -77,9 +78,21 @@ const MyPage = () => {
     //     console.error("실패");
     //   })
     //   console.log(data);
-  }, []);
+    
+  }, [])
+
+ 
+
+  
 
   //이제 가져온 데이터 처리.
+
+
+  
+
+  
+
+
 
   // const sendJSONDataToSpringBoot = async (userprop) => {
   //   try {
@@ -125,9 +138,8 @@ const MyPage = () => {
       </section>
 
       <div
-        className={`${styles.modal_block} ${
-          isModalOpen ? styles.modal_open : ""
-        }`}
+        className={`${styles.modal_block} ${isModalOpen ? styles.modal_open : ""
+          }`}
         style={{ display: isModalOpen ? "block" : "none" }}
       >
         <Modal isOpen={isModalOpen} closeModal={closeModal}>
@@ -136,25 +148,13 @@ const MyPage = () => {
             <button className={styles.modal_ability} type="button" onClick={{}}>
               입문자
             </button>
-            <button
-              className={styles.modal_ability}
-              type="button"
-              onClick={closeModal}
-            >
+            <button className={styles.modal_ability} type="button" onClick={{}}>
               초보자
             </button>
-            <button
-              className={styles.modal_ability}
-              type="button"
-              onClick={closeModal}
-            >
+            <button className={styles.modal_ability} type="button" onClick={{}}>
               중급자
             </button>
-            <button
-              className={styles.modal_ability}
-              type="button"
-              onClick={closeModal}
-            >
+            <button className={styles.modal_ability} type="button" onClick={{}}>
               상급자
             </button>
           </div>
