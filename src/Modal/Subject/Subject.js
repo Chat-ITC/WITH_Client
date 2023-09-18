@@ -20,12 +20,12 @@ const SubModal = ({ isOpen, onClose }) => {
   return (
     <div className={`modal ${isOpen ? "open" : ""}`}>
       <div className="modal-content">
-        <h2 className={Lang.HomeSubTitle}>주제</h2>
+        <h2 className={Subject.HomeSubTitle}>주제</h2>
         <ul className="subject-list">
           {subjects.map((Subject, index) => (
             <li key={index}>
               <button
-                className={Sub.HomeSubBtn}
+                className={Subject.HomeSubBtn}
                 onClick={() => handleSubjectClick(Subject)}
               >
                 {subjects}
