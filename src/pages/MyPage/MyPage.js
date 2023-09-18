@@ -69,6 +69,8 @@ const MyPage = () => {
         const statusCode = error.response.status;
         const errorMessage = error.response.data.message;
         if (statusCode === 401) {
+          alert('토큰 재발급 필요');
+          window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
         }
         else if (statusCode === 404) {
           if (errorMessage === "No Account") {
@@ -115,6 +117,8 @@ const MyPage = () => {
         const statusCode = error.response.status;
         const errorMessage = error.response.data.message;
         if (statusCode === 401) {
+          alert('토큰 재발급 필요');
+          window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
         }
         else if (statusCode === 404) {
           if (errorMessage === "No Account") {

@@ -28,7 +28,6 @@ const NaverRedirection = () => {
     
 
     if (statusCode === 401) {
-      
       alert('토큰 재발급 필요');
       window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
     }
