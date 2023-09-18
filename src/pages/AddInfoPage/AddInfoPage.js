@@ -56,7 +56,7 @@ const AddInfoPage = () => {
       email : location.state.data.email,
       loginProvider : location.state.data.loginProvider,
       snsId : location.state.data.snsId,
-      fav_language: userVal1,
+      user_level: userVal1,
       skill_language: userVal2
     }
     sendJSONDataToSpringBoot(addUserInfo);

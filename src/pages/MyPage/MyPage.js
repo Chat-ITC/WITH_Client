@@ -22,12 +22,12 @@ const MyPage = () => {
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
   const [userInfo, setUserInfo] = useState(0);
-  const [name, setName] = useState(0);
-  const [email, setEmail] = useState(0);
-
+  const [userTier, setUserTier] = useState(0);
+  const [userLan, setUserLan] = useState(0);
   //데이터 받아온 후 이름과 이메일 표기
+  axios.defaults.withCredentials = true;
+
   const authReq = async () => {
-    axios.defaults.withCredentials = true;
   
     const accessToken = localStorage.getItem('accessToken');
     if (accessToken) {
@@ -48,6 +48,7 @@ const MyPage = () => {
     );
     return response;
   };
+  //정보 받아오기
   useEffect(() => {
     // authReq 함수를 호출하고 데이터를 받아옵니다.
     authReq()
@@ -61,16 +62,9 @@ const MyPage = () => {
       });
   }, []);
 
-    console.log("req이게 뭘까?", userInfo.name);
-    console.log("req이게 뭘까?", userInfo.email);
-    
-
-
 
   //내 실력 변경(일단 입문자만)
-  const authReqTeir = async () => {
-    axios.defaults.withCredentials = true;
-  
+  const handleChangeTeir = () => {
     const accessToken = localStorage.getItem('accessToken');
     if (accessToken) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
@@ -78,11 +72,13 @@ const MyPage = () => {
       axios.defaults.headers.common['Authorization'] = null;
     }
 
-    const response = await axios.patch(
-      `${process.env.REACT_APP_SERVER_URL}/member/update/skill`,
-      {
-        fav_language : "입문자"
-      },
+    const newTierData = {
+      user_level: "입문자",
+    }; // 나중에 변수로 바꾸기 임시적으로 하드코딩.
+
+    axios.patch(
+      `${process.env.REACT_APP_SERVER_URL}/member/update/level`,
+      newTierData,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -90,19 +86,17 @@ const MyPage = () => {
           'Content-Type': 'application/json',
         },
       }
-    );
-    return response;
+    )
+    .then((response) => {
+      // 데이터 수정 성공 시 처리
+      console.log('Tier updated successfully:', response.data);
+      setUserTier(newTierData.tier); // 수정된 티어 데이터를 화면에 반영
+    })
+    .catch((error) => {
+        // 오류 발생 시 처리
+      console.error('Error updating tier:', error);
+    });
   };
-
-  const changeTeir = () => {
-    const req = authReqTeir();
-    console.log("req이게 뭘까?", req);
-    console.log("내 실력", req.data.skill);
-  
-  }
-
-
-
 
   // const sendJSONDataToSpringBoot = async (userprop) => {
   //   try {
@@ -153,9 +147,9 @@ const MyPage = () => {
         style={{ display: isModalOpen ? "block" : "none" }}
       >
         <Modal isOpen={isModalOpen} closeModal={closeModal}>
-          <p className={styles.modal_header}>내 실력 변경</p>
+          <p className={styles.modal_header}>내 실력 변경-현재 실력: {userInfo.user_level}</p>
           <div>
-            <button className={styles.modal_ability} type="button" onClick={{changeTeir}}>
+            <button className={styles.modal_ability} type="button" onClick={{handleChangeTeir}}>
               입문자
             </button>
             <button className={styles.modal_ability} type="button" onClick={{}}>
