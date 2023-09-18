@@ -7,8 +7,10 @@ const AbilModal = ({ isOpen, onClose }) => {
   const [selectedability, setSelectedability] = useState(null);
 
   const handleAbilityClick = (ability) => {
+    console.log(ability);
     if (onClose && typeof onClose === "function") {
       setSelectedability(ability); // 선택한 언어 설정
+      console.log(selectedability);
       onClose(); // 모달 창 닫기
       // 선택한 언어에 대한 추가적인 동작 수행 가능
     }
