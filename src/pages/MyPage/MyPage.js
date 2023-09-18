@@ -38,6 +38,8 @@ const MyPage = () => {
   //데이터 받아온 후 이름과 이메일 표기
   axios.defaults.withCredentials = true;
 
+  let a = 0;
+
   const authReq = async () => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
@@ -60,6 +62,8 @@ const MyPage = () => {
   };
   //정보 받아오기
   useEffect(() => {
+    a = a+1;
+    console.log(a);
     // authReq 함수를 호출하고 데이터를 받아옵니다.
     authReq()
       .then((response) => {
@@ -107,11 +111,11 @@ const MyPage = () => {
               console.log("최종accessToken값: ", accessToken);
               localStorage.setItem("refreshToken", refreshToken);
               console.log("최종refreshToken값: ", refreshToken);
-              setRef(refreshToken);
+              
             });
         }
       });
-  },[ref]);
+  },[a]);
 
   //내 실력 변경(일단 입문자만)
   const handleChangeTeir = (props) => {
