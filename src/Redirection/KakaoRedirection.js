@@ -30,18 +30,19 @@ const KakaoRedirection = () => {
         navigate("/login");
       } else if (errorMessage === 'your token has been expired') {
         console.error('토큰 재발급 필요');
-      } 
-      else if (statusCode === 404) {
-        if (errorMessage === 'No Account') {
-          navigate("/AddInfoPage", { state: { data: data } });
-        }
-      }
-      else if(statusCode === 409) {
-        alert('세션이 만료되었습니다. 다시 로그인해 주세요')
-        navigate("/login");
       }
     }
+    else if (statusCode === 404) {
+      if (errorMessage === 'No Account') {
+        navigate("/AddInfoPage", { state: { data: data } });
+      }
+    }
+    else if (statusCode === 409) {
+      alert('세션이 만료되었습니다. 다시 로그인해 주세요')
+      navigate("/login");
+    }
   }
+
   if (data) {
     const accessToken = data.headers["accesstoken"];
     console.log(accessToken);
