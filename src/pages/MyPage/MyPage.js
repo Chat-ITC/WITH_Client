@@ -45,16 +45,16 @@ const MyPage = () => {
         },
       }
     );
-    return response;
+    return response.data;
   };
 
   useEffect(() => {
     const req =authReq();
     console.log("req이게 뭘까?", req);
-    console.log("이름", req.data.name);
-    console.log("이메일", req.data.email);
-    setName(req.data.name);
-    setEmail(req.data.email);
+    // console.log("이름", req.data.name);
+    // console.log("이메일", req.data.email);
+    // setName(req.data.name);
+    // setEmail(req.data.email);
   }, [])
 
 
