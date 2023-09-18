@@ -71,17 +71,16 @@ const MyPage = () => {
         const statusCode = error.response.status;
         if (statusCode === 401) {
           console.log("401에러");
-          
+
           const refreshToken = localStorage.getItem("refreshToken");
           if (refreshToken) {
             axios.defaults.headers.common["Authorization"] = `Bearer ${refreshToken}`;
           } else {
             axios.defaults.headers.common["Authorization"] = null;
           }
-
-          
           console.log("refreshToken: ", refreshToken);
           // 서버에 POST 요청 보내기
+
           const postData = {};
 
           axios.post(`${process.env.REACT_APP_SERVER_URL}/member/refreshToken`, postData, {
@@ -94,6 +93,12 @@ const MyPage = () => {
             .then((postResponse) => {
               // POST 요청 성공 처리
               console.log("POST request successful:", postResponse.data);
+
+              const responseHeaders = postResponse.headers;
+              console.log("응답 헤더:", responseHeaders);
+
+              const responseBody = postResponse.data;
+              console.log("응답 바디:", responseBody);
 
               // 여기에서 필요한 작업을 수행할 수 있습니다.
             })
