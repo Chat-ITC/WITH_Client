@@ -101,9 +101,9 @@ const MyPage = () => {
               console.log("POST request successful:", postResponse.data);
 
               localStorage.setItem("accessToken", accessToken);
-              console.log(accessToken);
+              console.log("최종accessToken값: ", accessToken);
               localStorage.setItem("refreshToken", refreshToken);
-              console.log(refreshToken);
+              console.log("최종refreshToken값: ", refreshToken);
 
 
               // 여기에서 필요한 작업을 수행할 수 있습니다.
