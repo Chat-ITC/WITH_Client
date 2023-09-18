@@ -224,7 +224,7 @@ const MyPage = () => {
         }`}
         style={{ display: isModalOpen2 ? "block" : "none" }}
       >
-        <Abil isOpen={isModalOpen2} closeModal={closeModal2}></Abil>
+        <Abil isOpen={isModalOpen2} onClose={closeModal2}></Abil>
       </div>
       <Bottom />
     </Fragment>
