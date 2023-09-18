@@ -149,7 +149,7 @@ const MyPage = () => {
         <Modal isOpen={isModalOpen} closeModal={closeModal}>
           <p className={styles.modal_header}>내 실력 변경-현재 실력: {userInfo.user_level}</p>
           <div>
-            <button className={styles.modal_ability} type="button" onClick={{handleChangeTeir}}>
+            <button className={styles.modal_ability} type="button" onClick={handleChangeTeir}>
               입문자
             </button>
             <button className={styles.modal_ability} type="button" onClick={{}}>
