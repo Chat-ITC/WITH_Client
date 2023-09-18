@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Lang from "./LangModal.module.css";
 const LangModal = ({ isOpen, onClose }) => {
   const languages = [
     "상관없음",
@@ -31,12 +32,17 @@ const LangModal = ({ isOpen, onClose }) => {
   return (
     <div className={`modal ${isOpen ? "open" : ""}`}>
       <div className="modal-content">
-        <h2>학습 언어</h2>
-        <span>요약을 원하는 언어를 선택해 주세요</span>
+        <h2 className={Lang.HomeLangTitle}>학습 언어</h2>
+        <span className={Lang.HomeLangDesc}>
+          요약을 원하는 언어를 선택해 주세요
+        </span>
         <ul className="language-list">
           {languages.map((language, index) => (
             <li key={index}>
-              <button onClick={() => handleLanguageClick(language)}>
+              <button
+                className={Lang.HomeLangBtn}
+                onClick={() => handleLanguageClick(language)}
+              >
                 {language}
               </button>
             </li>

@@ -17,3 +17,16 @@
   background-color: white;
   padding: 20px;
 }
+
+.HomeLangTitle {
+  padding: 5px 0;
+}
+
+.HomeLangDesc {
+  padding-bottom: 10px;
+}
+
+.HomeLangBtn {
+  width: 100px;
+  height: 20px;
+}

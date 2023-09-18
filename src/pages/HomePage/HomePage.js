@@ -9,6 +9,7 @@ import { useState } from "react";
 import SelectModal from "../../Modal/SelectModal/SelectModal";
 import LangModal from "../../Modal/LangModal/LangModal";
 import Scrab from "../../Modal/Scrab/scrab";
+import SubModal from "../../Modal/Subject/Subject";
 const HomePage = () => {
   const [isModalOpen, sestIsModalOpen] = useState(false);
 
