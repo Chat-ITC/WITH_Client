@@ -3,7 +3,23 @@ import styles from "./HomePage.module.css";
 import Logo from "../../assets/logo/CoFe_logo.png";
 import Bottom from "../../component/Bottom/Bottom";
 import Camera from "../../assets/etc/addimage.png";
+
+import React, { useState } from "react";
+import LangModal from "../../Modal/HomePage_Modal/LangModal";
+import style from "../../Modal/HomePage_Modal/LangModal.module.css";
 const HomePage = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
+  const handleButtonClick = () => {
+    const fileInput = document.getElementById("camera");
+    if (fileInput) {
+      fileInput.click();
+    }
+  };
   return (
     <>
       <header className={styles.main}>
@@ -21,23 +37,20 @@ const HomePage = () => {
           />
           <span>사진을 찍어보세요</span>
         </button>
-        <input
-          type="file"
-          id="camera"
-          name="camera"
-          capture="camera"
-          accept="image/*"
-          style={{ display: "none" }}
-        />
       </div>
+      <input
+        type="file"
+        id="camera"
+        name="camera"
+        capture="camera"
+        accept="image/*"
+        style={{ display: "none" }}
+      />
+      <button onClick={() => setModalOpen(true)}>모달창 열기</button>
+      <LangModal isOpen={modalOpen} onClose={handleCloseModal} />
       <Bottom />
     </>
   );
 };
-const handleButtonClick = () => {
-  const fileInput = document.getElementById("camera");
-  if (fileInput) {
-    fileInput.click();
-  }
-};
+
 export default HomePage;

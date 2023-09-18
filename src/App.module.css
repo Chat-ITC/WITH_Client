@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+html {
+  height: 100vh;
+}
+
 .div {
   position: relative;
 }
