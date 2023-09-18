@@ -3,6 +3,7 @@ import { useState } from "react";
 import Modal from "../../Modal/Modal";
 import styles from "./MyPage.module.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import SwitchOff from "../../assets/icons/switchOff.svg";
 import SwitchOn from "../../assets/icons/switch.png";
@@ -19,6 +20,8 @@ import ProgramModal from "../../Modal/ProgrammingModal/ProgrammingModal";
 import React, { useEffect } from "react";
 
 const MyPage = () => {
+  const navigate = useNavigate();
+
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
@@ -98,6 +101,7 @@ const MyPage = () => {
       })
       .catch((error) => {
         // 오류 발생 시 처리
+        navigate("/login");
         console.error("Error updating tier:", error);
       });
   };
