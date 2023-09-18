@@ -26,9 +26,7 @@ const useAuth = () => {
 
       if (error) {
         if (
-          error.response.status === 401 &&
-          error.response.headers['www-authenticate'] ===
-            `Bearer error="invalid_token"`
+          error.response.status === 401           
         ) {
           const res = await refreshReq();
           if (res) {
