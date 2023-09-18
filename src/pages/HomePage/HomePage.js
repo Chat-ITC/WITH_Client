@@ -121,6 +121,14 @@ const HomePage = () => {
         <LangModal isOpen={isModalOpen1} onClose={closeModal1}></LangModal>
       </div>
       <Bottom />
+      {/*주제 모달*/}
+      <div
+        className={`${styles.HomePage_Sub} ${
+          isModalOpen2 ? styles.modal_open : ""
+        }`}
+      >
+        <SubModal isOpen={isModalOpen2} onClose={closeModal2}></SubModal>
+      </div>
     </>
   );
 };
