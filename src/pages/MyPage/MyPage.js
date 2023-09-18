@@ -2,7 +2,6 @@ import { Fragment } from "react";
 import { useState } from "react";
 import Modal from "../../Modal/Modal";
 import styles from "./MyPage.module.css";
-import axios from "axios";
 
 import SwitchOff from "../../assets/icons/switchOff.svg";
 import SwitchOn from "../../assets/icons/switch.png";
@@ -15,34 +14,48 @@ import Logout from "../../assets/icons/logout.png";
 
 import Bottom from "../../component/Bottom/Bottom";
 
+import React, { useEffect } from 'react';
+
 const MyPage = () => {
   const [isModalOpen, sestIsModalOpen] = useState(false);
 
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
 
-  //jwt테스트
-  const config = {
-    headers: {
-      Authorization: `${localStorage.getItem("accessToken")}`,
-      // localStorage에 token이 저장되어 있는지 확인하기
-    },
-  };
+  const [data, setData] = useState();
 
-  const jwtTest = () => {
-    axios
-      .get(`${process.env.REACT_APP_SERVER_URL}/member/update"`, config)
-      .then(function () {
-        // 성공
-        // 원하는 페이지 이동 (예를 들면 마이페이지 등)
-        window.location.href = "/HomePage";
+  //jwt테스트
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken")
+    console.log(token);
+    fetch(`${process.env.REACT_APP_SERVER_URL}/작성해야함`, {
+      method: 'GET', // GET은 기본값이므로 안써줘도 작동한다.
+      headers: { authorization: token } //토큰형식은 백엔드와 키값을 맞춰야합니다.
+      
+    }) // 데이터를 받을때는 보내줄 데이터가 없기때문에 토큰만 전해준다! 
+    .then(function () { // 성공
+      // 원하는 페이지 이동 (예를 들면 마이페이지 등)
+      // window.location.href = "/HomePage";
+      console.log("성공");
+    })  
+    .then(res => res.json())
+      // 서버에서 전송받은데이터를 자바스크립트의 형식으로 변경해준다고 생각해주세용
+      .then(data => setData(data))
+      // 우리가 페이지에서 사용 할 수 있도록 state훅에 저장~
+      .catch(error => {
+        // 에러 처리
+        console.error(error);
+        console.error("실패");
       })
-      .catch(function () {
-        // 실패
-        // 원하는 페이지 이동 (예를 들면 로그인페이지 등)
-        window.location.href = "/login";
-      });
-  };
+      console.log(data);
+  }, [])
+
+  //이제 가져온 데이터 처리.
+  
+
+  
+
+
 
   // const sendJSONDataToSpringBoot = async (userprop) => {
   //   try {
@@ -88,9 +101,8 @@ const MyPage = () => {
       </section>
 
       <div
-        className={`${styles.modal_block} ${
-          isModalOpen ? styles.modal_open : ""
-        }`}
+        className={`${styles.modal_block} ${isModalOpen ? styles.modal_open : ""
+          }`}
         style={{ display: isModalOpen ? "block" : "none" }}
       >
         <Modal isOpen={isModalOpen} closeModal={closeModal}>
