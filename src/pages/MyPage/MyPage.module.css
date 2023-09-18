@@ -29,7 +29,6 @@
   justify-content: space-around;
   align-items: center;
   width: 100vw;
-  padding-bottom: 20px;
   border-bottom: 1px solid #b2b3b9;
 }
 
@@ -38,7 +37,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80px;
+  width: 90px;
+  height: 100px;
 }
 
 .section_icons .section_img {

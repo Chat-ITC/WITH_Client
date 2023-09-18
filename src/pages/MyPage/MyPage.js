@@ -14,13 +14,18 @@ import Question from "../../assets/icons/question.png";
 import Logout from "../../assets/icons/logout.png";
 
 import Bottom from "../../component/Bottom/Bottom";
+import ProgramModal from "../../Modal/ProgrammingModal/ProgrammingModal";
 
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
 const MyPage = () => {
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
+
+  const [isModalOpen2, sestIsModalOpen2] = useState(false);
+  const openModal2 = () => sestIsModalOpen(true);
+  const closeModal2 = () => sestIsModalOpen(false);
   const [userInfo, setUserInfo] = useState(0);
   const [userTier, setUserTier] = useState(0);
   const [userLan, setUserLan] = useState(0);
@@ -28,12 +33,11 @@ const MyPage = () => {
   axios.defaults.withCredentials = true;
 
   const authReq = async () => {
-  
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+      axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
     } else {
-      axios.defaults.headers.common['Authorization'] = null;
+      axios.defaults.headers.common["Authorization"] = null;
     }
 
     const response = await axios.get(
@@ -41,8 +45,8 @@ const MyPage = () => {
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
         },
       }
     );
@@ -62,40 +66,40 @@ const MyPage = () => {
       });
   }, []);
 
-
   //내 실력 변경(일단 입문자만)
   const handleChangeTeir = () => {
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+      axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
     } else {
-      axios.defaults.headers.common['Authorization'] = null;
+      axios.defaults.headers.common["Authorization"] = null;
     }
 
     const newTierData = {
       user_level: "입문자",
     }; // 나중에 변수로 바꾸기 임시적으로 하드코딩.
 
-    axios.patch(
-      `${process.env.REACT_APP_SERVER_URL}/member/update/level`,
-      newTierData,
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-    .then((response) => {
-      // 데이터 수정 성공 시 처리
-      console.log('Tier updated successfully:', response.data);
-      setUserTier(newTierData.tier); // 수정된 티어 데이터를 화면에 반영
-    })
-    .catch((error) => {
+    axios
+      .patch(
+        `${process.env.REACT_APP_SERVER_URL}/member/update/level`,
+        newTierData,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        // 데이터 수정 성공 시 처리
+        console.log("Tier updated successfully:", response.data);
+        setUserTier(newTierData.tier); // 수정된 티어 데이터를 화면에 반영
+      })
+      .catch((error) => {
         // 오류 발생 시 처리
-      console.error('Error updating tier:', error);
-    });
+        console.error("Error updating tier:", error);
+      });
   };
 
   // const sendJSONDataToSpringBoot = async (userprop) => {
@@ -122,43 +126,75 @@ const MyPage = () => {
 
       <section className={styles.mid}>
         <div className={styles.mid_items}>
-          <div className={styles.section_icons}>
+          <button className={styles.section_icons}>
             <img className={styles.section_img} src={Scrab} alt="스크랩" />
             <p className={styles.section_desc}>스크랩</p>
-          </div>
-          <div className={styles.section_icons}>
+          </button>
+          <button className={styles.section_icons}>
             <img
               className={styles.section_img}
               src={Recent}
               alt="최근 본 자료"
             />
             <p className={styles.section_desc}>최근 본 자료</p>
-          </div>
-          <div className={styles.section_icons}>
+          </button>
+          <button onClick={openModal} className={styles.section_icons}>
             <img className={styles.section_img} src={C} alt="학습 언어 수정" />
             <p className={styles.section_desc}>학습 언어 수정</p>
-          </div>
+          </button>
+        </div>
+        <div
+          className={`${styles.Program} ${
+            isModalOpen2 ? styles.modal_open : ""
+          }`}
+          style={{ display: isModalOpen2 ? "block" : "none" }}
+        >
+          <button type="button" onClick={openModal2}>
+            open
+          </button>
+          <ProgramModal isOpen={isModalOpen2} closeModal={closeModal2}>
+            <h3>학습 언어 수정</h3>
+          </ProgramModal>
         </div>
       </section>
 
       <div
-        className={`${styles.modal_block} ${isModalOpen ? styles.modal_open : ""
-          }`}
+        className={`${styles.modal_block} ${
+          isModalOpen ? styles.modal_open : ""
+        }`}
         style={{ display: isModalOpen ? "block" : "none" }}
       >
         <Modal isOpen={isModalOpen} closeModal={closeModal}>
-          <p className={styles.modal_header}>내 실력 변경-현재 실력: {userInfo.user_level}</p>
+          <p className={styles.modal_header}>
+            내 실력 변경-현재 실력: {userInfo.user_level}
+          </p>
           <div>
-            <button className={styles.modal_ability} type="button" onClick={handleChangeTeir}>
+            <button
+              className={styles.modal_ability}
+              type="button"
+              onClick={handleChangeTeir}
+            >
               입문자
             </button>
-            <button className={styles.modal_ability} type="button" onClick={{}}>
+            <button
+              className={styles.modal_ability}
+              type="button"
+              onClick={closeModal}
+            >
               초보자
             </button>
-            <button className={styles.modal_ability} type="button" onClick={{}}>
+            <button
+              className={styles.modal_ability}
+              type="button"
+              onClick={closeModal}
+            >
               중급자
             </button>
-            <button className={styles.modal_ability} type="button" onClick={{}}>
+            <button
+              className={styles.modal_ability}
+              type="button"
+              onClick={closeModal}
+            >
               상급자
             </button>
           </div>
