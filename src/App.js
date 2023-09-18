@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { Fragment } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -14,9 +13,10 @@ import AddInfo from "./pages/AddInfoPage/AddInfoPage";
 import Home from "./pages/HomePage/HomePage";
 import Quiz from "./pages/Quiz/Quiz";
 import Skeleton from "./pages/Skeleton/Skeleton";
+import SummaryPage from "./pages/SummaryPage/SummaryPage";
+//redirection
 import KakaoRedirection from "./Redirection/KakaoRedirection";
 import NaverRedirection from "./Redirection/NaverRedirection";
-import SummaryPage from "./pages/SummaryPage/SummaryPage";
 
 function App() {
   return (

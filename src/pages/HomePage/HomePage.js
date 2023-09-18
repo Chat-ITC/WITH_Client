@@ -6,13 +6,15 @@ import Camera from "../../assets/etc/addimage.png";
 import Becareful from "../../assets/AddInfoIcons/Becareful.png";
 //component
 import Bottom from "../../component/Bottom/Bottom";
+import ScrapItem from "../../component/ScrapItem/ScrapItem";
 //modal
 import SelectModal from "../../Modal/SelectModal/SelectModal";
 import LangModal from "../../Modal/LangModal/LangModal";
 import Scrab from "../../Modal/Scrab/scrab";
 import SubModal from "../../Modal/Subject/Subject";
 //library
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const HomePage = () => {
   const [isModalOpen, sestIsModalOpen] = useState(false);
@@ -33,6 +35,13 @@ const HomePage = () => {
   const [isModalOpen3, sestIsModalOpen3] = useState(false);
   const openModal3 = () => sestIsModalOpen3(true);
   const closeModal3 = () => sestIsModalOpen3(false);
+
+  //ScrapItem
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
 
   const handleButtonClick = () => {
     const fileInput = document.getElementById("camera");
