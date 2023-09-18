@@ -21,8 +21,8 @@ const MyPage = () => {
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
+  const [name, setName] = useState(0);
+  const [email, setEmail] = useState(0);
 
   //데이터 받아온 후 이름과 이메일 표기
   const authReq = async () => {
@@ -91,8 +91,8 @@ const MyPage = () => {
 
     console.log("이름", req.data.name);
     console.log("이메일", req.data.email);
-    setName(req.data.name);
-    setEmail(req.data.email);
+    // setName(req.data.name);
+    // setEmail(req.data.email);
   }, [])
 
   const changeTeir = () => {
