@@ -3,10 +3,10 @@ import styles from "./HomePage.module.css";
 import Logo from "../../assets/logo/CoFe_logo.png";
 import Bottom from "../../component/Bottom/Bottom";
 import Camera from "../../assets/etc/addimage.png";
+import Becareful from "../../assets/AddInfoIcons/Becareful.png";
 
-import { Fragment } from "react";
 import { useState } from "react";
-import LangModal from "../../Modal/HomePage_Modal/LangModal";
+import SelectModal from "../../Modal/SelectModal/SelectModal";
 const HomePage = () => {
   const [isModalOpen, sestIsModalOpen] = useState(false);
 
@@ -27,31 +27,61 @@ const HomePage = () => {
           내 옆에 <br /> 코딩친구
         </h1>
       </header>
-      <div className={styles.camera}>
-        <button className={styles.Camera_Btn} onClick={handleButtonClick}>
-          <img
-            className={styles.camera_img}
-            src={Camera}
-            alt="사진 첨부 버튼"
-          />
-          <span>사진을 찍어보세요</span>
-        </button>
+      <div className={styles.camera_border}>
+        <div className={styles.camera}>
+          <button className={styles.Camera_Btn} onClick={handleButtonClick}>
+            <img
+              className={styles.camera_img}
+              src={Camera}
+              alt="사진 첨부 버튼"
+            />
+            <span>사진을 찍어보세요</span>
+          </button>
+        </div>
+        <input
+          type="file"
+          id="camera"
+          name="camera"
+          capture="camera"
+          accept="image/*"
+          style={{ display: "none" }}
+        />
       </div>
-      <input
-        type="file"
-        id="camera"
-        name="camera"
-        capture="camera"
-        accept="image/*"
-        style={{ display: "none" }}
-      />
-      {/*<button onClick={() => setModalOpen(true)}>모달창 열기</button>*/}
-      {/*<LangModal isOpen={modalOpen} onClose={handleCloseModal}>
-        <h2 className={styles.LangTitle}>학습 언어</h2>
-        <span className={styles.LangDesc}>
-          요약을 원하는 언어를 선택해 주세요
-        </span>
-  </LangModal>*/}
+
+      <div className={styles.HomeMainModal}>
+        <button type="button" onClick={openModal}>
+          open
+        </button>
+        <SelectModal isOpen={isModalOpen} closeModal={closeModal}>
+          <div className={styles.SelectUp}>
+            <em className={styles.SelectLang}>학습언어</em>
+            <button className={styles.SelectLanguage} type="button">
+              C언어
+            </button>
+          </div>
+          <div className={styles.SelectDown}>
+            <span className={styles.SelectSubj}>
+              <em className={styles.SelectSub}>주제</em>
+              <img src={Becareful} alt="경고" />
+            </span>
+            <button className={styles.SelectSubject} type="button">
+              선택없음
+            </button>
+          </div>
+          <div className={styles.SelectBottom}>
+            <button className={styles.SelectBtn} type="button">
+              확인
+            </button>
+            <button
+              onClick={closeModal}
+              className={styles.SelectBtn}
+              type="button"
+            >
+              취소
+            </button>
+          </div>
+        </SelectModal>
+      </div>
       <Bottom />
     </>
   );
