@@ -16,8 +16,11 @@ import SubModal from "../../Modal/Subject/Subject";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import React, { useRef } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
@@ -61,7 +64,11 @@ const HomePage = () => {
     };
   }, []);
 
+
+
   //카메라 
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+
   const fileInputRef = useRef(null);
   const handleButtonClick = () => {
     if (fileInputRef.current) {
@@ -74,8 +81,10 @@ const HomePage = () => {
     const file = event.target.files[0];
 
     if (file) {
-      // 선택한 파일을 여기에서 처리할 수 있습니다.
+  
       console.log('선택한 파일:', file);
+      setSelectedPhoto(file);
+      navigate("/SummaryPage", { state: {file:file}});
     }
   };
   

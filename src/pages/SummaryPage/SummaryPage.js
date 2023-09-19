@@ -5,8 +5,16 @@ import Copy from "../../assets/AddInfoIcons/Copy.png";
 import Careful from "../../assets/AddInfoIcons/Becareful.png";
 
 import Bottom from "../../component/Bottom/Bottom";
+import { useLocation } from 'react-router-dom';
 
 const SummaryPage = () => {
+  const location = useLocation();
+  const file = location.state.file;
+  console.log('선택한 파일:', file);
+
+
+
+
   return (
     <>
       <header className={styles.SumTitle}>
