@@ -144,3 +144,8 @@
   text-align: center;
   padding: 12px 15px;
 }
+
+.MyPage_Abil{
+  background-color: aqua;
+  position: absolute;
+}

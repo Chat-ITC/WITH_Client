@@ -121,23 +121,37 @@ const AddInfoPage = () => {
     <>
       <p className={styles.ability_title}>자신의 실력을 선택하세요</p>
       <section className={styles.ability_section}>
-        <div className={styles.ability}>
-          <div className={styles.grid_1x4}>
-            {skill.map((item) => (
-              <button
-                key={item.name}
-                className={`${styles.button1} ${
-                  selectedSkill === item.name ? styles.selected : ""
-                }`}
-                onClick={() => handleSkillSelect(item.name)}
-              >
-                <div className={styles.itemContainer}>
-                  <img src={item.image} alt={item.name} />
-                  <span>{item.name}</span>
-                </div>
-              </button>
-            ))}
-          </div>
+        <div className={`${styles.ability} ${styles.horizontal}`}>
+          {skill.map((item) => (
+            <label
+              key={item.name}
+              htmlFor={item.name}
+              className={`${styles.radioItem} ${
+                selectedSkill === item.name ? styles.selected : ""
+              }`}
+            >
+              <input
+                type="radio"
+                id={item.name}
+                name="skill"
+                value={item.name}
+                checked={selectedSkill === item.name}
+                onChange={() => handleSkillSelect(item.name)}
+              />
+              <div className={styles.itemContainer1}>
+                <div
+                  className={`${styles.itemContainer} ${styles.withImage}`}
+                  style={{
+                    backgroundImage: `url(${item.image})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                  }}
+                ></div>
+                <span>{item.name}</span>
+              </div>
+            </label>
+          ))}
         </div>
       </section>
       <p className={styles.language_title}>배우고 싶은 언어를 선택하세요</p>
