@@ -69,7 +69,7 @@ const SummaryPage = () => {
     })
       .then((response) => {
         console.log('요청성공');
-        console.log(response);
+        console.log(response.data);
 
 
       })
