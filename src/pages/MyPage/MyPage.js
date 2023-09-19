@@ -58,6 +58,7 @@ const MyPage = () => {
         // 데이터 수정 성공 시 처리
         console.log("Lenguage updated successfully:", response.data);
         setUserTier(newLenguageData.tier); // 수정된 언어 데이터를 화면에 반영
+        alert('학습 언어가 성공적으로 변경되었습니다!');
       })
       .catch((error) => {
         const statusCode = error.response.status;
@@ -82,7 +83,58 @@ const MyPage = () => {
 
   const [isModalOpen2, sestIsModalOpen2] = useState(false);
   const openModal2 = () => sestIsModalOpen2(true);
-  const closeModal2 = () => sestIsModalOpen2(false);
+  const closeModal2 = (selectedTier) => {
+    sestIsModalOpen2(false);
+
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+    } else {
+      axios.defaults.headers.common["Authorization"] = null;
+    }
+
+    const newTierData = {
+      user_level: selectedTier,
+    }; // 나중에 변수로 바꾸기 임시적으로 하드코딩.
+
+    axios
+      .patch(
+        `${process.env.REACT_APP_SERVER_URL}/member/update/level`,
+        newTierData,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        // 데이터 수정 성공 시 처리
+        console.log("Tier updated successfully:", response.data);
+        setUserTier(newTierData.tier); // 수정된 티어 데이터를 화면에 반영
+        alert('내 실력이 성공적으로 변경되었습니다!');
+      })
+      .catch((error) => {
+        const statusCode = error.response.status;
+        const errorMessage = error.response.data.message;
+        if (statusCode === 401) {
+          alert('토큰 재발급 필요');
+          navigate("/login");
+          ;
+        } 
+        else if (statusCode === 404) {
+          if (errorMessage === "No Account") {
+          }
+        }
+         else if (statusCode === 409) {
+          alert("세션이 만료되었습니다. 다시 로그인해 주세요");
+          navigate("/login");
+        }
+      });
+
+
+  }
 
   const [userInfo, setUserInfo] = useState(0);
   const [userTier, setUserTier] = useState(0);
