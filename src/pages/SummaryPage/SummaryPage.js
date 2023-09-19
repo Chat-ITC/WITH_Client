@@ -15,6 +15,7 @@ import SubModal from "../../Modal/Subject/Subject";
 import LangModal from "../../Modal/LangModal/LangModal";
 
 const SummaryPage = () => {
+  axios.defaults.withCredentials = true;
 
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
@@ -40,6 +41,8 @@ const SummaryPage = () => {
     console.log("선택한 파일(써머리페이지):", file);
     const formData = new FormData();
 
+    
+
     formData.append('imageFile', file);
     formData.append('question', question);
     formData.append('fav_language', language);
@@ -50,10 +53,19 @@ const SummaryPage = () => {
       console.log(key, value);
      };
 
+    const accessToken = localStorage.getItem("accessToken");
+    console.log("토근 확인: ",  accessToken)
+    if (accessToken) {
+      axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+    } else {
+      axios.defaults.headers.common["Authorization"] = null;
+    }
+
     axios.post(`${process.env.REACT_APP_SERVER_URL}/ai/summary`,
     formData, 
     {
       headers: {
+        Authorization: `Bearer ${accessToken}`,
         "Access-Control-Allow-Origin": "*",
         'Content-Type': 'multipart/form-data',
       },
