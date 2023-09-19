@@ -27,7 +27,7 @@ const LangModal = ({ isOpen, onClose }) => {
   const handleLanguageClick = (language) => {
     if (onClose && typeof onClose === "function") {
       setSelectedLanguage(language); // 선택한 언어 설정
-      onClose(); // 모달 창 닫기
+      onClose(language); // 모달 창 닫기
       // 선택한 언어에 대한 추가적인 동작 수행 가능
     }
   };

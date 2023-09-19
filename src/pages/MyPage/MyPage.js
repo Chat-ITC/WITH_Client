@@ -25,7 +25,13 @@ const MyPage = () => {
 
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
-  const closeModal = () => sestIsModalOpen(false);
+  const closeModal = (selectedLanguage) => {
+    sestIsModalOpen(false);
+    if (selectedLanguage) {
+      // 선택한 언어 값에 대한 작업을 수행합니다.
+      console.log(`선택한 언어: ${selectedLanguage}`);
+    }
+  }
 
   const [isModalOpen2, sestIsModalOpen2] = useState(false);
   const openModal2 = () => sestIsModalOpen2(true);
