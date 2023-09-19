@@ -61,7 +61,7 @@ const SummaryPage = () => {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
+        'Content-Type': 'multipart/form-data',
       },
       timeout: 60000,
     })
