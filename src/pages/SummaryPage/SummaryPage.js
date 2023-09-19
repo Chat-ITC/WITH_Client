@@ -33,13 +33,13 @@ const SummaryPage = () => {
 
   const sendDataHandle = () => {
     console.log("잘 작동 하는구만~");
-
+    console.log('선택한 파일(써머리페이지):', file);
   };
 
   const location = useLocation();
   useEffect(() => {
     setFile(location.state.file);
-    console.log('선택한 파일(써머리페이지):', file);
+    
     openModal();
     
 
