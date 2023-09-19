@@ -122,10 +122,18 @@ const HomePage = () => {
       </div>
       <hr className={styles.Homehr} />
 
-      <button className={styles.Scrab} type="button" onClick={openModal3}>
-        스크랩
-      </button>
-      <Scrab isOpen={isModalOpen3} closeModal={closeModal3} />
+      <div
+        className={`${styles.Scrab} ${isModalOpen3 ? styles.modal_open : ""}`}
+        style={{ display: isModalOpen3 ? "block" : "none" }}
+      >
+        {isModalOpen3 ? (
+          <Scrab isOpen={isModalOpen3} onClose={closeModal3} />
+        ) : (
+          <button type="button" onClick={openModal3}>
+            스크랩
+          </button>
+        )}
+      </div>
 
       <div className={styles.HomeMainModal}>
         <button type="button" onClick={openModal}>
