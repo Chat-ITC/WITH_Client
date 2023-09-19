@@ -68,6 +68,16 @@ const HomePage = () => {
       fileInputRef.current.click();
     }
   };
+
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      // 선택한 파일을 여기에서 처리할 수 있습니다.
+      console.log('선택한 파일:', file);
+    }
+  
   return (
     <>
       <header className={styles.main}>
@@ -83,6 +93,7 @@ const HomePage = () => {
             accept="image/*;capture=camera"
             style={{ display: 'none' }} // 요소를 화면에 표시하지 않음
             ref={fileInputRef} // ref를 사용하여 요소 참조
+            onChange={handleFileChange} // 파일 선택 시 이벤트 핸들러 호출
           />
           <button className={styles.Camera_Btn} onClick={handleButtonClick}>
             <img
