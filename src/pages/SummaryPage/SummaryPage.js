@@ -32,8 +32,11 @@ const SummaryPage = () => {
   const [file, setFile] = useState(null);
 
   const location = useLocation();
-  setFile(location.state.file);
-  console.log('선택한 파일(써머리페이지):', file);
+  useEffect(() => {
+    
+    setFile(location.state.file);
+    console.log('선택한 파일(써머리페이지):', file);
+  }, [location.state.file]);
 
 
 
