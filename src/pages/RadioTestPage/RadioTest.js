@@ -27,26 +27,40 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { useEffect } from 'react';
 
 
 const AddInfoPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [userVal1, setuserVal1] = useState("");
-  const [userVal2, setuserVal2] = useState("");
+  const [selected1, setSelected1] = useState(false);
+  const [selected2, setSelected2] = useState(false);
+  const [btnOn, setBtnOn] = useState(false);
 
   const [selectedSkill, setSelectedSkill] = useState(null);
   const [selectedLanguage, setSelectedLanguage] = useState(null);
 
   const handleSkillSelect = (e) => {
-    const value = e.target.value;
+    setSelected1(true);
+    const value = e;
     setSelectedSkill(value);
   };
 
   const handleLanguageSelect = (e) => {
-    const value = e.target.value;
+    setSelected2(true);
+    const value = e;
     setSelectedLanguage(value);
   };
+
+  //두개가 모두 참인경우 버튼 활성화
+  useEffect(() => {
+    if (selected1 && selected2) {
+      console.log('두 조건이 모두 충족됩니다.');
+      setBtnOn(true);
+    } else {
+      setBtnOn(true);
+    }
+  }, [selected1, selected2]);
 
   //데이터묶기
   const handleNextPage = () => {
@@ -55,8 +69,8 @@ const AddInfoPage = () => {
       email: location.state.data.email,
       loginProvider: location.state.data.loginProvider,
       snsId: location.state.data.snsId,
-      user_level: userVal1,
-      skill_language: userVal2,
+      user_level: selectedSkill,
+      skill_language: selectedLanguage,
     };
     sendJSONDataToSpringBoot(addUserInfo);
 
@@ -240,7 +254,7 @@ const AddInfoPage = () => {
         </div>
       </section>
 
-      <button className={styles.nextButton} onClick={handleNextPage}>다음</button>
+      <button disabled={btnOn ? false:true} className={btnOn ? "nextButton":"noButton"} onClick={handleNextPage}>다음</button>
 
       {/* 선택된 실력과 언어 표시 */}
       {selectedSkill && selectedLanguage && (
