@@ -1,6 +1,12 @@
 import Abil from "./Ability.module.css";
 import React, { useState } from "react";
 
+//png ability
+import Baby from "../../assets/AddInfoIcons/baby.png";
+import Boy from "../../assets/AddInfoIcons/boy.png";
+import Adult from "../../assets/AddInfoIcons/adult.png";
+import Grand from "../../assets/AddInfoIcons/grand.png";
+
 const AbilModal = ({ isOpen, onClose }) => {
   const abilities = ["입문자", "초보자", "중급자", "상급자"];
 
@@ -18,6 +24,7 @@ const AbilModal = ({ isOpen, onClose }) => {
   return (
     <div className={`modal ${isOpen ? "open" : ""}`}>
       <div className={Abil.Abil_title}>
+        <h3 className={Abil.Abil_head}>내 실력 변경</h3>
         <ul className={Abil.Abil_lists}>
           {abilities.map((ability, index) => (
             <li key={index}>
@@ -25,6 +32,18 @@ const AbilModal = ({ isOpen, onClose }) => {
                 className={Abil.HomeAbilBtn}
                 onClick={() => handleAbilityClick(ability)}
               >
+                {index === 0 && (
+                  <img className={Abil.Abil_img} src={Baby} alt="Baby" />
+                )}
+                {index === 1 && (
+                  <img className={Abil.Abil_img} src={Boy} alt="Boy" />
+                )}
+                {index === 2 && (
+                  <img className={Abil.Abil_img} src={Adult} alt="Adult" />
+                )}
+                {index === 3 && (
+                  <img className={Abil.Abil_img} src={Grand} alt="Grand" />
+                )}
                 {ability}
               </button>
             </li>

@@ -119,44 +119,12 @@
   letter-spacing: -0.16px;
 }
 
-.MyModal {
-  position: absolute;
-  top: 312px;
-  left: 84px;
-  width: 220px;
-  height: 260px;
-  border: 1px solid #bababa;
-  border-radius: 4px;
-  z-index: 2;
+.MyPage_Abil {
   background-color: #fff;
-  display: felx;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.MyModalTitle {
-  text-align: center;
-  padding: 15px 15px;
-}
-
-.MyModalBtn {
-  text-align: center;
-  padding: 12px 15px;
-}
-
-.MyPage_Abil{
- background-color: #fff;
-  width: 284px;
-  height: 250px;
+  width: 260px;
+  height: 225px;
   position: relative;
   margin: 0 auto;
   top: 300px;
-  border: 1px solid #bababa;
-  border-radius: 6px;
-  z-index: 2;
-  display: flex;
-  text-align: center;
-  overflow-y: auto;
-  padding: 10px 0;
+  z-index: 1;
 }

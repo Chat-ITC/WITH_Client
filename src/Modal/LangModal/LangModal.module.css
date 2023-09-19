@@ -1,12 +1,23 @@
-.HomeLangDesc {
-  padding: 5px 0;
+.HomeSub {
+  width: 282px;
+}
+
+.HomeLangTitle {
+  padding: 10px 0;
+  font-size: 25px;
+  text-align: center;
 }
 
 .HomeLangDesc {
-  padding-bottom: 10px;
+  margin: 10px 0;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
 }
 
 .HomeLangBtn {
-  width: 284px;
-  height: 20px;
+  width: 280px;
+  height: 40px;
+  font-weight: 700;
 }
