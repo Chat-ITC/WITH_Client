@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+//png
+import FillStar from "../../assets/AddInfoIcons/FillStar.png";
+import Star from "../../assets/icons/clip.png";
+//css
 import styles from "./ScrapItem.module.css";
+//component
+import ScrapBtn from "../../component/ScrabBtn/ScrabBtn";
 
 const ScrapItem = () => {
   // const [scrapData, setScrapData] = useState(null);
@@ -33,7 +39,11 @@ const ScrapItem = () => {
         {/*<h2 className={styles.Title}>{title}</h2>
       <p className={styles.Content}>{content}</p>
   <p className={styles.Language}>{Language}</p>*/}
-        <h2 className={styles.Title}>제목입니다.</h2>
+        <div className={styles.ScrapTop}>
+          <h2 className={styles.Title}>제목입니다.</h2>
+          <ScrapBtn />
+        </div>
+
         <p className={styles.Content}>
           일이삼사오육칠팔구십일이삼사오육칠팔구십.
         </p>
