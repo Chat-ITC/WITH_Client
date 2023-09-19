@@ -31,14 +31,21 @@ const SummaryPage = () => {
 
   const [file, setFile] = useState(null);
 
+  const sendDataHandle = () => {
+    console.log("잘 작동 하는구만~");
+
+  };
+
   const location = useLocation();
   useEffect(() => {
-    
     setFile(location.state.file);
+    console.log('선택한 파일(써머리페이지):', file);
+    openModal();
     
+
   }, [location.state.file]);
 
-  console.log('선택한 파일(써머리페이지):', file);
+  
 
 
 
@@ -116,7 +123,7 @@ const SummaryPage = () => {
             <button
               className={styles.SelectBtn}
               type="button"
-              onClick={openModal}
+              onClick={sendDataHandle}
             >
               확인
             </button>
