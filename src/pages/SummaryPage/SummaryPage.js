@@ -46,7 +46,15 @@ const SummaryPage = () => {
     formData.append('imageFile', file);
     formData.append('question', question);
     formData.append('fav_language', language);
-    console.log("formData: ", formData);
+    console.log("file: ", file);
+    console.log("question: ", question);
+    console.log("language: ", language);
+    for (const [key, value] of formData.entries()) {
+      console.log(key, value);
+     };
+
+
+
 
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
