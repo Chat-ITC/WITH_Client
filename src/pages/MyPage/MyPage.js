@@ -201,12 +201,7 @@ const MyPage = () => {
 
     axios.defaults.withCredentials = true;
     const accessToken = localStorage.getItem("accessToken");
-    if (accessToken) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
-    } else {
-      axios.defaults.headers.common["Authorization"] = null;
-    }
- 
+    const refreshToken = localStorage.getItem("refreshToken");
 
     await axios
       .post(
@@ -214,7 +209,8 @@ const MyPage = () => {
        
         {
           headers: {
-            Authorization: `Bearer ${accessToken}`,
+            accessToken: `${accessToken}`,
+            refreshToken: `${refreshToken}`,
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
           },
