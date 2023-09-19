@@ -1,0 +1,25 @@
+.ScrapItem {
+  width: 360px;
+  height: 100px;
+  border: 1px solid #bababa;
+  border-radius: 6px;
+  padding: 13px 8px;
+  margin: 0 auto;
+}
+
+.Title {
+  font-size: 18px;
+  color: blue;
+  margin-bottom: 5px;
+}
+
+.Content {
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.Language {
+  font-size: 12px;
+  color: #bababa;
+}
