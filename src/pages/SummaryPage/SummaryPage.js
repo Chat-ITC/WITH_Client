@@ -79,8 +79,9 @@ const SummaryPage = () => {
           </button>
         </div>
       </footer>
+
       <div className={styles.HomeMainModal}>
-        <button type="button" onClick={openModal}>
+        <button type="button" onClick={() =>openModal}>
           open
         </button>
         <SelectModal isOpen={isModalOpen} closeModal={closeModal}>
@@ -89,7 +90,7 @@ const SummaryPage = () => {
             <button
               className={styles.SelectLanguage}
               type="button"
-              onClick={openModal1}
+              onClick={() =>openModal1}
             >
               C언어
             </button>
@@ -102,7 +103,7 @@ const SummaryPage = () => {
             <button
               className={styles.SelectSubject}
               type="button"
-              onClick={openModal2}
+              onClick={() =>openModal2}
             >
               선택없음
             </button>
@@ -111,12 +112,12 @@ const SummaryPage = () => {
             <button
               className={styles.SelectBtn}
               type="button"
-              onClick={openModal}
+              onClick={() =>openModal}
             >
               확인
             </button>
             <button
-              onClick={closeModal}
+              onClick={() =>closeModal}
               className={styles.SelectBtn}
               type="button"
             >
@@ -141,7 +142,7 @@ const SummaryPage = () => {
       >
         <SubModal isOpen={isModalOpen2} onClose={closeModal2}></SubModal>
       </div>
-      <Bottom />
+      
     </>
   );
 };
