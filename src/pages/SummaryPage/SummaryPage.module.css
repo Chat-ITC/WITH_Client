@@ -56,3 +56,85 @@
   font-size: 14px;
   color: white;
 }
+
+.HomeMainModal {
+  background-color: #fff;
+  position: relative;
+  top: -500px;
+  margin: 0 auto;
+  width: 270px;
+  height: 200px;
+  border: 1px solid #bababa;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.SelectUp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.SelectLang {
+  margin-right: 120px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.SelectLanguage {
+  width: 60px;
+}
+
+SelectLanguage::after {
+  content: ">";
+}
+
+.SelectDown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.SelectSubj {
+  margin-right: 120px;
+  text-align: center;
+}
+
+.SelectSub {
+  margin-right: 5px;
+  font-weight: 700;
+}
+
+.SelectSubject {
+  width: 60px;
+}
+
+.SelectBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.SelectBtn {
+  width: 233px;
+  height: 35px;
+  padding: 5px 15px;
+  border: 1px solid #bababa;
+  border-radius: 4px;
+}
+
+.SelectBtn:first-child {
+  background-color: #3da5f5;
+  color: white;
+}
+
+.SelectBtn:last-child {
+  margin-bottom: 10px;
+}

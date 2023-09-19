@@ -5,9 +5,8 @@ import Copy from "../../assets/AddInfoIcons/Copy.png";
 import Careful from "../../assets/AddInfoIcons/Becareful.png";
 import Becareful from "../../assets/AddInfoIcons/Becareful.png";
 
-
 import Bottom from "../../component/Bottom/Bottom";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 //modal
 import SelectModal from "../../Modal/SelectModal/SelectModal";
@@ -34,21 +33,15 @@ const SummaryPage = () => {
   const sendDataHandle = () => {
     closeModal();
     console.log("잘 작동 하는구만~");
-    console.log('선택한 파일(써머리페이지):', file);
+    console.log("선택한 파일(써머리페이지):", file);
   };
 
   const location = useLocation();
   useEffect(() => {
     setFile(location.state.file);
-    
+
     openModal();
-    
-
   }, [location.state.file]);
-
-  
-
-
 
   return (
     <>
@@ -92,11 +85,8 @@ const SummaryPage = () => {
         </div>
       </footer>
 
-      <div className={styles.HomeMainModal}>
-        <button type="button" onClick={openModal}>
-          open
-        </button>
-        <SelectModal isOpen={isModalOpen} closeModal={closeModal}>
+      <SelectModal isOpen={isModalOpen} closeModal={closeModal}>
+        <div className={styles.HomeMainModal}>
           <div className={styles.SelectUp}>
             <em className={styles.SelectLang}>학습언어</em>
             <button
@@ -136,11 +126,13 @@ const SummaryPage = () => {
               취소
             </button>
           </div>
-        </SelectModal>
-      </div>
+        </div>
+      </SelectModal>
+
       <div
-        className={`${styles.HomePage_Lang} ${isModalOpen1 ? styles.modal_open : ""
-          }`}
+        className={`${styles.HomePage_Lang} ${
+          isModalOpen1 ? styles.modal_open : ""
+        }`}
         style={{ display: isModalOpen1 ? "block" : "none" }}
       >
         <LangModal isOpen={isModalOpen1} onClose={closeModal1}></LangModal>
@@ -148,13 +140,13 @@ const SummaryPage = () => {
       <Bottom />
       {/*주제 모달*/}
       <div
-        className={`${styles.HomePage_Sub} ${isModalOpen2 ? styles.modal_open : ""
-          }`}
+        className={`${styles.HomePage_Sub} ${
+          isModalOpen2 ? styles.modal_open : ""
+        }`}
         style={{ display: isModalOpen2 ? "block" : "none" }}
       >
         <SubModal isOpen={isModalOpen2} onClose={closeModal2}></SubModal>
       </div>
-      
     </>
   );
 };

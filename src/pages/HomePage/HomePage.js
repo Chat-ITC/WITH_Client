@@ -15,7 +15,7 @@ import SubModal from "../../Modal/Subject/Subject";
 //library
 import { useEffect, useState } from "react";
 import axios from "axios";
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
@@ -64,9 +64,7 @@ const HomePage = () => {
     };
   }, []);
 
-
-
-  //카메라 
+  //카메라
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const fileInputRef = useRef(null);
@@ -76,18 +74,16 @@ const HomePage = () => {
     }
   };
 
-
   const handleFileChange = (event) => {
     const file = event.target.files[0];
 
     if (file) {
-  
-      console.log('선택한 파일(홈페이지):', file);
+      console.log("선택한 파일(홈페이지):", file);
       setSelectedPhoto(file);
-      navigate("/SummaryPage", { state: {file:file}});
+      navigate("/SummaryPage", { state: { file: file } });
     }
   };
-  
+
   return (
     <>
       <header className={styles.main}>
@@ -101,7 +97,7 @@ const HomePage = () => {
           <input
             type="file"
             accept="image/*;capture=camera"
-            style={{ display: 'none' }} // 요소를 화면에 표시하지 않음
+            style={{ display: "none" }} // 요소를 화면에 표시하지 않음
             ref={fileInputRef} // ref를 사용하여 요소 참조
             onChange={handleFileChange} // 파일 선택 시 이벤트 핸들러 호출
           />
@@ -136,8 +132,9 @@ const HomePage = () => {
         ))}
       </div> */}
       <div
-        className={`${styles.HomeScrab} ${isModalOpen3 ? styles.modal_open : ""
-          }`}
+        className={`${styles.HomeScrab} ${
+          isModalOpen3 ? styles.modal_open : ""
+        }`}
         style={{ display: isModalOpen3 ? "block" : "none" }}
       >
         <button type="button" onClick={openModal3}>
@@ -205,8 +202,9 @@ const HomePage = () => {
         </SelectModal>
       </div>
       <div
-        className={`${styles.HomePage_Lang} ${isModalOpen1 ? styles.modal_open : ""
-          }`}
+        className={`${styles.HomePage_Lang} ${
+          isModalOpen1 ? styles.modal_open : ""
+        }`}
         style={{ display: isModalOpen1 ? "block" : "none" }}
       >
         <LangModal isOpen={isModalOpen1} onClose={closeModal1}></LangModal>
@@ -214,8 +212,9 @@ const HomePage = () => {
       <Bottom />
       {/*주제 모달*/}
       <div
-        className={`${styles.HomePage_Sub} ${isModalOpen2 ? styles.modal_open : ""
-          }`}
+        className={`${styles.HomePage_Sub} ${
+          isModalOpen2 ? styles.modal_open : ""
+        }`}
         style={{ display: isModalOpen2 ? "block" : "none" }}
       >
         <SubModal isOpen={isModalOpen2} onClose={closeModal2}></SubModal>
