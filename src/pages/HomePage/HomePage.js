@@ -15,6 +15,7 @@ import SubModal from "../../Modal/Subject/Subject";
 //library
 import { useEffect, useState } from "react";
 import axios from "axios";
+import React, { useRef } from 'react';
 
 const HomePage = () => {
   const [isModalOpen, sestIsModalOpen] = useState(false);
@@ -60,10 +61,11 @@ const HomePage = () => {
     };
   }, []);
 
+  //카메라 
+  const fileInputRef = useRef(null);
   const handleButtonClick = () => {
-    const fileInput = document.getElementById("camera");
-    if (fileInput) {
-      fileInput.click();
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
     }
   };
   return (
