@@ -40,8 +40,7 @@ const SummaryPage = () => {
 
     const formData = new FormData();
 
-    setQuestion("요약 및 예시를 들어서 설명해줘");
-    setLanguage("C언어");
+    
 
     formData.append('imageFile', file);
     formData.append('question', question);
@@ -94,7 +93,8 @@ const SummaryPage = () => {
   const location = useLocation();
   useEffect(() => {
     setFile(location.state.file);
-
+    setQuestion("요약 및 예시를 들어서 설명해줘");
+    setLanguage("C언어");
     openModal();
   }, [location.state.file]);
 
