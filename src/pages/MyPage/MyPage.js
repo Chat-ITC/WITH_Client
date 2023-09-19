@@ -197,7 +197,7 @@ const MyPage = () => {
   },[]);
 
   //로그아웃 버튼
-  const logoutButton = () => {
+  const logoutButton = async() => {
 
     axios.defaults.withCredentials = true;
     const accessToken = localStorage.getItem("accessToken");
@@ -208,7 +208,7 @@ const MyPage = () => {
     }
  
 
-    axios
+    await axios
       .post(
         `${process.env.REACT_APP_SERVER_URL}/member/logout`, null,
        
