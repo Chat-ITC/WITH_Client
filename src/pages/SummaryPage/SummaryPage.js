@@ -55,7 +55,7 @@ const SummaryPage = () => {
       axios.defaults.headers.common["Authorization"] = null;
     }
 
-    axios.post(`${process.env.REACT_APP_SERVER_URL}/ai/summery`,
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/ai/summary`,
     formData, 
     {
       headers: {
