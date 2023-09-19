@@ -65,7 +65,7 @@ const SummaryPage = () => {
         'Access-Control-Allow-Origin': '*',
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
       },
-      timeout: 100000,
+      timeout: 60000,
     })
       .then((response) => {
         console.log('요청성공');
