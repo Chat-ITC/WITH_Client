@@ -67,7 +67,7 @@ const MyPage = () => {
         const errorMessage = error.response.data.message;
         if (statusCode === 401) {
           alert('토큰 재발급 필요');
-          navigate("/login");
+          navigate("/");
           ;
         } 
         else if (statusCode === 404) {
@@ -76,7 +76,7 @@ const MyPage = () => {
         }
          else if (statusCode === 409) {
           alert("세션이 만료되었습니다. 다시 로그인해 주세요");
-          navigate("/login");
+          navigate("/");
         }
       });
 
@@ -123,7 +123,7 @@ const MyPage = () => {
         const errorMessage = error.response.data.message;
         if (statusCode === 401) {
           alert('토큰 재발급 필요');
-          navigate("/login");
+          navigate("/");
           ;
         } 
         else if (statusCode === 404) {
@@ -132,7 +132,7 @@ const MyPage = () => {
         }
          else if (statusCode === 409) {
           alert("세션이 만료되었습니다. 다시 로그인해 주세요");
-          navigate("/login");
+          navigate("/");
         }
       });
 
@@ -186,12 +186,12 @@ const MyPage = () => {
         if (statusCode === 401) {
           // 400 상태 코드 처리
           alert('로그인 해주세요');
-          navigate("/login");
+          navigate("/");
         }
 
         else if (statusCode === 409) {
           alert('세션이 만료되었습니다. 다시 로그인해 주세요')
-          navigate("/login");
+          navigate("/");
         }
       });
   },[]);
@@ -222,14 +222,14 @@ const MyPage = () => {
         localStorage.removeItem('accessToken');
         console.log('logout successful');
         alert('로그아웃 완료');
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => {
         const errorHeaders = error.response.headers;
         console.log(errorHeaders.validation);
         console.log(error);
         alert('오류 발생. 로그인 화면으로 돌아갑니다.');
-        navigate("/login");
+        navigate("/");
       })
       
 

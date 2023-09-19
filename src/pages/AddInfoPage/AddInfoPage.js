@@ -61,7 +61,7 @@ const AddInfoPage = () => {
     };
     sendJSONDataToSpringBoot(addUserInfo);
 
-    navigate("/login");
+    navigate("/");
   };
 
   //데이터전송
@@ -82,7 +82,7 @@ const AddInfoPage = () => {
         console.log("404에러");
       } else if (statusCode === 409) {
         alert("세션이 만료되었습니다. 다시 로그인해 주세요");
-        navigate("/login");
+        navigate("/");
       }
     }
   };

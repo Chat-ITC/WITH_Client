@@ -28,7 +28,7 @@ const KakaoRedirection = () => {
     if (statusCode === 401) {
       // 400 상태 코드 처리
       alert('로그인 해주세요');
-          window.location.href = `${process.env.REACT_APP_SERVER_URL}/login`;
+      navigate("/");
     }
     else if (statusCode === 404) {
       console.log("404에러");
@@ -40,7 +40,7 @@ const KakaoRedirection = () => {
     }
     else if (statusCode === 409) {
       alert('세션이 만료되었습니다. 다시 로그인해 주세요')
-      navigate("/login");
+      navigate("/");
     }
   }
 
