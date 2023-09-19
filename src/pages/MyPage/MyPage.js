@@ -68,68 +68,19 @@ const MyPage = () => {
       })
       .catch((error) => {
 
-        console.error("Error fetching data:", error);
+        const data = error.response.data;
         const statusCode = error.response.status;
+        const errorHeaders = error.response.headers;
+    
         if (statusCode === 401) {
-          console.log("401에러");
-
-          const refreshToken = localStorage.getItem("refreshToken");
-
-          console.log("refreshToken: ", refreshToken);
-          // 서버에 POST 요청 보내기
-
-          const postData = {};
-
-          axios.post(`${process.env.REACT_APP_SERVER_URL}/member/refreshToken`, postData, {
-                headers: {
-                  refreshToken: `${refreshToken}`,
-                  "Access-Control-Allow-Origin": "*",
-                  "Content-Type": "application/json",
-                },
-              })
-            .then((postResponse) => {
-
-              localStorage.removeItem("accessToken");
-              localStorage.removeItem("refreshToken");
-
-              const accessToken = postResponse.headers["accessToken"];
-              const refreshToken = postResponse.headers["refreshToken"];
-
-              console.log("POST request successful:", postResponse.data);
-
-              localStorage.setItem("accessToken", accessToken);
-              console.log("최종accessToken값: ", accessToken);
-              localStorage.setItem("refreshToken", refreshToken);
-              console.log("최종refreshToken값: ", refreshToken);
-
-              setTimeout(function() {
-                localStorage.setItem("accessToken", accessToken);
-                console.log("최종accessToken값: ", accessToken);
-                localStorage.setItem("refreshToken", refreshToken);
-                console.log("최종refreshToken값: ", refreshToken);
-              }, 1000);
-
-
-              // 여기에서 필요한 작업을 수행할 수 있습니다.
-            })
-            .catch((postError) => {
-              localStorage.removeItem("accessToken");
-              localStorage.removeItem("refreshToken");
-
-              const accessToken = postError.headers["accessToken"];
-              const refreshToken = postError.headers["refreshToken"];
-
-              console.log("POST request successful:", postError.data);
-
-              setTimeout(function() {
-                localStorage.setItem("accessToken", accessToken);
-                console.log("최종accessToken값: ", accessToken);
-                localStorage.setItem("refreshToken", refreshToken);
-                console.log("최종refreshToken값: ", refreshToken);
-              }, 1000);
-
-
-            });
+          // 400 상태 코드 처리
+          alert('로그인 해주세요');
+          window.location.href = `${process.env.REACT_APP_SERVER_URL}/login`;
+        }
+        
+        else if (statusCode === 409) {
+          alert('세션이 만료되었습니다. 다시 로그인해 주세요')
+          navigate("/login");
         }
       });
   },[]);

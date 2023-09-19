@@ -27,8 +27,8 @@ const KakaoRedirection = () => {
 
     if (statusCode === 401) {
       // 400 상태 코드 처리
-      alert('토큰 재발급 필요');
-      window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
+      alert('로그인 해주세요');
+          window.location.href = `${process.env.REACT_APP_SERVER_URL}/login`;
     }
     else if (statusCode === 404) {
       console.log("404에러");
