@@ -300,10 +300,10 @@ const MyPage = () => {
             </a>
           </li>
           <li className={styles.info_list}>
-            <button type = "button" className={styles.info_link}>
+            <button type = "button" className={styles.info_link} onClick ={() => logoutButton}>
               <div className={styles.info_item}>
                 <img className={styles.info_img} src={Logout} alt="" />
-                <span className={styles.info_desc} onClick ={() => logoutButton}>로그 아웃</span>
+                <span className={styles.info_desc} >로그 아웃</span>
               </div>
             </button>
           </li>
