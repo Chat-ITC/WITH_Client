@@ -74,21 +74,21 @@ const MyPage = () => {
           console.log("401에러");
 
           const refreshToken = localStorage.getItem("refreshToken");
-          
+
           console.log("refreshToken: ", refreshToken);
           // 서버에 POST 요청 보내기
 
           const postData = {};
 
           axios.post(`${process.env.REACT_APP_SERVER_URL}/member/refreshToken`, postData, {
-            headers: {
-              refreshToken: `${refreshToken}`,
-              "Access-Control-Allow-Origin": "*",
-              "Content-Type": "application/json",
-            },
-          })
+                headers: {
+                  refreshToken: `${refreshToken}`,
+                  "Access-Control-Allow-Origin": "*",
+                  "Content-Type": "application/json",
+                },
+              })
             .then((postResponse) => {
-              
+
               localStorage.removeItem("accessToken");
               localStorage.removeItem("refreshToken");
 
@@ -96,7 +96,7 @@ const MyPage = () => {
               const refreshToken = postResponse.headers["refreshToken"];
 
               console.log("POST request successful:", postResponse.data);
-             
+
               localStorage.setItem("accessToken", accessToken);
               console.log("최종accessToken값: ", accessToken);
               localStorage.setItem("refreshToken", refreshToken);
@@ -108,7 +108,7 @@ const MyPage = () => {
                 localStorage.setItem("refreshToken", refreshToken);
                 console.log("최종refreshToken값: ", refreshToken);
               }, 1000);
-              
+
 
               // 여기에서 필요한 작업을 수행할 수 있습니다.
             })
@@ -127,8 +127,8 @@ const MyPage = () => {
                 localStorage.setItem("refreshToken", refreshToken);
                 console.log("최종refreshToken값: ", refreshToken);
               }, 1000);
-             
-             
+
+
             });
         }
       });
@@ -170,12 +170,12 @@ const MyPage = () => {
         if (statusCode === 401) {
           alert('토큰 재발급 필요');
           window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
-        }
+        } 
         else if (statusCode === 404) {
           if (errorMessage === "No Account") {
           }
         }
-        else if (statusCode === 409) {
+         else if (statusCode === 409) {
           alert("세션이 만료되었습니다. 다시 로그인해 주세요");
           navigate("/login");
         }
@@ -226,7 +226,7 @@ const MyPage = () => {
       </section>
       <div
         className={`${styles.MyPage_Lang} ${isModalOpen ? styles.modal_open : ""
-          }`}
+        }`}
         style={{ display: isModalOpen ? "block" : "none" }}
       >
         <LangModal isOpen={isModalOpen} onClose={()=>closeModal}></LangModal>
@@ -264,12 +264,12 @@ const MyPage = () => {
       </aside>
       <div
         className={`${styles.MyPage_Abil} ${isModalOpen2 ? styles.modal_open : ""
-          }`}
+        }`}
         style={{ display: isModalOpen2 ? "block" : "none" }}
       >
         <Abil isOpen={isModalOpen2} onClose={()=>closeModal2}></Abil>
       </div>
-      
+
       <Bottom />
     </Fragment>
   );

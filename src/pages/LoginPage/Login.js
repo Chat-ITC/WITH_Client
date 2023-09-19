@@ -14,12 +14,13 @@ import { NAVER_LINK, KAKAO_LINK } from "../../config/config";
 //   Kakao,
 // } from "./style";
 
-import { Fragment } from "react";
+//css
 import styles from "./Login.module.css";
-
+//png
 import logo from "../../assets/logo/CoFe_logo.png";
 import kakao from "../../assets/loginButtons/kakao-button.png";
 import naver from "../../assets/loginButtons/naver-button.png";
+//library
 
 //카카오 로그인을 처리하는 핸들러 함수. 클릭시 카카오 로그인 링크로 리다이력션.
 const Login = () => {
@@ -33,11 +34,11 @@ const Login = () => {
   };
 
   return (
-    <Fragment>
-      <header className={styles.Login_Page}>
-        <div className={styles.Login_title}>
+    <>
+      <header className={styles.Login_Header}>
+        <div className={styles.Login_Page}>
           <img className={styles.Login_img} src={logo} alt="로고" />
-          <h1>
+          <h1 className={styles.Login_title}>
             내 옆에 <br /> 코딩 친구
           </h1>
         </div>
@@ -55,7 +56,7 @@ const Login = () => {
           </div>
         </div>
       </footer>
-    </Fragment>
+    </>
   );
 };
 

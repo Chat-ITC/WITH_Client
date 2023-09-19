@@ -1,16 +1,16 @@
-.Login_Page {
+.Login_Header {
   position: absolute;
   top: 200px;
   left: 60px;
 }
 
-.Login_title {
+.Login_Page {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.Login_title .Login_img {
+.Login_Page .Login_img {
   width: 65px;
   height: 65px;
   margin-right: 18px;

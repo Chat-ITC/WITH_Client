@@ -112,7 +112,7 @@ const HomePage = () => {
         }`}
         style={{ display: isModalOpen3 ? "block" : "none" }}
       >
-        <button type="button" onClick="openModal3">
+        <button type="button" onClick={openModal3}>
           스크랩
         </button>
         <Scrab isOpen={isModalOpen3} onClose={closeModal3}>
