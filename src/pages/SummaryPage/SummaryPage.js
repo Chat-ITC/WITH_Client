@@ -15,6 +15,8 @@ import SubModal from "../../Modal/Subject/Subject";
 import LangModal from "../../Modal/LangModal/LangModal";
 
 const SummaryPage = () => {
+  axios.defaults.withCredentials = true;
+
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
@@ -37,7 +39,6 @@ const SummaryPage = () => {
     closeModal();
     console.log("잘 작동 하는구만~");
     console.log("선택한 파일(써머리페이지):", file);
-
     const formData = new FormData();
 
     
@@ -52,12 +53,8 @@ const SummaryPage = () => {
       console.log(key, value);
      };
 
-    
-
-
-
-
     const accessToken = localStorage.getItem("accessToken");
+    console.log("토근 확인: ", accessToken)
     if (accessToken) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
     } else {
