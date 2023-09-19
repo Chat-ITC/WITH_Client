@@ -218,6 +218,7 @@ const MyPage = () => {
       )
       .then((response) => {
         // 데이터 수정 성공 시 처리
+        localStorage.removeItem('refreshToken');
         localStorage.removeItem('accessToken');
         console.log('logout successful');
         alert('로그아웃 완료');
