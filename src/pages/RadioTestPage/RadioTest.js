@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import styles from "./RadioText.module.css";
 
 //png ability
@@ -23,17 +23,73 @@ import R from "../../assets/AddInfoIcons/R.png";
 import Csharp from "../../assets/AddInfoIcons/C#.png";
 import HTML from "../../assets/AddInfoIcons/HTML.png";
 
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+
+
 const AddInfoPage = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [userVal1, setuserVal1] = useState("");
+  const [userVal2, setuserVal2] = useState("");
+
   const [selectedSkill, setSelectedSkill] = useState(null);
   const [selectedLanguage, setSelectedLanguage] = useState(null);
 
-  const handleSkillSelect = (skill) => {
-    setSelectedSkill(skill);
+  const handleSkillSelect = (e) => {
+    const value = e.target.value;
+    setSelectedSkill(value);
   };
 
-  const handleLanguageSelect = (language) => {
-    setSelectedLanguage(language);
+  const handleLanguageSelect = (e) => {
+    const value = e.target.value;
+    setSelectedLanguage(value);
   };
+
+  //데이터묶기
+  const handleNextPage = () => {
+    const addUserInfo = {
+      name: location.state.data.name,
+      email: location.state.data.email,
+      loginProvider: location.state.data.loginProvider,
+      snsId: location.state.data.snsId,
+      user_level: userVal1,
+      skill_language: userVal2,
+    };
+    sendJSONDataToSpringBoot(addUserInfo);
+
+    navigate("/");
+  };
+
+  //데이터전송
+  const sendJSONDataToSpringBoot = async (userprop) => {
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_SERVER_URL}/member/signup`,
+        userprop
+      );
+      console.log(response.data); // 서버로부터 받은 응답 데이터 처리
+    } catch (error) {
+      const statusCode = error.response.status;
+
+      if (statusCode === 401) {
+        console.alert("토큰 재발급 필요");
+        window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
+      } else if (statusCode === 404) {
+        console.log("404에러");
+      } else if (statusCode === 409) {
+        alert("세션이 만료되었습니다. 다시 로그인해 주세요");
+        navigate("/");
+      }
+    }
+  };
+
+
+
+
+
 
   const skill = [
     {
@@ -126,9 +182,8 @@ const AddInfoPage = () => {
             <label
               key={item.name}
               htmlFor={item.name}
-              className={`${styles.radioItem} ${
-                selectedSkill === item.name ? styles.selected : ""
-              }`}
+              className={`${styles.radioItem} ${selectedSkill === item.name ? styles.selected : ""
+                }`}
             >
               <input
                 type="radio"
@@ -161,9 +216,8 @@ const AddInfoPage = () => {
             <label
               key={language.name}
               htmlFor={language.name}
-              className={`${styles.button} ${
-                selectedLanguage === language.name ? styles.selected : ""
-              }`}
+              className={`${styles.button} ${selectedLanguage === language.name ? styles.selected : ""
+                }`}
             >
               <input
                 type="radio"
@@ -186,7 +240,7 @@ const AddInfoPage = () => {
         </div>
       </section>
 
-      <button className={styles.nextButton}>다음</button>
+      <button className={styles.nextButton} onClick={handleNextPage}>다음</button>
 
       {/* 선택된 실력과 언어 표시 */}
       {selectedSkill && selectedLanguage && (
