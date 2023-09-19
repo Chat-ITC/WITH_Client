@@ -1,21 +1,30 @@
-//css
+// CSS
 import styles from "./ScrabBtn.module.css";
-//png
+// PNG
 import FillStart from "../../assets/AddInfoIcons/FillStar.png";
 import Star from "../../assets/icons/clip.png";
-//library
+// Library
 import React, { useState } from "react";
 
 const ScrabBtn = () => {
-  const [BtnStar, setStar] = useState({ Star });
+  const [btnImage, setBtnImage] = useState({ src: Star, alt: "Star" });
 
   const handleButtonClick = () => {
-    setStar((prevImage) => (prevImage === Star ? FillStart : Star));
+    setBtnImage((prevImage) =>
+      prevImage.src === Star
+        ? { src: FillStart, alt: "FillStar" }
+        : { src: Star, alt: "Star" }
+    );
   };
+
   return (
     <>
       <div className={styles.ScrapStar} onClick={handleButtonClick}>
-        <img className={styles.StarImage} src={BtnStar} alt="Scrap" />
+        <img
+          className={styles.StarImage}
+          src={btnImage.src}
+          alt={btnImage.alt}
+        />
         <span className={styles.StarText}>star</span>
       </div>
     </>
