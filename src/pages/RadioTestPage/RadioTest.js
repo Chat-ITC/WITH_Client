@@ -158,21 +158,30 @@ const AddInfoPage = () => {
       <section className={styles.language_section}>
         <div className={`${styles.grid_3x5}`}>
           {languages.map((language) => (
-            <button
+            <label
               key={language.name}
+              htmlFor={language.name}
               className={`${styles.button} ${
                 selectedLanguage === language.name ? styles.selected : ""
               }`}
-              onClick={() => handleLanguageSelect(language.name)}
             >
+              <input
+                type="radio"
+                id={language.name}
+                name="language"
+                value={language.name}
+                checked={selectedLanguage === language.name}
+                onChange={() => handleLanguageSelect(language.name)}
+                style={{ display: "none" }}
+              />
               {/* 이미지 원형으로 만들기 */}
               <div
-                className={`${styles.itemContainer} ${styles.itemContainer2}`}
+                className={`${styles.itemContainer3} ${styles.itemContainer4}`}
               >
                 <img src={language.image} alt={language.name} />
                 <span>{language.name}</span>
               </div>
-            </button>
+            </label>
           ))}
         </div>
       </section>
