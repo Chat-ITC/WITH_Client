@@ -30,6 +30,53 @@ const MyPage = () => {
     if (selectedLanguage) {
       // 선택한 언어 값에 대한 작업을 수행합니다.
       console.log(`선택한 언어: ${selectedLanguage}`);
+
+      const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+    } else {
+      axios.defaults.headers.common["Authorization"] = null;
+    }
+
+    const newLenguageData = {
+      skill_language: selectedLanguage,
+    }; // 나중에 변수로 바꾸기 임시적으로 하드코딩.
+
+    axios
+      .patch(
+        `${process.env.REACT_APP_SERVER_URL}/member/update/language`,
+        newLenguageData,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        // 데이터 수정 성공 시 처리
+        console.log("Lenguage updated successfully:", response.data);
+        setUserTier(newLenguageData.tier); // 수정된 언어 데이터를 화면에 반영
+      })
+      .catch((error) => {
+        const statusCode = error.response.status;
+        const errorMessage = error.response.data.message;
+        if (statusCode === 401) {
+          alert('토큰 재발급 필요');
+          navigate("/login");
+          ;
+        } 
+        else if (statusCode === 404) {
+          if (errorMessage === "No Account") {
+          }
+        }
+         else if (statusCode === 409) {
+          alert("세션이 만료되었습니다. 다시 로그인해 주세요");
+          navigate("/login");
+        }
+      });
+
     }
   }
 
@@ -71,6 +118,7 @@ const MyPage = () => {
       .then((response) => {
         // 데이터를 성공적으로 받아왔을 때 처리
         setUserInfo(response.data);
+        console.log(userInfo);
       })
       .catch((error) => {
 
@@ -126,7 +174,8 @@ const MyPage = () => {
         const errorMessage = error.response.data.message;
         if (statusCode === 401) {
           alert('토큰 재발급 필요');
-          window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
+          navigate("/login");
+          ;
         } 
         else if (statusCode === 404) {
           if (errorMessage === "No Account") {
