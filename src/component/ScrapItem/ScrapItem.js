@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./ScrapItem.module.css";
 
-//svg
-import Circle from "../../assets/etc/circle-solid.svg";
-
 const ScrapItem = () => {
   // const [scrapData, setScrapData] = useState(null);
 
@@ -31,15 +28,29 @@ const ScrapItem = () => {
     /*onClick={handleClick}*/
   }
   return (
-    <div className={styles.ScrapItem}>
-      {/*<h2 className={styles.Title}>{title}</h2>
+    <>
+      <div className={styles.ScrapItem}>
+        {/*<h2 className={styles.Title}>{title}</h2>
       <p className={styles.Content}>{content}</p>
   <p className={styles.Language}>{Language}</p>*/}
-      <h2 className={styles.Title}>제목입니다.</h2>
-      <p className={styles.Content}>내용입니다.</p>
-      <img className={styles.Circle} src={Circle} alt="원" />
-      <span className={styles.Language}>선호하는 언어입니다.</span>
-    </div>
+        <h2 className={styles.Title}>제목입니다.</h2>
+        <p className={styles.Content}>
+          일이삼사오육칠팔구십일이삼사오육칠팔구십.
+        </p>
+        <span className={styles.Language}>선호하는 언어입니다.</span>
+      </div>
+
+      <div className={styles.ScrapItem}>
+        {/*<h2 className={styles.Title}>{title}</h2>
+      <p className={styles.Content}>{content}</p>
+  <p className={styles.Language}>{Language}</p>*/}
+        <h2 className={styles.Title}>제목입니다.</h2>
+        <p className={styles.Content}>
+          일이삼사오육칠팔구십일이삼사오육칠팔구십.
+        </p>
+        <span className={styles.Language}>선호하는 언어입니다.</span>
+      </div>
+    </>
   );
 };
 
