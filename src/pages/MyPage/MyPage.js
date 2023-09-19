@@ -75,7 +75,7 @@ const MyPage = () => {
         if (statusCode === 401) {
           // 400 상태 코드 처리
           alert('로그인 해주세요');
-          window.location.href = `${process.env.REACT_APP_SERVER_URL}/login`;
+          navigate("/login");
         }
 
         else if (statusCode === 409) {
