@@ -35,7 +35,7 @@ const SummaryPage = () => {
   const [language, setLanguage] = useState(null)
   const [file, setFile] = useState(null);
 
-  const sendDataHandle = () => {
+  const sendDataHandle = async () => {
     closeModal();
     console.log("잘 작동 하는구만~");
     console.log("선택한 파일(써머리페이지):", file);
@@ -55,19 +55,15 @@ const SummaryPage = () => {
 
     const accessToken = localStorage.getItem("accessToken");
     console.log("토근 확인: ",  accessToken)
-    if (accessToken) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
-    } else {
-      axios.defaults.headers.common["Authorization"] = null;
-    }
+    
 
-    axios.post(`${process.env.REACT_APP_SERVER_URL}/ai/summary`,
+    await axios.post(`${process.env.REACT_APP_SERVER_URL}/ai/summary`,
     formData, 
     {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Access-Control-Allow-Origin": "*",
         'Content-Type': 'multipart/form-data',
+        'Access-Control-Allow-Origin': '*',
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
       },
       timeout: 100000,
     })
