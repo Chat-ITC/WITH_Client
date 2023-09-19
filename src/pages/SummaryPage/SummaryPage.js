@@ -29,8 +29,8 @@ const SummaryPage = () => {
   const openModal2 = () => sestIsModalOpen2(true);
   const closeModal2 = () => sestIsModalOpen2(false);
 
-  const [question, setQuestion] = useState('')
-  const [language, setLanguage] = useState('')
+  const [question, setQuestion] = useState(null)
+  const [language, setLanguage] = useState(null)
   const [file, setFile] = useState(null);
 
   const sendDataHandle = () => {
@@ -40,7 +40,8 @@ const SummaryPage = () => {
 
     const formData = new FormData();
 
-    
+    setQuestion("요약 및 예시를 들어서 설명해줘");
+    setLanguage("C언어");
 
     formData.append('imageFile', file);
     formData.append('question', question);
@@ -52,8 +53,7 @@ const SummaryPage = () => {
       console.log(key, value);
      };
 
-    setQuestion("요약 및 예시를 들어서 설명해줘");
-    setLanguage("C언어");
+    
 
 
 
