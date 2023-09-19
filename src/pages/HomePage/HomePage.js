@@ -12,6 +12,7 @@ import SelectModal from "../../Modal/SelectModal/SelectModal";
 import LangModal from "../../Modal/LangModal/LangModal";
 import Scrab from "../../Modal/Scrab/scrab";
 import SubModal from "../../Modal/Subject/Subject";
+import ScrabBtn from "../../Modal/Scrab/scrab";
 //library
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -121,40 +122,11 @@ const HomePage = () => {
       </div>
       <hr className={styles.Homehr} />
 
-      {/*한번 스크랩 아이템 작성해봄*/}
-      {/* <div className={styles.HomePage}>
-        {scraps.map((scrap) => (
-          <div className={styles.ScrapItem} key={scrap.id}>
-            <h2 className={styles.Title}>{scrap.title}</h2>
-            <p className={styles.Content}>{scrap.content}</p>
-            <p className={styles.Timestamp}>올린 시간: {scrap.timestamp}</p>
-          </div>
-        ))}
-      </div> */}
-      <div
-        className={`${styles.HomeScrab} ${
-          isModalOpen3 ? styles.modal_open : ""
-        }`}
-        style={{ display: isModalOpen3 ? "block" : "none" }}
-      >
-        <button type="button" onClick={openModal3}>
-          스크랩
-        </button>
-        <Scrab isOpen={isModalOpen3} onClose={closeModal3}>
-          <div className={Scrab.ScrabBtns}>
-            <button
-              type="button"
-              className={styles.ScrabBtn}
-              onClick="closeModal3"
-            >
-              스크랩
-            </button>
-            <button type="button" className={styles.ScrabBtn}>
-              최근 본 항목
-            </button>
-          </div>
-        </Scrab>
-      </div>
+      <button className={styles.Scrab} type="button" onClick={openModal3}>
+        스크랩
+      </button>
+      <Scrab isOpen={isModalOpen3} closeModal={closeModal3} />
+
       <div className={styles.HomeMainModal}>
         <button type="button" onClick={openModal}>
           open

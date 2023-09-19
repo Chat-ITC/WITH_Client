@@ -6,9 +6,6 @@ import "../src/styles/screen/Reset.module.css";
 // global style
 import GlobalStyle from "./styles/GlobalStyle";
 
-//테스트용
-import ScrapItem from "./component/ScrapItem/ScrapItem";
-
 //pages
 import Login from "./pages/LoginPage/Login";
 import MyPage from "./pages/MyPage/MyPage";
@@ -35,9 +32,6 @@ function App() {
           <Route path="/Skeleton" element={<Skeleton />} />
           <Route path="/RadioTest" element={<Radio />} />
           <Route path="/SummaryPage" element={<SummaryPage />} />
-          {/*테스트용*/}
-          <Route path="/ScrapItem" element={<ScrapItem />} />
-
           <Route exact path="/kakao/callback" element={<KakaoRedirection />} />
           <Route exact path="/naver/callback" element={<NaverRedirection />} />
         </Routes>
