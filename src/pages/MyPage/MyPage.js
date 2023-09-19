@@ -210,7 +210,7 @@ const MyPage = () => {
 
     axios
       .post(
-        `${process.env.REACT_APP_SERVER_URL}/member/logout`,
+        `${process.env.REACT_APP_SERVER_URL}/member/logout`, null,
        
         {
           headers: {
@@ -228,6 +228,9 @@ const MyPage = () => {
         navigate("/login");
       })
       .catch((error) => {
+        const errorHeaders = error.response.headers;
+        console.log(errorHeaders.validation);
+        console.log(error);
         alert('오류 발생. 로그인 화면으로 돌아갑니다.');
         navigate("/login");
       })
