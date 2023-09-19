@@ -44,7 +44,6 @@ const Login = () => {
         </div>
       </header>
       <footer className={styles.Login_section}>
-        <div>
           <span className={styles.Login_desc}>SNS 계정으로 간편 가입하기</span>
           <div className={styles.Login_buttons}>
             <button className={styles.Login_button} onClick={kakaoLoginHandler}>
@@ -54,7 +53,6 @@ const Login = () => {
               <img src={naver} alt="네이버 로그인 버튼" />
             </button>
           </div>
-        </div>
       </footer>
     </>
   );

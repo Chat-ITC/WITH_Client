@@ -1,6 +1,6 @@
 .Login_Header {
   position: absolute;
-  top: 200px;
+  top: 160px;
   left: 60px;
 }
 
@@ -18,7 +18,7 @@
 
 .Login_section {
   position: absolute;
-  top: 577px;
+  top: 540px;
   left: 100px;
 }
 
@@ -28,7 +28,7 @@
   color: #8c8d96;
 }
 
-.Login_section > div > .Login_buttons {
+.Login_section .Login_buttons {
   display: flex;
   justify-content: space-between;
   align-items: center;
