@@ -77,6 +77,7 @@ const HomePage = () => {
       // 선택한 파일을 여기에서 처리할 수 있습니다.
       console.log('선택한 파일:', file);
     }
+  };
   
   return (
     <>
