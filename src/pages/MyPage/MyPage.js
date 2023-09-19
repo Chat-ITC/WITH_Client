@@ -25,6 +25,8 @@ const MyPage = () => {
 
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
+
+  //선호 언어 변경
   const closeModal = (selectedLanguage) => {
     sestIsModalOpen(false);
     if (selectedLanguage) {
@@ -40,7 +42,7 @@ const MyPage = () => {
 
     const newLenguageData = {
       skill_language: selectedLanguage,
-    }; // 나중에 변수로 바꾸기 임시적으로 하드코딩.
+    }; 
 
     axios
       .patch(
@@ -81,6 +83,7 @@ const MyPage = () => {
     }
   }
 
+  //내 실력 변경
   const [isModalOpen2, sestIsModalOpen2] = useState(false);
   const openModal2 = () => sestIsModalOpen2(true);
   const closeModal2 = (selectedTier) => {
@@ -95,7 +98,7 @@ const MyPage = () => {
 
     const newTierData = {
       user_level: selectedTier,
-    }; // 나중에 변수로 바꾸기 임시적으로 하드코딩.
+    }; 
 
     axios
       .patch(
@@ -140,6 +143,7 @@ const MyPage = () => {
   const [userTier, setUserTier] = useState(0);
   const [userLan, setUserLan] = useState(0);
   const [ref, setRef] = useState(0);
+  
   //데이터 받아온 후 이름과 이메일 표기
   axios.defaults.withCredentials = true;
 
@@ -163,6 +167,7 @@ const MyPage = () => {
     );
     return response;
   };
+
   //정보 받아오기
   useEffect(() => {
     // authReq 함수를 호출하고 데이터를 받아옵니다.
@@ -191,23 +196,22 @@ const MyPage = () => {
       });
   },[]);
 
-  //내 실력 변경(일단 입문자만)
-  const handleChangeTeir = (props) => {
+  //로그아웃 버튼
+  const logoutButton = () => {
+
+    axios.defaults.withCredentials = true;
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
     } else {
       axios.defaults.headers.common["Authorization"] = null;
     }
-
-    const newTierData = {
-      user_level: props,
-    }; // 나중에 변수로 바꾸기 임시적으로 하드코딩.
+    const empty = {};
 
     axios
-      .patch(
-        `${process.env.REACT_APP_SERVER_URL}/member/update/level`,
-        newTierData,
+      .post(
+        `${process.env.REACT_APP_SERVER_URL}/member/logout`,
+        empty,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -218,36 +222,21 @@ const MyPage = () => {
       )
       .then((response) => {
         // 데이터 수정 성공 시 처리
-        console.log("Tier updated successfully:", response.data);
-        setUserTier(newTierData.tier); // 수정된 티어 데이터를 화면에 반영
+        localStorage.removeItem('accessToken');
+        console.log('logout successful');
+        alert('로그아웃 완료');
+        navigate("/login");
       })
       .catch((error) => {
-        const statusCode = error.response.status;
-        const errorMessage = error.response.data.message;
-        if (statusCode === 401) {
-          alert('토큰 재발급 필요');
-          navigate("/login");
-          ;
-        } 
-        else if (statusCode === 404) {
-          if (errorMessage === "No Account") {
-          }
-        }
-         else if (statusCode === 409) {
-          alert("세션이 만료되었습니다. 다시 로그인해 주세요");
-          navigate("/login");
-        }
-      });
+        alert('오류 발생. 로그인 화면으로 돌아갑니다.');
+        navigate("/login");
+      })
+      
+
+
   };
 
-  // const sendJSONDataToSpringBoot = async (userprop) => {
-  //   try {
-  //     const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/member/signup`, userprop);
-  //     console.log(response.data); // 서버로부터 받은 응답 데이터 처리
-  //   } catch (error) {
-  //     console.error(error); // 에러 처리
-  //   }
-  // };
+  
 
   return (
     <Fragment>
@@ -311,12 +300,12 @@ const MyPage = () => {
             </a>
           </li>
           <li className={styles.info_list}>
-            <a href="/" className={styles.info_link}>
+            <button type = "button" className={styles.info_link}>
               <div className={styles.info_item}>
                 <img className={styles.info_img} src={Logout} alt="" />
-                <span className={styles.info_desc}>로그 아웃</span>
+                <span className={styles.info_desc} onClick ={() => logoutButton}>로그 아웃</span>
               </div>
-            </a>
+            </button>
           </li>
         </ul>
       </aside>
