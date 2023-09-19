@@ -5,6 +5,7 @@ import Copy from "../../assets/AddInfoIcons/Copy.png";
 import Careful from "../../assets/AddInfoIcons/Becareful.png";
 import Becareful from "../../assets/AddInfoIcons/Becareful.png";
 
+import axios from "axios";
 import Bottom from "../../component/Bottom/Bottom";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -28,12 +29,56 @@ const SummaryPage = () => {
   const openModal2 = () => sestIsModalOpen2(true);
   const closeModal2 = () => sestIsModalOpen2(false);
 
+  const [question, setQuestion] = useState('')
+  const [language, setLanguage] = useState('')
   const [file, setFile] = useState(null);
 
   const sendDataHandle = () => {
     closeModal();
     console.log("잘 작동 하는구만~");
     console.log("선택한 파일(써머리페이지):", file);
+
+    const formData = new FormData();
+
+    setQuestion("요약 및 예시를 들어서 설명해줘");
+    setLanguage("C언어");
+
+    formData.append('imageFile', file);
+    formData.append('question', question);
+    formData.append('fav_language', language);
+    console.log("formData: ", formData);
+
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+    } else {
+      axios.defaults.headers.common["Authorization"] = null;
+    }
+
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/ai/summery`,
+    formData, 
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+      timeout: 60000,
+    })
+      .then((response) => {
+        console.log('요청성공');
+        console.log(response);
+
+
+      })
+      .catch((error) => {
+        console.log('요청실패')
+        console.log(error)
+      })
+
+
+
+
   };
 
   const location = useLocation();
