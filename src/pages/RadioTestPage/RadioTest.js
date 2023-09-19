@@ -54,11 +54,13 @@ const AddInfoPage = () => {
 
   //두개가 모두 참인경우 버튼 활성화
   useEffect(() => {
+    console.log(selected1);
+    console.log(selected2);
     if (selected1 && selected2) {
       console.log('두 조건이 모두 충족됩니다.');
       setBtnOn(true);
     } else {
-      setBtnOn(true);
+      setBtnOn(false);
     }
   }, [selected1, selected2]);
 
@@ -254,7 +256,7 @@ const AddInfoPage = () => {
         </div>
       </section>
 
-      <button disabled={btnOn ? false:true} className={btnOn ? "nextButton":"noButton"} onClick={handleNextPage}>다음</button>
+      <button disabled={!btnOn} className={btnOn ? styles.nextButton : styles.noButton} onClick={handleNextPage}>다음</button>
 
       {/* 선택된 실력과 언어 표시 */}
       {selectedSkill && selectedLanguage && (
