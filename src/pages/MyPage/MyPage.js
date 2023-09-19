@@ -206,12 +206,12 @@ const MyPage = () => {
     } else {
       axios.defaults.headers.common["Authorization"] = null;
     }
-    const empty = {};
+ 
 
     axios
       .post(
         `${process.env.REACT_APP_SERVER_URL}/member/logout`,
-        empty,
+       
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
