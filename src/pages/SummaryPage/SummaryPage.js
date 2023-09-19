@@ -72,7 +72,7 @@ const SummaryPage = () => {
         "Access-Control-Allow-Origin": "*",
         'Content-Type': 'multipart/form-data',
       },
-      timeout: 60000,
+      timeout: 100000,
     })
       .then((response) => {
         console.log('요청성공');
