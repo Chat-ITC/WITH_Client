@@ -1,59 +1,36 @@
-/* AddInfoPage.module.css */
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.content1 {
-  position: relative;
-  padding-top: 80px;
-}
-
-.content2 {
-  position: relative;
-  padding-top: 110px;
-}
-
-.content1 .title,
-.content2 .title {
-  font-size: 24px;
-  margin-bottom: 15px;
+.ability_title {
+  position: absolute;
   text-align: center;
+  padding: 0 15px;
+  width: 100%;
+  top: 58px;
 }
 
-.language_section .grid {
+.ability_section {
+  position: absolute;
+  text-align: center;
+  padding: 0 15px;
+  width: 100%;
+  top: 106px;
+}
+
+.itemContainer {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
+  align-content: center;
+  width: 45px;
+  height: 45px;
+  margin: 0 20px;
 }
 
-.ability {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap; /* 버튼들이 한 줄에 맞지 않을 경우 여러 줄에 걸쳐 표시되도록 설정 */
-}
-
-.button1 {
+.itemContainer1{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  height: 60px;
-}
-
-.button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
 }
 
 .nextButton {
@@ -62,9 +39,86 @@
   text-align: center;
   width: 100%;
   height: 70px;
-  background-color: #3da5f5;
+  background-color: #309cee;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   color: #fff;
   font-size: 16px;
+}
+
+.noButton {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  height: 70px;
+  background-color: #9cbdd6;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.radioItem{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  
+}
+
+.ability{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.language_section {
+  position: absolute;
+  text-align: center;
+  padding: 0 15px;
+  width: 100%;
+  top: 106px;
+}
+
+.grid_3x5 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemContainer3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+}
+
+.radioItem input[type="radio"] {
+  display: none;
+}
+
+.language_section{
+  position: absolute;
+  top: 240px;
+  display: flex;
+  flex-direction: column;
+}
+
+.image_name{
+  width: 100px;
+}
+
+.language_title{
+  margin-bottom: 25px;
 }

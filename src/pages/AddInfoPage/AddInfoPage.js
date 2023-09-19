@@ -1,5 +1,6 @@
-//css
+
 import styles from "./AddInfoPage.module.css";
+
 //png ability
 import Baby from "../../assets/AddInfoIcons/baby.png";
 import Boy from "../../assets/AddInfoIcons/boy.png";
@@ -21,43 +22,57 @@ import Typescript from "../../assets/AddInfoIcons/Typescript.png";
 import R from "../../assets/AddInfoIcons/R.png";
 import Csharp from "../../assets/AddInfoIcons/C#.png";
 import HTML from "../../assets/AddInfoIcons/HTML.png";
-//library
-import axios from "axios";
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+import { useEffect } from 'react';
+
 
 const AddInfoPage = () => {
   const navigate = useNavigate();
-
-  //라디오버튼
   const location = useLocation();
-  const [userVal1, setuserVal1] = useState("");
-  const [userVal2, setuserVal2] = useState("");
-  const [x, setX] = useState({});
-  const handleClickRadioButton1 = (e) => {
-    const value = e.target.value;
-    setuserVal1(value);
+  const [selected1, setSelected1] = useState(false);
+  const [selected2, setSelected2] = useState(false);
+  const [btnOn, setBtnOn] = useState(false);
+
+  const [selectedSkill, setSelectedSkill] = useState(null);
+  const [selectedLanguage, setSelectedLanguage] = useState(null);
+
+  const handleSkillSelect = (e) => {
+    setSelected1(true);
+    const value = e;
+    setSelectedSkill(value);
   };
-  const [y, setY] = useState({});
-  const handleClickRadioButton2 = (e) => {
-    const value = e.target.value;
-    setuserVal2(value);
+
+  const handleLanguageSelect = (e) => {
+    setSelected2(true);
+    const value = e;
+    setSelectedLanguage(value);
   };
+
+  //두개가 모두 참인경우 버튼 활성화
+  useEffect(() => {
+    console.log(selected1);
+    console.log(selected2);
+    if (selected1 && selected2) {
+      console.log('두 조건이 모두 충족됩니다.');
+      setBtnOn(true);
+    } else {
+      setBtnOn(false);
+    }
+  }, [selected1, selected2]);
 
   //데이터묶기
-
   const handleNextPage = () => {
     const addUserInfo = {
       name: location.state.data.name,
       email: location.state.data.email,
       loginProvider: location.state.data.loginProvider,
       snsId: location.state.data.snsId,
-      user_level: userVal1,
-      skill_language: userVal2,
+      user_level: selectedSkill,
+      skill_language: selectedLanguage,
     };
     sendJSONDataToSpringBoot(addUserInfo);
 
@@ -87,31 +102,10 @@ const AddInfoPage = () => {
     }
   };
 
-  const [selectedSkill, setSelectedSkill] = useState("");
-  const [selectedLanguages, setSelectedLanguages] = useState([]);
-  //   const history = useHistory();
 
-  const handleSkillSelect = (skill) => {
-    if (selectedSkill.includes(skill)) {
-      // 이미 선택된 스킬인 경우 선택 해제
-      setSelectedSkill(selectedSkill.filter((ski) => ski !== skill));
-    } else {
-      // 새로운 스킬을 선택한 경우 추가
-      setSelectedSkill([...selectedSkill, skill]);
-    }
-  };
 
-  const handleLanguageSelect = (language) => {
-    if (selectedLanguages.includes(language)) {
-      // 이미 선택된 언어인 경우 선택 해제
-      setSelectedLanguages(
-        selectedLanguages.filter((lang) => lang !== language)
-      );
-    } else {
-      // 새로운 언어를 선택한 경우 추가
-      setSelectedLanguages([...selectedLanguages, language]);
-    }
-  };
+
+
 
   const skill = [
     {
@@ -197,137 +191,81 @@ const AddInfoPage = () => {
 
   return (
     <>
+      <p className={styles.ability_title}>자신의 실력을 선택하세요</p>
       <section className={styles.ability_section}>
-        <div className={styles.container}>
-          <div className={styles.content1}>
-            <h1 className={styles.title}>자신의 실력을 선택하세요</h1>
-            <div className={styles.ability}>
-              <div>
-                <input
-                  name="tier"
-                  type="radio"
-                  value="입문자"
-                  cheched={x === "1"}
-                  onChange={handleClickRadioButton1}
-                />
-                <label>입문자</label>
-
-                <label>
-                  <input
-                    name="tier"
-                    type="radio"
-                    value="초보자"
-                    cheched={x === "2"}
-                    onChange={handleClickRadioButton1}
-                  />
-                  초보자
-                </label>
+        <div className={`${styles.ability} ${styles.horizontal}`}>
+          {skill.map((item) => (
+            <label
+              key={item.name}
+              htmlFor={item.name}
+              className={`${styles.radioItem} ${selectedSkill === item.name ? styles.selected : ""
+                }`}
+            >
+              <input
+                type="radio"
+                id={item.name}
+                name="skill"
+                value={item.name}
+                checked={selectedSkill === item.name}
+                onChange={() => handleSkillSelect(item.name)}
+              />
+              <div className={styles.itemContainer1}>
+                <div
+                  className={`${styles.itemContainer} ${styles.withImage}`}
+                  style={{
+                    backgroundImage: `url(${item.image})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                  }}
+                ></div>
+                <span>{item.name}</span>
               </div>
-              <button
-                className={styles.button1}
-                onClick={() => handleSkillSelect("입문자")}
-              >
-                <img className={styles.image} src={Baby} alt="입문자" />
-                <span>입문자</span>
-              </button>
-              <button
-                className={styles.button1}
-                onClick={() => handleSkillSelect("초보자")}
-              >
-                <img className={styles.image} src={Boy} alt="초보자" />
-                <span>초보자</span>
-              </button>
-              <button
-                className={styles.button1}
-                onClick={() => handleSkillSelect("중급자")}
-              >
-                <img className={styles.image} src={Adult} alt="중급자" />
-                <span>중급자</span>
-              </button>
-              <button
-                className={styles.button1}
-                onClick={() => handleSkillSelect("상급자")}
-              >
-                <img className={styles.image} src={Grand} alt="상급자" />
-                <span>상급자</span>
-              </button>
-            </div>
-          </div>
+            </label>
+          ))}
         </div>
       </section>
       <section className={styles.language_section}>
-        <div className={styles.container}>
-          <div className={styles.content2}>
-            {/* 프로그래밍 언어 선택 부분 */}
-            <h2 className={styles.title}>배우고 싶은 언어를 선택하세요</h2>
-            <div>
+        <p className={styles.language_title}>배우고 싶은 언어를 선택하세요</p>
+        <div className={`${styles.grid_3x5}`}>
+          {languages.map((language) => (
+            <label
+              key={language.name}
+              htmlFor={language.name}
+              className={`${styles.button} ${selectedLanguage === language.name ? styles.selected : ""
+                }`}
+            >
               <input
-                name="lan"
                 type="radio"
-                value="상관없음"
-                cheched={y === "1"}
-                onChange={handleClickRadioButton2}
+                id={language.name}
+                name="language"
+                value={language.name}
+                checked={selectedLanguage === language.name}
+                onChange={() => handleLanguageSelect(language.name)}
+                style={{ display: "none" }}
               />
-              <label>상관없음</label>
-
-              <label>
-                <input
-                  name="lan"
-                  type="radio"
-                  value="C"
-                  cheched={y === "2"}
-                  onChange={handleClickRadioButton2}
-                />
-                c언어
-              </label>
-            </div>
-            <div className={styles.grid}>
-              {languages.map((language) => (
-                <button
-                  key={language.name}
-                  className={`${styles.button} ${
-                    selectedLanguages.includes(language.name)
-                      ? styles.selected
-                      : ""
-                  }`}
-                  onClick={() => handleLanguageSelect(language.name)}
-                >
-                  <div
-                    className={`${styles.imageWrapper} ${
-                      styles[language.name]
-                    }`}
-                  >
-                    {/* 이미지 원형으로 만들기 */}
-                    <img src={language.image} alt={language.name} />
-                  </div>
-                  <span>{language.name}</span>
-                </button>
-              ))}
-            </div>
-
-            {/* 선택된 언어 목록 표시 */}
-            {selectedLanguages.length > 0 && (
-              <>
-                <ul>
-                  {selectedLanguages.map((language) => (
-                    <li key={language}>{language}</li>
-                  ))}
-                </ul>
-
-                {/* 추가 정보 입력 등의 로직 구현 */}
-              </>
-            )}
-            {/* 다음 페이지로 이동하는 링크 제공 */}
-            {/* 예시로 다음 페이지 경로는 "/additional-info" */}
-            {/* <a href="/additional-info">다음 페이지로 이동</a> */}
-          </div>
+              {/* 이미지 원형으로 만들기 */}
+              <div
+                className={`${styles.itemContainer3} ${styles.itemContainer4}`}
+              >
+                <img src={language.image} alt={language.name} />
+                <span className={styles.image_name}>{language.name}</span>
+              </div>
+            </label>
+          ))}
         </div>
       </section>
-      <div className={styles.nextButtonContainer}>
-        <button className={styles.nextButton} onClick={handleNextPage}>
-          다음
-        </button>
-      </div>
+
+      <button disabled={!btnOn} className={btnOn ? styles.nextButton : styles.noButton} onClick={handleNextPage}>다음</button>
+
+      {/* 선택된 실력과 언어 표시 */}
+      {selectedSkill && selectedLanguage && (
+        <>
+          선택된 실력: {selectedSkill}
+          <br />
+          선택된 언어: {selectedLanguage}
+        </>
+      )}
     </>
   );
 };
