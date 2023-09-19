@@ -4,7 +4,7 @@
   border: 1px solid #bababa;
   border-radius: 6px;
   padding: 13px 8px;
-  margin: 0 auto;
+  margin: 0 auto 10px;
 }
 
 .Title {
@@ -20,6 +20,7 @@
 }
 
 .Language {
+  display: inline-block;
   font-size: 12px;
   color: #bababa;
 }
