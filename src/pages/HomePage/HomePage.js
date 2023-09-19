@@ -78,6 +78,12 @@ const HomePage = () => {
       </header>
       <div className={styles.camera_border}>
         <div className={styles.camera}>
+          <input
+            type="file"
+            accept="image/*;capture=camera"
+            style={{ display: 'none' }} // 요소를 화면에 표시하지 않음
+            ref={fileInputRef} // ref를 사용하여 요소 참조
+          />
           <button className={styles.Camera_Btn} onClick={handleButtonClick}>
             <img
               className={styles.camera_img}
@@ -109,9 +115,8 @@ const HomePage = () => {
         ))}
       </div> */}
       <div
-        className={`${styles.HomeScrab} ${
-          isModalOpen3 ? styles.modal_open : ""
-        }`}
+        className={`${styles.HomeScrab} ${isModalOpen3 ? styles.modal_open : ""
+          }`}
         style={{ display: isModalOpen3 ? "block" : "none" }}
       >
         <button type="button" onClick={openModal3}>
@@ -179,9 +184,8 @@ const HomePage = () => {
         </SelectModal>
       </div>
       <div
-        className={`${styles.HomePage_Lang} ${
-          isModalOpen1 ? styles.modal_open : ""
-        }`}
+        className={`${styles.HomePage_Lang} ${isModalOpen1 ? styles.modal_open : ""
+          }`}
         style={{ display: isModalOpen1 ? "block" : "none" }}
       >
         <LangModal isOpen={isModalOpen1} onClose={closeModal1}></LangModal>
@@ -189,9 +193,8 @@ const HomePage = () => {
       <Bottom />
       {/*주제 모달*/}
       <div
-        className={`${styles.HomePage_Sub} ${
-          isModalOpen2 ? styles.modal_open : ""
-        }`}
+        className={`${styles.HomePage_Sub} ${isModalOpen2 ? styles.modal_open : ""
+          }`}
         style={{ display: isModalOpen2 ? "block" : "none" }}
       >
         <SubModal isOpen={isModalOpen2} onClose={closeModal2}></SubModal>
