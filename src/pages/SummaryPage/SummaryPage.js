@@ -6,10 +6,13 @@ import Careful from "../../assets/AddInfoIcons/Becareful.png";
 
 import Bottom from "../../component/Bottom/Bottom";
 import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from "react";
 
 const SummaryPage = () => {
+  const [file, setFile] = useState(null);
+
   const location = useLocation();
-  const file = location.state.file;
+  setFile(location.state.file);
   console.log('선택한 파일:', file);
 
 
