@@ -154,8 +154,8 @@ const AddInfoPage = () => {
           ))}
         </div>
       </section>
-      <p className={styles.language_title}>배우고 싶은 언어를 선택하세요</p>
       <section className={styles.language_section}>
+        <p className={styles.language_title}>배우고 싶은 언어를 선택하세요</p>
         <div className={`${styles.grid_3x5}`}>
           {languages.map((language) => (
             <label
@@ -179,7 +179,7 @@ const AddInfoPage = () => {
                 className={`${styles.itemContainer3} ${styles.itemContainer4}`}
               >
                 <img src={language.image} alt={language.name} />
-                <span>{language.name}</span>
+                <span className={styles.image_name}>{language.name}</span>
               </div>
             </label>
           ))}
