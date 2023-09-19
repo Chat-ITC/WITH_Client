@@ -146,6 +146,17 @@
 }
 
 .MyPage_Abil{
-  background-color: aqua;
-  position: absolute;
+ background-color: #fff;
+  width: 284px;
+  height: 250px;
+  position: relative;
+  margin: 0 auto;
+  top: 300px;
+  border: 1px solid #bababa;
+  border-radius: 6px;
+  z-index: 2;
+  display: flex;
+  text-align: center;
+  overflow-y: auto;
+  padding: 10px 0;
 }

@@ -1,19 +1,12 @@
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+.Abil_title {
+  padding: 5px 0;
+  padding-bottom: 10px;
+  border: 1px solid #bababa;
+  border-radius: 6px;
 }
 
-.modal.open {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
+.HomeAbilBtn {
+  width: 284px;
+  height: 20px;
+  padding: 20px 0;
 }
