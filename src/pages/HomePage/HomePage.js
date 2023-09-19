@@ -22,20 +22,6 @@ import { useNavigate } from "react-router-dom";
 const HomePage = () => {
   const navigate = useNavigate();
 
-  const [isModalOpen, sestIsModalOpen] = useState(false);
-  const openModal = () => sestIsModalOpen(true);
-  const closeModal = () => sestIsModalOpen(false);
-
-  //학습 언어
-  const [isModalOpen1, sestIsModalOpen1] = useState(false);
-  const openModal1 = () => sestIsModalOpen1(true);
-  const closeModal1 = () => sestIsModalOpen1(false);
-
-  //주제
-  const [isModalOpen2, sestIsModalOpen2] = useState(false);
-  const openModal2 = () => sestIsModalOpen2(true);
-  const closeModal2 = () => sestIsModalOpen2(false);
-
   //스크랩
   const [isModalOpen3, sestIsModalOpen3] = useState(false);
   const openModal3 = () => sestIsModalOpen3(true);
@@ -122,75 +108,19 @@ const HomePage = () => {
       </div>
       <hr className={styles.Homehr} />
 
-      <button className={styles.Scrab} type="button" onClick={openModal3}>
-        스크랩
-      </button>
-      <Scrab isOpen={isModalOpen3} closeModal={closeModal3} />
-
-      <div className={styles.HomeMainModal}>
-        <button type="button" onClick={openModal}>
-          open
-        </button>
-        <SelectModal isOpen={isModalOpen} closeModal={closeModal}>
-          <div className={styles.SelectUp}>
-            <em className={styles.SelectLang}>학습언어</em>
-            <button
-              className={styles.SelectLanguage}
-              type="button"
-              onClick={openModal1}
-            >
-              C언어
-            </button>
-          </div>
-          <div className={styles.SelectDown}>
-            <span className={styles.SelectSubj}>
-              <em className={styles.SelectSub}>주제</em>
-              <img src={Becareful} alt="경고" />
-            </span>
-            <button
-              className={styles.SelectSubject}
-              type="button"
-              onClick={openModal2}
-            >
-              선택없음
-            </button>
-          </div>
-          <div className={styles.SelectBottom}>
-            <button
-              className={styles.SelectBtn}
-              type="button"
-              onClick={openModal}
-            >
-              확인
-            </button>
-            <button
-              onClick={closeModal}
-              className={styles.SelectBtn}
-              type="button"
-            >
-              취소
-            </button>
-          </div>
-        </SelectModal>
-      </div>
       <div
-        className={`${styles.HomePage_Lang} ${
-          isModalOpen1 ? styles.modal_open : ""
-        }`}
-        style={{ display: isModalOpen1 ? "block" : "none" }}
+        className={`${styles.Scrab} ${isModalOpen3 ? styles.modal_open : ""}`}
+        style={{ display: isModalOpen3 ? "block" : "none" }}
       >
-        <LangModal isOpen={isModalOpen1} onClose={closeModal1}></LangModal>
+        {isModalOpen3 ? (
+          <Scrab isOpen={isModalOpen3} onClose={closeModal3} />
+        ) : (
+          <button type="button" onClick={openModal3}>
+            스크랩
+          </button>
+        )}
       </div>
       <Bottom />
-      {/*주제 모달*/}
-      <div
-        className={`${styles.HomePage_Sub} ${
-          isModalOpen2 ? styles.modal_open : ""
-        }`}
-        style={{ display: isModalOpen2 ? "block" : "none" }}
-      >
-        <SubModal isOpen={isModalOpen2} onClose={closeModal2}></SubModal>
-      </div>
     </>
   );
 };

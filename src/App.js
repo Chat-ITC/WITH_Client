@@ -14,10 +14,10 @@ import Home from "./pages/HomePage/HomePage";
 import Quiz from "./pages/Quiz/Quiz";
 import Skeleton from "./pages/Skeleton/Skeleton";
 import SummaryPage from "./pages/SummaryPage/SummaryPage";
+import RadioTest from "./pages/RadioTestPage/RadioTest";
 //redirection
 import KakaoRedirection from "./Redirection/KakaoRedirection";
 import NaverRedirection from "./Redirection/NaverRedirection";
-import Radio from "./pages/RadioTestPage/RadioTest";
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
           <Route path="/HomePage" element={<Home />} />
           <Route path="/Quiz" element={<Quiz />} />
           <Route path="/Skeleton" element={<Skeleton />} />
-          <Route path="/RadioTest" element={<Radio />} />
+          <Route path="/RadioTest" element={<RadioTest />} />
           <Route path="/SummaryPage" element={<SummaryPage />} />
           <Route exact path="/kakao/callback" element={<KakaoRedirection />} />
           <Route exact path="/naver/callback" element={<NaverRedirection />} />
