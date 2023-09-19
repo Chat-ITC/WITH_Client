@@ -1,0 +1,20 @@
+.ScrapStar {
+  background-color: #ebe7e7;
+  width: 60px;
+  height: 30px;
+  border: 1px solid #bababa;
+  border-radius: 10px;
+  padding: 5px 3px;
+}
+
+.StarImage {
+  width: 15px;
+  height: 15px;
+  margin-right: 3px;
+}
+
+.StarText {
+  font-size: 20px;
+  color: #9f9a9a;
+  line-height: 13px;
+}
