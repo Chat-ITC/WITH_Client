@@ -13,7 +13,7 @@ const SummaryPage = () => {
 
   const location = useLocation();
   setFile(location.state.file);
-  console.log('선택한 파일:', file);
+  console.log('선택한 파일(써머리페이지):', file);
 
 
 

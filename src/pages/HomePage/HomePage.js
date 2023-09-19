@@ -82,7 +82,7 @@ const HomePage = () => {
 
     if (file) {
   
-      console.log('선택한 파일:', file);
+      console.log('선택한 파일(홈페이지):', file);
       setSelectedPhoto(file);
       navigate("/SummaryPage", { state: {file:file}});
     }
