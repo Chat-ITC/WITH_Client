@@ -116,7 +116,7 @@ const SummaryPage = () => {
 
   //스크랩버튼
   const scrapHandle = () => {
-    console.log('버튼이 클릭되었습니다!');
+    console.log("버튼이 클릭되었습니다!");
 
     const formDataId = new FormData();
     formDataId.append("id", scrapId);
@@ -148,9 +148,8 @@ const SummaryPage = () => {
     }
   };
   const copyHandle = () => {
-    console.log('버튼이 클릭되었습니다!');
+    console.log("버튼이 클릭되었습니다!");
   };
-
 
   return (
     <>
