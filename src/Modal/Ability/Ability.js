@@ -24,7 +24,12 @@ const AbilModal = ({ isOpen, onClose }) => {
   return (
     <div className={`modal ${isOpen ? "open" : ""}`}>
       <div className={Abil.Abil_title}>
-        <h3 className={Abil.Abil_head}>내 실력 변경</h3>
+        <div className={Abil.HomeBack}>
+          <h3 className={Abil.Abil_head}>내 실력 변경</h3>
+          <button className={Abil.HomeBtn} type="button" onClick={onClose}>
+            닫기
+          </button>
+        </div>
         <ul className={Abil.Abil_lists}>
           {abilities.map((ability, index) => (
             <li key={index}>
