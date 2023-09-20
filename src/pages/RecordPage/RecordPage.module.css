@@ -1,0 +1,16 @@
+.RecordHeader {
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid #000;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 15px;
+  margin: 0 auto 10px;
+}
+
+.RecordHeader::before {
+  content: "<";
+  position: relative;
+  right: 80px;
+}
