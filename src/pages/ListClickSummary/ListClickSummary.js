@@ -29,6 +29,7 @@ const ListClickSummary = () => {
     setScrapCheck(scrapCheck + 1);
   }
   console.log("같은지 비교하기. content ", content);
+  console.log("같은지 비교하기. content ", data);
 
   setCodeBlock(extractCodeBlock(content));
 
@@ -150,7 +151,7 @@ const ListClickSummary = () => {
             </p>
           </div>
         ) : (
-          ""
+          "데이터 불러오는 중..."
         )}
       </article>
       {/* <article className={styles.article}>
