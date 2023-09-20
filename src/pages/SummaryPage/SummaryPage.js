@@ -114,6 +114,10 @@ const SummaryPage = () => {
     letterspacing: '20px',
   }
 
+  const preWrap = {
+    whiteSpace: 'pre-wrap', // 공백 문자와 줄 바꿈 보존
+  };
+
   
 
 
@@ -138,7 +142,8 @@ const SummaryPage = () => {
           <span className={styles.Selectscrab}>스크랩</span>
         </div>
       </header>
-      <article className={styles.article} >{data ? (<div><p>
+      <article className={styles.article} >{data ? (
+      <div style={preWrap}><p>
         {data.content.split(codeBlock).map((text, index) => (
           <React.Fragment key={index}>
             {text}
