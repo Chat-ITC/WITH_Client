@@ -105,7 +105,8 @@ const SummaryPage = () => {
   const codeBlockStyle = {
     backgroundColor: '#000000', // 배경색 변경
     color: 'white', // 글자 색 변경
-    //padding: '10px', // 내부 여백 추가
+   
+    letterspacing: '20px',
     borderRadius: '4px', // 모서리 둥글게 만들기
   };
 
