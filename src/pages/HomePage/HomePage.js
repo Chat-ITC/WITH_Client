@@ -3,15 +3,11 @@ import styles from "./HomePage.module.css";
 //png
 import Logo from "../../assets/logo/CoFe_logo.png";
 import Camera from "../../assets/etc/addimage.png";
-import Becareful from "../../assets/AddInfoIcons/Becareful.png";
 //component
 import Bottom from "../../component/Bottom/Bottom";
 import ScrapItem from "../../component/ScrapItem/ScrapItem";
 //modal
-import SelectModal from "../../Modal/SelectModal/SelectModal";
-import LangModal from "../../Modal/LangModal/LangModal";
 import Scrab from "../../Modal/Scrab/scrab";
-import SubModal from "../../Modal/Subject/Subject";
 import ScrabBtn from "../../Modal/Scrab/scrab";
 //library
 import { useEffect, useState } from "react";
@@ -108,18 +104,6 @@ const HomePage = () => {
       </div>
       <hr className={styles.Homehr} />
 
-      <div
-        className={`${styles.Scrab} ${isModalOpen3 ? styles.modal_open : ""}`}
-        style={{ display: isModalOpen3 ? "block" : "none" }}
-      >
-        {isModalOpen3 ? (
-          <Scrab isOpen={isModalOpen3} onClose={closeModal3} />
-        ) : (
-          <button type="button" onClick={openModal3}>
-            스크랩
-          </button>
-        )}
-      </div>
       <Bottom />
     </>
   );
