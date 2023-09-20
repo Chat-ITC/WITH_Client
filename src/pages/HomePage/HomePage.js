@@ -20,7 +20,7 @@ const HomePage = () => {
   //스크랩
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
-
+  const closeModal = () => sestIsModalOpen(false);
   //ScrapItem
   const [scraps, setScraps] = useState([]);
 
@@ -104,14 +104,11 @@ const HomePage = () => {
       <button
         className={styles.section_icons}
         type="button"
-        onClick={openModal}
+        onClick={closeModal}
       >
         스크랩
       </button>
-      <Scrap
-        className={styles.BtnScrap}
-        style={{ display: isModalOpen ? "block" : "none" }}
-      />
+      <Scrap className={styles.BtnScrap} />
 
       <Bottom />
     </>
