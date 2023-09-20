@@ -118,34 +118,34 @@ const SummaryPage = () => {
   const scrapHandle = () => {
     console.log('버튼이 클릭되었습니다!');
 
-    // const formDataId = new FormData();
-    // formDataId.append("id", scrapId);
-    // console.log("scrapId: ", scrapId);
+    const formDataId = new FormData();
+    formDataId.append("id", scrapId);
+    console.log("scrapId: ", scrapId);
 
-    // try {
-    //   const response = axios.post(
-    //     `${process.env.REACT_APP_SERVER_URL}/ai/summary/like`,
-    //     formDataId,
-    //     {
-    //       headers: {
-    //         "Content-Type": "multipart/form-data",
-    //         "Access-Control-Allow-Origin": "*",
-    //         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    //       },
-    //     }
-    //   );
-    //   console.log("응답 성공:", response);
-    //   setScrapCheck(scrapCheck + 1);
-    //   console.log(scrapCheck);
-    //   if (scrapCheck % 2 === 0) {
-    //     alert("스크랩 제거");
-    //   } else {
-    //     alert("스크랩 완료");
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    //   console.log("요청실패");
-    // }
+    try {
+      const response = axios.post(
+        `${process.env.REACT_APP_SERVER_URL}/ai/summary/like`,
+        formDataId,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            "Access-Control-Allow-Origin": "*",
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
+      console.log("응답 성공:", response);
+      setScrapCheck(scrapCheck + 1);
+      console.log(scrapCheck);
+      if (scrapCheck % 2 === 0) {
+        alert("스크랩 완료");
+      } else {
+        alert("스크랩 제거");
+      }
+    } catch (error) {
+      console.log(error);
+      console.log("요청실패");
+    }
   };
   const copyHandle = () => {
     console.log('버튼이 클릭되었습니다!');
@@ -168,7 +168,7 @@ const SummaryPage = () => {
             <button type="button" onClick={copyHandle}>
               <img className={styles.RightImg} src={Copy} alt="복사" />
             </button>
-            <button type="button" onClick={() => scrapHandle}>
+            <button type="button" onClick={scrapHandle}>
               <img className={styles.RightImg} src={Scrab} alt="스크랩" />
             </button>
           </div>
