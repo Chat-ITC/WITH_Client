@@ -8,6 +8,7 @@ import axios from "axios";
 import Bottom from "../../component/Bottom/Bottom";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import DynamicCodeBlock from "../../component/DynamicCodeBlock/DynamicCodeBlock";
 //modal
 import SelectModal from "../../Modal/SelectModal/SelectModal";
 import LangModal from "../../Modal/LangModal/LangModal";
@@ -105,7 +106,7 @@ const SummaryPage = () => {
           <span className={styles.Selectscrab}>스크랩</span>
         </div>
       </header>
-      <article className={styles.article} >{data ? (<div><h3>{data.content}</h3></div>) : ("")}
+      <article className={styles.article} >{data ? (<div><DynamicCodeBlock content={data.content} /></div>) : ("")}
         <button type="button">
           <img className={styles.Copy} src={Copy} alt="복사" />
         </button>
