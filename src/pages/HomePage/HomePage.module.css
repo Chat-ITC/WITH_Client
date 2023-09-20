@@ -9,7 +9,8 @@
 
 .historyList {
   position: absolute;
-  top: 310px;
+  top: 195px;
+  left: 15px;
 }
 
 .main_img {
