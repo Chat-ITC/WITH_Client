@@ -55,7 +55,7 @@ const HomePage = () => {
     // historyReq 함수를 호출하고 데이터를 받아옵니다.
     historyReq()
       .then((response) => {
-         //map으로 배열 자체 넘기기
+        //map으로 배열 자체 넘기기
         console.log(response);
         console.log(response.data);
         console.log(response.data[0]);
@@ -148,16 +148,26 @@ const HomePage = () => {
         className={styles.BtnScrap}
       />
 
-     
-      <div> 
+
+      <div>
         <ul>
           {Array.isArray(historyData) && historyData.map((dataList, index) => (
             <li key={index}>
-              <ScrapItem key={index} title={dataList[index].title} content={dataList[index].content}
+              <ScrapItem
+                key={index}
+                title={dataList.title} // 수정된 부분
+                content={dataList.content}
+                createAt={dataList.createAt}
+                fav_language={dataList.fav_language}
+                id={dataList.id}
+                isScrapped={dataList.isScrapped}
+              />
+
+              {/* <ScrapItem key={index} title={dataList[index].title} content={dataList[index].content}
               createAt={dataList[index].createAt}
               fav_language={dataList[index].fav_language}
               id={dataList[index].id}
-              isScrapped={dataList[index].isScrapped} />
+              isScrapped={dataList[index].isScrapped} /> */}
             </li>
           ))}
         </ul>
