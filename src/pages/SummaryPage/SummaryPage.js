@@ -168,7 +168,7 @@ const SummaryPage = () => {
             <button type="button" onClick={copyHandle}>
               <img className={styles.RightImg} src={Copy} alt="복사" />
             </button>
-            <button type="button" onClick={() => scrapHandle}>
+            <button type="button" onClick={scrapHandle}>
               <img className={styles.RightImg} src={Scrab} alt="스크랩" />
             </button>
           </div>
