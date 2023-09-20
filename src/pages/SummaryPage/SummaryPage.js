@@ -137,15 +137,15 @@ const SummaryPage = () => {
       }
       )
       .then((response) => {
-        setScrapCheck(scrapCheck+1);
+        setScrapCheck(scrapCheck + 1);
         console.log(scrapCheck);
-        if(scrapCheck % 2 === 0 ) {
+        if (scrapCheck % 2 === 0) {
           alert("스크랩 제거");
 
-        }else {
+        } else {
           alert("스크랩 완료");
         }
-      
+
       })
       .catch((error) => {
         console.log(error);
@@ -166,12 +166,15 @@ const SummaryPage = () => {
             <button type="button">
               <img src={Back} alt="뒤로가기" />
             </button>
+            <button type="button" onClick={() => scrapHandle}>
+              <img src={Scrab} alt="스크랩" />
+            </button>
           </div>
           <span className={styles.selectLang}>C언어</span>
         </div>
         <div className={styles.SumRight}>
           <div>
-            <button type="button" onClick={scrapHandle}>
+            <button type="button" onClick={() => scrapHandle}>
               <img src={Scrab} alt="스크랩" />
             </button>
           </div>
