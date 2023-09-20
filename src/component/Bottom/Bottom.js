@@ -6,10 +6,6 @@ import Quiz from "../../assets/icons/quiz.png";
 import Logo from "../../assets/AddInfoIcons/NotLofo.png";
 import MyPage from "../../assets/icons/mypage.png";
 
-const Home = () => <h1>퀴즈</h1>;
-const About = () => <h1>홈</h1>;
-const Contact = () => <h1>내 정보</h1>;
-
 const Bottom = () => {
   return (
     <div className={styles.bottomContainer}>
@@ -18,27 +14,23 @@ const Bottom = () => {
           <li className={styles.bottomLink}>
             <Link className={styles.bottom_Link} to="/Quiz">
               <img className={styles.bottom_img} src={Quiz} alt="퀴즈" />
-              퀴즈
+              <div className={styles.Bottom_title}>퀴즈</div>
             </Link>
           </li>
           <li className={styles.bottomLink}>
             <Link to="/HomePage">
-              <img className={styles.bottom_img} src={Logo} alt="홈" />홈
+              <img className={styles.bottom_img} src={Logo} alt="홈" />
+              <div className={styles.Bottom_title}>홈</div>
             </Link>
           </li>
           <li className={styles.bottomLink}>
             <Link to="/MyPage">
-              <img className={styles.bottom_img} src={MyPage} alt="내 정보" />내
-              정보
+              <img className={styles.bottom_img} src={MyPage} alt="내 정보" />
+              <div className={styles.Bottom_title}>내 정보</div>
             </Link>
           </li>
         </ul>
       </nav>
-
-      {/* 각 탭에 대한 라우팅 설정 */}
-      {/* <Route path="/Quiz" exact component={퀴즈} />
-        <Route path="/Home" component={홈} />
-        <Route path="/MyPage" component={내정보} /> */}
     </div>
   );
 };
