@@ -90,6 +90,7 @@ const SummaryPage = () => {
 
 
 
+  //코드 블럭 추출 로직
   function extractCodeBlock(content) {
     // 정규식을 사용하여 코드 블록을 추출합니다.
     const codeBlock = content.match(/```c([\s\S]*?)```/);
@@ -98,6 +99,15 @@ const SummaryPage = () => {
   }
 
   const [codeBlock, setCodeBlock] = useState(null);
+
+
+  //코드 블럭 스타일
+  const codeBlockStyle = {
+    backgroundColor: '#000000', // 배경색 변경
+    color: 'white', // 글자 색 변경
+    padding: '10px', // 내부 여백 추가
+    borderRadius: '4px', // 모서리 둥글게 만들기
+  };
 
   
 
@@ -129,8 +139,8 @@ const SummaryPage = () => {
             {text}
             {index < data.content.split(codeBlock).length - 1 && (
               <div>
-                <pre>
-                  <code>
+                <pre style={codeBlockStyle}>
+                  <code style={codeBlockStyle}>
                     {codeBlock.replace(/```c|```/g, '')}
                   </code>
                 </pre>
