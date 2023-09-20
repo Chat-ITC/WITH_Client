@@ -10,6 +10,7 @@ import React from "react";
 const ScrapPage = () => {
   return (
     <>
+      <header className={styles.ScrapHeader}>스크랩</header>
       <Bottom />
     </>
   );
