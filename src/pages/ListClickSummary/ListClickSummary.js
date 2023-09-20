@@ -25,9 +25,6 @@ const ListClickSummary = () => {
   const [isScrappedChange, setIsScrappedChange] = useState(isScrapped);
   
  
-  console.log("같은지 비교하기. content ", content);
-  console.log("같은지 비교하기. content ", content);
-
   
 
 
@@ -127,7 +124,7 @@ const ListClickSummary = () => {
               <img className={styles.RightImg} src={Copy} alt="복사" />
             </button>
             <button type="button" onClick={scrapHandle}>
-              {isScrapped === 'NO' || isScrapped === 'No' ? (
+              {isScrappedChange === 'NO' || isScrappedChange === 'No' ? (
                 <img className={styles.RightImg} src={Star} alt="텅 빈 별" />
               ) : (
                 <img className={styles.RightImg} src={FillStar} alt="꽉 찬 별" />
