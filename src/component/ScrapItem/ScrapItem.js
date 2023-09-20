@@ -8,7 +8,7 @@ import styles from "./ScrapItem.module.css";
 //component
 import ScrapBtn from "../../component/ScrabBtn/ScrabBtn";
 
-const ScrapItem = (props) => {
+const ScrapItem = ({props}) => {
   const { historyData} = props;
   //content, createAt, fav_language, id, isScrapped, title
   return (
