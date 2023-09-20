@@ -29,7 +29,7 @@ const ListClickSummary = (content, isScrapped, id) => {
   }
   console.log("같은지 비교하기. content ", content);
   console.log("같은지 비교하기. data ", data);
-  setCodeBlock(extractCodeBlock(content));
+  setCodeBlock(extractCodeBlock(data));
 
 
   
