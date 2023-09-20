@@ -17,6 +17,7 @@ import SummaryPage from "./pages/SummaryPage/SummaryPage";
 import RadioTest from "./pages/RadioTestPage/RadioTest";
 import ScrapPage from "./pages/ScrapPage/ScrapPage";
 import Record from "./pages/RecordPage/RecordPage";
+import SumPage from "./pages/SumPage/SumPage";
 
 import Bottom from "./component/Bottom/Bottom";
 import Scrap from "./Modal/Scrab/scrab";
@@ -44,6 +45,7 @@ function App() {
           <Route path="/Bottom" element={<Bottom />} />
           <Route path="/Scrap" element={<Scrap />} />
           <Route path="/ScrapBtn" element={<ScrapBtn />} />
+          <Route path="/SumPage" element={<SumPage />} />
           <Route exact path="/kakao/callback" element={<KakaoRedirection />} />
           <Route exact path="/naver/callback" element={<NaverRedirection />} />
         </Routes>

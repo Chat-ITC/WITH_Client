@@ -41,7 +41,7 @@ const SummaryPage = () => {
   const [data, setData] = useState(null);
 
   const [scrapId, setScrapId] = useState(null);
-  const [scrapCheck, setScrapCheck] = useState(0)
+  const [scrapCheck, setScrapCheck] = useState(0);
 
   const sendDataHandle = async () => {
     closeModal();
@@ -87,8 +87,6 @@ const SummaryPage = () => {
     openModal();
   }, [location.state.file]);
 
-
-
   //코드 블럭 추출 로직
   function extractCodeBlock(content) {
     // 정규식을 사용하여 코드 블록을 추출합니다.
@@ -99,22 +97,21 @@ const SummaryPage = () => {
 
   const [codeBlock, setCodeBlock] = useState(null);
 
-
   //코드 블럭 스타일
   const codeBlockStyle = {
-    backgroundColor: '#000000', // 배경색 변경
-    padding: '10px',
-    borderRadius: '4px', // 모서리 둥글게 만들기
-    overflow: 'auto',
+    backgroundColor: "#000000", // 배경색 변경
+    padding: "10px",
+    borderRadius: "4px", // 모서리 둥글게 만들기
+    overflow: "auto",
   };
 
   const contentStyle = {
-    color: 'white', // 글자 색 변경
-    letterspacing: '20px',
-  }
+    color: "white", // 글자 색 변경
+    letterspacing: "20px",
+  };
 
   const preWrap = {
-    whiteSpace: 'pre-wrap', // 공백 문자와 줄 바꿈 보존
+    whiteSpace: "pre-wrap", // 공백 문자와 줄 바꿈 보존
   };
 
   //스크랩버튼
@@ -127,16 +124,18 @@ const SummaryPage = () => {
     console.log("scrapId: ", scrapId);
 
     try {
-      const response = axios
-        .post(`${process.env.REACT_APP_SERVER_URL}/ai/summary/like`, formDataId, {
+      const response = axios.post(
+        `${process.env.REACT_APP_SERVER_URL}/ai/summary/like`,
+        formDataId,
+        {
           headers: {
             "Content-Type": "multipart/form-data",
             "Access-Control-Allow-Origin": "*",
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
         }
-        )
-      console.log('응답 성공:', response);
+      );
+      console.log("응답 성공:", response);
       setScrapCheck(scrapCheck + 1);
       console.log(scrapCheck);
       if (scrapCheck % 2 === 0) {
@@ -144,19 +143,11 @@ const SummaryPage = () => {
       } else {
         alert("스크랩 완료");
       }
-
-
-    }
-    catch (error) {
+    } catch (error) {
       console.log(error);
       console.log("요청실패");
-    };
-
+    }
   };
-
-
-
-
 
   return (
     <>
@@ -166,41 +157,43 @@ const SummaryPage = () => {
             <button type="button">
               <img src={Back} alt="뒤로가기" />
             </button>
-            <button type="button" onClick={() => scrapHandle}>
-              <img src={Scrab} alt="스크랩" />
-            </button>
+            <span className={styles.selectLang}>C언어</span>
           </div>
-          <span className={styles.selectLang}>C언어</span>
         </div>
         <div className={styles.SumRight}>
           <div>
+            <button type="button">
+              <img className={styles.Copy} src={Copy} alt="복사" />
+            </button>
             <button type="button" onClick={() => scrapHandle}>
               <img src={Scrab} alt="스크랩" />
             </button>
           </div>
-          <span className={styles.Selectscrab}>스크랩</span>
         </div>
       </header>
-      <article className={styles.article} >{data ? (
-        <div style={preWrap}><p>
-          {data.content.split(codeBlock).map((text, index) => (
-            <React.Fragment key={index}>
-              {text}
-              {index < data.content.split(codeBlock).length - 1 && (
-                <div>
-                  <pre style={codeBlockStyle}>
-                    <code style={contentStyle}>
-                      {codeBlock.replace(/```c|```/g, '')}
-                    </code>
-                  </pre>
-                </div>
-              )}
-            </React.Fragment>
-          ))}
-        </p></div>) : ("")}
-        <button type="button">
-          <img className={styles.Copy} src={Copy} alt="복사" />
-        </button>
+      <article className={styles.article}>
+        {data ? (
+          <div style={preWrap}>
+            <p>
+              {data.content.split(codeBlock).map((text, index) => (
+                <React.Fragment key={index}>
+                  {text}
+                  {index < data.content.split(codeBlock).length - 1 && (
+                    <div>
+                      <pre style={codeBlockStyle}>
+                        <code style={contentStyle}>
+                          {codeBlock.replace(/```c|```/g, "")}
+                        </code>
+                      </pre>
+                    </div>
+                  )}
+                </React.Fragment>
+              ))}
+            </p>
+          </div>
+        ) : (
+          ""
+        )}
       </article>
       {/* <article className={styles.article}>
         <button type="button">
