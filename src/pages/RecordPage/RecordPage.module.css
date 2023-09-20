@@ -6,6 +6,8 @@
   font-weight: 700;
   text-align: center;
   padding-top: 15px;
+  background-color: #fff;
+  overflow: hidden;
   margin: 0 auto;
   position: fixed;
   top: 0;
