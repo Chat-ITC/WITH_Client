@@ -1,0 +1,159 @@
+.SumTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.SumLeft {
+  width: 90px;
+  height: 70px;
+  padding-left: 15px;
+  margin-top: 50px;
+}
+
+.SumRight {
+  width: 90px;
+  height: 70px;
+  padding-right: 15px;
+}
+
+.RightImg {
+  margin-top: 20px;
+  width: 30px;
+  height: 30px;
+}
+
+.RightImg:first-child {
+  margin-right: 7px;
+}
+
+.selectLang {
+  position: relative;
+  left: 15px;
+}
+
+.article {
+  display: block;
+  width: 360px;
+  height: 650px;
+  border: 1px solid #bababa;
+  border-radius: 6px;
+  margin: 0 auto;
+  white-space: pre-line;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.article:nth-child(3) {
+  margin-bottom: 0;
+}
+
+.Copy {
+  position: absolute;
+  left: 330px;
+  top: 5px;
+}
+
+.articleDesc {
+  position: absolute;
+  top: 730px;
+  left: 15px;
+  margin: 10px 0px;
+}
+
+.articleImg {
+  margin-right: 5px;
+}
+
+.HomeMainModal {
+  background-color: #fff;
+  position: absolute;
+  top: 230px;
+  left: 60px;
+  width: 270px;
+  height: 200px;
+  border: 1px solid #bababa;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.SelectPart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 9px;
+  width: 260px;
+}
+
+.SelectLang {
+  height: 20px;
+  margin-right: 110px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.SelectLanguage {
+  width: 60px;
+  height: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.SelectSubj {
+  margin-right: 120px;
+}
+
+.SelectSub {
+  height: 20px;
+  margin-right: 5px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.SelectSubject {
+  width: 60px;
+  height: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.SelectBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.SelectBtn {
+  width: 232px;
+  height: 35px;
+  padding: 5px 15px;
+  border: 1px solid #bababa;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.SelectBtn:first-child {
+  background-color: #3da5f5;
+  color: white;
+}
+
+.SelectBtn:last-child {
+  margin-bottom: 0;
+}
+
+.HomePage_Lang {
+  position: absolute;
+  top: 230px;
+  margin-left: 60px;
+}
+
+.HomePage_Sub {
+  position: absolute;
+  top: 230px;
+  margin-left: 60px;
+}

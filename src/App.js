@@ -18,6 +18,7 @@ import RadioTest from "./pages/RadioTestPage/RadioTest";
 import ScrapPage from "./pages/ScrapPage/ScrapPage";
 import Record from "./pages/RecordPage/RecordPage";
 import SumPage from "./pages/SumPage/SumPage";
+import ListClickSummary from "./pages/ListClickSummary/ListClickSummary";
 
 import Bottom from "./component/Bottom/Bottom";
 import Scrap from "./Modal/Scrab/scrab";
@@ -42,6 +43,7 @@ function App() {
           <Route path="/Skeleton" element={<Skeleton />} />
           <Route path="/RadioTest" element={<RadioTest />} />
           <Route path="/SummaryPage" element={<SummaryPage />} />
+          <Route path="/ListClickSummary" element={<ListClickSummary />} />
           <Route path="/ScrapPage" element={<ScrapPage />} />
           <Route path="/RecordPage" element={<Record />} />
           <Route path="/Bottom" element={<Bottom />} />

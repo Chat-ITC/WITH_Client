@@ -94,6 +94,13 @@ const HomePage = () => {
     }
   };
 
+  const handleIdCheck = (id) => {
+    console.log(id);
+    navigate("/listClickSummary", {state: {id:id}});
+  };
+
+
+
   return (
     <>
       <div className={styles.MainTop}>
@@ -149,7 +156,7 @@ const HomePage = () => {
         <ul>
           {Array.isArray(historyData) &&
             historyData.map((dataList, index) => (
-              <li key={index}>
+              <li key={index} onClick={() => handleIdCheck(dataList.id)}>
                 <ScrapItem
                   key={index}
                   title={dataList.title} // 수정된 부분
