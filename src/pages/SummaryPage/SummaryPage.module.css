@@ -2,21 +2,30 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 5px;
+  height: 70px;
 }
 
 .SumLeft {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
+  width: 90px;
+  height: 70px;
+  padding-left: 15px;
+  margin-top: 50px;
 }
 
 .SumRight {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  width: 90px;
+  height: 70px;
+  padding-right: 15px;
+}
+
+.RightImg {
+  margin-top: 20px;
+  width: 30px;
+  height: 30px;
+}
+
+.RightImg:first-child {
+  margin-right: 7px;
 }
 
 .selectLang {
@@ -24,22 +33,16 @@
   left: 15px;
 }
 
-.Selectscrab {
-  position: relative;
-  right: 15px;
-}
-
 .article {
   display: block;
-  width: 380px;
-  height: 550px;
+  width: 360px;
+  height: 650px;
   border: 1px solid #bababa;
   border-radius: 6px;
-  margin: 0 auto 15px;
-
+  margin: 0 auto;
   white-space: pre-line;
   padding: 10px;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .article:nth-child(3) {
@@ -47,36 +50,20 @@
 }
 
 .Copy {
-  position: relative;
+  position: absolute;
   left: 330px;
   top: 5px;
 }
 
 .articleDesc {
-  position: relative;
+  position: absolute;
+  top: 730px;
   left: 15px;
   margin: 10px 0px;
 }
 
 .articleImg {
   margin-right: 5px;
-}
-
-.articleBtn {
-  margin: 0 auto;
-  text-align: center;
-  width: 334px;
-  height: 60px;
-  border: 1px solid #bababa;
-  border-radius: 6px;
-  padding: 17px 0;
-  background-color: #3da5f5;
-}
-
-.Button {
-  font-size: 16px;
-  font-weight: 700;
-  color: white;
 }
 
 .HomeMainModal {
@@ -170,4 +157,3 @@
   top: 230px;
   margin-left: 60px;
 }
-

@@ -161,12 +161,12 @@ const SummaryPage = () => {
           </div>
         </div>
         <div className={styles.SumRight}>
-          <div>
+          <div className={styles.S}>
             <button type="button">
-              <img className={styles.Copy} src={Copy} alt="복사" />
+              <img className={styles.RightImg} src={Copy} alt="복사" />
             </button>
             <button type="button" onClick={() => scrapHandle}>
-              <img src={Scrab} alt="스크랩" />
+              <img className={styles.RightImg} src={Scrab} alt="스크랩" />
             </button>
           </div>
         </div>
@@ -204,11 +204,6 @@ const SummaryPage = () => {
         <div className={styles.articleDesc}>
           <img className={styles.articleImg} src={Becareful} alt="주의" />
           <span>내용이 정확하지 않을 수 있습니다</span>
-        </div>
-        <div className={styles.articleBtn}>
-          <button className={styles.Button} type="button">
-            새로운 사진 촬영
-          </button>
         </div>
       </footer>
 
