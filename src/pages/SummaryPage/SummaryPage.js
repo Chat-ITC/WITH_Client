@@ -104,11 +104,15 @@ const SummaryPage = () => {
   //코드 블럭 스타일
   const codeBlockStyle = {
     backgroundColor: '#000000', // 배경색 변경
-    color: 'white', // 글자 색 변경
-   
-    letterspacing: '20px',
+    padding: '10px',
     borderRadius: '4px', // 모서리 둥글게 만들기
+    overflow: 'auto',
   };
+
+  const contentStyle = {
+    color: 'white', // 글자 색 변경
+    letterspacing: '20px',
+  }
 
   
 
@@ -141,7 +145,7 @@ const SummaryPage = () => {
             {index < data.content.split(codeBlock).length - 1 && (
               <div>
                 <pre style={codeBlockStyle}>
-                  <code style={codeBlockStyle}>
+                  <code style={contentStyle}>
                     {codeBlock.replace(/```c|```/g, '')}
                   </code>
                 </pre>
