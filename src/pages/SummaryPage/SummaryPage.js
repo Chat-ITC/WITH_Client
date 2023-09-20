@@ -30,9 +30,13 @@ const SummaryPage = () => {
   const openModal2 = () => sestIsModalOpen2(true);
   const closeModal2 = () => sestIsModalOpen2(false);
 
+  //주제와 언어
   const [question, setQuestion] = useState(null);
   const [language, setLanguage] = useState(null);
   const [file, setFile] = useState(null);
+
+  //내용과 코드
+  const [data, setData] = useState(null);
 
   const sendDataHandle = async () => {
     closeModal();
@@ -65,6 +69,7 @@ const SummaryPage = () => {
       .then((response) => {
         console.log("요청성공");
         console.log(response.data);
+        setData(response.data);
       })
       .catch((error) => {
         console.log("요청실패");
@@ -100,7 +105,7 @@ const SummaryPage = () => {
           <span className={styles.Selectscrab}>스크랩</span>
         </div>
       </header>
-      <article className={styles.article}>
+      <article className={styles.article} >{data ? (<div><h3>{data.content}</h3></div>) : ("")}
         <button type="button">
           <img className={styles.Copy} src={Copy} alt="복사" />
         </button>
