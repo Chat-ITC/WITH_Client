@@ -22,7 +22,7 @@ const ListClickSummary = () => {
   const [scrapId, setScrapId] = useState(null);
   const [scrapCheck, setScrapCheck] = useState(0);
   const [codeBlock, setCodeBlock] = useState(null);
-
+  const [isScrappedChange, setIsScrappedChange] = useState(isScrapped);
   
  
   console.log("같은지 비교하기. content ", content);
@@ -95,8 +95,10 @@ const ListClickSummary = () => {
       setScrapCheck(scrapCheck + 1);
       console.log(scrapCheck);
       if (scrapCheck % 2 === 0) {
+        setIsScrappedChange("YES")
         alert("스크랩 완료");
       } else {
+        setIsScrappedChange("NO")
         alert("스크랩 제거");
       }
     } catch (error) {
