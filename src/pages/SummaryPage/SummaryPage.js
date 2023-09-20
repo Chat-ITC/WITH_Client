@@ -71,6 +71,7 @@ const SummaryPage = () => {
         console.log(response.data);
         setData(response.data);
         setCodeBlock(extractCodeBlock(response.data.content));
+        console.log("같은지 비교하기. ", response.data.content);
         setScrapId(response.data.id);
       })
       .catch((error) => {

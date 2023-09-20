@@ -27,6 +27,8 @@ const ListClickSummary = (content, isScrapped, id) => {
   if(isScrapped === "YES") {
     setScrapCheck(scrapCheck + 1);
   }
+  console.log("같은지 비교하기. content ", content);
+  console.log("같은지 비교하기. data ", data);
   setCodeBlock(extractCodeBlock(content));
 
 
