@@ -28,7 +28,6 @@ const HomePage = () => {
 
   axios.defaults.withCredentials = true;
 
-
   const historyReq = async () => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
@@ -50,7 +49,6 @@ const HomePage = () => {
     return response;
   };
 
-
   useEffect(() => {
     // historyReq 함수를 호출하고 데이터를 받아옵니다.
     historyReq()
@@ -65,7 +63,6 @@ const HomePage = () => {
       .catch((error) => {
         const statusCode = error.response.status;
 
-
         if (statusCode === 401) {
           // 400 상태 코드 처리
           alert("로그인 해주세요");
@@ -76,8 +73,6 @@ const HomePage = () => {
         }
       });
   }, []);
-
-
 
   //카메라
   const [selectedPhoto, setSelectedPhoto] = useState(null);
@@ -101,40 +96,42 @@ const HomePage = () => {
 
   return (
     <>
-      <header className={styles.main}>
-        <img className={styles.main_img} src={Logo} alt="내 옆에 코딩친구" />
-        <h1 className={styles.main_title}>
-          내 옆에 <br /> 코딩친구
-        </h1>
-      </header>
-      <div className={styles.camera_border}>
-        <div className={styles.camera}>
+      <div className={styles.MainTop}>
+        <header className={styles.main}>
+          <img className={styles.main_img} src={Logo} alt="내 옆에 코딩친구" />
+          <h1 className={styles.main_title}>
+            내 옆에 <br /> 코딩친구
+          </h1>
+        </header>
+        <div className={styles.camera_border}>
+          <div className={styles.camera}>
+            <input
+              type="file"
+              accept="image/*;capture=camera"
+              style={{ display: "none" }} // 요소를 화면에 표시하지 않음
+              ref={fileInputRef} // ref를 사용하여 요소 참조
+              onChange={handleFileChange} // 파일 선택 시 이벤트 핸들러 호출
+            />
+            <button className={styles.Camera_Btn} onClick={handleButtonClick}>
+              <img
+                className={styles.camera_img}
+                src={Camera}
+                alt="사진 첨부 버튼"
+              />
+              <span>사진을 찍어보세요</span>
+            </button>
+          </div>
           <input
             type="file"
-            accept="image/*;capture=camera"
-            style={{ display: "none" }} // 요소를 화면에 표시하지 않음
-            ref={fileInputRef} // ref를 사용하여 요소 참조
-            onChange={handleFileChange} // 파일 선택 시 이벤트 핸들러 호출
+            id="camera"
+            name="camera"
+            capture="camera"
+            accept="image/*"
+            style={{ display: "none" }}
           />
-          <button className={styles.Camera_Btn} onClick={handleButtonClick}>
-            <img
-              className={styles.camera_img}
-              src={Camera}
-              alt="사진 첨부 버튼"
-            />
-            <span>사진을 찍어보세요</span>
-          </button>
         </div>
-        <input
-          type="file"
-          id="camera"
-          name="camera"
-          capture="camera"
-          accept="image/*"
-          style={{ display: "none" }}
-        />
+        <hr className={styles.Homehr} />
       </div>
-      <hr className={styles.Homehr} />
       <button
         className={styles.section_icons}
         type="button"
@@ -148,25 +145,24 @@ const HomePage = () => {
         className={styles.BtnScrap}
       />
 
-
       <div className={styles.historyList}>
-        <ul >
-          {Array.isArray(historyData) && historyData.map((dataList, index) => (
-            <li key={index}>
-              <ScrapItem
-                key={index}
-                title={dataList.title} // 수정된 부분
-                content={dataList.content}
-                createAt={dataList.createAt}
-                fav_language={dataList.fav_language}
-                id={dataList.id}
-                isScrapped={dataList.isScrapped}
-              />
-            </li>
-          ))}
+        <ul>
+          {Array.isArray(historyData) &&
+            historyData.map((dataList, index) => (
+              <li key={index}>
+                <ScrapItem
+                  key={index}
+                  title={dataList.title} // 수정된 부분
+                  content={dataList.content}
+                  createAt={dataList.createAt}
+                  fav_language={dataList.fav_language}
+                  id={dataList.id}
+                  isScrapped={dataList.isScrapped}
+                />
+              </li>
+            ))}
         </ul>
       </div>
-
 
       <Bottom />
     </>
