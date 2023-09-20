@@ -18,9 +18,9 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   //스크랩
-  const [isModalOpen, sestIsModalOpen] = useState(false);
-  const openModal = () => sestIsModalOpen(true);
-  const closeModal = () => sestIsModalOpen(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   //ScrapItem
   const [scraps, setScraps] = useState([]);
 
@@ -104,11 +104,15 @@ const HomePage = () => {
       <button
         className={styles.section_icons}
         type="button"
-        onClick={closeModal}
+        onClick={openModal}
       >
         스크랩
       </button>
-      <Scrap className={styles.BtnScrap} />
+      <Scrap
+        isOpen={isModalOpen}
+        closeModal={closeModal}
+        className={styles.BtnScrap}
+      />
 
       <Bottom />
     </>
