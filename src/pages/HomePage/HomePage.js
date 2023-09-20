@@ -4,8 +4,9 @@ import styles from "./HomePage.module.css";
 import Logo from "../../assets/logo/CoFe_logo.png";
 import Camera from "../../assets/etc/addimage.png";
 //component
-import Bottom from "../../component/Bottom/Bottom";
 import ScrapItem from "../../component/ScrapItem/ScrapItem";
+import Bottom from "../../component/Bottom/Bottom";
+
 //modal
 import Scrap from "../../Modal/Scrab/scrab";
 //library
@@ -21,8 +22,9 @@ const HomePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
-  //ScrapItem
-  const [scraps, setScraps] = useState([]);
+
+  //history
+  const [historyData, setHistoryData] = useState([]);
 
   axios.defaults.withCredentials = true;
 
@@ -49,12 +51,11 @@ const HomePage = () => {
   };
 
 
-
-
   useEffect(() => {
     // historyReq 함수를 호출하고 데이터를 받아옵니다.
     historyReq()
       .then((response) => {
+        setHistoryData(response); //map으로 배열 자체 넘기기
         console.log(response);
         console.log(response.data);
       })
@@ -72,8 +73,6 @@ const HomePage = () => {
         }
       });
   }, []);
-
-
 
 
 
@@ -145,6 +144,18 @@ const HomePage = () => {
         closeModal={closeModal}
         className={styles.BtnScrap}
       />
+
+     
+      <div> 
+        <ul>
+          {historyData.map((dataList, index) => (
+            <li key={index}>
+              <ScrapItem data={dataList}/>
+            </li>
+          ))}
+        </ul>
+      </div>
+
 
       <Bottom />
     </>
