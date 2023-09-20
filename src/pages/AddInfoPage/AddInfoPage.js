@@ -121,24 +121,33 @@ const AddInfoPage = () => {
 
   const languages = [
     {
-      name: "선택없음",
+      name: "Unknown",
       image: Unknown,
+    },
+    {
+      name: "C",
+      image: C,
     },
     {
       name: "C++",
       image: CPlus,
     },
     {
-      name: "파이썬",
+      name: "C#",
+      image: Csharp,
+    },
+    {
+      name: "Java",
+      image: Java,
+    },
+
+    {
+      name: "Python",
       image: Python,
     },
     {
-      name: "자바",
-      image: Java,
-    },
-    {
-      name: "C언어",
-      image: C,
+      name: "Go",
+      image: Go,
     },
     {
       name: "Dart",
@@ -149,7 +158,7 @@ const AddInfoPage = () => {
       image: Kotlin,
     },
     {
-      name: "자바스크립트",
+      name: "Javascript",
       image: Javascript,
     },
     {
@@ -159,10 +168,6 @@ const AddInfoPage = () => {
     {
       name: "Php",
       image: Php,
-    },
-    {
-      name: "Go",
-      image: Go,
     },
     {
       name: "Swift",
@@ -175,10 +180,6 @@ const AddInfoPage = () => {
     {
       name: "R",
       image: R,
-    },
-    {
-      name: "C#",
-      image: Csharp,
     },
   ];
 
