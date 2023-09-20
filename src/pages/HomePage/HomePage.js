@@ -149,8 +149,8 @@ const HomePage = () => {
       />
 
 
-      <div>
-        <ul className={styles.historyList}>
+      <div className={styles.historyList}>
+        <ul >
           {Array.isArray(historyData) && historyData.map((dataList, index) => (
             <li key={index}>
               <ScrapItem
