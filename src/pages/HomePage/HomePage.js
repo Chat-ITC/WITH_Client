@@ -185,7 +185,7 @@ const HomePage = () => {
             ))}
         </ul>
       </div>
-      <div className={styles.Block} />
+      
       <Bottom />
     </>
   );
