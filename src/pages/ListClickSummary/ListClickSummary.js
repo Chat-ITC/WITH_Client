@@ -23,29 +23,34 @@ const ListClickSummary = () => {
   const [scrapCheck, setScrapCheck] = useState(0);
   const [codeBlock, setCodeBlock] = useState(null);
 
-  setData(content);
-  setScrapId(id);
-  if(isScrapped === "YES") {
-    setScrapCheck(scrapCheck + 1);
-  }
+  
+ 
   console.log("같은지 비교하기. content ", content);
   console.log("같은지 비교하기. content ", data);
 
-  setCodeBlock(extractCodeBlock(content));
+  
 
 
   
   useEffect(() => {
+    setData(content);
+    setScrapId(id);
+    if(isScrapped === "YES") {
+      setScrapCheck(scrapCheck + 1);
+    }
+    setCodeBlock(extractCodeBlock(content));
 
-  }, []);
+    function extractCodeBlock(contentData) {
+      // 정규식을 사용하여 코드 블록을 추출합니다.
+      const codeBlock = contentData.match(/```c([\s\S]*?)```/);
+  
+      return codeBlock ? codeBlock[0] : null;
+    }
+
+  }, [content]);
 
   //코드 블럭 추출 로직
-  function extractCodeBlock(content) {
-    // 정규식을 사용하여 코드 블록을 추출합니다.
-    const codeBlock = content.match(/```c([\s\S]*?)```/);
-
-    return codeBlock ? codeBlock[0] : null;
-  }
+ 
 
   
 
