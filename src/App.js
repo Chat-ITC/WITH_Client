@@ -20,6 +20,7 @@ import Record from "./pages/RecordPage/RecordPage";
 
 import Bottom from "./component/Bottom/Bottom";
 import Scrap from "./Modal/Scrab/scrab";
+import ScrapBtn from "./component/ScrabBtn/ScrabBtn";
 
 //redirection
 import KakaoRedirection from "./Redirection/KakaoRedirection";
@@ -42,6 +43,7 @@ function App() {
           <Route path="/RecordPage" element={<Record />} />
           <Route path="/Bottom" element={<Bottom />} />
           <Route path="/Scrap" element={<Scrap />} />
+          <Route path="/ScrapBtn" element={<ScrapBtn />} />
           <Route exact path="/kakao/callback" element={<KakaoRedirection />} />
           <Route exact path="/naver/callback" element={<NaverRedirection />} />
         </Routes>

@@ -7,8 +7,7 @@ import Camera from "../../assets/etc/addimage.png";
 import Bottom from "../../component/Bottom/Bottom";
 import ScrapItem from "../../component/ScrapItem/ScrapItem";
 //modal
-import Scrab from "../../Modal/Scrab/scrab";
-import ScrabBtn from "../../Modal/Scrab/scrab";
+import Scrap from "../../Modal/Scrab/scrab";
 //library
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -19,9 +18,8 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   //스크랩
-  const [isModalOpen3, sestIsModalOpen3] = useState(false);
-  const openModal3 = () => sestIsModalOpen3(true);
-  const closeModal3 = () => sestIsModalOpen3(false);
+  const [isModalOpen, sestIsModalOpen] = useState(false);
+  const openModal = () => sestIsModalOpen(true);
 
   //ScrapItem
   const [scraps, setScraps] = useState([]);
@@ -103,6 +101,17 @@ const HomePage = () => {
         />
       </div>
       <hr className={styles.Homehr} />
+      <button
+        className={styles.section_icons}
+        type="button"
+        onClick={openModal}
+      >
+        스크랩
+      </button>
+      <Scrap
+        className={styles.BtnScrap}
+        style={{ display: isModalOpen ? "block" : "none" }}
+      />
 
       <Bottom />
     </>

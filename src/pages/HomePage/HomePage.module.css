@@ -62,6 +62,30 @@
   top: 120px;
 }
 
+.section_icons {
+  display: block;
+  position: absolute;
+  width: 85px;
+  height: 25px;
+  padding: 5px;
+  border: 1px solid #bababa;
+}
+
+.section_icons::after {
+  content: "👇";
+  margin-left: 3px;
+}
+
+.section_icons {
+  position: absolute;
+  top: 270px;
+  right: 40px;
+}
+
+.Scrap {
+  position: absolute;
+  top: 200px;
+}
 /* .Scrab {
   display: flex;
   flex-direction: column;
