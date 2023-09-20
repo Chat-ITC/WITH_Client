@@ -5,6 +5,8 @@
   border-radius: 6px;
   padding: 13px 8px;
   margin: 0 auto 10px;
+  position: absolute;
+  top: 320px;
 }
 
 .Title {
