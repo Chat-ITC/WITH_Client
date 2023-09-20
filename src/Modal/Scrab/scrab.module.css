@@ -1,9 +1,12 @@
 .ScrapText {
   width: 86px;
   height: 50px;
-  background-color: #fff;
   border: 1px solid #bababa;
+  border-top: none;
   border-radius: 2px;
+  position: absolute;
+  top: 295px;
+  right: 39px;
 }
 
 .ScrapBtn {
