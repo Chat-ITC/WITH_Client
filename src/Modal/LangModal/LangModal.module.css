@@ -15,6 +15,7 @@
   text-align: center;
   padding: 10px 0;
   font-size: 24px;
+  margin-left: 50px;
 }
 
 .HomeLangDesc {
@@ -30,9 +31,21 @@
   text-align: center;
 }
 
+.HomeBack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .HomeLangBtn {
   width: 282px;
   height: 40px;
   font-weight: 700;
   padding: 5px 15px;
+}
+
+.HomeBtn {
+  width: 60px;
+  height: 45px;
+  margin-right: 10px;
 }
