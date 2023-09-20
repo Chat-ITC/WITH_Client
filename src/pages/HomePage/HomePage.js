@@ -54,10 +54,10 @@ const HomePage = () => {
     historyReq()
       .then((response) => {
         //map으로 배열 자체 넘기기
-        console.log(response);
-        console.log(response.data);
-        console.log(response.data[0]);
-        console.log(response.data[0].title);
+        // console.log(response);
+        // console.log(response.data);
+        // console.log(response.data[0]);
+        // console.log(response.data[0].title);
         setHistoryData(response.data);
       })
       .catch((error) => {

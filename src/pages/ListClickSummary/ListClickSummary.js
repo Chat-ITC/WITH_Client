@@ -11,9 +11,10 @@ import Bottom from "../../component/Bottom/Bottom";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const ListClickSummary = (content, isScrapped, id) => {
+const ListClickSummary = () => {
   axios.defaults.withCredentials = true;
   const location = useLocation();
+  const { content, isScrapped, id } = location.state;
 
   //내용과 코드
   const [data, setData] = useState(null); //content
