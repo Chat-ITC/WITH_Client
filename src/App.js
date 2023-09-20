@@ -18,6 +18,8 @@ import RadioTest from "./pages/RadioTestPage/RadioTest";
 import ScrapPage from "./pages/ScrapPage/ScrapPage";
 import Record from "./pages/RecordPage/RecordPage";
 
+import Bottom from "./component/Bottom/Bottom";
+
 //redirection
 import KakaoRedirection from "./Redirection/KakaoRedirection";
 import NaverRedirection from "./Redirection/NaverRedirection";
@@ -37,6 +39,7 @@ function App() {
           <Route path="/SummaryPage" element={<SummaryPage />} />
           <Route path="/ScrapPage" element={<ScrapPage />} />
           <Route path="/RecordPage" element={<Record />} />
+          <Route path="/Bottom" element={<Bottom />} />
           <Route exact path="/kakao/callback" element={<KakaoRedirection />} />
           <Route exact path="/naver/callback" element={<NaverRedirection />} />
         </Routes>
