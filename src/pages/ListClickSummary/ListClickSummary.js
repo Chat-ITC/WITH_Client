@@ -25,10 +25,24 @@ const ListClickSummary = () => {
   const [isScrappedChange, setIsScrappedChange] = useState(isScrapped);
   
  
-  console.log("같은지 비교하기. content ", content);
-  console.log("같은지 비교하기. content ", content);
 
-  
+
+    //코드 블럭 스타일
+  const codeBlockStyle = {
+    backgroundColor: "#000000", // 배경색 변경
+    padding: "10px",
+    borderRadius: "4px", // 모서리 둥글게 만들기
+    overflow: "auto",
+  };
+
+  const contentStyle = {
+    color: "white", // 글자 색 변경
+    letterspacing: "20px",
+  };
+
+  const preWrap = {
+    whiteSpace: "pre-wrap", // 공백 문자와 줄 바꿈 보존
+  };
 
 
   
@@ -47,29 +61,10 @@ const ListClickSummary = () => {
       return codeBlock ? codeBlock[0] : null;
     }
 
-  }, [content]);
+  }, [content, isScrappedChange]);
 
   //코드 블럭 추출 로직
  
-
-  
-
-  //코드 블럭 스타일
-  const codeBlockStyle = {
-    backgroundColor: "#000000", // 배경색 변경
-    padding: "10px",
-    borderRadius: "4px", // 모서리 둥글게 만들기
-    overflow: "auto",
-  };
-
-  const contentStyle = {
-    color: "white", // 글자 색 변경
-    letterspacing: "20px",
-  };
-
-  const preWrap = {
-    whiteSpace: "pre-wrap", // 공백 문자와 줄 바꿈 보존
-  };
 
   //스크랩버튼
   const scrapHandle = () => {
