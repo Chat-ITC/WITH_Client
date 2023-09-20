@@ -29,8 +29,7 @@ function TruncateTextContent({ text, maxLength }) {
 
 
 const ScrapItem = ({ title, content, createAt, fav_language, id, isScrapped }) => {
-  console.log(title);
-  console.log(content);
+  
 
   return (
     <>
