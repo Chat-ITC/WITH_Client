@@ -11,7 +11,11 @@
   position: absolute;
   top: 300px;
   left: 15px;
+  width: 360px;
+  height: 400px;
   overflow-y: auto;
+  border: 1px solid #bababa;
+  border-radius: 6px;
 }
 
 .main_img {
@@ -76,7 +80,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color:#FFF;
+  background-color: #fff;
   z-index: 8;
 }
 
