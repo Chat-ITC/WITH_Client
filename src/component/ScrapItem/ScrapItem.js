@@ -9,7 +9,8 @@ import styles from "./ScrapItem.module.css";
 import ScrapBtn from "../../component/ScrabBtn/ScrabBtn";
 
 const ScrapItem = ({historyData}) => {
-  
+  console.log(historyData);
+  console.log(historyData.title);
   //content, createAt, fav_language, id, isScrapped, title
   return (
     <>
