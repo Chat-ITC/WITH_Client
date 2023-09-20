@@ -19,6 +19,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const MyPage = () => {
   const navigate = useNavigate();
@@ -233,24 +234,27 @@ const MyPage = () => {
 
           <p className={styles.main_email}>{userInfo.email}</p>
         </div>
-        <span className={styles.main_account}>계정 관리</span>
       </header>
 
       <section className={styles.mid}>
         <div className={styles.mid_items}>
-          <button className={styles.section_icons}>
+          <Link className={styles.section_icons} to="/ScrapPage">
             <img className={styles.section_img} src={Scrab} alt="스크랩" />
-            <p className={styles.section_desc}>스크랩</p>
-          </button>
-          <button className={styles.section_icons}>
+            스크랩
+          </Link>
+          <Link className={styles.section_icons} to="/RecordPage">
             <img
               className={styles.section_img}
               src={Recent}
               alt="최근 본 자료"
             />
-            <p className={styles.section_desc}>최근 본 자료</p>
-          </button>
-          <button type="button" onClick={openModal}>
+            최근 본 자료
+          </Link>
+          <button
+            className={styles.section_icons}
+            type="button"
+            onClick={openModal}
+          >
             <img className={styles.section_img} src={C} alt="학습 언어 수정" />
             <p className={styles.section_desc}>학습 언어 수정</p>
           </button>
