@@ -14,7 +14,7 @@ const ScrapPage = () => {
   return (
     <>
       <header className={styles.ScrapHeader}>
-        <Link className={styles.BackBtn} type="button" to="/MyPage">
+        <Link className={styles.BackBtn} to="/MyPage">
           <img src={Back} alt="뒤로가기" />
         </Link>
         <h1 className={styles.ScrapTitle}>스크랩</h1>

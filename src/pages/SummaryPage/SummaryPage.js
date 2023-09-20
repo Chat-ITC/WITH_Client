@@ -12,6 +12,7 @@ import Bottom from "../../component/Bottom/Bottom";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import DynamicCodeBlock from "../../component/DynamicCodeBlock/DynamicCodeBlock";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 //modal
 import SelectModal from "../../Modal/SelectModal/SelectModal";
 import LangModal from "../../Modal/LangModal/LangModal";
@@ -45,7 +46,6 @@ const SummaryPage = () => {
   const [scrapId, setScrapId] = useState(null);
   const [scrapCheck, setScrapCheck] = useState(0);
   const [isScrappedChange, setIsScrappedChange] = useState("NO");
-  
 
   const sendDataHandle = async () => {
     closeModal();
@@ -166,7 +166,6 @@ const SummaryPage = () => {
             <button type="button">
               <img src={Back} alt="뒤로가기" />
             </button>
-            <span className={styles.selectLang}>C언어</span>
           </div>
         </div>
         <div className={styles.SumRight}>
@@ -175,13 +174,15 @@ const SummaryPage = () => {
               <img className={styles.RightImg} src={Copy} alt="복사" />
             </button>
             <button type="button" onClick={scrapHandle}>
-            {isScrappedChange === 'NO' || isScrappedChange === 'No' ? (
+              {isScrappedChange === "NO" || isScrappedChange === "No" ? (
                 <img className={styles.RightImg} src={Star} alt="텅 빈 별" />
               ) : (
-                <img className={styles.RightImg} src={FillStar} alt="꽉 찬 별" />
+                <img
+                  className={styles.RightImg}
+                  src={FillStar}
+                  alt="꽉 찬 별"
+                />
               )}
-
-
             </button>
           </div>
         </div>
@@ -259,13 +260,13 @@ const SummaryPage = () => {
               확인
             </button>
             {/* SelectModal창 닫기 버튼 */}
-            <button
-              onClick={closeModal}
+            <Link
+              to="/HomePage
+              "
               className={styles.SelectBtn}
-              type="button"
             >
               취소
-            </button>
+            </Link>
           </div>
         </div>
       </SelectModal>

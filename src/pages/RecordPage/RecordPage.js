@@ -12,7 +12,7 @@ const RecordPage = () => {
   return (
     <>
       <header className={styles.RecordHeader}>
-        <Link className={styles.BackBtn} type="button" to="/MyPage">
+        <Link className={styles.BackBtn} to="/MyPage">
           <img className={styles.BackImg} src={Back} alt="뒤로가기" />
         </Link>
         <h1 className={styles.RecordTitle}>최근 본 내역</h1>

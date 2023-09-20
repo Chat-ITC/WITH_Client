@@ -135,6 +135,7 @@
   border: 1px solid #bababa;
   border-radius: 4px;
   margin-bottom: 5px;
+  text-align: center;
 }
 
 .SelectBtn:first-child {

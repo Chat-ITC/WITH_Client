@@ -10,6 +10,7 @@ import axios from "axios";
 import Bottom from "../../component/Bottom/Bottom";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const ListClickSummary = () => {
   axios.defaults.withCredentials = true;
@@ -18,21 +19,14 @@ const ListClickSummary = () => {
 
   //내용과 코드
 
-
   const [scrapId, setScrapId] = useState(null);
   const [scrapCheck, setScrapCheck] = useState(0);
   const [codeBlock, setCodeBlock] = useState(null);
   const [isScrappedChange, setIsScrappedChange] = useState(isScrapped);
-  
- 
-  
 
-
-  
   useEffect(() => {
-    
     setScrapId(id);
-    if(isScrapped === "YES") {
+    if (isScrapped === "YES") {
       setScrapCheck(scrapCheck + 1);
     }
     setCodeBlock(extractCodeBlock(content));
@@ -40,16 +34,12 @@ const ListClickSummary = () => {
     function extractCodeBlock(contentData) {
       // 정규식을 사용하여 코드 블록을 추출합니다.
       const codeBlock = contentData.match(/```c([\s\S]*?)```/);
-  
+
       return codeBlock ? codeBlock[0] : null;
     }
-
   }, [content]);
 
   //코드 블럭 추출 로직
- 
-
-  
 
   //코드 블럭 스타일
   const codeBlockStyle = {
@@ -70,7 +60,7 @@ const ListClickSummary = () => {
 
   //스크랩버튼
   const scrapHandle = () => {
-    console.log('버튼이 클릭되었습니다!');
+    console.log("버튼이 클릭되었습니다!");
 
     const formDataId = new FormData();
     formDataId.append("id", scrapId);
@@ -93,12 +83,10 @@ const ListClickSummary = () => {
       console.log(scrapCheck);
       if (scrapCheck % 2 === 0) {
         alert("스크랩 완료");
-        setIsScrappedChange("YES")
-        
+        setIsScrappedChange("YES");
       } else {
         alert("스크랩 제거");
-        setIsScrappedChange("NO")
-        
+        setIsScrappedChange("NO");
       }
     } catch (error) {
       console.log(error);
@@ -106,19 +94,16 @@ const ListClickSummary = () => {
     }
   };
   const copyHandle = () => {
-    console.log('복사 버튼이 클릭되었습니다!');
+    console.log("복사 버튼이 클릭되었습니다!");
   };
-
 
   return (
     <>
       <header className={styles.SumTitle}>
         <div className={styles.SumLeft}>
-          <div>
-            <button type="button">
-              <img src={Back} alt="뒤로가기" />
-            </button>
-          </div>
+          <Link className={styles.BackHome} to="HomePage">
+            <img src={Back} alt="뒤로가기" />
+          </Link>
         </div>
         <div className={styles.SumRight}>
           <div className={styles.S}>
@@ -126,12 +111,15 @@ const ListClickSummary = () => {
               <img className={styles.RightImg} src={Copy} alt="복사" />
             </button>
             <button type="button" onClick={scrapHandle}>
-              {isScrappedChange === 'NO' || isScrappedChange === 'No' ? (
+              {isScrappedChange === "NO" || isScrappedChange === "No" ? (
                 <img className={styles.RightImg} src={Star} alt="텅 빈 별" />
               ) : (
-                <img className={styles.RightImg} src={FillStar} alt="꽉 찬 별" />
+                <img
+                  className={styles.RightImg}
+                  src={FillStar}
+                  alt="꽉 찬 별"
+                />
               )}
-
             </button>
           </div>
         </div>
