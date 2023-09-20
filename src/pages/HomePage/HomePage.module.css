@@ -9,7 +9,7 @@
 
 .historyList {
   position: absolute;
-  top: 310px;
+  top: 300px;
   left: 15px;
   overflow-y: auto;
 }

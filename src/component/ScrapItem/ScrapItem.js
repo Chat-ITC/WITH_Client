@@ -36,7 +36,7 @@ const ScrapItem = ({ title, content, createAt, fav_language, id, isScrapped }) =
       <div className={styles.ScrapItem}>
 
         <div className={styles.ScrapTop}>
-          <TruncateTextTitle text={title} maxLength={20} />
+          <TruncateTextTitle text={title} maxLength={15} />
           <ScrapBtn />
         </div>
 
