@@ -88,14 +88,16 @@ const SummaryPage = () => {
   }, [location.state.file]);
 
 
-  
+
   function extractCodeBlock(content) {
     // 정규식을 사용하여 코드 블록을 추출합니다.
     const codeBlock = content.match(/```c([\s\S]*?)```/);
   
     return codeBlock ? codeBlock[0] : null;
   }
-  const codeBlock = extractCodeBlock(data.content);
+
+  const [codeBlock, setCodeBlock] = useState(null);
+  setCodeBlock(extractCodeBlock(data.content));
 
   
 
