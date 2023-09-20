@@ -24,26 +24,58 @@ const HomePage = () => {
   //ScrapItem
   const [scraps, setScraps] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("백엔드 API 주소");
-        setScraps(response.data);
-      } catch (error) {
-        console.error(error);
+  axios.defaults.withCredentials = true;
+
+
+  const historyReq = async () => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+    } else {
+      axios.defaults.headers.common["Authorization"] = null;
+    }
+
+    const response = await axios.get(
+      `${process.env.REACT_APP_SERVER_URL}/ai/summary/home`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
       }
-    };
+    );
+    return response;
+  };
 
-    // 초기 데이터 가져오기
-    fetchData();
 
-    // 일정 간격으로 데이터 업데이트
-    const intervalId = setInterval(fetchData, 5000); // 5초마다 호출
 
-    return () => {
-      clearInterval(intervalId); // 컴포넌트 언마운트 시 인터벌 제거
-    };
+
+  useEffect(() => {
+    // historyReq 함수를 호출하고 데이터를 받아옵니다.
+    historyReq()
+      .then((response) => {
+        console.log(response);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        const statusCode = error.response.status;
+
+
+        if (statusCode === 401) {
+          // 400 상태 코드 처리
+          alert("로그인 해주세요");
+          navigate("/");
+        } else if (statusCode === 409) {
+          alert("세션이 만료되었습니다. 다시 로그인해 주세요");
+          navigate("/");
+        }
+      });
   }, []);
+
+
+
+
 
   //카메라
   const [selectedPhoto, setSelectedPhoto] = useState(null);
