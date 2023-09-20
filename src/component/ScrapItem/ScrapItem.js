@@ -10,7 +10,7 @@ import ScrapBtn from "../../component/ScrabBtn/ScrabBtn";
 
 function TruncateTextTitle({ text, maxLength }) {
   if (text.length <= maxLength) {
-    return <span className="Title">{text}</span>;
+    return <h2 className="Title">{text}</h2>;
   } else {
     const truncatedText = text.substring(0, maxLength) + '...';
     return <span title={text} className="Title">{truncatedText}</span>;
@@ -27,7 +27,7 @@ const ScrapItem = ({ title, content, createAt, fav_language, id, isScrapped }) =
       <div className={styles.ScrapItem}>
 
         <div className={styles.ScrapTop}>
-          <TruncateTextTitle text={title} maxLength={10} />
+          <TruncateTextTitle text={title} maxLength={20} />
           <ScrapBtn />
         </div>
 
@@ -38,14 +38,6 @@ const ScrapItem = ({ title, content, createAt, fav_language, id, isScrapped }) =
         <span className={styles.Language}>
           {fav_language}
           </span>
-      </div>
-
-      <div className={styles.ScrapItem}>
-        <h2 className={styles.Title}>제목입니다.</h2>
-        <p className={styles.Content}>
-          일이삼사오육칠팔구십일이삼사오육칠팔구십.
-        </p>
-        <span className={styles.Language}>선호하는 언어입니다.</span>
       </div>
     </>
   );
