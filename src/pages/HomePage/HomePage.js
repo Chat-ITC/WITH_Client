@@ -162,12 +162,6 @@ const HomePage = () => {
                 id={dataList.id}
                 isScrapped={dataList.isScrapped}
               />
-
-              {/* <ScrapItem key={index} title={dataList[index].title} content={dataList[index].content}
-              createAt={dataList[index].createAt}
-              fav_language={dataList[index].fav_language}
-              id={dataList[index].id}
-              isScrapped={dataList[index].isScrapped} /> */}
             </li>
           ))}
         </ul>

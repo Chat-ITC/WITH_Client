@@ -8,23 +8,36 @@ import styles from "./ScrapItem.module.css";
 //component
 import ScrapBtn from "../../component/ScrabBtn/ScrabBtn";
 
-const ScrapItem = ({title, content, createAt, fav_language, id, isScrapped }) => {
+function TruncateTextTitle({ text, maxLength }) {
+  if (text.length <= maxLength) {
+    return <span className="Title">{text}</span>;
+  } else {
+    const truncatedText = text.substring(0, maxLength) + '...';
+    return <span title={text} className="Title">{truncatedText}</span>;
+  }
+}
+
+
+const ScrapItem = ({ title, content, createAt, fav_language, id, isScrapped }) => {
   console.log(title);
   console.log(content);
 
   return (
     <>
       <div className={styles.ScrapItem}>
-        
+
         <div className={styles.ScrapTop}>
-          <h2 className={styles.Title}>{title}</h2>
+          <TruncateTextTitle text={title} maxLength={10} />
           <ScrapBtn />
         </div>
 
         <p className={styles.Content}>
           {content}
         </p>
-        <span className={styles.Language}>{fav_language}</span>
+        
+        <span className={styles.Language}>
+          {fav_language}
+          </span>
       </div>
 
       <div className={styles.ScrapItem}>
