@@ -55,9 +55,10 @@ const HomePage = () => {
     // historyReq 함수를 호출하고 데이터를 받아옵니다.
     historyReq()
       .then((response) => {
-        setHistoryData(response); //map으로 배열 자체 넘기기
+         //map으로 배열 자체 넘기기
         console.log(response);
         console.log(response.data);
+        setHistoryData(response);
       })
       .catch((error) => {
         const statusCode = error.response.status;
@@ -148,7 +149,7 @@ const HomePage = () => {
      
       <div> 
         <ul>
-          {historyData.map((dataList, index) => (
+          {Array.isArray(historyData) && historyData.map((dataList, index) => (
             <li key={index}>
               <ScrapItem key={index} data={dataList}/>
             </li>
