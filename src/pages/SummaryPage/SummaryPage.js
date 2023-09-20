@@ -138,9 +138,9 @@ const SummaryPage = () => {
       setScrapCheck(scrapCheck + 1);
       console.log(scrapCheck);
       if (scrapCheck % 2 === 0) {
-        alert("스크랩 제거");
-      } else {
         alert("스크랩 완료");
+      } else {
+        alert("스크랩 제거");
       }
     } catch (error) {
       console.log(error);
