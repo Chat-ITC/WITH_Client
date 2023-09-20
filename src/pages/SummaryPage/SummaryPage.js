@@ -4,6 +4,7 @@ import Scrab from "../../assets/icons/clip.png";
 import Copy from "../../assets/AddInfoIcons/Copy.png";
 import Becareful from "../../assets/AddInfoIcons/Becareful.png";
 
+import React from "react";
 import axios from "axios";
 import Bottom from "../../component/Bottom/Bottom";
 import { useLocation } from "react-router-dom";
@@ -86,6 +87,20 @@ const SummaryPage = () => {
     openModal();
   }, [location.state.file]);
 
+
+  
+  function extractCodeBlock(content) {
+    // 정규식을 사용하여 코드 블록을 추출합니다.
+    const codeBlock = content.match(/```c([\s\S]*?)```/);
+  
+    return codeBlock ? codeBlock[0] : null;
+  }
+  const codeBlock = extractCodeBlock(data.content);
+
+  
+
+
+
   return (
     <>
       <header className={styles.SumTitle}>
@@ -106,7 +121,22 @@ const SummaryPage = () => {
           <span className={styles.Selectscrab}>스크랩</span>
         </div>
       </header>
-      <article className={styles.article} >{data ? (<div><DynamicCodeBlock content={data.content} /></div>) : ("")}
+      <article className={styles.article} >{data ? (<div><p>
+        {data.content.split(codeBlock).map((text, index) => (
+          <React.Fragment key={index}>
+            {text}
+            {index < data.content.split(codeBlock).length - 1 && (
+              <div>
+                <pre>
+                  <code>
+                    {codeBlock.replace(/```c|```/g, '')}
+                  </code>
+                </pre>
+              </div>
+            )}
+          </React.Fragment>
+        ))}
+      </p></div>) : ("")}
         <button type="button">
           <img className={styles.Copy} src={Copy} alt="복사" />
         </button>
