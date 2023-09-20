@@ -6,4 +6,11 @@
   font-weight: 700;
   text-align: center;
   padding-top: 15px;
+  margin: 0 auto 10px;
+}
+
+.ScrapHeader::before {
+  content: "<";
+  position: relative;
+  right: 120px;
 }

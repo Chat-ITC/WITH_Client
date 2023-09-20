@@ -9,7 +9,7 @@ import React from "react";
 const RecordPage = () => {
   return (
     <>
-      <header className={styles.ScrapHeader}>최근 본 내역</header>
+      <header className={styles.RecordHeader}>최근 본 내역</header>
       <Bottom />
     </>
   );
