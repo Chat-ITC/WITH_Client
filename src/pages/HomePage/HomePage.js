@@ -94,8 +94,10 @@ const HomePage = () => {
     }
   };
 
-  const handleIdCheck = (id) => {
-    console.log(id);
+  const handleIdCheck = (contentProp, isScrappedProp, idProp) => {
+    console.log(contentProp);
+    console.log(isScrappedProp);
+    console.log(idProp);
     navigate("/listClickSummary", {state: {id:id}});
   };
 
@@ -156,7 +158,7 @@ const HomePage = () => {
         <ul>
           {Array.isArray(historyData) &&
             historyData.map((dataList, index) => (
-              <li key={index} onClick={() => handleIdCheck(dataList.id)}>
+              <li key={index} onClick={() => handleIdCheck(dataList.content, dataList.isScrapped, dataList.id)}>
                 <ScrapItem
                   key={index}
                   title={dataList.title} // 수정된 부분
