@@ -2,11 +2,12 @@
 
 .bottomContainer {
   position: fixed;
-  height: 6rem;
+  width: 390px;
+  height: 81px;
   left: 0;
   right: 0;
   bottom: 0;
-  border: 1px solid #b2b3b9;
+  border: 1px solid #bababa;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   border-bottom: none;
@@ -17,6 +18,8 @@
   justify-content: space-around;
   align-items: center;
   padding: 10px 0;
+  width: 100%;
+  background-color: aqua;
 }
 
 .bottomLink {

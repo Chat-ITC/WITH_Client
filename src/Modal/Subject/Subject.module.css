@@ -1,14 +1,25 @@
 .Sub_content {
-  padding: 20px;
-  position: fixed;
-  bottom: 0;
-  width: 390px;
-  height: 177px;
-  border-top-left-radius: 6px;
-  border-top-left-radius: 6px;
+  width: 282px;
+  height: 220px;
+  background-color: #fff;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #bababa;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+.HomeSubTitle {
+  width: 282px;
+  height: 45px;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 24px;
 }
 
 .HomeSubBtn {
-  width: 300px;
+  width: 282px;
   height: 40px;
+  font-weight: 700;
+  padding: 5px 15px;
 }

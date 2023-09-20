@@ -2,7 +2,6 @@ import styles from "./SummaryPage.module.css";
 import Back from "../../assets/AddInfoIcons/back.png";
 import Scrab from "../../assets/icons/clip.png";
 import Copy from "../../assets/AddInfoIcons/Copy.png";
-import Careful from "../../assets/AddInfoIcons/Becareful.png";
 import Becareful from "../../assets/AddInfoIcons/Becareful.png";
 
 import axios from "axios";
@@ -11,8 +10,8 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 //modal
 import SelectModal from "../../Modal/SelectModal/SelectModal";
-import SubModal from "../../Modal/Subject/Subject";
 import LangModal from "../../Modal/LangModal/LangModal";
+import SubModal from "../../Modal/Subject/Subject";
 
 const SummaryPage = () => {
   axios.defaults.withCredentials = true;
@@ -31,8 +30,8 @@ const SummaryPage = () => {
   const openModal2 = () => sestIsModalOpen2(true);
   const closeModal2 = () => sestIsModalOpen2(false);
 
-  const [question, setQuestion] = useState(null)
-  const [language, setLanguage] = useState(null)
+  const [question, setQuestion] = useState(null);
+  const [language, setLanguage] = useState(null);
   const [file, setFile] = useState(null);
 
   const sendDataHandle = async () => {
@@ -41,46 +40,36 @@ const SummaryPage = () => {
     console.log("선택한 파일(써머리페이지):", file);
     const formData = new FormData();
 
-    
-
-    formData.append('imageFile', file);
-    formData.append('question', question);
-    formData.append('fav_language', language);
+    formData.append("imageFile", file);
+    formData.append("question", question);
+    formData.append("fav_language", language);
     console.log("file: ", file);
     console.log("question: ", question);
     console.log("language: ", language);
     for (const [key, value] of formData.entries()) {
       console.log(key, value);
-     };
+    }
 
     const accessToken = localStorage.getItem("accessToken");
-    console.log("토근 확인: ",  accessToken)
-    
+    console.log("토근 확인: ", accessToken);
 
-    await axios.post(`${process.env.REACT_APP_SERVER_URL}/ai/summary`,
-    formData, 
-    {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-        'Access-Control-Allow-Origin': '*',
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-      },
-      timeout: 60000,
-    })
+    await axios
+      .post(`${process.env.REACT_APP_SERVER_URL}/ai/summary`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "Access-Control-Allow-Origin": "*",
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        timeout: 60000,
+      })
       .then((response) => {
-        console.log('요청성공');
+        console.log("요청성공");
         console.log(response.data);
-
-
       })
       .catch((error) => {
-        console.log('요청실패')
-        console.log(error)
-      })
-
-
-
-
+        console.log("요청실패");
+        console.log(error);
+      });
   };
 
   const location = useLocation();
@@ -108,7 +97,7 @@ const SummaryPage = () => {
               <img src={Scrab} alt="스크랩" />
             </button>
           </div>
-          <span className={styles.scrab}>스크랩하기</span>
+          <span className={styles.Selectscrab}>스크랩</span>
         </div>
       </header>
       <article className={styles.article}>
@@ -123,7 +112,7 @@ const SummaryPage = () => {
       </article>
       <footer>
         <div className={styles.articleDesc}>
-          <img className={styles.articleImg} src={Careful} alt="주의" />
+          <img className={styles.articleImg} src={Becareful} alt="주의" />
           <span>내용이 정확하지 않을 수 있습니다</span>
         </div>
         <div className={styles.articleBtn}>
@@ -135,8 +124,9 @@ const SummaryPage = () => {
 
       <SelectModal isOpen={isModalOpen} closeModal={closeModal}>
         <div className={styles.HomeMainModal}>
-          <div className={styles.SelectUp}>
-            <em className={styles.SelectLang}>학습언어</em>
+          <div className={styles.SelectPart}>
+            <strong className={styles.SelectLang}>학습언어</strong>
+            {/* 모달1가 열림*/}
             <button
               className={styles.SelectLanguage}
               type="button"
@@ -145,11 +135,12 @@ const SummaryPage = () => {
               C언어
             </button>
           </div>
-          <div className={styles.SelectDown}>
+          <div className={styles.SelectPart}>
             <span className={styles.SelectSubj}>
-              <em className={styles.SelectSub}>주제</em>
+              <strong className={styles.SelectSub}>주제</strong>
               <img src={Becareful} alt="경고" />
             </span>
+            {/* 모달2가 열림*/}
             <button
               className={styles.SelectSubject}
               type="button"
@@ -159,6 +150,7 @@ const SummaryPage = () => {
             </button>
           </div>
           <div className={styles.SelectBottom}>
+            {/* 데이터 전송 버튼 */}
             <button
               className={styles.SelectBtn}
               type="button"
@@ -166,6 +158,7 @@ const SummaryPage = () => {
             >
               확인
             </button>
+            {/* SelectModal창 닫기 버튼 */}
             <button
               onClick={closeModal}
               className={styles.SelectBtn}
@@ -177,24 +170,21 @@ const SummaryPage = () => {
         </div>
       </SelectModal>
 
+      {/* 학습언어 */}
       <div
-        className={`${styles.HomePage_Lang} ${
-          isModalOpen1 ? styles.modal_open : ""
-        }`}
+        className={styles.HomePage_Lang}
         style={{ display: isModalOpen1 ? "block" : "none" }}
       >
-        <LangModal isOpen={isModalOpen1} onClose={closeModal1}></LangModal>
+        <LangModal isOpen={isModalOpen1} onClose={closeModal1} />
       </div>
-      <Bottom />
       {/*주제 모달*/}
       <div
-        className={`${styles.HomePage_Sub} ${
-          isModalOpen2 ? styles.modal_open : ""
-        }`}
+        className={styles.HomePage_Sub}
         style={{ display: isModalOpen2 ? "block" : "none" }}
       >
-        <SubModal isOpen={isModalOpen2} onClose={closeModal2}></SubModal>
+        <SubModal isOpen={isModalOpen2} onClose={closeModal2} />
       </div>
+      <Bottom />
     </>
   );
 };

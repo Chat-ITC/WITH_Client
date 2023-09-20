@@ -34,54 +34,52 @@ const MyPage = () => {
       console.log(`선택한 언어: ${selectedLanguage}`);
 
       const accessToken = localStorage.getItem("accessToken");
-    if (accessToken) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
-    } else {
-      axios.defaults.headers.common["Authorization"] = null;
-    }
+      if (accessToken) {
+        axios.defaults.headers.common[
+          "Authorization"
+        ] = `Bearer ${accessToken}`;
+      } else {
+        axios.defaults.headers.common["Authorization"] = null;
+      }
 
-    const newLenguageData = {
-      skill_language: selectedLanguage,
-    }; 
+      const newLenguageData = {
+        skill_language: selectedLanguage,
+      };
 
-    axios
-      .patch(
-        `${process.env.REACT_APP_SERVER_URL}/member/update/language`,
-        newLenguageData,
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      .then((response) => {
-        // 데이터 수정 성공 시 처리
-        console.log("Lenguage updated successfully:", response.data);
-        setUserTier(newLenguageData.tier); // 수정된 언어 데이터를 화면에 반영
-        alert('학습 언어가 성공적으로 변경되었습니다!');
-      })
-      .catch((error) => {
-        const statusCode = error.response.status;
-        const errorMessage = error.response.data.message;
-        if (statusCode === 401) {
-          alert('토큰 재발급 필요');
-          navigate("/");
-          ;
-        } 
-        else if (statusCode === 404) {
-          if (errorMessage === "No Account") {
+      axios
+        .patch(
+          `${process.env.REACT_APP_SERVER_URL}/member/update/language`,
+          newLenguageData,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+              "Access-Control-Allow-Origin": "*",
+              "Content-Type": "application/json",
+            },
           }
-        }
-         else if (statusCode === 409) {
-          alert("세션이 만료되었습니다. 다시 로그인해 주세요");
-          navigate("/");
-        }
-      });
-
+        )
+        .then((response) => {
+          // 데이터 수정 성공 시 처리
+          console.log("Lenguage updated successfully:", response.data);
+          setUserTier(newLenguageData.tier); // 수정된 언어 데이터를 화면에 반영
+          alert("학습 언어가 성공적으로 변경되었습니다!");
+        })
+        .catch((error) => {
+          const statusCode = error.response.status;
+          const errorMessage = error.response.data.message;
+          if (statusCode === 401) {
+            alert("토큰 재발급 필요");
+            navigate("/");
+          } else if (statusCode === 404) {
+            if (errorMessage === "No Account") {
+            }
+          } else if (statusCode === 409) {
+            alert("세션이 만료되었습니다. 다시 로그인해 주세요");
+            navigate("/");
+          }
+        });
     }
-  }
+  };
 
   //내 실력 변경
   const [isModalOpen2, sestIsModalOpen2] = useState(false);
@@ -98,7 +96,7 @@ const MyPage = () => {
 
     const newTierData = {
       user_level: selectedTier,
-    }; 
+    };
 
     axios
       .patch(
@@ -116,34 +114,29 @@ const MyPage = () => {
         // 데이터 수정 성공 시 처리
         console.log("Tier updated successfully:", response.data);
         setUserTier(newTierData.tier); // 수정된 티어 데이터를 화면에 반영
-        alert('내 실력이 성공적으로 변경되었습니다!');
+        alert("내 실력이 성공적으로 변경되었습니다!");
       })
       .catch((error) => {
         const statusCode = error.response.status;
         const errorMessage = error.response.data.message;
         if (statusCode === 401) {
-          alert('토큰 재발급 필요');
+          alert("토큰 재발급 필요");
           navigate("/");
-          ;
-        } 
-        else if (statusCode === 404) {
+        } else if (statusCode === 404) {
           if (errorMessage === "No Account") {
           }
-        }
-         else if (statusCode === 409) {
+        } else if (statusCode === 409) {
           alert("세션이 만료되었습니다. 다시 로그인해 주세요");
           navigate("/");
         }
       });
-
-
-  }
+  };
 
   const [userInfo, setUserInfo] = useState(0);
   const [userTier, setUserTier] = useState(0);
   const [userLan, setUserLan] = useState(0);
   const [ref, setRef] = useState(0);
-  
+
   //데이터 받아온 후 이름과 이메일 표기
   axios.defaults.withCredentials = true;
 
@@ -178,35 +171,32 @@ const MyPage = () => {
         console.log(userInfo);
       })
       .catch((error) => {
-
         const data = error.response.data;
         const statusCode = error.response.status;
         const errorHeaders = error.response.headers;
-    
+
         if (statusCode === 401) {
           // 400 상태 코드 처리
-          alert('로그인 해주세요');
+          alert("로그인 해주세요");
           navigate("/");
-        }
-
-        else if (statusCode === 409) {
-          alert('세션이 만료되었습니다. 다시 로그인해 주세요')
+        } else if (statusCode === 409) {
+          alert("세션이 만료되었습니다. 다시 로그인해 주세요");
           navigate("/");
         }
       });
-  },[]);
+  }, []);
 
   //로그아웃 버튼
-  const logoutButton = async() => {
-
+  const logoutButton = async () => {
     axios.defaults.withCredentials = true;
     const accessToken = localStorage.getItem("accessToken");
     const refreshToken = localStorage.getItem("refreshToken");
 
     await axios
       .post(
-        `${process.env.REACT_APP_SERVER_URL}/member/logout`, null,
-       
+        `${process.env.REACT_APP_SERVER_URL}/member/logout`,
+        null,
+
         {
           headers: {
             accessToken: `${accessToken}`,
@@ -218,25 +208,20 @@ const MyPage = () => {
       )
       .then((response) => {
         // 데이터 수정 성공 시 처리
-        localStorage.removeItem('refreshToken');
-        localStorage.removeItem('accessToken');
-        console.log('logout successful');
-        alert('로그아웃 완료');
+        localStorage.removeItem("refreshToken");
+        localStorage.removeItem("accessToken");
+        console.log("logout successful");
+        alert("로그아웃 완료");
         navigate("/");
       })
       .catch((error) => {
         const errorHeaders = error.response.headers;
         console.log(errorHeaders.validation);
         console.log(error);
-        alert('오류 발생. 로그인 화면으로 돌아갑니다.');
+        alert("오류 발생. 로그인 화면으로 돌아갑니다.");
         navigate("/");
-      })
-      
-
-
+      });
   };
-
-  
 
   return (
     <Fragment>
@@ -272,11 +257,10 @@ const MyPage = () => {
         </div>
       </section>
       <div
-        className={`${styles.MyPage_Lang} ${isModalOpen ? styles.modal_open : ""
-        }`}
+        className={styles.MyPage_Lang}
         style={{ display: isModalOpen ? "block" : "none" }}
       >
-        <LangModal isOpen={isModalOpen} onClose={closeModal}></LangModal>
+        <LangModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
 
       <aside className={styles.bottom}>
@@ -300,17 +284,22 @@ const MyPage = () => {
             </a>
           </li>
           <li className={styles.info_list}>
-            <button type = "button" className={styles.info_link} onClick ={logoutButton}>
+            <button
+              type="button"
+              className={styles.info_link}
+              onClick={logoutButton}
+            >
               <div className={styles.info_item}>
                 <img className={styles.info_img} src={Logout} alt="" />
-                <span className={styles.info_desc} >로그 아웃</span>
+                <span className={styles.info_desc}>로그 아웃</span>
               </div>
             </button>
           </li>
         </ul>
       </aside>
       <div
-        className={`${styles.MyPage_Abil} ${isModalOpen2 ? styles.modal_open : ""
+        className={`${styles.MyPage_Abil} ${
+          isModalOpen2 ? styles.modal_open : ""
         }`}
         style={{ display: isModalOpen2 ? "block" : "none" }}
       >

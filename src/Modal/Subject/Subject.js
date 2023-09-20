@@ -17,25 +17,23 @@ const SubModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className={`modal ${isOpen ? "open" : ""}`}>
-      <div className={Sub.Sub_content}>
-        <h2 className={Sub.HomeSubTitle}>주제</h2>
-        <ul className={Sub.sub_lists}>
-          {subjects.map((subject, index) => (
-            <li key={index}>
-              <button
-                className={Sub.HomeSubBtn}
-                onClick={() => {
-                  handleSubjectClick(subject);
-                  onClose(); // 버튼 클릭 후 모달 창 닫기
-                }}
-              >
-                {subject}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className={Sub.Sub_content}>
+      <h2 className={Sub.HomeSubTitle}>주제</h2>
+      <ul className={Sub.sub_lists}>
+        {subjects.map((subject, index) => (
+          <li key={index}>
+            <button
+              className={Sub.HomeSubBtn}
+              onClick={() => {
+                handleSubjectClick(subject);
+                onClose(); // 버튼 클릭 후 모달 창 닫기
+              }}
+            >
+              {subject}
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

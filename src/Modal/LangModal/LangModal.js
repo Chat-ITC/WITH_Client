@@ -28,30 +28,27 @@ const LangModal = ({ isOpen, onClose }) => {
     if (onClose && typeof onClose === "function") {
       setSelectedLanguage(language); // 선택한 언어 설정
       onClose(language); // 모달 창 닫기
-      // 선택한 언어에 대한 추가적인 동작 수행 가능
     }
   };
 
   return (
-    <div className={`modal ${isOpen ? "open" : ""}`}>
-      <div className={Lang.HomeSub}>
-        <h2 className={Lang.HomeLangTitle}>학습 언어</h2>
-        <span className={Lang.HomeLangDesc}>
-          요약을 원하는 언어를 선택해 주세요
-        </span>
-        <ul className="language-list">
-          {languages.map((language, index) => (
-            <li key={index}>
-              <button
-                className={Lang.HomeLangBtn}
-                onClick={() => handleLanguageClick(language)}
-              >
-                {language}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className={Lang.HomeSub}>
+      <h2 className={Lang.HomeLangTitle}>학습 언어</h2>
+      <span className={Lang.HomeLangDesc}>
+        요약을 원하는 언어를 선택해 주세요
+      </span>
+      <ul className="language-list">
+        {languages.map((language, index) => (
+          <li key={index}>
+            <button
+              className={Lang.HomeLangBtn}
+              onClick={() => handleLanguageClick(language)}
+            >
+              {language}
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

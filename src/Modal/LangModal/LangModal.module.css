@@ -1,15 +1,29 @@
 .HomeSub {
   width: 282px;
+  height: 300px;
+  background-color: #fff;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #bababa;
+  border-radius: 6px;
+  overflow-y: auto;
 }
 
 .HomeLangTitle {
-  padding: 10px 0;
-  font-size: 25px;
+  width: 282px;
+  height: 45px;
   text-align: center;
+  padding: 10px 0;
+  font-size: 24px;
 }
 
 .HomeLangDesc {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 10px 0;
+  width: 280px;
   height: 40px;
   font-size: 15px;
   font-weight: 700;
@@ -17,7 +31,8 @@
 }
 
 .HomeLangBtn {
-  width: 280px;
+  width: 282px;
   height: 40px;
   font-weight: 700;
+  padding: 5px 15px;
 }
