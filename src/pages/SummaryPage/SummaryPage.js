@@ -40,10 +40,11 @@ const SummaryPage = () => {
   //내용과 코드
   const [data, setData] = useState(null);
 
+  const [scrapId, setScrapId] = useState(null);
+  const [scrapCheck, setScrapCheck] = useState(0)
+
   const sendDataHandle = async () => {
     closeModal();
-    console.log("잘 작동 하는구만~");
-    console.log("선택한 파일(써머리페이지):", file);
     const formData = new FormData();
 
     formData.append("imageFile", file);
@@ -52,9 +53,6 @@ const SummaryPage = () => {
     console.log("file: ", file);
     console.log("question: ", question);
     console.log("language: ", language);
-    for (const [key, value] of formData.entries()) {
-      console.log(key, value);
-    }
 
     const accessToken = localStorage.getItem("accessToken");
     console.log("토근 확인: ", accessToken);
@@ -73,6 +71,7 @@ const SummaryPage = () => {
         console.log(response.data);
         setData(response.data);
         setCodeBlock(extractCodeBlock(response.data.content));
+        setScrapId(response.data.id);
       })
       .catch((error) => {
         console.log("요청실패");
@@ -94,7 +93,7 @@ const SummaryPage = () => {
   function extractCodeBlock(content) {
     // 정규식을 사용하여 코드 블록을 추출합니다.
     const codeBlock = content.match(/```c([\s\S]*?)```/);
-  
+
     return codeBlock ? codeBlock[0] : null;
   }
 
@@ -118,7 +117,44 @@ const SummaryPage = () => {
     whiteSpace: 'pre-wrap', // 공백 문자와 줄 바꿈 보존
   };
 
-  
+  //스크랩버튼
+  const scrapHandle = async () => {
+    const accessToken = localStorage.getItem("accessToken");
+    console.log("토근 확인: ", accessToken);
+
+    const formDataId = new FormData();
+    formDataId.append("id", scrapId);
+    console.log("scrapId: ", scrapId);
+
+
+    await axios
+      .post(`${process.env.REACT_APP_SERVER_URL}/ai/summary/like`, formDataId, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "Access-Control-Allow-Origin": "*",
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+      )
+      .then((response) => {
+        setScrapCheck(scrapCheck+1);
+        console.log(scrapCheck);
+        if(scrapCheck % 2 === 0 ) {
+          alert("스크랩 제거");
+
+        }else {
+          alert("스크랩 완료");
+        }
+      
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log("요청실패");
+      });
+
+  };
+
+
 
 
 
@@ -135,7 +171,7 @@ const SummaryPage = () => {
         </div>
         <div className={styles.SumRight}>
           <div>
-            <button type="button">
+            <button type="button" onClick={scrapHandle}>
               <img src={Scrab} alt="스크랩" />
             </button>
           </div>
@@ -143,22 +179,22 @@ const SummaryPage = () => {
         </div>
       </header>
       <article className={styles.article} >{data ? (
-      <div style={preWrap}><p>
-        {data.content.split(codeBlock).map((text, index) => (
-          <React.Fragment key={index}>
-            {text}
-            {index < data.content.split(codeBlock).length - 1 && (
-              <div>
-                <pre style={codeBlockStyle}>
-                  <code style={contentStyle}>
-                    {codeBlock.replace(/```c|```/g, '')}
-                  </code>
-                </pre>
-              </div>
-            )}
-          </React.Fragment>
-        ))}
-      </p></div>) : ("")}
+        <div style={preWrap}><p>
+          {data.content.split(codeBlock).map((text, index) => (
+            <React.Fragment key={index}>
+              {text}
+              {index < data.content.split(codeBlock).length - 1 && (
+                <div>
+                  <pre style={codeBlockStyle}>
+                    <code style={contentStyle}>
+                      {codeBlock.replace(/```c|```/g, '')}
+                    </code>
+                  </pre>
+                </div>
+              )}
+            </React.Fragment>
+          ))}
+        </p></div>) : ("")}
         <button type="button">
           <img className={styles.Copy} src={Copy} alt="복사" />
         </button>
