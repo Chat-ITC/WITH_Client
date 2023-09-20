@@ -80,7 +80,7 @@ const SummaryPage = () => {
   const location = useLocation();
   useEffect(() => {
     setFile(location.state.file);
-    setQuestion("요약 및 예시를 들어서 설명해줘");
+    setQuestion("예시 코드 만들어줘");
     setLanguage("C언어");
     openModal();
   }, [location.state.file]);
