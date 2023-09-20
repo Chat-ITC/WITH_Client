@@ -7,6 +7,11 @@
   align-items: center;
 }
 
+.historyList {
+  position: absolute;
+  top: 310px;
+}
+
 .main_img {
   width: 34px;
   height: 34px;

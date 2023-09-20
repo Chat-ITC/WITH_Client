@@ -150,7 +150,7 @@ const HomePage = () => {
 
 
       <div>
-        <ul>
+        <ul className={styles.historyList}>
           {Array.isArray(historyData) && historyData.map((dataList, index) => (
             <li key={index}>
               <ScrapItem
