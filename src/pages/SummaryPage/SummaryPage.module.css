@@ -32,12 +32,14 @@
 .article {
   display: block;
   width: 360px;
-  height: 260px;
+  height: 550px;
   border: 1px solid #bababa;
   border-radius: 6px;
   margin: 0 auto 15px;
+
   white-space: pre-line;
   padding: 10px;
+  overflow: auto;
 }
 
 .article:nth-child(3) {

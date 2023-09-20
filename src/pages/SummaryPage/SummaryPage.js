@@ -110,11 +110,11 @@ const SummaryPage = () => {
           <img className={styles.Copy} src={Copy} alt="복사" />
         </button>
       </article>
-      <article className={styles.article}>
+      {/* <article className={styles.article}>
         <button type="button">
           <img className={styles.Copy} src={Copy} alt="복사" />
         </button>
-      </article>
+      </article> */}
       <footer>
         <div className={styles.articleDesc}>
           <img className={styles.articleImg} src={Becareful} alt="주의" />
