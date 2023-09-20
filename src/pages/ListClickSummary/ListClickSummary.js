@@ -17,7 +17,7 @@ const ListClickSummary = () => {
   const { content, isScrapped, id } = location.state;
 
   //내용과 코드
-  const [data, setData] = useState(null); //content
+
 
   const [scrapId, setScrapId] = useState(null);
   const [scrapCheck, setScrapCheck] = useState(0);
@@ -26,14 +26,14 @@ const ListClickSummary = () => {
   
  
   console.log("같은지 비교하기. content ", content);
-  console.log("같은지 비교하기. content ", data);
+  console.log("같은지 비교하기. content ", content);
 
   
 
 
   
   useEffect(() => {
-    setData(content);
+    
     setScrapId(id);
     if(isScrapped === "YES") {
       setScrapCheck(scrapCheck + 1);
@@ -136,13 +136,13 @@ const ListClickSummary = () => {
         </div>
       </header>
       <article className={styles.article}>
-        {data ? (
+        {content ? (
           <div style={preWrap}>
             <p>
-              {data.content.split(codeBlock).map((text, index) => (
+              {content.split(codeBlock).map((text, index) => (
                 <React.Fragment key={index}>
                   {text}
-                  {index < data.content.split(codeBlock).length - 1 && (
+                  {index < content.split(codeBlock).length - 1 && (
                     <div>
                       <pre style={codeBlockStyle}>
                         <code style={contentStyle}>
