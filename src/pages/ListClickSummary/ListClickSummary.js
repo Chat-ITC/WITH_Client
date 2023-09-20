@@ -1,6 +1,7 @@
 import styles from "./ListClickSummary.module.css";
 import Back from "../../assets/AddInfoIcons/back.png";
-import Scrab from "../../assets/icons/clip.png";
+import Star from "../../assets/icons/clip.png";
+import FillStar from "../../assets/AddInfoIcons/FillStar.png";
 import Copy from "../../assets/AddInfoIcons/Copy.png";
 import Becareful from "../../assets/AddInfoIcons/Becareful.png";
 
@@ -10,19 +11,28 @@ import Bottom from "../../component/Bottom/Bottom";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const ListClickSummary = () => {
+const ListClickSummary = (content, isScrapped, id) => {
   axios.defaults.withCredentials = true;
+  const location = useLocation();
 
   //내용과 코드
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(null); //content
 
   const [scrapId, setScrapId] = useState(null);
-  const [scrapCheck, setScrapCheck] = useState(1);
+  const [scrapCheck, setScrapCheck] = useState(0);
+  const [codeBlock, setCodeBlock] = useState(null);
+
+  setData(content);
+  setScrapId(id);
+  if(isScrapped === "YES") {
+    setScrapCheck(scrapCheck + 1);
+  }
+  setCodeBlock(extractCodeBlock(content));
 
 
-  const location = useLocation();
+  
   useEffect(() => {
-    
+
   }, []);
 
   //코드 블럭 추출 로직
@@ -33,7 +43,7 @@ const ListClickSummary = () => {
     return codeBlock ? codeBlock[0] : null;
   }
 
-  const [codeBlock, setCodeBlock] = useState(null);
+  
 
   //코드 블럭 스타일
   const codeBlockStyle = {
@@ -106,7 +116,12 @@ const ListClickSummary = () => {
               <img className={styles.RightImg} src={Copy} alt="복사" />
             </button>
             <button type="button" onClick={scrapHandle}>
-              <img className={styles.RightImg} src={Scrab} alt="스크랩" />
+              {isScrapped === 'NO' || isScrapped === 'No' ? (
+                <img className={styles.RightImg} src={Star} alt="텅 빈 별" />
+              ) : (
+                <img className={styles.RightImg} src={FillStar} alt="꽉 찬 별" />
+              )}
+
             </button>
           </div>
         </div>
@@ -146,7 +161,7 @@ const ListClickSummary = () => {
           <span>내용이 정확하지 않을 수 있습니다</span>
         </div>
       </footer>
-   
+
       <Bottom />
     </>
   );
