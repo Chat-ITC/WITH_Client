@@ -72,7 +72,7 @@ const SummaryPage = () => {
         console.log("요청성공");
         console.log(response.data);
         setData(response.data);
-        setCodeBlock(extractCodeBlock(data.content));
+        setCodeBlock(extractCodeBlock(response.data.content));
       })
       .catch((error) => {
         console.log("요청실패");
