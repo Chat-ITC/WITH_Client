@@ -118,7 +118,7 @@ const SummaryPage = () => {
   };
 
   //스크랩버튼
-  const scrapHandle = async () => {
+  const scrapHandle = () => {
     const accessToken = localStorage.getItem("accessToken");
     console.log("토근 확인: ", accessToken);
 
@@ -126,31 +126,31 @@ const SummaryPage = () => {
     formDataId.append("id", scrapId);
     console.log("scrapId: ", scrapId);
 
-
-    await axios
-      .post(`${process.env.REACT_APP_SERVER_URL}/ai/summary/like`, formDataId, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          "Access-Control-Allow-Origin": "*",
-          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
-      )
-      .then((response) => {
-        setScrapCheck(scrapCheck + 1);
-        console.log(scrapCheck);
-        if (scrapCheck % 2 === 0) {
-          alert("스크랩 제거");
-
-        } else {
-          alert("스크랩 완료");
+    try {
+      const response = axios
+        .post(`${process.env.REACT_APP_SERVER_URL}/ai/summary/like`, formDataId, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            "Access-Control-Allow-Origin": "*",
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
         }
+        )
+      console.log('응답 성공:', response);
+      setScrapCheck(scrapCheck + 1);
+      console.log(scrapCheck);
+      if (scrapCheck % 2 === 0) {
+        alert("스크랩 제거");
+      } else {
+        alert("스크랩 완료");
+      }
 
-      })
-      .catch((error) => {
-        console.log(error);
-        console.log("요청실패");
-      });
+
+    }
+    catch (error) {
+      console.log(error);
+      console.log("요청실패");
+    };
 
   };
 
