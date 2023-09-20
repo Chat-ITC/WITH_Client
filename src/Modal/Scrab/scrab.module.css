@@ -1,17 +1,17 @@
 .ScrapText {
-  width: 80px;
+  width: 86px;
   height: 50px;
   background-color: #fff;
   border: 1px solid #bababa;
   border-radius: 2px;
 }
 
-.ScrabBtn {
-  width: 80px;
+.ScrapBtn {
+  width: 85px;
   height: 25px;
 }
 
-.ScrabBtn:first-child {
+.ScrapBtn:first-child {
   border-bottom: 1px solid #bababa;
 }
 
