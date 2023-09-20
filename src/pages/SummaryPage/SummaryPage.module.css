@@ -36,6 +36,8 @@
   border: 1px solid #bababa;
   border-radius: 6px;
   margin: 0 auto 15px;
+  white-space: pre-line;
+  padding: 10px;
 }
 
 .article:nth-child(3) {
@@ -166,3 +168,4 @@
   top: 230px;
   margin-left: 60px;
 }
+
