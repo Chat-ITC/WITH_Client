@@ -260,11 +260,7 @@ const SummaryPage = () => {
               확인
             </button>
             {/* SelectModal창 닫기 버튼 */}
-            <Link
-              to="/HomePage
-              "
-              className={styles.SelectBtn}
-            >
+            <Link to="/HomePage" className={styles.SelectBtn}>
               취소
             </Link>
           </div>
