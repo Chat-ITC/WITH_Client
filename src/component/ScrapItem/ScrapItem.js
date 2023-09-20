@@ -8,23 +8,23 @@ import styles from "./ScrapItem.module.css";
 //component
 import ScrapBtn from "../../component/ScrabBtn/ScrabBtn";
 
-const ScrapItem = ({historyData}) => {
-  console.log(historyData);
-  console.log(historyData.title);
-  //content, createAt, fav_language, id, isScrapped, title
+const ScrapItem = ({title, content, createAt, fav_language, id, isScrapped }) => {
+  console.log(title);
+  console.log(content);
+
   return (
     <>
       <div className={styles.ScrapItem}>
         
         <div className={styles.ScrapTop}>
-          <h2 className={styles.Title}>{historyData.title}</h2>
+          <h2 className={styles.Title}>{title}</h2>
           <ScrapBtn />
         </div>
 
         <p className={styles.Content}>
-          {historyData.content}
+          {content}
         </p>
-        <span className={styles.Language}>{historyData.fav_language}</span>
+        <span className={styles.Language}>{fav_language}</span>
       </div>
 
       <div className={styles.ScrapItem}>

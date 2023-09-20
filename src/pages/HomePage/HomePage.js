@@ -153,7 +153,11 @@ const HomePage = () => {
         <ul>
           {Array.isArray(historyData) && historyData.map((dataList, index) => (
             <li key={index}>
-              <ScrapItem key={index} data={dataList[index]}/>
+              <ScrapItem key={index} title={dataList[index].title} content={dataList[index].content}
+              createAt={dataList[index].createAt}
+              fav_language={dataList[index].fav_language}
+              id={dataList[index].id}
+              isScrapped={dataList[index].isScrapped} />
             </li>
           ))}
         </ul>
