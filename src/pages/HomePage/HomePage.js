@@ -58,7 +58,7 @@ const HomePage = () => {
          //map으로 배열 자체 넘기기
         console.log(response);
         console.log(response.data);
-        setHistoryData(response);
+        setHistoryData(response.data);
       })
       .catch((error) => {
         const statusCode = error.response.status;
