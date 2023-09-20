@@ -48,7 +48,7 @@ const ScrapItem = ({
         <div className={styles.ScrapTop}>
           <TruncateTextTitle text={title} maxLength={15} />
           
-          {isScrapped === 'NO' ? (
+          {isScrapped === 'NO' || isScrapped === 'No'? (
         <img src={Star} alt="텅 빈 별" />
       ) : (
         <img src={FillStar} alt="꽉 찬 별" />
