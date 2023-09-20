@@ -3,10 +3,6 @@
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
 }
 
 .SumLeft {
@@ -39,8 +35,7 @@
 
 .article {
   display: block;
-  width: 360px;
-  height: 600px;
+  height: 630px;
   border: 1px solid #bababa;
   border-radius: 6px;
   margin: 0 auto;
