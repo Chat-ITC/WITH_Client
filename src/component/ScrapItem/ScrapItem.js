@@ -17,6 +17,16 @@ function TruncateTextTitle({ text, maxLength }) {
   }
 }
 
+function TruncateTextContent({ text, maxLength }) {
+  if (text.length <= maxLength) {
+    return <h2 className="Content">{text}</h2>;
+  } else {
+    const truncatedText = text.substring(0, maxLength) + '...';
+    return <span Content={text} className="Content">{truncatedText}</span>;
+  }
+}
+
+
 
 const ScrapItem = ({ title, content, createAt, fav_language, id, isScrapped }) => {
   console.log(title);
@@ -31,8 +41,9 @@ const ScrapItem = ({ title, content, createAt, fav_language, id, isScrapped }) =
           <ScrapBtn />
         </div>
 
-        <p className={styles.Content}>
-          {content}
+        <p className={styles.Content}>       
+          <TruncateTextContent text={content} maxLength={30} />
+          <ScrapBtn />
         </p>
         
         <span className={styles.Language}>
