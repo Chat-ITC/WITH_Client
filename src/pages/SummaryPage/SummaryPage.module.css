@@ -35,6 +35,7 @@
 
 .article {
   display: block;
+  width: 360px;
   height: 630px;
   border: 1px solid #bababa;
   border-radius: 6px;
