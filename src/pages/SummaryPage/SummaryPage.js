@@ -1,8 +1,10 @@
 import styles from "./SummaryPage.module.css";
 import Back from "../../assets/AddInfoIcons/back.png";
-import Scrab from "../../assets/icons/clip.png";
 import Copy from "../../assets/AddInfoIcons/Copy.png";
 import Becareful from "../../assets/AddInfoIcons/Becareful.png";
+
+import Star from "../../assets/icons/clip.png";
+import FillStar from "../../assets/AddInfoIcons/FillStar.png";
 
 import React from "react";
 import axios from "axios";
@@ -42,6 +44,8 @@ const SummaryPage = () => {
 
   const [scrapId, setScrapId] = useState(null);
   const [scrapCheck, setScrapCheck] = useState(0);
+  const [isScrappedChange, setIsScrappedChange] = useState("NO");
+  
 
   const sendDataHandle = async () => {
     closeModal();
@@ -140,8 +144,10 @@ const SummaryPage = () => {
       console.log(scrapCheck);
       if (scrapCheck % 2 === 0) {
         alert("스크랩 완료");
+        setIsScrappedChange("YES");
       } else {
         alert("스크랩 제거");
+        setIsScrappedChange("NO");
       }
     } catch (error) {
       console.log(error);
@@ -169,7 +175,13 @@ const SummaryPage = () => {
               <img className={styles.RightImg} src={Copy} alt="복사" />
             </button>
             <button type="button" onClick={scrapHandle}>
-              <img className={styles.RightImg} src={Scrab} alt="스크랩" />
+            {isScrappedChange === 'NO' || isScrappedChange === 'No' ? (
+                <img className={styles.RightImg} src={Star} alt="텅 빈 별" />
+              ) : (
+                <img className={styles.RightImg} src={FillStar} alt="꽉 찬 별" />
+              )}
+
+
             </button>
           </div>
         </div>
