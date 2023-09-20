@@ -98,17 +98,14 @@ const HomePage = () => {
     console.log(contentProp);
     console.log(isScrappedProp);
     console.log(idProp);
-    navigate("/listClickSummary",
-      {
-        state: {
-          content: contentProp,
-          isScrapped: isScrappedProp,
-          id: idProp
-        }
-      });
+    navigate("/listClickSummary", {
+      state: {
+        content: contentProp,
+        isScrapped: isScrappedProp,
+        id: idProp,
+      },
+    });
   };
-
-
 
   return (
     <>
@@ -165,7 +162,16 @@ const HomePage = () => {
         <ul>
           {Array.isArray(historyData) &&
             historyData.map((dataList, index) => (
-              <li key={index} onClick={() => handleIdCheck(dataList.content, dataList.isScrapped, dataList.id)}>
+              <li
+                key={index}
+                onClick={() =>
+                  handleIdCheck(
+                    dataList.content,
+                    dataList.isScrapped,
+                    dataList.id
+                  )
+                }
+              >
                 <ScrapItem
                   key={index}
                   title={dataList.title} // 수정된 부분
@@ -179,7 +185,7 @@ const HomePage = () => {
             ))}
         </ul>
       </div>
-
+      <div className={styles.Block} />
       <Bottom />
     </>
   );

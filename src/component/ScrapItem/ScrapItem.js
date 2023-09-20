@@ -54,11 +54,9 @@ const ScrapItem = ({
             <img src={FillStar} alt="꽉 찬 별" />
           )}
         </div>
-
         <p className={styles.Content}>
           <TruncateTextContent text={content} maxLength={25} />
         </p>
-
         <span className={styles.Language}>{fav_language}</span>
       </div>
     </>

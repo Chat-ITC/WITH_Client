@@ -3,11 +3,10 @@ import styles from "./scrab.module.css";
 // Library
 import React, { useState } from "react";
 
-function Scrap(isOpen, closeModal) {
+function Scrap(isOpen, children, closeModal) {
   return (
     <div style={{ display: isOpen ? "block" : "none" }}>
-      <p>Modal</p>
-      <button onClick={closeModal}>close</button>
+      <div>{children}</div>
     </div>
   );
 }
