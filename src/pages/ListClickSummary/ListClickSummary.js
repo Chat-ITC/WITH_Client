@@ -92,11 +92,13 @@ const ListClickSummary = () => {
       setScrapCheck(scrapCheck + 1);
       console.log(scrapCheck);
       if (scrapCheck % 2 === 0) {
-        setIsScrappedChange("YES")
         alert("스크랩 완료");
+        setIsScrappedChange("YES")
+        
       } else {
-        setIsScrappedChange("NO")
         alert("스크랩 제거");
+        setIsScrappedChange("NO")
+        
       }
     } catch (error) {
       console.log(error);
