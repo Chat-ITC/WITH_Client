@@ -1,4 +1,3 @@
-
 import styles from "./AddInfoPage.module.css";
 
 //png ability
@@ -12,23 +11,22 @@ import CPlus from "../../assets/AddInfoIcons/c++.png";
 import Python from "../../assets/AddInfoIcons/python.png";
 import Java from "../../assets/AddInfoIcons/java.png";
 import C from "../../assets/AddInfoIcons/C.png";
-import CSS from "../../assets/AddInfoIcons/CSS.png";
 import Javascript from "../../assets/AddInfoIcons/JavaScript.png";
 import Ruby from "../../assets/AddInfoIcons/Ruby.png";
 import Php from "../../assets/AddInfoIcons/php.png";
 import Go from "../../assets/AddInfoIcons/Go.png";
 import Swift from "../../assets/AddInfoIcons/swift.png";
-import Typescript from "../../assets/AddInfoIcons/Typescript.png";
 import R from "../../assets/AddInfoIcons/R.png";
 import Csharp from "../../assets/AddInfoIcons/C#.png";
-import HTML from "../../assets/AddInfoIcons/HTML.png";
+import Dart from "../../assets/icons/Dart.png";
+import Kotlin from "../../assets/icons/Kotlin.png";
+import SQL from "../../assets/icons/SQL.png";
 
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import { useEffect } from 'react';
-
+import { useEffect } from "react";
 
 const AddInfoPage = () => {
   const navigate = useNavigate();
@@ -57,7 +55,7 @@ const AddInfoPage = () => {
     console.log(selected1);
     console.log(selected2);
     if (selected1 && selected2) {
-      console.log('두 조건이 모두 충족됩니다.');
+      console.log("두 조건이 모두 충족됩니다.");
       setBtnOn(true);
     } else {
       setBtnOn(false);
@@ -102,11 +100,6 @@ const AddInfoPage = () => {
     }
   };
 
-
-
-
-
-
   const skill = [
     {
       name: "입문자",
@@ -148,12 +141,12 @@ const AddInfoPage = () => {
       image: C,
     },
     {
-      name: "CSS",
-      image: CSS,
+      name: "Dart",
+      image: Dart,
     },
     {
-      name: "HTML",
-      image: HTML,
+      name: "Kotlin",
+      image: Kotlin,
     },
     {
       name: "자바스크립트",
@@ -176,8 +169,8 @@ const AddInfoPage = () => {
       image: Swift,
     },
     {
-      name: "타입스크립트",
-      image: Typescript,
+      name: "SQL",
+      image: SQL,
     },
     {
       name: "R",
@@ -198,28 +191,31 @@ const AddInfoPage = () => {
             <label
               key={item.name}
               htmlFor={item.name}
-              className={`${styles.radioItem} ${selectedSkill === item.name ? styles.selected : ""
-                }`}
+              className={`${styles.radioItem} ${
+                selectedSkill === item.name ? styles.selected : ""
+              }`}
             >
-              <input
-                type="radio"
-                id={item.name}
-                name="skill"
-                value={item.name}
-                checked={selectedSkill === item.name}
-                onChange={() => handleSkillSelect(item.name)}
-              />
-              <div className={styles.itemContainer1}>
-                <div
-                  className={`${styles.itemContainer} ${styles.withImage}`}
-                  style={{
-                    backgroundImage: `url(${item.image})`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                  }}
-                ></div>
-                <span>{item.name}</span>
+              <div className={item.TouchEvent}>
+                <input
+                  type="radio"
+                  id={item.name}
+                  name="skill"
+                  value={item.name}
+                  checked={selectedSkill === item.name}
+                  onChange={() => handleSkillSelect(item.name)}
+                />
+                <div className={styles.itemContainer1}>
+                  <div
+                    className={`${styles.itemContainer} ${styles.withImage}`}
+                    style={{
+                      backgroundImage: `url(${item.image})`,
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      backgroundSize: "cover",
+                    }}
+                  ></div>
+                  <span>{item.name}</span>
+                </div>
               </div>
             </label>
           ))}
@@ -232,8 +228,9 @@ const AddInfoPage = () => {
             <label
               key={language.name}
               htmlFor={language.name}
-              className={`${styles.button} ${selectedLanguage === language.name ? styles.selected : ""
-                }`}
+              className={`${styles.button} ${
+                selectedLanguage === language.name ? styles.selected : ""
+              }`}
             >
               <input
                 type="radio"
@@ -248,7 +245,11 @@ const AddInfoPage = () => {
               <div
                 className={`${styles.itemContainer3} ${styles.itemContainer4}`}
               >
-                <img src={language.image} alt={language.name} />
+                <img
+                  className={styles.RadioImg}
+                  src={language.image}
+                  alt={language.name}
+                />
                 <span className={styles.image_name}>{language.name}</span>
               </div>
             </label>
@@ -256,7 +257,13 @@ const AddInfoPage = () => {
         </div>
       </section>
 
-      <button disabled={!btnOn} className={btnOn ? styles.nextButton : styles.noButton} onClick={handleNextPage}>다음</button>
+      <button
+        disabled={!btnOn}
+        className={btnOn ? styles.nextButton : styles.noButton}
+        onClick={handleNextPage}
+      >
+        다음
+      </button>
 
       {/* 선택된 실력과 언어 표시 */}
       {selectedSkill && selectedLanguage && (

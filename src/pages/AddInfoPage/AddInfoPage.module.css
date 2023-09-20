@@ -24,7 +24,7 @@
   margin: 0 20px;
 }
 
-.itemContainer1{
+.itemContainer1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,15 +59,14 @@
   font-size: 16px;
 }
 
-.radioItem{
+.radioItem {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  
 }
 
-.ability{
+.ability {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -108,17 +107,22 @@
   display: none;
 }
 
-.language_section{
+.RadioImg {
+  width: 35px;
+  height: 35px;
+}
+
+.language_section {
   position: absolute;
   top: 240px;
   display: flex;
   flex-direction: column;
 }
 
-.image_name{
+.image_name {
   width: 100px;
 }
 
-.language_title{
+.language_title {
   margin-bottom: 25px;
 }
