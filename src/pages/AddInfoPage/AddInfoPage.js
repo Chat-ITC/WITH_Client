@@ -71,6 +71,10 @@ const AddInfoPage = () => {
       snsId: location.state.data.snsId,
       user_level: selectedSkill,
       skill_language: selectedLanguage,
+      title : "[사용 가이드]",
+      content : "https://github.com/Chat-ITC",
+      fav_language : "with",
+      isScrapped : "NO"
     };
     sendJSONDataToSpringBoot(addUserInfo);
 

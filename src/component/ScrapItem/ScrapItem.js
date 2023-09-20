@@ -48,6 +48,11 @@ const ScrapItem = ({
         <div className={styles.ScrapTop}>
           <TruncateTextTitle text={title} maxLength={15} />
           <ScrapBtn />
+          {isScrapped === 'NO' ? (
+        <img src={Star} alt="텅 빈 별" />
+      ) : (
+        <img src={FillStar} alt="꽉 찬 별" />
+      )}
         </div>
 
         <p className={styles.Content}>

@@ -148,6 +148,10 @@ const SummaryPage = () => {
       console.log("요청실패");
     }
   };
+  const copyHandle = () => {
+    console.log('버튼이 클릭되었습니다!');
+  };
+
 
   return (
     <>
@@ -162,7 +166,7 @@ const SummaryPage = () => {
         </div>
         <div className={styles.SumRight}>
           <div className={styles.S}>
-            <button type="button">
+            <button type="button" onClick={copyHandle}>
               <img className={styles.RightImg} src={Copy} alt="복사" />
             </button>
             <button type="button" onClick={() => scrapHandle}>
