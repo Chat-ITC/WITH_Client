@@ -144,39 +144,37 @@ const HomePage = () => {
             style={{ display: "none" }}
           />
         </div>
-
-        <hr className={styles.Homehr} />
-      </div>
-      <div className={styles.ScarpBtn}>
-        <button className={styles.Scrap_button} onClick={openModal}>
-          스크랩
-        </button>
-        <Scrap
-          className={styles.ScrapText}
-          isOpen={isModalOpen}
-          close={closeModal}
-        >
-          <button
-            className={styles.BtnText}
-            onClick={() => {
-              closeModal();
-              document.querySelector(`.${styles.Scrap_button}`).innerText =
-                document.querySelector(`.${styles.BtnText}`).innerText;
-            }}
-          >
+        <div className={styles.ScarpBtn}>
+          <button className={styles.Scrap_button} onClick={openModal}>
             스크랩
           </button>
-          <button
-            className={styles.BtnText}
-            onClick={() => {
-              closeModal();
-              document.querySelector(`.${styles.Scrap_button}`).innerText =
-                document.querySelectorAll(`.${styles.BtnText}`)[1].innerText;
-            }}
+          <Scrap
+            className={styles.ScrapText}
+            isOpen={isModalOpen}
+            close={closeModal}
           >
-            최근 본 내역
-          </button>
-        </Scrap>
+            <button
+              className={styles.BtnText}
+              onClick={() => {
+                closeModal();
+                document.querySelector(`.${styles.Scrap_button}`).innerText =
+                  document.querySelector(`.${styles.BtnText}`).innerText;
+              }}
+            >
+              스크랩
+            </button>
+            <button
+              className={styles.BtnText}
+              onClick={() => {
+                closeModal();
+                document.querySelector(`.${styles.Scrap_button}`).innerText =
+                  document.querySelectorAll(`.${styles.BtnText}`)[1].innerText;
+              }}
+            >
+              최근 본 내역
+            </button>
+          </Scrap>
+        </div>
       </div>
 
       <div className={styles.historyList}>
