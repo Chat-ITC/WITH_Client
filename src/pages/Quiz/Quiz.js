@@ -145,13 +145,6 @@ const Quiz = (props) => {
         </ul>
       </div>
 
-
-
-      <div>{loding}</div>
-
-
-
-
       <Bottom />
     </>
   );
