@@ -37,20 +37,7 @@ const AbilModal = ({ isOpen, onClose }) => {
                 className={Abil.HomeAbilBtn}
                 onClick={() => handleAbilityClick(ability)}
               >
-                {index === 0 && (
-                  <img className={Abil.Abil_img} src={Baby} alt="Baby" />
-                )}
-                {index === 1 && (
-                  <img className={Abil.Abil_img} src={Boy} alt="Boy" />
-                )}
-                {index === 2 && (
-                  <img className={Abil.Abil_img} src={Adult} alt="Adult" />
-                )}
-                {index === 3 && (
-                  <img className={Abil.Abil_img} src={Grand} alt="Grand" />
-                )}
                 {ability}
-                <span></span>
               </button>
             </li>
           ))}
