@@ -100,7 +100,7 @@ const HomePage = () => {
     console.log(contentProp);
     console.log(isScrappedProp);
     console.log(idProp);
-    navigate("/listClickSummary", {
+    navigate("/ListClickSummary", {
       state: {
         content: contentProp,
         isScrapped: isScrappedProp,
