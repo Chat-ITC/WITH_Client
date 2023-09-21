@@ -104,7 +104,7 @@ const ListClickSummary = () => {
   };
 
   const goMyPage = () => {
-    navigate("/HomePage");
+    navigate(-1);
   };
 
   return (
