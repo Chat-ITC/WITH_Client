@@ -12,7 +12,7 @@ const SubModal = ({ isOpen, onClose }) => {
   const handleSubjectClick = (subject) => {
     if (onClose && typeof onClose === "function") {
       setSelectedSubject(subject);
-      onClose(); // 모달 창 닫기
+      onClose(subject); // 모달 창 닫기
     }
   };
 

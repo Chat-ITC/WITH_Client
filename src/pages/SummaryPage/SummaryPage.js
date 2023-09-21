@@ -30,14 +30,15 @@ const SummaryPage = () => {
   const openModal1 = () => sestIsModalOpen1(true);
   const closeModal1 = (lanPara) => {
     setLanguage(lanPara);
-    console.log("모달쪽 로그:", language);
     sestIsModalOpen1(false);
   };
   //주제
   const [isModalOpen2, sestIsModalOpen2] = useState(false);
   const openModal2 = () => sestIsModalOpen2(true);
-  const closeModal2 = () => sestIsModalOpen2(false);
-
+  const closeModal2 = (quePara) => {
+    setQuestion(quePara);
+    sestIsModalOpen2(false);
+  };
   //주제와 언어
   const [question, setQuestion] = useState(null);
   const [language, setLanguage] = useState(null);
@@ -91,8 +92,6 @@ const SummaryPage = () => {
   const location = useLocation();
   useEffect(() => {
     setFile(location.state.file);
-    setQuestion("예시 코드 만들어줘");
-    
     openModal();
   }, [location.state.file]);
 
