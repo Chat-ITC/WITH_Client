@@ -14,13 +14,13 @@ import { useNavigate } from "react-router-dom";
 const Quiz = (props) => {
   const { quizTarget } = props; //유저 실력 넣기
 
-  const [decodedResponse, setDecodedResponse] = useState('');
+  const [decodedHeader, setDecodedHeader] = useState('');
   const [encoding, setEncoding] = useState('');
 
   const navigate = useNavigate();
 
   const [quizData, setQuizData] = useState([]);
-  
+  const [headers, setHeaders] = useState({});
   const roadQuiz = async () => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
@@ -55,28 +55,22 @@ const Quiz = (props) => {
         //  console.log(response.data[0].answer);
         setQuizData(response.data);
 
-        const contentTypeHeader = response.headers['content-type'];
-        const match = contentTypeHeader.match(/charset=([a-zA-Z0-9-]+)/);
-        if (match && match[1]) {
-          const charset = match[1].toLowerCase();
-          setEncoding(charset);
-          
-          // 문자 인코딩을 사용하여 응답 본문을 디코딩합니다.
-          if (charset === 'utf-8') {
-            setDecodedResponse(response.data);
-            console.log(response.data);
-          } else {
-            // 다른 문자 인코딩을 처리하는 로직을 여기에 추가합니다.
-            // 예: iconv-lite 라이브러리를 사용하여 디코딩
-          }
-        } else {
-          // 문자 인코딩이 지정되지 않은 경우 기본값으로 UTF-8을 사용할 수 있습니다.
-          setEncoding('utf-8');
-          setDecodedResponse(response.data);
-          console.log(response.data);
+        const responseHeaders = response.headers;
+
+        // 원하는 헤더 (예: level) 추출
+        const levelHeader = responseHeaders['level'];
+
+        // levelHeader를 UTF-8로 디코딩합니다.
+        if (levelHeader) {
+          const textDecoder = new TextDecoder('utf-8');
+          const decodedText = textDecoder.decode(new TextEncoder().encode(levelHeader));
+          setDecodedHeader(decodedText);
+          console.log(decodedText);
         }
-  
-        console.log(encoding);
+
+        setHeaders(decodedHeader);
+        console.log(decodedHeader);
+        console.log(decodedHeader.level);
         
       })
       .catch((error) => {
@@ -134,7 +128,7 @@ const Quiz = (props) => {
   return (
     <>
       <header className={styles.Quiz_header}>
-        <h1 className={styles.BackTitle}>{encoding.level}를 위한 문제</h1>
+        <h1 className={styles.BackTitle}>{headers.level}를 위한 문제</h1>
       </header>
 
       <div className={styles.historyList}>
