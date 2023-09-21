@@ -8,6 +8,20 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 const Quiz = (props) => {
   const { quizTarget } = props;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <>
       <header className={styles.Quiz_header}>
