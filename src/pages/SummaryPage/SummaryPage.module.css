@@ -3,11 +3,12 @@
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #3da5f5;
+  background-color: #ded1d13c;
 }
 
 .SumLeft {
@@ -16,41 +17,37 @@
   padding: 22px;
 }
 
-.SumRight {
-  width: 1000px;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.S {
+  width: 80px;
+  height: 100%;
 }
 
-.selectLang {
+.SumTitleBtn:first-child {
+  margin-right: 15px;
 }
 
 .article {
-  background-color: red;
-  position: absolute;
+  background-color: #fff;
+  position: fixed;
   top: 70px;
   width: 100%;
-  height: 650px;
-  opacity: 30%;
+  height: 80%;
+  padding: 15px;
 }
 
-.article:nth-child(3) {
-  margin-bottom: 0;
+.articleDesc {
+  position: fixed;
+  top: 746px;
+  width: 100%;
+  padding: 0 10px;
+  margin-right: 10px;
+  background-color: #ded1d13c;
 }
 
 .Copy {
   position: absolute;
   left: 330px;
   top: 5px;
-}
-
-.articleDesc {
-  position: fixed;
-  top: 730px;
-  left: 15px;
-  margin: 10px 0px;
 }
 
 .articleImg {
