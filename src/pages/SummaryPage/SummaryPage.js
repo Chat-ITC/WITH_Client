@@ -263,7 +263,7 @@ const SummaryPage = () => {
                     <div>
                       <pre style={codeBlockStyle}>
                         <code style={contentStyle}>
-                          {codeBlock.replace(/```c|```/g, "")}
+                          {codeBlock.replace(/```|```/g, "")}
                         </code>
                       </pre>
                     </div>
