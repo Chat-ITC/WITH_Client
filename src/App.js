@@ -19,7 +19,7 @@ import RadioTest from "./pages/RadioTestPage/RadioTest";
 import ScrapPage from "./pages/ScrapPage/ScrapPage";
 import Record from "./pages/RecordPage/RecordPage";
 import SumPage from "./pages/SumPage/SumPage";
-import ListClickSummary from "./pages/ListClickSummary/ListClickSummary";
+import ListClickSummary from "./pages/ListClickSummary/ListClickSummary"
 
 import QuizCom from "./component/Quiz/QuizItem";
 
