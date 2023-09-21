@@ -46,9 +46,10 @@ const Quiz = (props) => {
          console.log(response);
          console.log(response.data);
          console.log(response.data[0]);
-        
+         console.log(response.data[0].title);
+         console.log(response.data[0].content);
+         console.log(response.data[0].answer);
         setQuizData(response.data);
-        historyClickHandle();
       })
       .catch((error) => {
         const statusCode = error.response.status;
