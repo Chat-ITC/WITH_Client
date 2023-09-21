@@ -1,10 +1,8 @@
 .Login_Header {
-  position: relative;
-  width: 100%;
+  position: absolute;
+  width: 85%;
   top: 110px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  left: 40px;
 }
 
 .Login_img {
@@ -27,11 +25,10 @@
 }
 
 .Login_section .Login_buttons {
-  position: absolute;
-  top: 100px;
+  position: static;
   display: flex;
-  margin: 0 auto;
-  width: 90%;
   justify-content: space-around;
   align-items: center;
+  top: 100px;
+  width: 330px;
 }
