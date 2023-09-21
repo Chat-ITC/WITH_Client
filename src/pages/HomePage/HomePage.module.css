@@ -21,10 +21,13 @@
 }
 
 .Scrap_button {
-  padding-left: 6px;
-  width: 127px;
+  position: absolute;
+  top: 223px;
+  right: 25px;
+  width: 132px;
   height: 30px;
   font-weight: 700;
+  text-align: center;
 }
 
 .DownImg {
@@ -89,11 +92,10 @@
 .BtnText {
   width: 130px;
   height: 30px;
-  z-index: 2;
   border: 1px solid #bababa;
   position: relative;
-  top: -2px;
-  right: 1px;
+  top: 0;
+  right: -3px;
   background-color: #fff;
   font-weight: 700;
 }
@@ -104,7 +106,7 @@
 
 .ScarpBtn {
   position: absolute;
-  top: 224px;
+  top: 256px;
   right: 30px;
   width: 130px;
   height: 30px;

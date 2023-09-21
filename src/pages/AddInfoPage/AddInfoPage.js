@@ -21,6 +21,7 @@ import Spring_Boot from "../../assets/icons/Spring_boot.png";
 import Dart from "../../assets/icons/Dart.png";
 import Kotlin from "../../assets/icons/Kotlin.png";
 import SQL from "../../assets/icons/SQL.png";
+import React from "../../assets/icons/React.png";
 
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -77,7 +78,7 @@ const AddInfoPage = () => {
       isScrapped: "NO",
     };
     sendJSONDataToSpringBoot(addUserInfo);
-    alert("회원가입 완료! 다시 로그인 해주세요.")
+    alert("회원가입 완료! 다시 로그인 해주세요.");
 
     navigate("/");
   };
@@ -166,13 +167,18 @@ const AddInfoPage = () => {
       image: Python,
     },
     {
-      name: "Ruby",
-      image: Ruby,
-    },
-    {
       name: "R",
       image: R,
     },
+    {
+      name: "React",
+      image: React,
+    },
+    {
+      name: "Ruby",
+      image: Ruby,
+    },
+
     {
       name: "Spring-Boot",
       image: Spring_Boot,
@@ -180,10 +186,6 @@ const AddInfoPage = () => {
     {
       name: "SQL",
       image: SQL,
-    },
-    {
-      name: "Swift",
-      image: Swift,
     },
   ];
 
