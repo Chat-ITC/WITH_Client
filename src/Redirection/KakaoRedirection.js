@@ -2,10 +2,18 @@
 import { useNavigate } from "react-router-dom";
 import useAsync from "../hooks/useAsync";
 
+import Skeleton from '../pages/Skeleton/SkeletonLogin'
+
+
 // API
 import { kakaoLoginReq } from "../utils/authAPIs/authAPIs";
 
 const KakaoRedirection = () => {
+
+
+
+
+
   const navigate = useNavigate();
 
   const url = new URL(window.location.href);
@@ -18,7 +26,7 @@ const KakaoRedirection = () => {
 
   const { loading, data, error } = state;
 
-  if (loading) return <p>로그인 중입니다. 잠시만 기다려주세요.</p>;
+  if (loading) return <p>{Skeleton}</p>;
   if (error) {
     const data = error.response.data;
     const statusCode = error.response.status;
