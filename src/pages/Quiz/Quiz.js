@@ -1,3 +1,5 @@
+import loding from "./LoadingScreen";
+
 import Bottom from "../../component/Bottom/Bottom";
 import styles from "./Quiz.module.css";
 //png
@@ -12,6 +14,8 @@ import { useNavigate } from "react-router-dom";
 
 
 const Quiz = (props) => {
+
+  
   const { quizTarget } = props; //유저 실력 넣기
 
   const [quizLevel, setQuizLevel] = useState(null);
@@ -142,12 +146,9 @@ const Quiz = (props) => {
             ))}
         </ul>
       </div>
-
-
-
-
-
-
+      <div>
+        {loding};
+      </div>
 
 
       <Bottom />
