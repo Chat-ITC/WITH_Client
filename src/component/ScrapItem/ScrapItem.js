@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 //png
 import FillStar from "../../assets/AddInfoIcons/FillStar.png";
 import Star from "../../assets/icons/clip.png";
@@ -42,9 +40,9 @@ const ScrapItem = ({
   id,
   isScrapped,
 }) => {
-    if(isScrapped === "NO" || isScrapped === "No"){
-        return null;
-    }
+  if (isScrapped === "NO" || isScrapped === "No") {
+    return null;
+  }
 
   return (
     <>

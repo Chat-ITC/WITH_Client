@@ -1,0 +1,49 @@
+.QuizBox {
+  width: 360px;
+  height: 130px;
+  border: 1px solid #bababa;
+  border-radius: 6px;
+  padding: 13px 8px 0;
+  margin: 0 auto 10px;
+  background-color: #fff;
+  top: 410px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+
+.Title {
+  position: relative;
+  top: -15px;
+  font-size: 18px;
+  color: blue;
+  width: 300px;
+  height: 24px;
+  margin-bottom: 5px;
+}
+
+.Wall {
+  height: 90px;
+}
+
+.Desc {
+  position: relative;
+  top: -10px;
+  font-size: 14px;
+  line-height: 1.5285714286;
+  color: #000;
+  margin-bottom: 10px;
+  width: 300px;
+  height: 36px;
+}
+
+.btn {
+  position: relative;
+  top: -7px;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #bababa;
+  border-radius: 4px;
+  text-align: center;
+}
