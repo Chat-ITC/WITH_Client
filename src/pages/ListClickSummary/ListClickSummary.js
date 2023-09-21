@@ -11,20 +11,24 @@ import Bottom from "../../component/Bottom/Bottom";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ListClickSummary = () => {
-  const navigate  = useNavigate();
+  const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   const location = useLocation();
   const { content, isScrapped, id } = location.state;
 
-  //내용과 코드
+  // 이전 페이지 경로를 가져오려면 다음과 같이 사용합니다.
+  const previousPath = location.state?.from || '/default-path';
 
+  //내용과 코드
   const [scrapId, setScrapId] = useState(null);
   const [scrapCheck, setScrapCheck] = useState(0);
   const [codeBlock, setCodeBlock] = useState(null);
   const [isScrappedChange, setIsScrappedChange] = useState(isScrapped);
+
+
 
   useEffect(() => {
     setScrapId(id);
@@ -100,9 +104,7 @@ const ListClickSummary = () => {
   };
 
   const goMyPage = () => {
-    navigate(-1);
-
-
+    navigate("previousPath");
   };
 
   return (
