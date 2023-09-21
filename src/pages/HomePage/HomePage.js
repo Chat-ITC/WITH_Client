@@ -1,7 +1,7 @@
 //css
 import styles from "./HomePage.module.css";
 //png
-import Logo from "../../assets/logo/CoFe_logo.png";
+import Logo from "../../assets/logo/Logo.png";
 import Camera from "../../assets/etc/addimage.png";
 import Down from "../../assets/icons/Down.png";
 //component
@@ -126,7 +126,7 @@ const HomePage = () => {
     });
   };
 
-  const [historyORScrap, setHistoryORScrap] = useState("scrap");
+  const [historyORScrap, setHistoryORScrap] = useState("history");
 
   const historyClickHandle = () => {
     setHistoryORScrap("history");
@@ -205,7 +205,7 @@ const HomePage = () => {
           />
         </div>
         <button className={styles.Scrap_button} onClick={openModal}>
-          <span>스크랩</span>
+          <span>최근 본 내역</span>
           <img className={styles.DownImg} src={Down} alt="아래 방향" />
         </button>
         <div
@@ -230,12 +230,12 @@ const HomePage = () => {
               }}
             >
               <span className={styles.Down1}>스크랩</span>
-            </button>
+            </button>   
 
             <button
               className={styles.BtnText}
               onClick={() => {
-                closeModal();
+                closeModal(); 
                 historyClickHandle();
                 document.querySelector(`.${styles.Scrap_button}`).innerText =
                   document.querySelectorAll(`.${styles.BtnText}`)[1].innerText;

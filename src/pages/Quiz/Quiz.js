@@ -12,7 +12,11 @@ import { useNavigate } from "react-router-dom";
 
 
 const Quiz = (props) => {
+
+
   const { quizTarget } = props; //유저 실력 넣기
+
+  const [quizLevel, setQuizLevel] = useState(null);
 
   const navigate = useNavigate();
 
@@ -44,16 +48,18 @@ const Quiz = (props) => {
     roadQuiz()
       .then((response) => {
         //map으로 배열 자체 넘기기
-         console.log(response);
-         console.log(response.data);
-         console.log(response.data[0]);
-         console.log(response.data[0].title);
-         console.log(response.data[0].content);
-         console.log(response.data[0].answer);
-        setQuizData(response.data);
-        const responseHeaders = response.headers;
-        setHeaders(responseHeaders);
-        console.log(responseHeaders.level);
+        console.log(response);
+        console.log(response.data);
+        console.log(response.data.level);
+        console.log(response.data.quiz);
+        console.log(response.data.quiz[0].title);
+        //  console.log(response.data[0].title);
+        //  console.log(response.data[0].content);
+        //  console.log(response.data[0].answer);
+        setQuizData(response.data.quiz);
+        setQuizLevel(response.data.level)
+
+
       })
       .catch((error) => {
         const statusCode = error.response.status;
@@ -107,19 +113,10 @@ const Quiz = (props) => {
 
 
 
-
-
-
-
-
-
-
-
-
   return (
     <>
       <header className={styles.Quiz_header}>
-        <h1 className={styles.BackTitle}>{headers.level}를 위한 문제</h1>
+        <h1 className={styles.BackTitle}>{quizLevel}를 위한 문제</h1>
       </header>
 
       <div className={styles.historyList}>
@@ -136,7 +133,7 @@ const Quiz = (props) => {
                   )
                 }
               >
-                
+
                 <QuizItem
                   key={index}
                   title={dataList.title} // 수정된 부분
@@ -147,13 +144,6 @@ const Quiz = (props) => {
             ))}
         </ul>
       </div>
-
-
-
-
-
-
-
 
       <Bottom />
     </>
