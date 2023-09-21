@@ -37,8 +37,11 @@
 }
 
 .main_img {
-  width: 34px;
-  height: 34px;
+  position: absolute;
+  margin-top: 15px;
+  left: 98px;
+  width: 150px;
+  height: 120px;
   margin-right: 10px;
 }
 

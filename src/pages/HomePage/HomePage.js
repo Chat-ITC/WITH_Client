@@ -171,9 +171,6 @@ const HomePage = () => {
       <div className={styles.MainTop}>
         <header className={styles.main}>
           <img className={styles.main_img} src={Logo} alt="내 옆에 코딩친구" />
-          <h1 className={styles.main_title}>
-            내 옆에 <br /> 코딩친구
-          </h1>
         </header>
 
         <div className={styles.camera_border}>
