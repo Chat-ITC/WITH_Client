@@ -103,15 +103,12 @@ const ListClickSummary = () => {
     console.log("복사 버튼이 클릭되었습니다!");
   };
 
-  const goMyPage = () => {
-    navigate("/HomePage");
-  };
 
   return (
     <>
       <header className={styles.SumTitle}>
         <div className={styles.SumLeft}>
-          <Link className={styles.BackHome} onClick={goMyPage}>
+          <Link to="/HomePage" className={styles.BackHome} >
             <img src={Back} alt="뒤로가기" />
           </Link>
         </div>

@@ -100,7 +100,7 @@ const SummaryPage = () => {
   //코드 블럭 추출 로직
   function extractCodeBlock(content) {
     // 정규식을 사용하여 코드 블록을 추출합니다.
-    const codeBlock = content.match(/```c([\s\S]*?)```/);
+    const codeBlock = content.match(/```([\s\S]*?)```/);
 
     return codeBlock ? codeBlock[0] : null;
   }
@@ -159,9 +159,19 @@ const SummaryPage = () => {
       console.log("요청실패");
     }
   };
+ 
+  //복사버튼
   const copyHandle = () => {
-    console.log("버튼이 클릭되었습니다!");
-  };
+    navigator.clipboard.writeText(codeBlock)
+      .then(() => {
+        alert("클립보드에 복사되었습니다.");
+      })
+      .catch((error) => {
+        console.error("클립보드 복사 실패:", error);
+      });
+    }
+
+
 
   return (
     <>
@@ -253,7 +263,7 @@ const SummaryPage = () => {
                     <div>
                       <pre style={codeBlockStyle}>
                         <code style={contentStyle}>
-                          {codeBlock.replace(/```c|```/g, "")}
+                          {codeBlock.replace(/```|```/g, "")}
                         </code>
                       </pre>
                     </div>
