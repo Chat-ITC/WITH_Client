@@ -91,6 +91,11 @@
   height: 26px;
   border: 1px solid #bababa;
 }
+.section_icons:focus,
+.section_icons:active {
+  outline: none;
+  box-shadow: none;
+}
 
 .section_icons::after {
   content: "👇";

@@ -13,7 +13,6 @@
   border-top-right-radius: 6px;
   border-bottom: none;
   overflow: hidden;
-  
 }
 
 .BottomInfo {
@@ -37,4 +36,5 @@
 
 .Bottom_title {
   text-align: center;
+  font-weight: 700;
 }

@@ -6,27 +6,69 @@ import Quiz from "../../assets/icons/quiz.png";
 import Logo from "../../assets/AddInfoIcons/NotLofo.png";
 import MyPage from "../../assets/icons/mypage.png";
 
+import { useState } from "react";
+
 const Bottom = () => {
+  const [activeButton, setActiveButton] = useState(null);
+  const handleButtonClick = (buttonId) => {
+    setActiveButton(buttonId);
+  };
   return (
     <div className={styles.bottomContainer}>
       <nav>
         <ul className={styles.BottomInfo}>
           <li className={styles.bottomLink}>
             <Link className={styles.bottom_Link} to="/Quiz">
-              <img className={styles.bottom_img} src={Quiz} alt="퀴즈" />
-              <div className={styles.Bottom_title}>퀴즈</div>
+              <img
+                onClick={() => handleButtonClick(1)}
+                style={{ color: activeButton === 1 ? "black" : "#bababa" }}
+                className={styles.bottom_img}
+                src={Quiz}
+                alt="퀴즈"
+              />
+              <div
+                className={styles.Bottom_title}
+                onClick={() => handleButtonClick(1)}
+                style={{ color: activeButton === 1 ? "black" : "#bababa" }}
+              >
+                퀴즈
+              </div>
             </Link>
           </li>
           <li className={styles.bottomLink}>
             <Link to="/HomePage">
-              <img className={styles.bottom_img} src={Logo} alt="홈" />
-              <div className={styles.Bottom_title}>홈</div>
+              <img
+                onClick={() => handleButtonClick(2)}
+                style={{ color: activeButton === 2 ? "black" : "#bababa" }}
+                className={styles.bottom_img}
+                src={Logo}
+                alt="홈"
+              />
+              <div
+                className={styles.Bottom_title}
+                onClick={() => handleButtonClick(2)}
+                style={{ color: activeButton === 2 ? "black" : "#bababa" }}
+              >
+                홈
+              </div>
             </Link>
           </li>
           <li className={styles.bottomLink}>
             <Link to="/MyPage">
-              <img className={styles.bottom_img} src={MyPage} alt="내 정보" />
-              <div className={styles.Bottom_title}>내 정보</div>
+              <img
+                onClick={() => handleButtonClick(3)}
+                style={{ color: activeButton === 3 ? "black" : "#bababa" }}
+                className={styles.bottom_img}
+                src={MyPage}
+                alt="내 정보"
+              />
+              <div
+                className={styles.Bottom_title}
+                onClick={() => handleButtonClick(3)}
+                style={{ color: activeButton === 3 ? "black" : "#bababa" }}
+              >
+                내 정보
+              </div>
             </Link>
           </li>
         </ul>

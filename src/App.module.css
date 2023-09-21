@@ -10,3 +10,14 @@ html {
 .div {
   position: relative;
 }
+
+button:active,
+button:focus {
+  outline: none !important;
+  border: none !important;
+}
+button {
+  color: #fff;
+  background-color: #fff;
+  cursor: pointer;
+}
