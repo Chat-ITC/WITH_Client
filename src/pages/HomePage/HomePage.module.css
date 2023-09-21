@@ -20,14 +20,16 @@
 }
 
 .Scrap_button {
-  padding-left: 3px;
+  padding-left: 6px;
   width: 127px;
   height: 30px;
   font-weight: 700;
 }
 
-.Scrap_button:after {
-  content: "👇";
+.DownImg {
+  padding-top: 3px;
+  width: 15px;
+  height: 15px;
 }
 
 .main_img {
@@ -105,8 +107,6 @@
   width: 130px;
   height: 30px;
   text-align: center;
-  border-left: 1px solid #bababa;
-  border-right: 1px solid #bababa;
 }
 
 .MainTop {
@@ -116,7 +116,6 @@
   top: 0;
   left: 0;
   right: 0;
-  border-bottom: 1px solid #bababa;
   background-color: #fff;
 }
 
