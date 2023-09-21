@@ -1,35 +1,36 @@
 .Login_Header {
-  position: absolute;
+  position: relative;
+  width: 100%;
   top: 160px;
-  left: 60px;
-}
-
-.Login_Page {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: 50px;
 }
 
-.Login_Page .Login_img {
+.Login_img {
   width: 65px;
   height: 65px;
   margin-right: 18px;
 }
 
 .Login_section {
-  position: absolute;
+  position: relative;
   top: 540px;
-  left: 100px;
+  padding: 15px;
 }
 
 .Login_section .Login_desc {
   display: block;
   margin-bottom: 18px;
   color: #8c8d96;
+  text-align: center;
 }
 
 .Login_section .Login_buttons {
   display: flex;
-  justify-content: space-between;
+  margin: 0 auto;
+  width: 300px;
+  justify-content: space-around;
   align-items: center;
 }
