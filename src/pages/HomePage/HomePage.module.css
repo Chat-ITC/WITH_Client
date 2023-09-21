@@ -8,9 +8,9 @@
 }
 
 .historyList {
-  position: relative;
-  top: 300px;
-  width: 90%;
+  position: fixed;
+  top: 280px;
+  width: 100%;
   margin: 0 auto;
   max-height: 550px;
   height: 80vh;
@@ -23,7 +23,7 @@
 
 .Scrap_button {
   padding-left: 3px;
-  width: 130px;
+  width: 127px;
   height: 30px;
   font-weight: 700;
 }
