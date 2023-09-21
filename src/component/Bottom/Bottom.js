@@ -9,7 +9,6 @@ import MyPage from "../../assets/icons/mypage.png";
 import { useState } from "react";
 
 const Bottom = () => {
-
   ////수정 코드
   const [isClicked, setIsClicked] = useState(false);
 
@@ -34,7 +33,7 @@ const Bottom = () => {
             >
               <img
                 onClick={() => handleButtonClick(1)}
-                style={{ filter: isClicked ? 'grayscale(100%)' : 'none' }}
+                style={{ filter: isClicked ? "grayscale(100%)" : "none" }}
                 className={styles.bottom_img}
                 src={Quiz}
                 alt="퀴즈"
