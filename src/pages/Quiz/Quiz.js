@@ -1,7 +1,7 @@
 import Bottom from "../../component/Bottom/Bottom";
 import styles from "./Quiz.module.css";
 //png
-
+import QuizItem from "../../component/Quiz/QuizItem";
 import ScrapItem from "../../component/ScrapItem/ScrapItem";
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+
 
 const Quiz = (props) => {
   const { quizTarget } = props; //유저 실력 넣기
@@ -131,14 +132,11 @@ const Quiz = (props) => {
                   )
                 }
               >
-                <ScrapItem
+                <QuizItem
                   key={index}
                   title={dataList.title} // 수정된 부분
                   content={dataList.content}
-                  createAt={dataList.createAt}
-                  fav_language={dataList.fav_language}
-                  id={dataList.id}
-                  isScrapped={dataList.isScrapped}
+                  answer={dataList.answer}
                 />
               </li>
             ))}
