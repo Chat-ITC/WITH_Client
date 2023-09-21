@@ -20,6 +20,8 @@ import Record from "./pages/RecordPage/RecordPage";
 import SumPage from "./pages/SumPage/SumPage";
 import ListClickSummary from "./pages/ListClickSummary/ListClickSummary";
 
+import QuizCom from "./component/Quiz/Quiz_Com";
+
 import Bottom from "./component/Bottom/Bottom";
 import Scrap from "./Modal/Scrab/scrab";
 import ScrapBtn from "./component/ScrabBtn/ScrabBtn";
@@ -50,6 +52,7 @@ function App() {
           <Route path="/Scrap" element={<Scrap />} />
           <Route path="/ScrapBtn" element={<ScrapBtn />} />
           <Route path="/SumPage" element={<SumPage />} />
+          <Route path="/QuizCom" element={<QuizCom />} />
           <Route path="/HistoryItem" element={<HistoryItem />} />
           <Route exact path="/kakao/callback" element={<KakaoRedirection />} />
           <Route exact path="/naver/callback" element={<NaverRedirection />} />
