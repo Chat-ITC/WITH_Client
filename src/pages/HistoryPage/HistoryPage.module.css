@@ -1,0 +1,47 @@
+.ScrapHeader {
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #000;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 15px;
+    margin: 0 auto;
+    background-color: #fff;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .historyList {
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    height: 85vh;
+    overflow-y: auto;
+    z-index: -1;
+    margin-bottom: 40%;
+    background-color: #edeaea3a;
+  }
+  
+  .BackBtn {
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    width: 35px;
+    height: 35px;
+  }
+  
+  .ScrapTitle {
+    font-size: 28px;
+  }
+  
+  .ScrapItem{
+    position: absolute;
+    top: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+  }
