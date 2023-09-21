@@ -32,30 +32,35 @@ const SummaryPage = () => {
     setLanguage(lanPara);
     sestIsModalOpen1(false);
   };
+
+  //전송할 글 설정
+  const sum = (quePara) => {
+    switch (quePara) {
+      case "상관없음":
+        return "상관없음";
+      case "내용요약":
+        return "요약해줘";
+      case "쉬운설명":
+        return "쉽게 설명해줘";
+      case "코드 분석":
+        return "코드 분석해줘";
+      case "내용요약 및 예시코드":
+        return "요약 및 예시코드 만들어줘";
+      case "쉬운설명과 예시코드":
+        return "쉽게 설명해주고 예시코드 만들어줘";
+      default:
+        return "알 수 없는 옵션입니다.";
+    }
+  };
   //주제
   const [isModalOpen2, sestIsModalOpen2] = useState(false);
   const openModal2 = () => sestIsModalOpen2(true);
   const closeModal2 = (quePara) => {
-    const sum = (quePara) => {
-      switch (quePara) {
-        case "상관없음":
-          return setQuestion("상관없음");
-        case "내용요약":
-          return setQuestion("요약해줘");
-        case "쉬운설명":
-          return setQuestion("쉽게 설명해줘");
-        case "코드 분석":
-          return setQuestion("코드 분석해줘");
-        case "내용요약 및 예시코드":
-          return setQuestion("요약 및 예시코드 만들어줘");
-        case "쉬운설명과 예시코드":
-          return setQuestion("쉽게 설명해주고 예시코드 만들어줘");
-        default:
-          return "알 수 없는 옵션입니다.";
-      }
-    };
-
+    setQuestion(sum(quePara));
     setPrintQuestion(quePara)
+    console.log(quePara)
+    console.log(question)
+    console.log(printQuestion)
     sestIsModalOpen2(false);
   };
 
@@ -250,7 +255,7 @@ const SummaryPage = () => {
                 type="button"
                 onClick={openModal2}
               >
-                {question}
+                {printQuestion}
               </button>
             </div>
             <div className={styles.SelectBottom}>
