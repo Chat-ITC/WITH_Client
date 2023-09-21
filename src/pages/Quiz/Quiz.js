@@ -61,18 +61,11 @@ const Quiz = (props) => {
         // 원하는 헤더 (예: level) 추출
         const levelHeader = responseHeaders['level'];
         console.log(levelHeader);
+        const decodedString = decodeURIComponent(levelHeader);
 
-        // levelHeader를 UTF-8로 디코딩합니다.
-        if (levelHeader) {
-          const textDecoder = new TextDecoder('utf-8');
-          const decodedText = textDecoder.decode(new TextEncoder().encode(levelHeader));
-          setDecodedHeader(decodedText);
-          console.log(decodedText);
-        }
-
-        setHeaders(decodedHeader);
-        console.log(decodedHeader);
-        console.log(decodedHeader.level);
+        setHeaders(decodedString);
+        console.log(decodedString);
+      
         
       })
       .catch((error) => {
@@ -130,7 +123,7 @@ const Quiz = (props) => {
   return (
     <>
       <header className={styles.Quiz_header}>
-        <h1 className={styles.BackTitle}>{headers.level}를 위한 문제</h1>
+        <h1 className={styles.BackTitle}>{headers}를 위한 문제</h1>
       </header>
 
       <div className={styles.historyList}>
