@@ -29,7 +29,15 @@
 }
 
 .Language::after {
-  content: "●";
+  font-size: 5px;
+  content: " ●";
+  margin-right: 5px;
+}
+
+.date {
+  display: inline-block;
+  font-size: 12px;
+  color: #bababa;
   margin-right: 5px;
 }
 

@@ -63,7 +63,7 @@ const HistoryItem = ({
           <TruncateTextContent text={content} maxLength={25} />
         </p>
         <span className={styles.Language}>{fav_language}</span>
-        <span className={styles.Language}>{"  "+slicedString}</span>
+        <span className={styles.date}>{"   "+slicedString}</span>
       </div>
     </>
   );
