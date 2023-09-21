@@ -3,7 +3,7 @@ import styles from "./HistoryPage.module.css";
 //component
 import Bottom from "../../component/Bottom/Bottom";
 import HistoryItem from "../../component/HistoryItem/HistoryItem";
-import ScrapItem from "../../component/ScrapItem/ScrapItem";
+
 //png
 import Back from "../../assets/AddInfoIcons/back.png";
 
