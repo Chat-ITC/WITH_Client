@@ -21,7 +21,12 @@ const Bottom = () => {
             <Link className={styles.bottom_Link} to="/Quiz">
               <img
                 onClick={() => handleButtonClick(1)}
-                style={{ color: activeButton === 1 ? "black" : "#bababa" }}
+                style={{
+                  filter:
+                    activeButton === 1
+                      ? "opacity(1) drop-shadow(0 0 0 black)"
+                      : "#bababa",
+                }}
                 className={styles.bottom_img}
                 src={Quiz}
                 alt="퀴즈"
@@ -39,7 +44,12 @@ const Bottom = () => {
             <Link to="/HomePage">
               <img
                 onClick={() => handleButtonClick(2)}
-                style={{ color: activeButton === 2 ? "black" : "#bababa" }}
+                style={{
+                  filter:
+                    activeButton === 2
+                      ? "opacity(1) drop-shadow(0 0 0 black)"
+                      : "#bababa",
+                }}
                 className={styles.bottom_img}
                 src={Logo}
                 alt="홈"
@@ -57,7 +67,12 @@ const Bottom = () => {
             <Link to="/MyPage">
               <img
                 onClick={() => handleButtonClick(3)}
-                style={{ color: activeButton === 3 ? "black" : "#bababa" }}
+                style={{
+                  filter:
+                    activeButton === 3
+                      ? "opacity(1) drop-shadow(0 0 0 black)"
+                      : "#bababa",
+                }}
                 className={styles.bottom_img}
                 src={MyPage}
                 alt="내 정보"
