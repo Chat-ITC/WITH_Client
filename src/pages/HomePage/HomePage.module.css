@@ -16,6 +16,15 @@
   overflow-y: auto;
   border: 1px solid #bababa;
   border-radius: 6px;
+  z-index: -1;
+}
+
+.Scrap_button {
+  padding-left: 17px;
+}
+
+.Scrap_button:after {
+  content: "👇";
 }
 
 .main_img {
@@ -74,6 +83,26 @@
   top: 120px;
 }
 
+.BtnText {
+  width: 80px;
+  height: 25px;
+  z-index: 2;
+  border: 1px solid #bababa;
+  position: relative;
+  right: 1px;
+  background-color: aqua;
+}
+
+.ScarpBtn {
+  position: absolute;
+  top: 270px;
+  right: 30px;
+  width: 80px;
+  height: 25px;
+  text-align: center;
+  border: 1px solid #bababa;
+}
+
 .MainTop {
   width: 100%;
   position: fixed;
@@ -81,31 +110,6 @@
   left: 0;
   right: 0;
   background-color: #fff;
-  z-index: 8;
-}
-
-.section_icons {
-  display: block;
-  position: absolute;
-  width: 86px;
-  height: 26px;
-  border: 1px solid #bababa;
-}
-.section_icons:focus,
-.section_icons:active {
-  outline: none;
-  box-shadow: none;
-}
-
-.section_icons::after {
-  content: "👇";
-  margin-left: 3px;
-}
-
-.section_icons {
-  position: absolute;
-  top: 270px;
-  right: 39px;
 }
 
 .Scrap {

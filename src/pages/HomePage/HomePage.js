@@ -116,6 +116,23 @@ const HomePage = () => {
             내 옆에 <br /> 코딩친구
           </h1>
         </header>
+        <div className={styles.ScarpBtn}>
+          <button className={styles.Scrap_button} onClick={openModal}>
+            스크랩
+          </button>
+          <Scrap
+            className={styles.ScrapText}
+            isOpen={isModalOpen}
+            close={closeModal}
+          >
+            <button className={styles.BtnText} onClick={closeModal}>
+              스크랩
+            </button>
+            <button className={styles.BtnText} onClick={closeModal}>
+              최근 본 내역
+            </button>
+          </Scrap>
+        </div>
         <div className={styles.camera_border}>
           <div className={styles.camera}>
             <input
@@ -143,20 +160,9 @@ const HomePage = () => {
             style={{ display: "none" }}
           />
         </div>
+
         <hr className={styles.Homehr} />
       </div>
-      <button
-        className={styles.section_icons}
-        type="button"
-        onClick={openModal}
-      >
-        스크랩
-      </button>
-      <Scrap
-        isOpen={isModalOpen}
-        closeModal={closeModal}
-        className={styles.BtnScrap}
-      />
 
       <div className={styles.historyList}>
         <ul>
@@ -185,7 +191,7 @@ const HomePage = () => {
             ))}
         </ul>
       </div>
-      
+
       <Bottom />
     </>
   );
