@@ -1,4 +1,3 @@
-import loding from "./LoadingScreen"
 import Bottom from "../../component/Bottom/Bottom";
 import styles from "./Quiz.module.css";
 //png
