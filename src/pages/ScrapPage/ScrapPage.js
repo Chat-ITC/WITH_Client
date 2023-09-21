@@ -2,7 +2,7 @@
 import styles from "./ScrapPage.module.css";
 //component
 import Bottom from "../../component/Bottom/Bottom";
-import ScrapItem from "../../component/ScrapItem/ScrapItem";
+import HistoryItem from "../../component/HistoryItem/HistoryItem";
 //png
 import Back from "../../assets/AddInfoIcons/back.png";
 

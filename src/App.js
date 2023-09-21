@@ -24,7 +24,7 @@ import Bottom from "./component/Bottom/Bottom";
 import Scrap from "./Modal/Scrab/scrab";
 import ScrapBtn from "./component/ScrabBtn/ScrabBtn";
 
-import ScrapItem from "./component/ScrapItem/ScrapItem";
+import HistoryItem from "./component/HistoryItem/HistoryItem";
 
 //redirection
 import KakaoRedirection from "./Redirection/KakaoRedirection";
@@ -50,7 +50,7 @@ function App() {
           <Route path="/Scrap" element={<Scrap />} />
           <Route path="/ScrapBtn" element={<ScrapBtn />} />
           <Route path="/SumPage" element={<SumPage />} />
-          <Route path="/ScrapItem" element={<ScrapItem />} />
+          <Route path="/HistoryItem" element={<HistoryItem />} />
           <Route exact path="/kakao/callback" element={<KakaoRedirection />} />
           <Route exact path="/naver/callback" element={<NaverRedirection />} />
         </Routes>

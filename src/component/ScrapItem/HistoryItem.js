@@ -6,7 +6,7 @@ import Star from "../../assets/icons/clip.png";
 //css
 import styles from "./ScrapItem.module.css";
 //component
-import ScrapBtn from "../../component/ScrabBtn/ScrabBtn";
+import ScrapBtn from "../ScrabBtn/ScrabBtn";
 
 function TruncateTextTitle({ text, maxLength }) {
   if (text.length <= maxLength) {

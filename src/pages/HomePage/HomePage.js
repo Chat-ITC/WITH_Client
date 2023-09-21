@@ -4,7 +4,7 @@ import styles from "./HomePage.module.css";
 import Logo from "../../assets/logo/CoFe_logo.png";
 import Camera from "../../assets/etc/addimage.png";
 //component
-import ScrapItem from "../../component/ScrapItem/ScrapItem";
+import HistoryItem from "../../component/HistoryItem/HistoryItem";
 import Bottom from "../../component/Bottom/Bottom";
 
 //modal
@@ -58,6 +58,7 @@ const HomePage = () => {
         // console.log(response.data);
         // console.log(response.data[0]);
         // console.log(response.data[0].title);
+
         setHistoryData(response.data);
       })
       .catch((error) => {
@@ -107,6 +108,38 @@ const HomePage = () => {
     });
   };
 
+  const historyClickHandle = () => {
+    historyReq()
+    .then((response) => {
+      setHistoryData(response.data);
+    })
+    .catch((error) => {
+      const statusCode = error.response.status;
+
+      if (statusCode === 401) {
+        alert("로그인 해주세요");
+        navigate("/");
+      } else if (statusCode === 409) {
+        alert("세션이 만료되었습니다. 다시 로그인해 주세요");
+        navigate("/");
+      }
+    });
+  };
+
+
+  const scrapClickHandle = () => {
+
+
+
+  };
+
+
+
+
+
+
+
+
   return (
     <>
       <div className={styles.MainTop}>
@@ -153,26 +186,31 @@ const HomePage = () => {
             isOpen={isModalOpen}
             close={closeModal}
           >
+
             <button
               className={styles.BtnText}
               onClick={() => {
                 closeModal();
+                scrapClickHandle();
                 document.querySelector(`.${styles.Scrap_button}`).innerText =
                   document.querySelector(`.${styles.BtnText}`).innerText;
               }}
             >
               스크랩
             </button>
+
             <button
               className={styles.BtnText}
               onClick={() => {
                 closeModal();
+                historyClickHandle();
                 document.querySelector(`.${styles.Scrap_button}`).innerText =
                   document.querySelectorAll(`.${styles.BtnText}`)[1].innerText;
               }}
             >
               최근 본 내역
             </button>
+
           </Scrap>
         </div>
       </div>
@@ -191,7 +229,7 @@ const HomePage = () => {
                   )
                 }
               >
-                <ScrapItem
+                <HistoryItem
                   key={index}
                   title={dataList.title} // 수정된 부분
                   content={dataList.content}
