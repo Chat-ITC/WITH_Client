@@ -209,7 +209,6 @@ const SummaryPage = () => {
             <div className={styles.SelectPart}>
               <span className={styles.SelectSubj}>
                 <strong className={styles.SelectSub}>주제</strong>
-                <img src={Becareful} alt="경고" />
               </span>
               {/* 모달2가 열림*/}
               <button
