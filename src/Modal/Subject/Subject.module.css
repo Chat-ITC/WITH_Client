@@ -8,6 +8,7 @@
   border: 1px solid #bababa;
   border-radius: 6px;
   z-index: 2;
+  overflow-y: auto;
 }
 
 .HomeSubTitle {

@@ -15,9 +15,9 @@ function TruncateTextTitle({ text, maxLength }) {
   } else {
     const truncatedText = text.substring(0, maxLength) + "...";
     return (
-      <span title={text} className={styles.Title}>
+      <h2 title={text} className={styles.Title}>
         {truncatedText}
-      </span>
+      </h2>
     );
   }
 }
@@ -28,9 +28,9 @@ function TruncateTextContent({ text, maxLength }) {
   } else {
     const truncatedText = text.substring(0, maxLength) + "...";
     return (
-      <span Content={text} className={styles.Content}>
+      <h2 Content={text} className={styles.Content}>
         {truncatedText}
-      </span>
+      </h2>
     );
   }
 }

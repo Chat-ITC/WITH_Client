@@ -32,17 +32,42 @@ const SummaryPage = () => {
     setLanguage(lanPara);
     sestIsModalOpen1(false);
   };
+
+  //전송할 글 설정
+  const sum = (quePara) => {
+    switch (quePara) {
+      case "상관없음":
+        return "상관없음";
+      case "내용요약":
+        return "요약해줘";
+      case "쉬운설명":
+        return "쉽게 설명해줘";
+      case "코드 분석":
+        return "코드 분석해줘";
+      case "내용요약 및 예시코드":
+        return "요약 및 예시코드 만들어줘";
+      case "쉬운설명과 예시코드":
+        return "쉽게 설명해주고 예시코드 만들어줘";
+      default:
+        return "알 수 없는 옵션입니다.";
+    }
+  };
   //주제
   const [isModalOpen2, sestIsModalOpen2] = useState(false);
   const openModal2 = () => sestIsModalOpen2(true);
   const closeModal2 = (quePara) => {
-    setQuestion(quePara);
+    setQuestion(sum(quePara));
+    setPrintQuestion(quePara)
+    console.log(quePara)
+    console.log(question)
+    console.log(printQuestion)
     sestIsModalOpen2(false);
   };
 
   //주제와 언어
-  const [question, setQuestion] = useState("없음");
-  const [language, setLanguage] = useState("상관없음");
+  const [printQuestion, setPrintQuestion] = useState("상관없음")
+  const [question, setQuestion] = useState("상관없음");
+  const [language, setLanguage] = useState("없음");
   const [file, setFile] = useState(null);
 
   //내용과 코드
@@ -230,7 +255,7 @@ const SummaryPage = () => {
                 type="button"
                 onClick={openModal2}
               >
-                {question}
+                {printQuestion}
               </button>
             </div>
             <div className={styles.SelectBottom}>
