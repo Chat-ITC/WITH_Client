@@ -146,7 +146,7 @@ const HomePage = () => {
         </div>
         <div className={styles.ScarpBtn}>
           <button className={styles.Scrap_button} onClick={openModal}>
-            스크랩
+            최근 본 내역
           </button>
           <Scrap
             className={styles.ScrapText}
