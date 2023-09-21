@@ -20,7 +20,7 @@ import Record from "./pages/RecordPage/RecordPage";
 import SumPage from "./pages/SumPage/SumPage";
 import ListClickSummary from "./pages/ListClickSummary/ListClickSummary";
 
-import QuizCom from "./component/Quiz/Quiz_Com";
+import QuizCom from "./component/Quiz/QuizItem";
 
 import Bottom from "./component/Bottom/Bottom";
 import Scrap from "./Modal/Scrab/scrab";
