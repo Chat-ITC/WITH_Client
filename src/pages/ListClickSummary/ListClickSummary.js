@@ -33,7 +33,7 @@ const ListClickSummary = () => {
 
     function extractCodeBlock(contentData) {
       // 정규식을 사용하여 코드 블록을 추출합니다.
-      const codeBlock = contentData.match(/```c([\s\S]*?)```/);
+      const codeBlock = contentData.match(/```([\s\S]*?)```/);
 
       return codeBlock ? codeBlock[0] : null;
     }
