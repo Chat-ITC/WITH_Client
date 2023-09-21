@@ -230,12 +230,12 @@ const HomePage = () => {
               }}
             >
               <span className={styles.Down1}>스크랩</span>
-            </button>   
+            </button>
 
             <button
               className={styles.BtnText}
               onClick={() => {
-                closeModal(); 
+                closeModal();
                 historyClickHandle();
                 document.querySelector(`.${styles.Scrap_button}`).innerText =
                   document.querySelectorAll(`.${styles.BtnText}`)[1].innerText;
