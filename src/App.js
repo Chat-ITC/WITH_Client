@@ -20,7 +20,7 @@ import ScrapPage from "./pages/ScrapPage/ScrapPage";
 import Record from "./pages/RecordPage/RecordPage";
 import SumPage from "./pages/SumPage/SumPage";
 import ListClickSummary from "./pages/ListClickSummary/ListClickSummary"
-
+import HistoryPage from "./pages/HistoryPage/HistoryPage";
 import QuizCom from "./component/Quiz/QuizItem";
 
 import Bottom from "./component/Bottom/Bottom";
@@ -48,6 +48,7 @@ function App() {
           <Route path="/SummaryPage" element={<SummaryPage />} />
           <Route path="/ListClickSummary" element={<ListClickSummary />} />
           <Route path="/ScrapPage" element={<ScrapPage />} />
+          <Route path="/HistoryPage" element={<HistoryPage />} />
           <Route path="/RecordPage" element={<Record />} />
           <Route path="/Bottom" element={<Bottom />} />
           <Route path="/Scrap" element={<Scrap />} />
