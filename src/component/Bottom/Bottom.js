@@ -18,7 +18,11 @@ const Bottom = () => {
       <nav>
         <ul className={styles.BottomInfo}>
           <li className={styles.bottomLink}>
-            <Link className={styles.bottom_Link} to="/Quiz">
+            <Link
+              className={styles.bottom_Link}
+              to="/Quiz"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <img
                 onClick={() => handleButtonClick(1)}
                 style={{
@@ -41,7 +45,10 @@ const Bottom = () => {
             </Link>
           </li>
           <li className={styles.bottomLink}>
-            <Link to="/HomePage">
+            <Link
+              to="/HomePage"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <img
                 onClick={() => handleButtonClick(2)}
                 style={{
@@ -64,7 +71,10 @@ const Bottom = () => {
             </Link>
           </li>
           <li className={styles.bottomLink}>
-            <Link to="/MyPage">
+            <Link
+              to="/MyPage"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <img
                 onClick={() => handleButtonClick(3)}
                 style={{
