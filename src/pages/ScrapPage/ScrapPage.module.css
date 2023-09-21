@@ -9,7 +9,7 @@
   margin: 0 auto;
   background-color: #fff;
   overflow: hidden;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
