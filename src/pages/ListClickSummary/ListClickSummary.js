@@ -11,10 +11,10 @@ import Bottom from "../../component/Bottom/Bottom";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 
 const ListClickSummary = () => {
-  const history = useHistory();
+  const navigate  = useNavigate();
   axios.defaults.withCredentials = true;
   const location = useLocation();
   const { content, isScrapped, id } = location.state;
@@ -100,7 +100,7 @@ const ListClickSummary = () => {
   };
 
   const goMyPage = () => {
-    history.goBack();
+    navigate(-1);
 
 
   };
