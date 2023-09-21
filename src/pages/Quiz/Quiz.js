@@ -136,6 +136,7 @@ const Quiz = (props) => {
                   )
                 }
               >
+                
                 <QuizItem
                   key={index}
                   title={dataList.title} // 수정된 부분
