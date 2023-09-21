@@ -40,7 +40,6 @@ const SummaryPage = () => {
     sestIsModalOpen2(false);
   };
 
-  
   //주제와 언어
   const [question, setQuestion] = useState("없음");
   const [language, setLanguage] = useState("상관없음");
@@ -169,9 +168,9 @@ const SummaryPage = () => {
       <header className={styles.SumTitle}>
         <div className={styles.SumLeft}>
           <div>
-            <button type="button">
+            <Link type="button" to="/HomePage">
               <img src={Back} alt="뒤로가기" />
-            </button>
+            </Link>
           </div>
         </div>
         <div className={styles.SumRight}>
@@ -194,6 +193,57 @@ const SummaryPage = () => {
         </div>
       </header>
       <article className={styles.article}>
+        <SelectModal isOpen={isModalOpen} closeModal={closeModal}>
+          <div className={styles.HomeMainModal}>
+            <div className={styles.SelectPart}>
+              <strong className={styles.SelectLang}>학습언어</strong>
+              {/* 모달1가 열림*/}
+              <button
+                className={styles.SelectLanguage}
+                type="button"
+                onClick={openModal1}
+              >
+                {language}
+              </button>
+            </div>
+            <div className={styles.SelectPart}>
+              <span className={styles.SelectSubj}>
+                <strong className={styles.SelectSub}>주제</strong>
+                <img src={Becareful} alt="경고" />
+              </span>
+              {/* 모달2가 열림*/}
+              <button
+                className={styles.SelectSubject}
+                type="button"
+                onClick={openModal2}
+              >
+                {question}
+              </button>
+            </div>
+            <div className={styles.SelectBottom}>
+              {/* 데이터 전송 버튼 */}
+              <button
+                className={styles.SelectBtn}
+                type="button"
+                onClick={sendDataHandle}
+              >
+                확인
+              </button>
+              {/* SelectModal창 닫기 버튼 */}
+              <Link to="/HomePage" className={styles.SelectBtn}>
+                취소
+              </Link>
+            </div>
+          </div>
+          {/*주제 모달*/}
+          <div
+            className={styles.HomePage_Sub}
+            style={{ display: isModalOpen2 ? "block" : "none" }}
+          >
+            <SubModal isOpen={isModalOpen2} onClose={closeModal2} />
+          </div>
+          <Bottom />
+        </SelectModal>
         {data ? (
           <div style={preWrap}>
             <p>
@@ -216,6 +266,13 @@ const SummaryPage = () => {
         ) : (
           ""
         )}
+        {/* 학습언어 */}
+        <div
+          className={styles.HomePage_Lang}
+          style={{ display: isModalOpen1 ? "block" : "none" }}
+        >
+          <LangModal isOpen={isModalOpen1} onClose={closeModal1} />
+        </div>
       </article>
       {/* <article className={styles.article}>
         <button type="button">
@@ -228,66 +285,6 @@ const SummaryPage = () => {
           <span>내용이 정확하지 않을 수 있습니다</span>
         </div>
       </footer>
-
-      <SelectModal isOpen={isModalOpen} closeModal={closeModal}>
-        <div className={styles.HomeMainModal}>
-          <div className={styles.SelectPart}>
-            <strong className={styles.SelectLang}>학습언어</strong>
-            {/* 모달1가 열림*/}
-            <button
-              className={styles.SelectLanguage}
-              type="button"
-              onClick={openModal1}
-            >
-              {language}
-            </button>
-          </div>
-          <div className={styles.SelectPart}>
-            <span className={styles.SelectSubj}>
-              <strong className={styles.SelectSub}>주제</strong>
-              <img src={Becareful} alt="경고" />
-            </span>
-            {/* 모달2가 열림*/}
-            <button
-              className={styles.SelectSubject}
-              type="button"
-              onClick={openModal2}
-            >
-              {question}
-            </button>
-          </div>
-          <div className={styles.SelectBottom}>
-            {/* 데이터 전송 버튼 */}
-            <button
-              className={styles.SelectBtn}
-              type="button"
-              onClick={sendDataHandle}
-            >
-              확인
-            </button>
-            {/* SelectModal창 닫기 버튼 */}
-            <Link to="/HomePage" className={styles.SelectBtn}>
-              취소
-            </Link>
-          </div>
-        </div>
-      </SelectModal>
-
-      {/* 학습언어 */}
-      <div
-        className={styles.HomePage_Lang}
-        style={{ display: isModalOpen1 ? "block" : "none" }}
-      >
-        <LangModal isOpen={isModalOpen1} onClose={closeModal1} />
-      </div>
-      {/*주제 모달*/}
-      <div
-        className={styles.HomePage_Sub}
-        style={{ display: isModalOpen2 ? "block" : "none" }}
-      >
-        <SubModal isOpen={isModalOpen2} onClose={closeModal2} />
-      </div>
-      <Bottom />
     </>
   );
 };

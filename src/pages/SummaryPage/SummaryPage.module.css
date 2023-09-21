@@ -35,7 +35,7 @@
 
 .article {
   display: block;
-  width: 360px;
+  width: 90%;
   height: 630px;
   border: 1px solid #bababa;
   border-radius: 6px;
@@ -43,6 +43,7 @@
   white-space: pre-line;
   padding: 10px;
   overflow-y: auto;
+  position: relative;
 }
 
 .article:nth-child(3) {
@@ -69,9 +70,8 @@
 .HomeMainModal {
   background-color: #fff;
   position: absolute;
-  top: 230px;
-  left: 60px;
-  width: 270px;
+  top: 210px;
+  width: 95%;
   height: 200px;
   border: 1px solid #bababa;
   border-radius: 4px;
@@ -81,30 +81,45 @@
   align-items: center;
 }
 
+/*
+.article {
+  display: block;
+  width: 360px;
+  height: 630px;
+  border: 1px solid #bababa;
+  border-radius: 6px;
+  margin: 0 auto;
+  white-space: pre-line;
+  padding: 10px;
+  overflow-y: auto;
+}
+*/
+
 .SelectPart {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 9px;
-  width: 260px;
+  width: 95%;
 }
 
 .SelectLang {
   height: 20px;
-  margin-right: 110px;
+  width: 80px;
   text-align: center;
   font-weight: 700;
 }
 
 .SelectLanguage {
-  width: 60px;
+  width: 80%;
   height: 20px;
-  text-align: center;
+  text-align: end;
   font-weight: 700;
 }
 
 .SelectSubj {
-  margin-right: 120px;
+  text-align: center;
+  width: 80px;
 }
 
 .SelectSub {
@@ -115,9 +130,9 @@
 }
 
 .SelectSubject {
-  width: 60px;
+  width: 100%;
   height: 20px;
-  text-align: center;
+  text-align: end;
   font-weight: 700;
 }
 
@@ -150,11 +165,11 @@
 .HomePage_Lang {
   position: absolute;
   top: 230px;
-  margin-left: 60px;
+  width: 90%;
 }
 
 .HomePage_Sub {
   position: absolute;
   top: 230px;
-  margin-left: 60px;
+  width: 90%;
 }

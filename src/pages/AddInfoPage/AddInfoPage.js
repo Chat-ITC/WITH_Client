@@ -13,11 +13,11 @@ import Java from "../../assets/AddInfoIcons/java.png";
 import C from "../../assets/AddInfoIcons/C.png";
 import Javascript from "../../assets/AddInfoIcons/JavaScript.png";
 import Ruby from "../../assets/AddInfoIcons/Ruby.png";
-import Php from "../../assets/AddInfoIcons/php.png";
+import Django from "../../assets/icons/Djang.png";
 import Go from "../../assets/AddInfoIcons/Go.png";
 import Swift from "../../assets/AddInfoIcons/swift.png";
 import R from "../../assets/AddInfoIcons/R.png";
-import Csharp from "../../assets/AddInfoIcons/C#.png";
+import Spring_Boot from "../../assets/icons/Spring_boot.png";
 import Dart from "../../assets/icons/Dart.png";
 import Kotlin from "../../assets/icons/Kotlin.png";
 import SQL from "../../assets/icons/SQL.png";
@@ -71,10 +71,10 @@ const AddInfoPage = () => {
       snsId: location.state.data.snsId,
       user_level: selectedSkill,
       skill_language: selectedLanguage,
-      title : "[사용 가이드]",
-      content : "https://github.com/Chat-ITC",
-      fav_language : "with",
-      isScrapped : "NO"
+      title: "[사용 가이드]",
+      content: "https://github.com/Chat-ITC",
+      fav_language: "with",
+      isScrapped: "NO",
     };
     sendJSONDataToSpringBoot(addUserInfo);
 
@@ -137,53 +137,52 @@ const AddInfoPage = () => {
       image: CPlus,
     },
     {
-      name: "C#",
-      image: Csharp,
+      name: "Dart",
+      image: Dart,
     },
     {
-      name: "Java",
-      image: Java,
-    },
-
-    {
-      name: "Python",
-      image: Python,
+      name: "Django",
+      image: Django,
     },
     {
       name: "Go",
       image: Go,
     },
     {
-      name: "Dart",
-      image: Dart,
-    },
-    {
-      name: "Kotlin",
-      image: Kotlin,
+      name: "Java",
+      image: Java,
     },
     {
       name: "Javascript",
       image: Javascript,
     },
     {
+      name: "Kotlin",
+      image: Kotlin,
+    },
+    {
+      name: "Python",
+      image: Python,
+    },
+    {
       name: "Ruby",
       image: Ruby,
     },
     {
-      name: "Php",
-      image: Php,
+      name: "R",
+      image: R,
     },
     {
-      name: "Swift",
-      image: Swift,
+      name: "Spring-Boot",
+      image: Spring_Boot,
     },
     {
       name: "SQL",
       image: SQL,
     },
     {
-      name: "R",
-      image: R,
+      name: "Swift",
+      image: Swift,
     },
   ];
 

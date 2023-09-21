@@ -7,19 +7,19 @@ const LangModal = ({ isOpen, onClose }) => {
   const languages = [
     "상관없음",
     "C++",
-    "파이썬",
-    "자바",
-    "C언어",
-    "CSS",
-    "HTML",
-    "자바스크립트",
+    "Python",
+    "Java",
+    "C",
+    "Kotlin",
+    "Dart",
+    "JavaScript",
     "Ruby",
-    "php",
+    "Spring-Boot",
     "Go",
     "swift",
-    "타입스크립트",
+    "SQL",
     "R",
-    "C#",
+    "Django",
   ];
 
   const [selectedLanguage, setSelectedLanguage] = useState(null);
@@ -42,15 +42,14 @@ const LangModal = ({ isOpen, onClose }) => {
       <span className={Lang.HomeLangDesc}>
         요약을 원하는 언어를 선택해 주세요
       </span>
-      <ul className="language-list">
+      <ul className={Lang.LangList}>
         {languages.map((language, index) => (
           <li key={index}>
             <button
               className={Lang.HomeLangBtn}
-              onClick={() =>{
-                 handleLanguageClick(language)
-                 
-               }}
+              onClick={() => {
+                handleLanguageClick(language);
+              }}
             >
               {language}
             </button>
