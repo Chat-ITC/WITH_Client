@@ -229,7 +229,7 @@ const HomePage = () => {
                   document.querySelector(`.${styles.BtnText}`).innerText;
               }}
             >
-              <span className={styles.Down1}>  </span>
+              <span className={styles.Down1}>스크랩</span>
             </button>   
 
             <button
