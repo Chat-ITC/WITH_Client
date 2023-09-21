@@ -1,8 +1,13 @@
 .Abil_title {
+  width: 100%;
+  height: 300px;
   border: 1px solid #bababa;
+  background-color: #fff;
+  margin: 0 auto;
   border-radius: 6px;
   padding: 10px 0;
   padding-bottom: 10px;
+  overflow: hidden;
 }
 
 .HomeAbilBtn {
@@ -14,7 +19,6 @@
   padding: 5px 0;
   font-size: 25px;
   text-align: center;
-  margin-left: 50px;
 }
 
 .HomeAbilBtn {
@@ -22,17 +26,4 @@
   font-size: 16px;
   height: 60px;
   text-align: center;
-}
-
-.HomeBack {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.HomeBtn {
-  width: 50px;
-  height: 45px;
-  margin-right: 10px;
-  text-align: end;
 }

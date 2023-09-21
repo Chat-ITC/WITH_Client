@@ -33,12 +33,7 @@ const LangModal = ({ isOpen, onClose }) => {
 
   return (
     <div className={Lang.HomeSub}>
-      <div className={Lang.HomeBack}>
-        <h2 className={Lang.HomeLangTitle}>학습 언어</h2>
-        <button className={Lang.HomeBtn} type="button" onClick={onClose}>
-          닫기
-        </button>
-      </div>
+      <h2 className={Lang.HomeLangTitle}>학습 언어</h2>
       <span className={Lang.HomeLangDesc}>
         요약을 원하는 언어를 선택해 주세요
       </span>

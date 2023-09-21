@@ -57,7 +57,7 @@
   position: relative;
   margin: 0 auto;
   top: 200px;
-  z-index: 2;
+  /* z-index: 2; */
 }
 
 .bottom {
@@ -116,6 +116,5 @@
   height: 225px;
   position: relative;
   margin: 0 auto;
-  top: 300px;
-  z-index: 1;
+  top: 240px;
 }
