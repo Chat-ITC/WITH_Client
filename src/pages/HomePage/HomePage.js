@@ -9,6 +9,7 @@ import Bottom from "../../component/Bottom/Bottom";
 
 //modal
 import Scrap from "../../Modal/Scrab/scrab";
+import ScrapItem from "../../component/ScrapItem/ScrapItem";
 //library
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -108,36 +109,48 @@ const HomePage = () => {
     });
   };
 
-  const historyClickHandle = () => {
-    historyReq()
-    .then((response) => {
-      setHistoryData(response.data);
-    })
-    .catch((error) => {
-      const statusCode = error.response.status;
+  const [historyORScrap, setHistoryORScrap] = useState("history");
 
-      if (statusCode === 401) {
-        alert("로그인 해주세요");
-        navigate("/");
-      } else if (statusCode === 409) {
-        alert("세션이 만료되었습니다. 다시 로그인해 주세요");
-        navigate("/");
-      }
-    });
+  const historyClickHandle = () => {
+    setHistoryORScrap("history");
+    historyReq()
+      .then((response) => {
+        setHistoryData(response.data);
+      })
+      .catch((error) => {
+        const statusCode = error.response.status;
+
+        if (statusCode === 401) {
+          alert("로그인 해주세요");
+          navigate("/");
+        } else if (statusCode === 409) {
+          alert("세션이 만료되었습니다. 다시 로그인해 주세요");
+          navigate("/");
+        }
+      });
   };
 
 
   const scrapClickHandle = () => {
+    setHistoryORScrap("scrap");
+    historyReq()
+      .then((response) => {
+        setHistoryData(response.data);
+      })
+      .catch((error) => {
+        const statusCode = error.response.status;
 
+        if (statusCode === 401) {
+          alert("로그인 해주세요");
+          navigate("/");
+        } else if (statusCode === 409) {
+          alert("세션이 만료되었습니다. 다시 로그인해 주세요");
+          navigate("/");
+        }
+      });
 
 
   };
-
-
-
-
-
-
 
 
   return (
@@ -229,15 +242,27 @@ const HomePage = () => {
                   )
                 }
               >
-                <HistoryItem
-                  key={index}
-                  title={dataList.title} // 수정된 부분
-                  content={dataList.content}
-                  createAt={dataList.createAt}
-                  fav_language={dataList.fav_language}
-                  id={dataList.id}
-                  isScrapped={dataList.isScrapped}
-                />
+                {historyORScrap === "history" ? (
+                  <HistoryItem  // 여기에 똑같은 ScrapItem 추가하고 클릭 이벤트 바꾸면 될듯
+                    key={index}
+                    title={dataList.title} // 수정된 부분
+                    content={dataList.content}
+                    createAt={dataList.createAt}
+                    fav_language={dataList.fav_language}
+                    id={dataList.id}
+                    isScrapped={dataList.isScrapped}
+                  />
+                ) : (
+                  <ScrapItem  // 여기에 똑같은 ScrapItem 추가하고 클릭 이벤트 바꾸면 될듯
+                    key={index}
+                    title={dataList.title} // 수정된 부분
+                    content={dataList.content}
+                    createAt={dataList.createAt}
+                    fav_language={dataList.fav_language}
+                    id={dataList.id}
+                    isScrapped={dataList.isScrapped}
+                  />
+                )}
               </li>
             ))}
         </ul>
