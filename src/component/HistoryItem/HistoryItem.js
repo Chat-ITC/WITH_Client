@@ -42,7 +42,11 @@ const HistoryItem = ({
   fav_language,
   id,
   isScrapped,
+  
 }) => {
+  
+  const slicedString = createAt.slice(0, 10);
+  console.log(slicedString);
   return (
     <>
       <div className={styles.HistoryItem}>
@@ -59,6 +63,7 @@ const HistoryItem = ({
           <TruncateTextContent text={content} maxLength={25} />
         </p>
         <span className={styles.Language}>{fav_language}</span>
+        <span className={styles.Language}>{"  "+slicedString}</span>
       </div>
     </>
   );
