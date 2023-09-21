@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Sub from "./Subject.module.css";
 const SubModal = ({ isOpen, onClose }) => {
   const subjects = [
-    "이 문장의 내용을 요약해줘",
-    "코드를 요약해줘",
-    "오류 코드의 해결 방법을 알려줘",
+    "요약 및 예시코드 만들어줘",
+    "쉽게 설명해주고 예시코드 만들어줘",
+    "이 코드 분석해줘",
   ];
 
   const [selectedSubject, setSelectedSubject] = useState(null);
