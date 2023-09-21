@@ -180,24 +180,18 @@ const SummaryPage = () => {
     <>
       <header className={styles.SumTitle}>
         <div className={styles.SumLeft}>
-          <Link type="button" to={lastLocation}>
-            <img src={Back} alt="뒤로가기" />
-          </Link>
+          <div>
+            <Link type="button" to={lastLocation}>
+              <img src={Back} alt="뒤로가기" />
+            </Link>
+          </div>
         </div>
         <div className={styles.SumRight}>
           <div className={styles.S}>
-            <button
-              className={styles.SumTitleBtn}
-              type="button"
-              onClick={copyHandle}
-            >
+            <button type="button" onClick={copyHandle}>
               <img className={styles.RightImg} src={Copy} alt="복사" />
             </button>
-            <button
-              className={styles.SumTitleBtn}
-              type="button"
-              onClick={scrapHandle}
-            >
+            <button type="button" onClick={scrapHandle}>
               {isScrappedChange === "NO" || isScrappedChange === "No" ? (
                 <img className={styles.RightImg} src={Star} alt="텅 빈 별" />
               ) : (
@@ -260,6 +254,7 @@ const SummaryPage = () => {
           >
             <SubModal isOpen={isModalOpen2} onClose={closeModal2} />
           </div>
+          <Bottom />
         </SelectModal>
         {data ? (
           <div style={preWrap}>
@@ -302,7 +297,6 @@ const SummaryPage = () => {
           <span>내용이 정확하지 않을 수 있습니다</span>
         </div>
       </footer>
-      <Bottom />
     </>
   );
 };

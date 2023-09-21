@@ -19,7 +19,7 @@ import RadioTest from "./pages/RadioTestPage/RadioTest";
 import ScrapPage from "./pages/ScrapPage/ScrapPage";
 import Record from "./pages/RecordPage/RecordPage";
 import SumPage from "./pages/SumPage/SumPage";
-import ListClickSummary from "./pages/ListClickSummary/ListClickSummary"
+import ListClickSummary from "./pages/ListClickSummary/ListClickSummary";
 
 import QuizCom from "./component/Quiz/QuizItem";
 
@@ -33,6 +33,7 @@ import HistoryItem from "./component/HistoryItem/HistoryItem";
 import KakaoRedirection from "./Redirection/KakaoRedirection";
 import NaverRedirection from "./Redirection/NaverRedirection";
 
+import SelectModal from "./Modal/SelectModal/SelectModal";
 function App() {
   return (
     <>
@@ -56,6 +57,7 @@ function App() {
           <Route path="/ScrapItem" element={<ScrapItem />} />
           <Route path="/QuizCom" element={<QuizCom />} />
           <Route path="/HistoryItem" element={<HistoryItem />} />
+          <Route path="/SelectModal" element={<SelectModal />} />
           <Route exact path="/kakao/callback" element={<KakaoRedirection />} />
           <Route exact path="/naver/callback" element={<NaverRedirection />} />
         </Routes>
