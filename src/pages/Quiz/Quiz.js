@@ -14,8 +14,7 @@ import { useNavigate } from "react-router-dom";
 const Quiz = (props) => {
   const { quizTarget } = props; //유저 실력 넣기
 
-  const [decodedHeader, setDecodedHeader] = useState('');
-  const [encoding, setEncoding] = useState('');
+  const [quizLevel, setQuizLevel] = useState(null);
 
   const navigate = useNavigate();
 
@@ -51,14 +50,13 @@ const Quiz = (props) => {
          console.log(response.data);
          console.log(response.data.level);
          console.log(response.data.quiz);
-         console.log(response.data.quiz.title);
+         console.log(response.data.quiz[0].title);
         //  console.log(response.data[0].title);
         //  console.log(response.data[0].content);
         //  console.log(response.data[0].answer);
-        setQuizData(response.data.level);
+        setQuizData(response.data.quiz);
+        setQuizLevel(response.data.level)
 
-    
-      
         
       })
       .catch((error) => {
@@ -116,7 +114,7 @@ const Quiz = (props) => {
   return (
     <>
       <header className={styles.Quiz_header}>
-        <h1 className={styles.BackTitle}>{quizData}를 위한 문제</h1>
+        <h1 className={styles.BackTitle}>{quizLevel}를 위한 문제</h1>
       </header>
 
       <div className={styles.historyList}>
