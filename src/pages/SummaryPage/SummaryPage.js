@@ -42,8 +42,8 @@ const SummaryPage = () => {
 
   
   //주제와 언어
-  const [question, setQuestion] = useState(null);
-  const [language, setLanguage] = useState(null);
+  const [question, setQuestion] = useState("없음");
+  const [language, setLanguage] = useState("상관없음");
   const [file, setFile] = useState(null);
 
   //내용과 코드
