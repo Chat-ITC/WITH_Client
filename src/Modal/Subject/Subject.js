@@ -26,7 +26,7 @@ const SubModal = ({ isOpen, onClose }) => {
               className={Sub.HomeSubBtn}
               onClick={() => {
                 handleSubjectClick(subject);
-                onClose(); // 버튼 클릭 후 모달 창 닫기
+                
               }}
             >
               {subject}

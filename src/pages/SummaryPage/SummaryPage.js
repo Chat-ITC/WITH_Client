@@ -52,7 +52,8 @@ const SummaryPage = () => {
   const [isScrappedChange, setIsScrappedChange] = useState("NO");
 
   const sendDataHandle = async () => {
-    console.log("확인버튼 로그:", language);
+    console.log(question);
+    console.log(language);
     closeModal();
     const formData = new FormData();
 

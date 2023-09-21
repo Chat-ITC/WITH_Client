@@ -47,7 +47,10 @@ const LangModal = ({ isOpen, onClose }) => {
           <li key={index}>
             <button
               className={Lang.HomeLangBtn}
-              onClick={() => handleLanguageClick(language)}
+              onClick={() =>{
+                 handleLanguageClick(language)
+                 
+               }}
             >
               {language}
             </button>
