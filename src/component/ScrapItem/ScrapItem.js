@@ -6,8 +6,6 @@ import styles from "./ScrapItem.module.css";
 //component
 import ScrapBtn from "../ScrabBtn/ScrabBtn";
 
-import ScrapItem from "../../component/ScrapItem";
-
 function TruncateTextTitle({ text, maxLength }) {
   if (text.length <= maxLength) {
     return <h2 className={styles.Title}>{text}</h2>;
@@ -50,7 +48,7 @@ const ScrapItem = ({
 
   return (
     <>
-      {/* <div className={styles.ScrapItem}>
+      <div className={styles.ScrapItem}>
         <div className={styles.ScrapTop}>
           <TruncateTextTitle text={title} maxLength={15} />
 
@@ -65,8 +63,7 @@ const ScrapItem = ({
         </p>
         <span className={styles.Language}>{fav_language}</span>
         <span className={styles.date}>{"   "+slicedString}</span>
-      </div> */}
-      
+      </div>
     </>
   );
 };
