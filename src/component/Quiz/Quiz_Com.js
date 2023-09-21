@@ -13,7 +13,7 @@ const QuizItem = ({ title, content, fav_language, id, answer, caeateAt }) => {
           <p className={styles.Desc}>
             {" "}
             C++은 한 클래스가 여러 개의 기본 클래스를 동시에 상속할 수 있도록
-            허용합니다.sssssssssssssss (참/거짓)"
+            허용합니다. (참/거짓)"
           </p>
         </div>
         <button className={styles.btn} type="button">
