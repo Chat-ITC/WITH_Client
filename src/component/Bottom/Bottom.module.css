@@ -1,7 +1,7 @@
 /* nav태그 아래의 자식들을 수평정렬하기 위한 설정 */
 
 .bottomContainer {
-  position: static;
+  position: fixed;
   width: 100%;
   height: 70px;
   left: 0;
