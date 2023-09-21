@@ -126,7 +126,7 @@ const HomePage = () => {
     });
   };
 
-  const [historyORScrap, setHistoryORScrap] = useState("scrap");
+  const [historyORScrap, setHistoryORScrap] = useState("history");
 
   const historyClickHandle = () => {
     setHistoryORScrap("history");
@@ -205,7 +205,7 @@ const HomePage = () => {
           />
         </div>
         <button className={styles.Scrap_button} onClick={openModal}>
-          <span>스크랩</span>
+          <span>최근 본 내역</span>
           <img className={styles.DownImg} src={Down} alt="아래 방향" />
         </button>
         <div
@@ -229,13 +229,13 @@ const HomePage = () => {
                   document.querySelector(`.${styles.BtnText}`).innerText;
               }}
             >
-              <span className={styles.Down1}>스크랩</span>
-            </button>
+              <span className={styles.Down1}>  </span>
+            </button>   
 
             <button
               className={styles.BtnText}
               onClick={() => {
-                closeModal();
+                closeModal(); 
                 historyClickHandle();
                 document.querySelector(`.${styles.Scrap_button}`).innerText =
                   document.querySelectorAll(`.${styles.BtnText}`)[1].innerText;
