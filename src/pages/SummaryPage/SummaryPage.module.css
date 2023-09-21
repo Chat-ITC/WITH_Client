@@ -1,49 +1,39 @@
 .SumTitle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
+  background-color: #3da5f5;
 }
 
 .SumLeft {
-  width: 90px;
-  height: 70px;
-  padding-left: 15px;
-  margin-top: 50px;
+  width: 60px;
+  height: 60px;
+  padding: 22px;
 }
 
 .SumRight {
-  width: 90px;
-  height: 70px;
-  padding-right: 15px;
-}
-
-.RightImg {
-  margin-top: 20px;
-  width: 30px;
-  height: 30px;
-}
-
-.RightImg:first-child {
-  margin-right: 7px;
+  width: 1000px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .selectLang {
-  position: relative;
-  left: 15px;
 }
 
 .article {
-  display: block;
-  width: 90%;
-  height: 630px;
-  border: 1px solid #bababa;
-  border-radius: 6px;
-  margin: 0 auto;
-  white-space: pre-line;
-  padding: 10px;
-  overflow-y: auto;
-  position: relative;
+  background-color: red;
+  position: absolute;
+  top: 70px;
+  width: 100%;
+  height: 650px;
+  opacity: 30%;
 }
 
 .article:nth-child(3) {
@@ -69,16 +59,6 @@
 
 .HomeMainModal {
   background-color: #fff;
-  position: absolute;
-  top: 210px;
-  width: 94%;
-  height: 200px;
-  border: 1px solid #bababa;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 /*

@@ -163,29 +163,26 @@ const SummaryPage = () => {
       console.log("요청실패");
     }
   };
- 
+
   //복사버튼
   const copyHandle = () => {
-    navigator.clipboard.writeText(codeBlock)
+    navigator.clipboard
+      .writeText(codeBlock)
       .then(() => {
         alert("클립보드에 복사되었습니다.");
       })
       .catch((error) => {
         console.error("클립보드 복사 실패:", error);
       });
-    }
-
-
+  };
 
   return (
     <>
       <header className={styles.SumTitle}>
         <div className={styles.SumLeft}>
-          <div>
-            <Link type="button" to={lastLocation}>
-              <img src={Back} alt="뒤로가기" />
-            </Link>
-          </div>
+          <Link type="button" to={lastLocation}>
+            <img src={Back} alt="뒤로가기" />
+          </Link>
         </div>
         <div className={styles.SumRight}>
           <div className={styles.S}>
@@ -255,7 +252,6 @@ const SummaryPage = () => {
           >
             <SubModal isOpen={isModalOpen2} onClose={closeModal2} />
           </div>
-          <Bottom />
         </SelectModal>
         {data ? (
           <div style={preWrap}>
@@ -298,6 +294,7 @@ const SummaryPage = () => {
           <span>내용이 정확하지 않을 수 있습니다</span>
         </div>
       </footer>
+      <Bottom />
     </>
   );
 };
