@@ -1,9 +1,7 @@
 .Sub_content {
-  width: 105%;
-  height: 220px;
+  width: 100%;
   background-color: #fff;
   margin: 0 auto;
-  padding: 15px;
   overflow: hidden;
   border: 1px solid #bababa;
   border-radius: 6px;
@@ -19,8 +17,9 @@
 }
 
 .HomeSubBtn {
-  width: 100%;
+  width: 90%;
   height: 40px;
   font-weight: 700;
   padding: 5px 15px;
+  text-align: center;
 }

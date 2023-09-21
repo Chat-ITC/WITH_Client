@@ -13,6 +13,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import DynamicCodeBlock from "../../component/DynamicCodeBlock/DynamicCodeBlock";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { useRef } from "react";
 //modal
 import SelectModal from "../../Modal/SelectModal/SelectModal";
 import LangModal from "../../Modal/LangModal/LangModal";
@@ -22,16 +23,30 @@ const SummaryPage = () => {
   axios.defaults.withCredentials = true;
 
   const [isModalOpen, sestIsModalOpen] = useState(false);
-  const openModal = () => sestIsModalOpen(true);
+  const [isModalOpen1, sestIsModalOpen1] = useState(false);
+  const [isModalOpen2, sestIsModalOpen2] = useState(false);
+
   const closeModal = () => sestIsModalOpen(false);
 
-  //학습 언어
-  const [isModalOpen1, sestIsModalOpen1] = useState(false);
-  const openModal1 = () => sestIsModalOpen1(true);
+  const openModal1 = () => {
+    sestIsModalOpen1(true);
+    sestIsModalOpen2(false);
+  };
+
   const closeModal1 = (lanPara) => {
     setLanguage(lanPara);
+  };
+
+  const openModal2 = () => {
+    sestIsModalOpen2(true);
     sestIsModalOpen1(false);
   };
+
+  //선택
+
+  const openModal = () => sestIsModalOpen(true);
+
+  //학습 언어
 
   //전송할 글 설정
   const sum = (quePara) => {
@@ -53,15 +68,13 @@ const SummaryPage = () => {
     }
   };
   //주제
-  const [isModalOpen2, sestIsModalOpen2] = useState(false);
-  const openModal2 = () => sestIsModalOpen2(true);
+
   const closeModal2 = (quePara) => {
     setQuestion(sum(quePara));
     setPrintQuestion(quePara);
     console.log(quePara);
     console.log(question);
     console.log(printQuestion);
-    sestIsModalOpen2(false);
   };
 
   //주제와 언어
@@ -303,13 +316,6 @@ const SummaryPage = () => {
         ) : (
           ""
         )}
-        {/* 학습언어 */}
-        <div
-          className={styles.HomePage_Lang}
-          style={{ display: isModalOpen1 ? "block" : "none" }}
-        >
-          <LangModal isOpen={isModalOpen1} onClose={closeModal1} />
-        </div>
       </article>
       {/* <article className={styles.article}>
         <button type="button">
@@ -322,6 +328,13 @@ const SummaryPage = () => {
           <span>내용이 정확하지 않을 수 있습니다</span>
         </div>
       </footer>
+      {/* 학습언어 */}
+      <div
+        className={styles.HomePage_Lang}
+        style={{ display: openModal1 ? "block" : "none" }}
+      >
+        <LangModal isOpen={openModal1} onClose={closeModal1} />
+      </div>
     </>
   );
 };
