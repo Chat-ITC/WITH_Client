@@ -204,16 +204,21 @@ const HomePage = () => {
             style={{ display: "none" }}
           />
         </div>
-        <div className={styles.ScarpBtn}>
-          <button className={styles.Scrap_button} onClick={openModal}>
-            <span>스크랩</span>
-            <img className={styles.DownImg} src={Down} alt="아래 방향" />
-          </button>
+        <button className={styles.Scrap_button} onClick={openModal}>
+          <span>스크랩</span>
+          <img className={styles.DownImg} src={Down} alt="아래 방향" />
+        </button>
+        <div
+          className={`${styles.Scrap_button} ${
+            isModalOpen ? styles.modal_open : ""
+          }`}
+          style={{ display: isModalOpen ? "block" : "none" }}
+          ref={modalRef}
+        >
           <Scrap
             className={styles.ScrapText}
             isOpen={isModalOpen}
             close={closeModal}
-            ref={modalRef}
           >
             <button
               className={styles.BtnText}
