@@ -29,8 +29,8 @@
 }
 
 .Language::after {
-  font-size: 5px;
-  content: " ●";
+  font-size: 12px;
+  content: "  ⦁";
   margin-right: 5px;
 }
 

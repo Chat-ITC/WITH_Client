@@ -46,7 +46,7 @@ const HistoryItem = ({
 }) => {
   
   const slicedString = createAt.slice(0, 10);
-  console.log(slicedString);
+  
   return (
     <>
       <div className={styles.HistoryItem}>
