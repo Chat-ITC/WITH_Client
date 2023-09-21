@@ -4,7 +4,7 @@ import axios from "axios";
 import FillStar from "../../assets/AddInfoIcons/FillStar.png";
 import Star from "../../assets/icons/clip.png";
 //css
-import styles from "./ScrapItem.module.css";
+import styles from "./HistoryItem.module.css";
 //component
 import ScrapBtn from "../ScrabBtn/ScrabBtn";
 
@@ -34,7 +34,7 @@ function TruncateTextContent({ text, maxLength }) {
   }
 }
 
-const ScrapItem = ({
+const HistoryItem = ({
   title,
   content,
   createAt,
@@ -44,7 +44,7 @@ const ScrapItem = ({
 }) => {
   return (
     <>
-      <div className={styles.ScrapItem}>
+      <div className={styles.HistoryItem}>
         <div className={styles.ScrapTop}>
           <TruncateTextTitle text={title} maxLength={15} />
 
@@ -63,4 +63,4 @@ const ScrapItem = ({
   );
 };
 
-export default ScrapItem;
+export default HistoryItem;
