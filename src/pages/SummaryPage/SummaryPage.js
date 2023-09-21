@@ -28,8 +28,11 @@ const SummaryPage = () => {
   //학습 언어
   const [isModalOpen1, sestIsModalOpen1] = useState(false);
   const openModal1 = () => sestIsModalOpen1(true);
-  const closeModal1 = () => sestIsModalOpen1(false);
-
+  const closeModal1 = (lanPara) => {
+    setLanguage(lanPara);
+    console.log("모달쪽 로그:", language);
+    sestIsModalOpen1(false);
+  };
   //주제
   const [isModalOpen2, sestIsModalOpen2] = useState(false);
   const openModal2 = () => sestIsModalOpen2(true);
@@ -48,6 +51,7 @@ const SummaryPage = () => {
   const [isScrappedChange, setIsScrappedChange] = useState("NO");
 
   const sendDataHandle = async () => {
+    console.log("확인버튼 로그:", language);
     closeModal();
     const formData = new FormData();
 
@@ -88,7 +92,7 @@ const SummaryPage = () => {
   useEffect(() => {
     setFile(location.state.file);
     setQuestion("예시 코드 만들어줘");
-    setLanguage("C언어");
+    
     openModal();
   }, [location.state.file]);
 
