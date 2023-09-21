@@ -11,8 +11,10 @@ import Bottom from "../../component/Bottom/Bottom";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const ListClickSummary = () => {
+  const history = useHistory();
   axios.defaults.withCredentials = true;
   const location = useLocation();
   const { content, isScrapped, id } = location.state;
@@ -97,11 +99,17 @@ const ListClickSummary = () => {
     console.log("복사 버튼이 클릭되었습니다!");
   };
 
+  const goMyPage = () => {
+    history.goBack();
+
+
+  };
+
   return (
     <>
       <header className={styles.SumTitle}>
         <div className={styles.SumLeft}>
-          <Link className={styles.BackHome} to="HomePage">
+          <Link className={styles.BackHome} onClick={goMyPage}>
             <img src={Back} alt="뒤로가기" />
           </Link>
         </div>
@@ -135,7 +143,7 @@ const ListClickSummary = () => {
                     <div>
                       <pre style={codeBlockStyle}>
                         <code style={contentStyle}>
-                          {codeBlock.replace(/```c|```/g, "")}
+                          {codeBlock.replace(/```|```/g, "")}
                         </code>
                       </pre>
                     </div>
