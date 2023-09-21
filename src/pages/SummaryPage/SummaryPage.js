@@ -52,6 +52,9 @@ const SummaryPage = () => {
   const [scrapCheck, setScrapCheck] = useState(0);
   const [isScrappedChange, setIsScrappedChange] = useState("NO");
 
+  //위치 저장
+  const [lastLocation, setLastLocation] = useState(null);
+
   const sendDataHandle = async () => {
     console.log(question);
     console.log(language);
@@ -94,6 +97,7 @@ const SummaryPage = () => {
   const location = useLocation();
   useEffect(() => {
     setFile(location.state.file);
+    setLastLocation(location.state.location);
     openModal();
   }, [location.state.file]);
 
@@ -178,7 +182,7 @@ const SummaryPage = () => {
       <header className={styles.SumTitle}>
         <div className={styles.SumLeft}>
           <div>
-            <Link type="button" to="/HomePage">
+            <Link type="button" to={lastLocation}>
               <img src={Back} alt="뒤로가기" />
             </Link>
           </div>
