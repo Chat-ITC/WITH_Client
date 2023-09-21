@@ -283,7 +283,7 @@ const MyPage = () => {
             <img className={styles.section_img} src={Scrab} alt="스크랩" />
             스크랩
           </Link>
-          <Link className={styles.section_icons} to="/RecordPage">
+          <Link className={styles.section_icons} to="/HistoryPage">
             <img
               className={styles.section_img}
               src={Recent}

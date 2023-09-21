@@ -113,7 +113,7 @@ const HistoryPage = () => {
         <Link className={styles.BackBtn} to="/MyPage">
           <img src={Back} alt="뒤로가기" />
         </Link>
-        <h1 className={styles.ScrapTitle}>스크랩</h1>
+        <h1 className={styles.ScrapTitle}>최근 본 자료</h1>
       </header>
 
       <div className={styles.historyList}>
