@@ -55,7 +55,7 @@ const Quiz = (props) => {
         //  console.log(response.data[0].title);
         //  console.log(response.data[0].content);
         //  console.log(response.data[0].answer);
-        setQuizData(response.data);
+        setQuizData(response.data.level);
 
     
       
@@ -116,7 +116,7 @@ const Quiz = (props) => {
   return (
     <>
       <header className={styles.Quiz_header}>
-        <h1 className={styles.BackTitle}>{headers}를 위한 문제</h1>
+        <h1 className={styles.BackTitle}>{quizData}를 위한 문제</h1>
       </header>
 
       <div className={styles.historyList}>
