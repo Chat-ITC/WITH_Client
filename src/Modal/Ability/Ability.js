@@ -50,6 +50,7 @@ const AbilModal = ({ isOpen, onClose }) => {
                   <img className={Abil.Abil_img} src={Grand} alt="Grand" />
                 )}
                 {ability}
+                <span></span>
               </button>
             </li>
           ))}
