@@ -130,7 +130,6 @@ const HomePage = () => {
       });
   };
 
-
   const scrapClickHandle = () => {
     setHistoryORScrap("scrap");
     historyReq()
@@ -148,10 +147,7 @@ const HomePage = () => {
           navigate("/");
         }
       });
-
-
   };
-
 
   return (
     <>
@@ -192,14 +188,13 @@ const HomePage = () => {
         </div>
         <div className={styles.ScarpBtn}>
           <button className={styles.Scrap_button} onClick={openModal}>
-            최근 본 내역
+            스크랩
           </button>
           <Scrap
             className={styles.ScrapText}
             isOpen={isModalOpen}
             close={closeModal}
           >
-
             <button
               className={styles.BtnText}
               onClick={() => {
@@ -223,7 +218,6 @@ const HomePage = () => {
             >
               최근 본 내역
             </button>
-
           </Scrap>
         </div>
       </div>
@@ -243,7 +237,7 @@ const HomePage = () => {
                 }
               >
                 {historyORScrap === "history" ? (
-                  <HistoryItem  // 여기에 똑같은 ScrapItem 추가하고 클릭 이벤트 바꾸면 될듯
+                  <HistoryItem // 여기에 똑같은 ScrapItem 추가하고 클릭 이벤트 바꾸면 될듯
                     key={index}
                     title={dataList.title} // 수정된 부분
                     content={dataList.content}
@@ -253,7 +247,7 @@ const HomePage = () => {
                     isScrapped={dataList.isScrapped}
                   />
                 ) : (
-                  <ScrapItem  // 여기에 똑같은 ScrapItem 추가하고 클릭 이벤트 바꾸면 될듯
+                  <ScrapItem // 여기에 똑같은 ScrapItem 추가하고 클릭 이벤트 바꾸면 될듯
                     key={index}
                     title={dataList.title} // 수정된 부분
                     content={dataList.content}

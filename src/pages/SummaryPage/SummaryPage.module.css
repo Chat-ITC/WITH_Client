@@ -71,7 +71,7 @@
   background-color: #fff;
   position: absolute;
   top: 210px;
-  width: 95%;
+  width: 94%;
   height: 200px;
   border: 1px solid #bababa;
   border-radius: 4px;
@@ -99,8 +99,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 9px;
-  width: 95%;
+  width: 100%;
+  padding: 8px;
 }
 
 .SelectLang {
@@ -119,7 +119,8 @@
 
 .SelectSubj {
   text-align: center;
-  width: 80px;
+  width: 70px;
+  padding: 8px;
 }
 
 .SelectSub {
@@ -163,9 +164,9 @@
 }
 
 .HomePage_Lang {
-  position: absolute;
-  top: 230px;
-  width: 90%;
+  position: relative;
+  top: 200px;
+  width: 100%;
 }
 
 .HomePage_Sub {
