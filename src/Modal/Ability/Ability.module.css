@@ -17,15 +17,11 @@
   margin-left: 50px;
 }
 
-.Abil_img {
-  font-size: 41px;
-  margin-right: 8px;
-}
-
 .HomeAbilBtn {
   font-weight: 700;
   font-size: 16px;
   height: 60px;
+  text-align: center;
 }
 
 .HomeBack {

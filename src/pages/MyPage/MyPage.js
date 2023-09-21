@@ -35,11 +35,25 @@ const MyPage = () => {
     }
   };
 
+  const handleOutsideClick2 = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      sestIsModalOpen2(false);
+    }
+  };
+
   useEffect(() => {
     document.addEventListener("mousedown", handleOutsideClick);
 
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick2);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick2);
     };
   }, []);
 
@@ -323,6 +337,7 @@ const MyPage = () => {
           isModalOpen2 ? styles.modal_open : ""
         }`}
         style={{ display: isModalOpen2 ? "block" : "none" }}
+        ref={modalRef}
       >
         <Abil isOpen={isModalOpen2} onClose={closeModal2}></Abil>
       </div>
