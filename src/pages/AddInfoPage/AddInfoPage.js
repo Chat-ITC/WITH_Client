@@ -95,8 +95,8 @@ const AddInfoPage = () => {
       const statusCode = error.response.status;
 
       if (statusCode === 401) {
-        console.alert("토큰 재발급 필요");
-        window.location.href = `${process.env.REACT_APP_SERVER_URL}/member/refreshToken`;
+        alert("토큰 재발급 필요");
+        navigate("/");
       } else if (statusCode === 404) {
         console.log("404에러");
       } else if (statusCode === 409) {
@@ -198,9 +198,8 @@ const AddInfoPage = () => {
             <label
               key={item.name}
               htmlFor={item.name}
-              className={`${styles.radioItem} ${
-                selectedSkill === item.name ? styles.selected : ""
-              }`}
+              className={`${styles.radioItem} ${selectedSkill === item.name ? styles.selected : ""
+                }`}
             >
               <div className={item.TouchEvent}>
                 <input
@@ -211,23 +210,22 @@ const AddInfoPage = () => {
                   checked={selectedSkill === item.name}
                   onChange={() => handleSkillSelect(item.name)}
                 />
-                <div className={styles.itemContainer1}>
-                  <div
-                    className={`${styles.itemContainer} ${styles.withImage}`}
-                    style={{
-                      backgroundImage: `url(${item.image})`,
-                      backgroundRepeat: "no-repeat",
-                      backgroundPosition: "center",
-                      backgroundSize: "cover",
-                    }}
-                  ></div>
-                  <span>{item.name}</span>
-                </div>
+                <div
+                  className={`${styles.itemContainer1} ${selectedSkill === item.name ? styles.selectedButton : ""
+                    }`}
+                  style={{
+                    backgroundImage: `url(${item.image})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                  }}
+                ></div>
+                <span>{item.name}</span>
               </div>
             </label>
           ))}
         </div>
-      </section>
+      </section >
       <section className={styles.language_section}>
         <p className={styles.language_title}>배우고 싶은 언어를 선택하세요</p>
         <div className={`${styles.grid_3x5}`}>
@@ -235,9 +233,8 @@ const AddInfoPage = () => {
             <label
               key={language.name}
               htmlFor={language.name}
-              className={`${styles.button} ${
-                selectedLanguage === language.name ? styles.selected : ""
-              }`}
+              className={`${styles.button} ${selectedLanguage === language.name ? styles.selected : ""
+                }`}
             >
               <input
                 type="radio"
@@ -248,9 +245,9 @@ const AddInfoPage = () => {
                 onChange={() => handleLanguageSelect(language.name)}
                 style={{ display: "none" }}
               />
-              {/* 이미지 원형으로 만들기 */}
               <div
-                className={`${styles.itemContainer3} ${styles.itemContainer4}`}
+                className={`${styles.itemContainer3} ${styles.itemContainer4} ${selectedLanguage === language.name ? styles.selectedButton : ""
+                  }`}
               >
                 <img
                   className={styles.RadioImg}
@@ -273,13 +270,15 @@ const AddInfoPage = () => {
       </button>
 
       {/* 선택된 실력과 언어 표시 */}
-      {selectedSkill && selectedLanguage && (
-        <>
-          선택된 실력: {selectedSkill}
-          <br />
-          선택된 언어: {selectedLanguage}
-        </>
-      )}
+      {
+        selectedSkill && selectedLanguage && (
+          <>
+            선택된 실력: {selectedSkill}
+            <br />
+            선택된 언어: {selectedLanguage}
+          </>
+        )
+      }
     </>
   );
 };
