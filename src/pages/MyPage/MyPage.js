@@ -19,24 +19,29 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  BmodalRef1rowserRouter as Router,
+  Route,
+  Link,
+} from "react-router-dom";
 import { useRef } from "react";
 
 const MyPage = () => {
   const navigate = useNavigate();
-  const modalRef = useRef(null);
+  const modalRef1 = useRef(null);
+  const modalRef2 = useRef(null);
 
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
 
   const handleOutsideClick = (event) => {
-    if (modalRef.current && !modalRef.current.contains(event.target)) {
+    if (modalRef1.current && !modalRef1.current.contains(event.target)) {
       sestIsModalOpen(false);
     }
   };
 
   const handleOutsideClick2 = (event) => {
-    if (modalRef.current && !modalRef.current.contains(event.target)) {
+    if (modalRef2.current && !modalRef2.current.contains(event.target)) {
       sestIsModalOpen2(false);
     }
   };
@@ -338,7 +343,7 @@ const MyPage = () => {
       <div
         className={styles.MyPage_Lang}
         style={{ display: isModalOpen ? "block" : "none" }}
-        ref={modalRef}
+        ref={modalRef1}
       >
         <LangModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
@@ -347,7 +352,7 @@ const MyPage = () => {
           isModalOpen2 ? styles.modal_open : ""
         }`}
         style={{ display: isModalOpen2 ? "block" : "none" }}
-        ref={modalRef}
+        ref={modalRef2}
       >
         <Abil isOpen={isModalOpen2} onClose={closeModal2}></Abil>
       </div>
