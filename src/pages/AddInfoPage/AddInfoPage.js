@@ -13,7 +13,7 @@ import Java from "../../assets/AddInfoIcons/java.png";
 import C from "../../assets/AddInfoIcons/C.png";
 import Javascript from "../../assets/AddInfoIcons/JavaScript.png";
 import Ruby from "../../assets/AddInfoIcons/Ruby.png";
-import Django from "../../assets/icons/Djang.png";
+import Django from "../../assets/icons/Django.png";
 import Go from "../../assets/AddInfoIcons/Go.png";
 import Swift from "../../assets/AddInfoIcons/swift.png";
 import R from "../../assets/AddInfoIcons/R.png";
