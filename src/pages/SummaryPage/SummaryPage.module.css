@@ -41,6 +41,7 @@
   border-radius: 6px;
   margin: 0 auto;
   white-space: pre-line;
+  padding: 10px;
   overflow-y: auto;
   position: relative;
 }
@@ -70,7 +71,7 @@
   background-color: #fff;
   position: absolute;
   top: 210px;
-  width: 100%;
+  width: 94%;
   height: 200px;
   border: 1px solid #bababa;
   border-radius: 4px;
@@ -163,18 +164,13 @@
 }
 
 .HomePage_Lang {
-  position: absolute;
-  top: 150px;
+  position: relative;
+  top: 200px;
   width: 100%;
-  background-color: #fff;
-  overflow: hidden;
-  z-index: -1;
 }
 
 .HomePage_Sub {
   position: absolute;
-  top: 150px;
-  width: 100%;
-  background-color: #fff;
-  overflow: hidden;
+  top: 230px;
+  width: 90%;
 }
