@@ -1,11 +1,13 @@
 .HomeSub {
   width: 100%;
   height: 450px;
+  border: 1px solid #bababa;
   background-color: #fff;
   margin: 0 auto;
-  overflow: hidden;
-  border: 1px solid #bababa;
   border-radius: 6px;
+  padding: 10px 0;
+  padding-bottom: 10px;
+  overflow: hidden;
   overflow-y: auto;
 }
 
@@ -15,7 +17,6 @@
   text-align: center;
   padding: 15px auto;
   font-size: 24px;
-  padding-left: 65px;
   padding-top: 10px;
 }
 .LangList {
@@ -35,22 +36,9 @@
   color: #bababa;
 }
 
-.HomeBack {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .HomeLangBtn {
   width: 282px;
   height: 40px;
   font-weight: 700;
   padding: 5px 15px;
-}
-
-.HomeBtn {
-  width: 60px;
-  height: 45px;
-  margin-right: 10px;
-  font-weight: 700;
 }
