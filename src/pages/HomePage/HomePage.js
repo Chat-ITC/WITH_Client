@@ -125,10 +125,24 @@ const HomePage = () => {
             isOpen={isModalOpen}
             close={closeModal}
           >
-            <button className={styles.BtnText} onClick={closeModal}>
+            <button
+              className={styles.BtnText}
+              onClick={() => {
+                closeModal();
+                document.querySelector(`.${styles.Scrap_button}`).innerText =
+                  document.querySelector(`.${styles.BtnText}`).innerText;
+              }}
+            >
               스크랩
             </button>
-            <button className={styles.BtnText} onClick={closeModal}>
+            <button
+              className={styles.BtnText}
+              onClick={() => {
+                closeModal();
+                document.querySelector(`.${styles.Scrap_button}`).innerText =
+                  document.querySelectorAll(`.${styles.BtnText}`)[1].innerText;
+              }}
+            >
               최근 본 내역
             </button>
           </Scrap>

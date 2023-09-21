@@ -20,7 +20,7 @@
 }
 
 .Scrap_button {
-  padding-left: 17px;
+  padding-left: 3px;
 }
 
 .Scrap_button:after {
@@ -84,7 +84,7 @@
 }
 
 .BtnText {
-  width: 80px;
+  width: 100px;
   height: 25px;
   z-index: 2;
   border: 1px solid #bababa;
@@ -97,7 +97,7 @@
   position: absolute;
   top: 270px;
   right: 30px;
-  width: 80px;
+  width: 100px;
   height: 25px;
   text-align: center;
   border: 1px solid #bababa;
@@ -115,6 +115,7 @@
 .Scrap {
   position: absolute;
   top: 200px;
+  display: none;
 }
 /* .Scrab {
   display: flex;
