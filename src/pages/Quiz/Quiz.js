@@ -17,7 +17,7 @@ const Quiz = (props) => {
   const navigate = useNavigate();
 
   const [quizData, setQuizData] = useState([]);
-
+  const [headers, setHeaders] = useState({});
   const roadQuiz = async () => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
@@ -51,6 +51,9 @@ const Quiz = (props) => {
          console.log(response.data[0].content);
          console.log(response.data[0].answer);
         setQuizData(response.data);
+        const responseHeaders = response.headers;
+        setHeaders(responseHeaders);
+        console.log(responseHeaders.level);
       })
       .catch((error) => {
         const statusCode = error.response.status;
@@ -75,6 +78,7 @@ const Quiz = (props) => {
         content: contentProp,
         isScrapped: isScrappedProp,
         id: idProp,
+
       },
     });
   };
@@ -115,7 +119,7 @@ const Quiz = (props) => {
   return (
     <>
       <header className={styles.Quiz_header}>
-        <h1 className={styles.BackTitle}>{quizTarget}를 위한 문제</h1>
+        <h1 className={styles.BackTitle}>{headers.level}를 위한 문제</h1>
       </header>
 
       <div className={styles.historyList}>

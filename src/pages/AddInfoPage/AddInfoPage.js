@@ -268,17 +268,6 @@ const AddInfoPage = () => {
       >
         다음
       </button>
-
-      {/* 선택된 실력과 언어 표시 */}
-      {
-        selectedSkill && selectedLanguage && (
-          <>
-            선택된 실력: {selectedSkill}
-            <br />
-            선택된 언어: {selectedLanguage}
-          </>
-        )
-      }
     </>
   );
 };
