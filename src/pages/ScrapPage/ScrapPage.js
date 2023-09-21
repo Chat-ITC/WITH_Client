@@ -19,7 +19,7 @@ const ScrapPage = () => {
   const navigate = useNavigate();
 
   const [historyData, setHistoryData] = useState([]);
-  
+
   const historyReq = async () => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
@@ -128,32 +128,20 @@ const ScrapPage = () => {
                   )
                 }
               >
-                {historyORScrap === "history" ? (
-                  <HistoryItem  
-                    key={index}
-                    title={dataList.title} // 수정된 부분
-                    content={dataList.content}
-                    createAt={dataList.createAt}
-                    fav_language={dataList.fav_language}
-                    id={dataList.id}
-                    isScrapped={dataList.isScrapped}
-                  />
-                ) : (
-                  <ScrapItem  
-                    key={index}
-                    title={dataList.title} // 수정된 부분
-                    content={dataList.content}
-                    createAt={dataList.createAt}
-                    fav_language={dataList.fav_language}
-                    id={dataList.id}
-                    isScrapped={dataList.isScrapped}
-                  />
-                )}
+                <ScrapItem
+                  key={index}
+                  title={dataList.title} // 수정된 부분
+                  content={dataList.content}
+                  createAt={dataList.createAt}
+                  fav_language={dataList.fav_language}
+                  id={dataList.id}
+                  isScrapped={dataList.isScrapped}
+                />
               </li>
             ))}
         </ul>
       </div>
-      
+
       <Bottom />
     </>
   );
