@@ -17,6 +17,7 @@
   overflow-y: auto;
   z-index: -1;
   margin-bottom: 40%;
+  background-color: #edeaea3a;
 }
 
 .Scrap_button {
@@ -51,6 +52,7 @@
   height: 134px;
   border: 1px solid #bababa;
   border-radius: 20px;
+  background-color: #fff;
 }
 
 .Camera_Btn {
@@ -117,11 +119,11 @@
 .MainTop {
   width: 100%;
   position: fixed;
-  height: 253px;
+  height: 223px;
   top: 0;
   left: 0;
   right: 0;
-  background-color: #fff;
+  background-color: #edeaea3a;
 }
 
 .Scrap {
