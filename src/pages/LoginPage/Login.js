@@ -17,7 +17,7 @@ import { NAVER_LINK, KAKAO_LINK } from "../../config/config";
 //css
 import styles from "./Login.module.css";
 //png
-import logo from "../../assets/logo/CoFe_logo.png";
+import WITH1 from "../../assets/logo/WITH1.png";
 import kakao from "../../assets/loginButtons/kakao-button.png";
 import naver from "../../assets/loginButtons/naver-button.png";
 //library
@@ -36,10 +36,7 @@ const Login = () => {
   return (
     <>
       <header className={styles.Login_Header}>
-        <img className={styles.Login_img} src={logo} alt="로고" />
-        <h1 className={styles.Login_title}>
-          내 옆에 <br /> 코딩 친구
-        </h1>
+        <img className={styles.Login_img} src={WITH1} alt="로고" />
       </header>
       <footer className={styles.Login_section}>
         <span className={styles.Login_desc}>

@@ -1,17 +1,15 @@
 .Login_Header {
   position: relative;
   width: 100%;
-  top: 160px;
+  top: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 50px;
 }
 
 .Login_img {
-  width: 65px;
-  height: 65px;
-  margin-right: 18px;
+  width: 240px;
+  height: 150px;
 }
 
 .Login_section {
