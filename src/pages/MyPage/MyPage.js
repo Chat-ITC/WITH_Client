@@ -20,12 +20,28 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { useRef } from "react";
 
 const MyPage = () => {
   const navigate = useNavigate();
+  const modalRef = useRef(null);
 
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
+
+  const handleOutsideClick = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      sestIsModalOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
   //선호 언어 변경
   const closeModal = (selectedLanguage) => {
@@ -263,6 +279,7 @@ const MyPage = () => {
       <div
         className={styles.MyPage_Lang}
         style={{ display: isModalOpen ? "block" : "none" }}
+        ref={modalRef}
       >
         <LangModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
