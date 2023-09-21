@@ -296,13 +296,6 @@ const MyPage = () => {
           </button>
         </div>
       </section>
-      <div
-        className={styles.MyPage_Lang}
-        style={{ display: isModalOpen ? "block" : "none" }}
-        ref={modalRef}
-      >
-        <LangModal isOpen={isModalOpen} onClose={closeModal} />
-      </div>
 
       <aside className={styles.bottom}>
         <ul className={styles.info_lists}>
@@ -342,6 +335,13 @@ const MyPage = () => {
           </li>
         </ul>
       </aside>
+      <div
+        className={styles.MyPage_Lang}
+        style={{ display: isModalOpen ? "block" : "none" }}
+        ref={modalRef}
+      >
+        <LangModal isOpen={isModalOpen} onClose={closeModal} />
+      </div>
       <div
         className={`${styles.MyPage_Abil} ${
           isModalOpen2 ? styles.modal_open : ""
