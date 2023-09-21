@@ -57,15 +57,15 @@ const SummaryPage = () => {
   const openModal2 = () => sestIsModalOpen2(true);
   const closeModal2 = (quePara) => {
     setQuestion(sum(quePara));
-    setPrintQuestion(quePara)
-    console.log(quePara)
-    console.log(question)
-    console.log(printQuestion)
+    setPrintQuestion(quePara);
+    console.log(quePara);
+    console.log(question);
+    console.log(printQuestion);
     sestIsModalOpen2(false);
   };
 
   //주제와 언어
-  const [printQuestion, setPrintQuestion] = useState("상관없음")
+  const [printQuestion, setPrintQuestion] = useState("상관없음");
   const [question, setQuestion] = useState("상관없음");
   const [language, setLanguage] = useState("없음");
   const [file, setFile] = useState(null);
@@ -94,7 +94,7 @@ const SummaryPage = () => {
     console.log("language: ", language);
 
     const accessToken = localStorage.getItem("accessToken");
-    console.log("토근 확인: ", accessToken);
+    console.log("토큰 확인: ", accessToken);
 
     await axios
       .post(`${process.env.REACT_APP_SERVER_URL}/ai/summary`, formData, {
@@ -188,19 +188,18 @@ const SummaryPage = () => {
       console.log("요청실패");
     }
   };
- 
+
   //복사버튼
   const copyHandle = () => {
-    navigator.clipboard.writeText(codeBlock)
+    navigator.clipboard
+      .writeText(codeBlock)
       .then(() => {
         alert("클립보드에 복사되었습니다.");
       })
       .catch((error) => {
         console.error("클립보드 복사 실패:", error);
       });
-    }
-
-
+  };
 
   return (
     <>

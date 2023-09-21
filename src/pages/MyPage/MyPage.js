@@ -25,6 +25,7 @@ import { useRef } from "react";
 const MyPage = () => {
   const navigate = useNavigate();
   const modalRef = useRef(null);
+  const modalRef2 = useRef(null);
 
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
@@ -36,7 +37,7 @@ const MyPage = () => {
   };
 
   const handleOutsideClick2 = (event) => {
-    if (modalRef.current && !modalRef.current.contains(event.target)) {
+    if (modalRef2.current && !modalRef2.current.contains(event.target)) {
       sestIsModalOpen2(false);
     }
   };
@@ -296,13 +297,6 @@ const MyPage = () => {
           </button>
         </div>
       </section>
-      <div
-        className={styles.MyPage_Lang}
-        style={{ display: isModalOpen ? "block" : "none" }}
-        ref={modalRef}
-      >
-        <LangModal isOpen={isModalOpen} onClose={closeModal} />
-      </div>
 
       <aside className={styles.bottom}>
         <ul className={styles.info_lists}>
@@ -343,11 +337,18 @@ const MyPage = () => {
         </ul>
       </aside>
       <div
+        className={styles.MyPage_Lang}
+        style={{ display: isModalOpen ? "block" : "none" }}
+        ref={modalRef}
+      >
+        <LangModal isOpen={isModalOpen} onClose={closeModal} />
+      </div>
+      <div
         className={`${styles.MyPage_Abil} ${
           isModalOpen2 ? styles.modal_open : ""
         }`}
         style={{ display: isModalOpen2 ? "block" : "none" }}
-        ref={modalRef}
+        ref={modalRef2}
       >
         <Abil isOpen={isModalOpen2} onClose={closeModal2}></Abil>
       </div>
