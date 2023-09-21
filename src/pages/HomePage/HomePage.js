@@ -116,37 +116,7 @@ const HomePage = () => {
             내 옆에 <br /> 코딩친구
           </h1>
         </header>
-        <div className={styles.ScarpBtn}>
-          <button className={styles.Scrap_button} onClick={openModal}>
-            스크랩
-          </button>
-          <Scrap
-            className={styles.ScrapText}
-            isOpen={isModalOpen}
-            close={closeModal}
-          >
-            <button
-              className={styles.BtnText}
-              onClick={() => {
-                closeModal();
-                document.querySelector(`.${styles.Scrap_button}`).innerText =
-                  document.querySelector(`.${styles.BtnText}`).innerText;
-              }}
-            >
-              스크랩
-            </button>
-            <button
-              className={styles.BtnText}
-              onClick={() => {
-                closeModal();
-                document.querySelector(`.${styles.Scrap_button}`).innerText =
-                  document.querySelectorAll(`.${styles.BtnText}`)[1].innerText;
-              }}
-            >
-              최근 본 내역
-            </button>
-          </Scrap>
-        </div>
+
         <div className={styles.camera_border}>
           <div className={styles.camera}>
             <input
@@ -176,6 +146,37 @@ const HomePage = () => {
         </div>
 
         <hr className={styles.Homehr} />
+      </div>
+      <div className={styles.ScarpBtn}>
+        <button className={styles.Scrap_button} onClick={openModal}>
+          스크랩
+        </button>
+        <Scrap
+          className={styles.ScrapText}
+          isOpen={isModalOpen}
+          close={closeModal}
+        >
+          <button
+            className={styles.BtnText}
+            onClick={() => {
+              closeModal();
+              document.querySelector(`.${styles.Scrap_button}`).innerText =
+                document.querySelector(`.${styles.BtnText}`).innerText;
+            }}
+          >
+            스크랩
+          </button>
+          <button
+            className={styles.BtnText}
+            onClick={() => {
+              closeModal();
+              document.querySelector(`.${styles.Scrap_button}`).innerText =
+                document.querySelectorAll(`.${styles.BtnText}`)[1].innerText;
+            }}
+          >
+            최근 본 내역
+          </button>
+        </Scrap>
       </div>
 
       <div className={styles.historyList}>
