@@ -4,7 +4,7 @@ import axios from "axios";
 import FillStar from "../../assets/AddInfoIcons/FillStar.png";
 import Star from "../../assets/icons/clip.png";
 //css
-import styles from "./HistoryItem.module.css";
+
 //component
 import ScrapBtn from "../ScrabBtn/ScrabBtn";
 
