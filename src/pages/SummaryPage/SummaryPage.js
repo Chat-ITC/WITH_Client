@@ -39,6 +39,8 @@ const SummaryPage = () => {
     setQuestion(quePara);
     sestIsModalOpen2(false);
   };
+
+  
   //주제와 언어
   const [question, setQuestion] = useState(null);
   const [language, setLanguage] = useState(null);
@@ -237,7 +239,7 @@ const SummaryPage = () => {
               type="button"
               onClick={openModal1}
             >
-              C언어
+              {language}
             </button>
           </div>
           <div className={styles.SelectPart}>
@@ -251,7 +253,7 @@ const SummaryPage = () => {
               type="button"
               onClick={openModal2}
             >
-              선택없음
+              {question}
             </button>
           </div>
           <div className={styles.SelectBottom}>
