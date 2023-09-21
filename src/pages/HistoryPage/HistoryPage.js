@@ -3,7 +3,7 @@ import styles from "./HistoryPage.module.css";
 //component
 import Bottom from "../../component/Bottom/Bottom";
 import HistoryItem from "../../component/HistoryItem/HistoryItem";
-import ScrapItem from "../../component/ScrapItem/ScrapItem";
+
 //png
 import Back from "../../assets/AddInfoIcons/back.png";
 
@@ -113,7 +113,7 @@ const HistoryPage = () => {
         <Link className={styles.BackBtn} to="/MyPage">
           <img src={Back} alt="뒤로가기" />
         </Link>
-        <h1 className={styles.ScrapTitle}>스크랩</h1>
+        <h1 className={styles.ScrapTitle}>최근 본 자료</h1>
       </header>
 
       <div className={styles.historyList}>

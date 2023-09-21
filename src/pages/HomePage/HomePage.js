@@ -246,6 +246,7 @@ const HomePage = () => {
           </Scrap>
         </div>
       </div>
+      <div className={styles.emptyPart}></div>
 
       <div className={styles.historyList}>
         <ul>

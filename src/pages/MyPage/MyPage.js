@@ -3,6 +3,7 @@ import styles from "./MyPage.module.css";
 import SwitchOff from "../../assets/icons/switchOff.svg";
 import SwitchOn from "../../assets/icons/switch.png";
 import Scrab from "../../assets/icons/clip.png";
+import FillStar from "../../assets/AddInfoIcons/FillStar.png"
 import Recent from "../../assets/icons/recent.png";
 import C from "../../assets/icons/C.png";
 import Tier from "../../assets/icons/tier.png";
@@ -280,10 +281,10 @@ const MyPage = () => {
       <section className={styles.mid}>
         <div className={styles.mid_items}>
           <Link className={styles.section_icons} to="/ScrapPage">
-            <img className={styles.section_img} src={Scrab} alt="스크랩" />
+            <img className={styles.section_img} src={FillStar} alt="스크랩" />
             스크랩
           </Link>
-          <Link className={styles.section_icons} to="/RecordPage">
+          <Link className={styles.section_icons} to="/HistoryPage">
             <img
               className={styles.section_img}
               src={Recent}
