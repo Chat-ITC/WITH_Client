@@ -56,9 +56,11 @@ const Quiz = (props) => {
         setQuizData(response.data);
 
         const responseHeaders = response.headers;
+        console.log(responseHeaders);
 
         // 원하는 헤더 (예: level) 추출
         const levelHeader = responseHeaders['level'];
+        console.log(levelHeader);
 
         // levelHeader를 UTF-8로 디코딩합니다.
         if (levelHeader) {
