@@ -19,11 +19,26 @@ import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const modalRef = useRef(null);
 
   //스크랩
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  const handleOutsideClick = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      setIsModalOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
   //history
   const [historyData, setHistoryData] = useState([]);
@@ -94,7 +109,7 @@ const HomePage = () => {
     if (file) {
       console.log("선택한 파일(홈페이지):", file);
       setSelectedPhoto(file);
-      navigate("/SummaryPage", { state: { file: file , location: location} });
+      navigate("/SummaryPage", { state: { file: file, location: location } });
     }
   };
 
@@ -198,6 +213,7 @@ const HomePage = () => {
             className={styles.ScrapText}
             isOpen={isModalOpen}
             close={closeModal}
+            ref={modalRef}
           >
             <button
               className={styles.BtnText}
