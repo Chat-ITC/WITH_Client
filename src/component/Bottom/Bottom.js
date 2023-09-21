@@ -6,7 +6,7 @@ import Quiz from "../../assets/icons/quiz.png";
 import Logo from "../../assets/AddInfoIcons/NotLofo.png";
 import MyPage from "../../assets/icons/mypage.png";
 
-import SelectHome from "../../assets/logo/"
+import SelectHome from "../../assets/logo//SelectHome.png";
 
 import { useState } from "react";
 
