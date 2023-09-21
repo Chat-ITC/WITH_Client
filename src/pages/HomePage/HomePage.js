@@ -3,6 +3,7 @@ import styles from "./HomePage.module.css";
 //png
 import Logo from "../../assets/logo/CoFe_logo.png";
 import Camera from "../../assets/etc/addimage.png";
+import Down from "../../assets/icons/Down.png";
 //component
 import HistoryItem from "../../component/HistoryItem/HistoryItem";
 import Bottom from "../../component/Bottom/Bottom";
@@ -188,7 +189,8 @@ const HomePage = () => {
         </div>
         <div className={styles.ScarpBtn}>
           <button className={styles.Scrap_button} onClick={openModal}>
-            스크랩
+            <span>스크랩</span>
+            <img className={styles.DownImg} src={Down} alt="밑에 화살표" />
           </button>
           <Scrap
             className={styles.ScrapText}
