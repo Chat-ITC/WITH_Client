@@ -47,24 +47,17 @@ const Quiz = (props) => {
     roadQuiz()
       .then((response) => {
         //map으로 배열 자체 넘기기
-        //  console.log(response);
-        //  console.log(response.data);
-        //  console.log(response.data[0]);
+         console.log(response);
+         console.log(response.data);
+         console.log(response.data.level);
+         console.log(response.data.quiz);
+         console.log(response.data.quiz.title);
         //  console.log(response.data[0].title);
         //  console.log(response.data[0].content);
         //  console.log(response.data[0].answer);
         setQuizData(response.data);
 
-        const responseHeaders = response.headers;
-        console.log(responseHeaders);
-
-        // 원하는 헤더 (예: level) 추출
-        const levelHeader = responseHeaders['level'];
-        console.log(levelHeader);
-        const decodedString = decodeURI(levelHeader);
-
-        setHeaders(decodedString);
-        console.log(decodedString);
+    
       
         
       })
