@@ -105,6 +105,7 @@ const ListClickSummary = () => {
 
   const goMyPage = () => {
     navigate(-1);
+    window.location.reload();
   };
 
   return (
