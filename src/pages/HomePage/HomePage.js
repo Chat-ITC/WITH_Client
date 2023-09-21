@@ -191,7 +191,7 @@ const HomePage = () => {
         <div className={styles.ScarpBtn}>
           <button className={styles.Scrap_button} onClick={openModal}>
             <span>스크랩</span>
-            <img className={styles.DownImg} src={Down} alt="밑에 화살표" />
+            <img className={styles.DownImg} src={Down} alt="아래 방향" />
           </button>
           <Scrap
             className={styles.ScrapText}
@@ -207,7 +207,7 @@ const HomePage = () => {
                   document.querySelector(`.${styles.BtnText}`).innerText;
               }}
             >
-              스크랩
+              <span className={styles.Down1}>스크랩</span>
             </button>
 
             <button
@@ -219,7 +219,7 @@ const HomePage = () => {
                   document.querySelectorAll(`.${styles.BtnText}`)[1].innerText;
               }}
             >
-              최근 본 내역
+              <span className={styles.Down1}>최근 본 내역</span>
             </button>
           </Scrap>
         </div>
