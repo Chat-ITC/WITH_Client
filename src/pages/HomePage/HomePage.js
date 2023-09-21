@@ -1,7 +1,7 @@
 //css
 import styles from "./HomePage.module.css";
 //png
-import Logo from "../../assets/logo/CoFe_logo.png";
+import Logo from "../../assets/logo/";
 import Camera from "../../assets/etc/addimage.png";
 import Down from "../../assets/icons/Down.png";
 //component
