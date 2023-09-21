@@ -96,6 +96,10 @@
   font-weight: 700;
 }
 
+.BtnText:last-child {
+  border-top: none;
+}
+
 .ScarpBtn {
   position: absolute;
   top: 224px;
@@ -103,7 +107,8 @@
   width: 130px;
   height: 30px;
   text-align: center;
-  border: 1px solid #bababa;
+  border-left: 1px solid #bababa;
+  border-right: 1px solid #bababa;
 }
 
 .MainTop {
