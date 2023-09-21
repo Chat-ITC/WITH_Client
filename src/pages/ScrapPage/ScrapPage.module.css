@@ -15,6 +15,19 @@
   right: 0;
 }
 
+.historyList {
+  position: fixed;
+  top: 252px;
+  width: 100%;
+  margin: 0 auto;
+  max-height: 550px;
+  height: 80vh;
+  overflow-y: auto;
+  z-index: -1;
+  margin-bottom: 40%;
+  background-color: #edeaea3a;
+}
+
 .BackBtn {
   position: absolute;
   top: 20px;
