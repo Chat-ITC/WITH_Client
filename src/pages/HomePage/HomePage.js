@@ -1,7 +1,7 @@
 //css
 import styles from "./HomePage.module.css";
 //png
-import Logo from "../../assets/logo/";
+import Logo from "../../assets/logo/Logo.png";
 import Camera from "../../assets/etc/addimage.png";
 import Down from "../../assets/icons/Down.png";
 //component
