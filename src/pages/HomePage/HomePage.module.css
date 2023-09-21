@@ -9,14 +9,12 @@
 
 .historyList {
   position: fixed;
-  top: 280px;
+  top: 252px;
   width: 100%;
   margin: 0 auto;
   max-height: 550px;
   height: 80vh;
   overflow-y: auto;
-  border: 1px solid #bababa;
-  border-radius: 6px;
   z-index: -1;
   margin-bottom: 40%;
 }
