@@ -36,23 +36,23 @@ const Login = () => {
   return (
     <>
       <header className={styles.Login_Header}>
-        <div className={styles.Login_Page}>
-          <img className={styles.Login_img} src={logo} alt="로고" />
-          <h1 className={styles.Login_title}>
-            내 옆에 <br /> 코딩 친구
-          </h1>
-        </div>
+        <img className={styles.Login_img} src={logo} alt="로고" />
+        <h1 className={styles.Login_title}>
+          내 옆에 <br /> 코딩 친구
+        </h1>
       </header>
       <footer className={styles.Login_section}>
-          <span className={styles.Login_desc}>SNS 계정으로 간편 가입하기</span>
-          <div className={styles.Login_buttons}>
-            <button className={styles.Login_button} onClick={kakaoLoginHandler}>
-              <img src={kakao} alt="카카오 로그인 버튼" />
-            </button>
-            <button className={styles.Login_button} onClick={naverLoginHandler}>
-              <img src={naver} alt="네이버 로그인 버튼" />
-            </button>
-          </div>
+        <span className={styles.Login_desc}>
+          SNS 계정으로 간편하게 시작하기
+        </span>
+        <div className={styles.Login_buttons}>
+          <button className={styles.Login_button} onClick={kakaoLoginHandler}>
+            <img src={kakao} alt="카카오 로그인 버튼" />
+          </button>
+          <button className={styles.Login_button} onClick={naverLoginHandler}>
+            <img src={naver} alt="네이버 로그인 버튼" />
+          </button>
+        </div>
       </footer>
     </>
   );
