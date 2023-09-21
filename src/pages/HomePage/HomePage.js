@@ -166,7 +166,7 @@ const HomePage = () => {
             <input
               type="file"
               accept="image/*"
-              capture="camera"
+              capture="camera, environment"
               style={{ display: "none" }} // 요소를 화면에 표시하지 않음
               ref={fileInputRef} // ref를 사용하여 요소 참조
               onChange={handleFileChange} // 파일 선택 시 이벤트 핸들러 호출
