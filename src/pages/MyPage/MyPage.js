@@ -57,6 +57,8 @@ const MyPage = () => {
     };
   }, []);
 
+  const inquiryURL = 'https://open.kakao.com/o/sOJwcqIf';
+
   //선호 언어 변경
   const closeModal = (selectedLanguage) => {
     sestIsModalOpen(false);
@@ -254,6 +256,11 @@ const MyPage = () => {
       });
   };
 
+  const inquiryButton = () => {
+    
+    window.location.href = inquiryURL;
+  };
+
   return (
     <Fragment>
       <header className={styles.main_header}>
@@ -311,12 +318,12 @@ const MyPage = () => {
             </button>
           </li>
           <li className={styles.info_list}>
-            <a href="/" className={styles.info_link}>
+            <button type="button" onClick={inquiryButton} className={styles.info_link}>
               <div className={styles.info_item}>
                 <img className={styles.info_img} src={Question} alt="" />
                 <span className={styles.info_desc}>1 : 1 문의하기</span>
               </div>
-            </a>
+            </button>
           </li>
           <li className={styles.info_list}>
             <button
