@@ -61,7 +61,7 @@ const Quiz = (props) => {
         // 원하는 헤더 (예: level) 추출
         const levelHeader = responseHeaders['level'];
         console.log(levelHeader);
-        const decodedString = decodeURIComponent(levelHeader);
+        const decodedString = decodeURI(levelHeader);
 
         setHeaders(decodedString);
         console.log(decodedString);
