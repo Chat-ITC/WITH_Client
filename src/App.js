@@ -6,6 +6,7 @@ import "../src/styles/screen/Reset.module.css";
 // global style
 import GlobalStyle from "./styles/GlobalStyle";
 
+import ScrapItem from "./component/ScrapItem/ScrapItem";
 //pages
 import Login from "./pages/LoginPage/Login";
 import MyPage from "./pages/MyPage/MyPage";
@@ -52,6 +53,7 @@ function App() {
           <Route path="/Scrap" element={<Scrap />} />
           <Route path="/ScrapBtn" element={<ScrapBtn />} />
           <Route path="/SumPage" element={<SumPage />} />
+          <Route path="/ScrapItem" element={<ScrapItem />} />
           <Route path="/QuizCom" element={<QuizCom />} />
           <Route path="/HistoryItem" element={<HistoryItem />} />
           <Route exact path="/kakao/callback" element={<KakaoRedirection />} />

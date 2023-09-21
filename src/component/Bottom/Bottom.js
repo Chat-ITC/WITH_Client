@@ -6,11 +6,17 @@ import Quiz from "../../assets/icons/quiz.png";
 import Logo from "../../assets/AddInfoIcons/NotLofo.png";
 import MyPage from "../../assets/icons/mypage.png";
 
-import SelectHome from "../../assets/logo//SelectHome.png";
-
 import { useState } from "react";
 
 const Bottom = () => {
+  ////수정 코드
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
+  /////
+
   const [activeButton, setActiveButton] = useState(null);
   const handleButtonClick = (buttonId) => {
     setActiveButton(buttonId);
@@ -27,12 +33,7 @@ const Bottom = () => {
             >
               <img
                 onClick={() => handleButtonClick(1)}
-                style={{
-                  filter:
-                    activeButton === 1
-                      ? "opacity(1) drop-shadow(0 0 0 black)"
-                      : "#bababa",
-                }}
+                style={{ filter: isClicked ? "grayscale(100%)" : "none" }}
                 className={styles.bottom_img}
                 src={Quiz}
                 alt="퀴즈"
