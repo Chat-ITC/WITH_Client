@@ -77,6 +77,7 @@ const AddInfoPage = () => {
       isScrapped: "NO",
     };
     sendJSONDataToSpringBoot(addUserInfo);
+    alert("회원가입 완료! 다시 로그인 해주세요.")
 
     navigate("/");
   };

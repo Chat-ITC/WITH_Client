@@ -109,7 +109,7 @@ const HomePage = () => {
     });
   };
 
-  const [historyORScrap, setHistoryORScrap] = useState("history");
+  const [historyORScrap, setHistoryORScrap] = useState("scrap");
 
   const historyClickHandle = () => {
     setHistoryORScrap("history");
