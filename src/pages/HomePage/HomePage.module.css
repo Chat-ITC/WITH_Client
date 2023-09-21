@@ -109,6 +109,11 @@
   text-align: center;
 }
 
+.DownImg {
+  width: 15px;
+  height: 15px;
+}
+
 .MainTop {
   width: 100%;
   position: fixed;
