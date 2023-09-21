@@ -6,20 +6,20 @@ import React, { useState } from "react";
 const LangModal = ({ isOpen, onClose }) => {
   const languages = [
     "상관없음",
-    "C++",
-    "Python",
-    "Java",
     "C",
-    "Kotlin",
+    "C++",
     "Dart",
-    "JavaScript",
-    "Ruby",
-    "Spring-Boot",
-    "Go",
-    "swift",
-    "SQL",
-    "R",
     "Django",
+    "Go",
+    "Java",
+    "JavaScript",
+    "Kotlin",
+    "Python",
+    "Ruby",
+    "R",
+    "Spring-Boot",
+    "SQL",
+    "swift",
   ];
 
   const [selectedLanguage, setSelectedLanguage] = useState(null);
