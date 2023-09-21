@@ -4,7 +4,7 @@
   border: 1px solid #bababa;
   border-radius: 6px;
   padding: 13px 8px;
-  margin: 80px auto;
+  margin: 8px auto;
   background-color: #fff;
   top: 410px;
 }
@@ -44,4 +44,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.ul{
+  overflow-y: auto;
 }

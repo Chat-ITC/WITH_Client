@@ -117,7 +117,7 @@ const ScrapPage = () => {
       </header>
 
       <div className={styles.historyList}>
-        <ul>
+        <ul className = {styles.ul}>
           {Array.isArray(historyData) &&
             historyData.map((dataList, index) => (
               <li
