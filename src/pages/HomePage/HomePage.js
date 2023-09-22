@@ -1,7 +1,7 @@
 //css
 import styles from "./HomePage.module.css";
 //png
-import Logo from "../../assets/logo/Logo.png";
+import Logo from "../../assets/loginButtons/Logo.png";
 import Camera from "../../assets/etc/addimage.png";
 import Down from "../../assets/icons/Down.png";
 //component
@@ -18,8 +18,7 @@ import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-
-  const [logoLoca, setLogoLoca] = useState('home');
+  const [logoLoca, setLogoLoca] = useState("home");
   console.log(logoLoca);
   const navigate = useNavigate();
   const modalRef = useRef(null);
@@ -36,7 +35,6 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    
     document.addEventListener("mousedown", handleOutsideClick);
 
     return () => {
@@ -72,7 +70,7 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    setLogoLoca('home');
+    setLogoLoca("home");
     // historyReq 함수를 호출하고 데이터를 받아옵니다.
     historyReq()
       .then((response) => {
@@ -289,7 +287,7 @@ const HomePage = () => {
             ))}
         </ul>
       </div>
-      <Bottom logo = {logoLoca}/>
+      <Bottom logo={logoLoca} />
     </>
   );
 };
