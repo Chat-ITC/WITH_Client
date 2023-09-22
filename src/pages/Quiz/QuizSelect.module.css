@@ -24,7 +24,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 20px;
-   
+    line-height: 30px;
     width: 360px;
     height: 500px;
     margin: 0 auto;
@@ -37,6 +37,7 @@
 }
 
 .buttonO{
+    font-weight: bold;
     font-size: 22px;
     border-radius: 15px;
     color: #fff;
@@ -47,6 +48,7 @@
 }
 
 .buttonX{
+    font-weight: bold;
     font-size: 22px;
     border-radius: 15px;
     color: #fff;
