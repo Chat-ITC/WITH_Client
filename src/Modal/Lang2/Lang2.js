@@ -13,11 +13,11 @@ const LangModal = ({ isOpen, onClose }) => {
     "JavaScript",
     "Kotlin",
     "Python",
-    "Ruby",
     "R",
+    "React",
+    "Ruby",
     "Spring-Boot",
     "SQL",
-    "swift",
   ];
 
   const [selectedLanguage, setSelectedLanguage] = useState(null);

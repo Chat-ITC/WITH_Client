@@ -134,7 +134,7 @@ const MyPage = () => {
         .then((response) => {
           // 데이터 수정 성공 시 처리
           console.log("Lenguage updated successfully:", response.data);
-          setUserTier(newLenguageData.tier); // 수정된 언어 데이터를 화면에 반영
+          setUserTier(response.data.skill_language); // 수정된 언어 데이터를 화면에 반영
           alert("학습 언어가 성공적으로 변경되었습니다!");
         })
         .catch((error) => {
@@ -237,6 +237,8 @@ const MyPage = () => {
   //정보 받아오기
   useEffect(() => {
     setLogoLoca("mypage");
+    
+    console.log("여기가 반복되는중");
     // authReq 함수를 호출하고 데이터를 받아옵니다.
     authReq()
       .then((response) => {
