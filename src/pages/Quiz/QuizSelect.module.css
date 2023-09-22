@@ -37,6 +37,7 @@
 }
 
 .buttonO{
+    color: #fff;
     margin-bottom: 15px;
     width: 320px;
     height: 50px;
@@ -44,6 +45,7 @@
 }
 
 .buttonX{
+    color: #fff;
     width: 320px;
     height: 50px;
     background-color: rgb(220, 51, 51);
