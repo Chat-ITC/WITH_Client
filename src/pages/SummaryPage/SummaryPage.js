@@ -34,20 +34,21 @@ const SummaryPage = () => {
     sestIsModalOpen1(false);
   };
 
-  const sum = (quePara) => {
+   //전송할 글 설정
+   const sum = (quePara) => {
     switch (quePara) {
       case "상관없음":
-        return setQuestion("상관없음");
+        return "상관없음";
       case "내용요약":
-        return setQuestion("요약해줘");
+        return "요약해줘";
       case "쉬운설명":
-        return setQuestion("쉽게 설명해줘");
+        return "쉽게 설명해줘";
       case "코드 분석":
-        return setQuestion("코드 분석해줘");
+        return "코드 분석해줘";
       case "내용요약 및 예시코드":
-        return setQuestion("요약 및 예시코드 만들어줘");
+        return "요약 및 예시코드 만들어줘";
       case "쉬운설명과 예시코드":
-        return setQuestion("쉽게 설명해주고 예시코드 만들어줘");
+        return "쉽게 설명해주고 예시코드 만들어줘";
       default:
         return "알 수 없는 옵션입니다.";
     }
