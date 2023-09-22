@@ -40,7 +40,14 @@ import { useRef } from "react";
 
 const MyPage = () => {
   const [logoLoca, setLogoLoca] = useState("mypage");
-  const [changeLanguage, setChangeLanguage] = useState(Unknown);
+  const [changeLanguage, setChangeLanguage] = useState(null);
+
+
+  useEffect(() => {
+    if (changeLanguage === null) {
+      setChangeLanguage(userInfo.skill_language);
+    }
+  }, [changeLanguage]);
 
   const handleLanguageChange = (word) => {
     switch (word) {
@@ -273,9 +280,6 @@ const MyPage = () => {
   //정보 받아오기
   useEffect(() => {
     setLogoLoca("mypage");
-    
-    console.log("여기가 반복되는중");
-    // authReq 함수를 호출하고 데이터를 받아옵니다.
     authReq()
       .then((response) => {
         // 데이터를 성공적으로 받아왔을 때 처리
