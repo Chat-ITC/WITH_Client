@@ -1,74 +1,109 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styles from "./Bottom.module.css";
 
-import SelectHome from "../../assets/AddInfoIcons/SelectHome.png";
-import SelectQuiz from "../../assets/AddInfoIcons/SelectQuiz.png";
-import SelectMyPage from "../../assets/AddInfoIcons/SelectMyPage.png";
-import UnHome from "../../assets/AddInfoIcons/UnSelectHome.png";
-import UnQuiz from "../../assets/AddInfoIcons/UnSelectQuiz.png";
-import UnPage from "../../assets/AddInfoIcons/UnSelectMyPage.png";
+import Quiz from "../../assets/icons/quiz.png";
+import Logo from "../../assets/AddInfoIcons/NotLofo.png";
+import MyPage from "../../assets/icons/mypage.png";
 
-const Bottom = () => {
-  const navigate = useNavigate();
-  const [homeImage, setHomeImage] = useState(SelectHome);
-  const [quizImage, setQuizImage] = useState(UnQuiz);
-  const [myPageImage, setMyPageImage] = useState(UnPage);
+import { useState } from "react";
 
-  const handleHomeButtonClick = () => {
-    setHomeImage(SelectHome);
-    setQuizImage(UnQuiz);
-    setMyPageImage(UnPage);
-    setTimeout(() => {
-      navigate("/HomePage");
-    }, 100);
-  };
+const Bottom = ({ props }) => {
+  let imgQuizClick;
+  let imgHomeClick;
+  let imgMyPageClick;
+  let strQuizClick;
+  let strHomeClick;
+  let strMyPageClick;
 
-  const handleQuizButtonClick = () => {
-    setHomeImage(UnHome);
-    setQuizImage(SelectQuiz);
-    setMyPageImage(UnPage);
-    setTimeout(() => {
-      navigate("/Quiz");
-    }, 100);
-  };
 
-  const handleMyPageButtonClick = () => {
-    setHomeImage(UnHome);
-    setQuizImage(UnQuiz);
-    setMyPageImage(SelectMyPage);
+  switch (props.logoLoca) {
+    case 'quiz':
+      imgQuizClick = styles.clickImg;
+      strQuizClick = styles.clickStr;
+      imgHomeClick = styles.nonClickImg;
+      strHomeClick = styles.nonclickStr;
+      imgMyPageClick = styles.nonClickImg;
+      strMyPageClick = styles.nonclickStr;
 
-    setTimeout(() => {
-      navigate("/Mypage");
-    }, 100);
-  };
+      break;
+    case 'home':
+      imgQuizClick = styles.nonClickImg;
+      strQuizClick = styles.nonclickStr
+      imgHomeClick = styles.clickImg;
+      strHomeClick = styles.clickStr
+      imgMyPageClick = styles.nonClickImg;
+      strMyPageClick = styles.nonclickStr
+      break;
+    case 'mypage':
+      imgQuizClick = styles.nonClickImg;
+      strQuizClick = styles.nonclickStr
+      imgHomeClick = styles.nonClickImg;
+      strHomeClick = styles.nonclickStr
+      imgMyPageClick = styles.clickImg;
+      strMyPageClick = styles.clickStr
+      break;
+    default:
+      break;
+  }
 
   return (
     <div className={styles.bottomContainer}>
       <nav>
         <ul className={styles.BottomInfo}>
-          <li className={styles.bottomLink}>
-            <button
-              className={styles.bottom_Link}
-              onClick={handleQuizButtonClick}
-            >
-              <img className={styles.bottom_img} src={quizImage} alt="퀴즈" />
-            </button>
-          </li>
-          <li className={styles.bottomLink}>
-            <button onClick={handleHomeButtonClick}>
-              <img src={homeImage} alt="Home" className={styles.bottom_img} />
-            </button>
-          </li>
-          <li className={styles.bottomLink}>
-            <button onClick={handleMyPageButtonClick}>
+          <link to="/Quiz">
+            <li className={styles.bottomLink}>
               <img
-                src={myPageImage}
-                alt="MyPage"
-                className={styles.bottom_img}
+
+                className={imgQuizClick}
+                src={Quiz}
+                alt="퀴즈"
               />
-            </button>
-          </li>
+              <div
+                className={strQuizClick}
+
+              >
+                퀴즈
+              </div>
+
+            </li>
+          </link>
+          <link to="/Home">
+            <li className={styles.bottomLink}>
+
+              <img
+
+                className={imgHomeClick}
+                src={Logo}
+                alt="홈"
+              />
+              <div
+                className={strHomeClick}
+
+              >
+                홈
+              </div>
+            </li>
+          </link>
+          <link to="/MyPage">
+            <li className={styles.bottomLink}>
+
+              <img
+
+
+                className={imgMyPageClick}
+                src={MyPage}
+                alt="내 정보"
+              />
+              <div
+                className={strMyPageClick}
+
+              >
+                내 정보
+              </div>
+
+            </li>
+          </link>
         </ul>
       </nav>
     </div>
