@@ -45,6 +45,7 @@
   padding: 10px 0;
   position: relative;
   background-color: #fff;
+  z-index: 2;
 }
 
 .article:nth-child(3) {

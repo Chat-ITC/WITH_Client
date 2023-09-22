@@ -205,6 +205,17 @@ const SummaryPage = () => {
           </div>
         </div>
       </header>
+      {/*주제 모달*/}
+      <div
+        className={styles.HomePage_Sub}
+        style={{ display: isModalOpen2 ? "block" : "none" }}
+      >
+        <SubModal isOpen={isModalOpen2} onClose={closeModal2} />
+      </div>
+      {/* 학습언어 */}
+      <div style={{ display: isModalOpen1 ? "inline" : "none" }}>
+        <LangModal isOpen={isModalOpen1} onClose={closeModal1} />
+      </div>
       <article className={styles.article}>
         <SelectModal isOpen={isModalOpen} closeModal={closeModal}>
           <div className={styles.HomeMainModal}>
@@ -247,14 +258,17 @@ const SummaryPage = () => {
               </Link>
             </div>
           </div>
-          {/*주제 모달*/}
-          <div
-            className={styles.HomePage_Sub}
-            style={{ display: isModalOpen2 ? "block" : "none" }}
-          >
-            <SubModal isOpen={isModalOpen2} onClose={closeModal2} />
-          </div>
-          <Bottom />
+          {/* <article className={styles.article}>
+        <button type="button">
+          <img className={styles.Copy} src={Copy} alt="복사" />
+        </button>
+      </article> */}
+          <footer className={styles.articleDesc}>
+            <div className={styles.articleInfo}>
+              <img className={styles.articleImg} src={Becareful} alt="주의" />
+              <span>내용이 정확하지 않을 수 있습니다</span>
+            </div>
+          </footer>
         </SelectModal>
         {data ? (
           <div style={preWrap}>
@@ -278,22 +292,8 @@ const SummaryPage = () => {
         ) : (
           ""
         )}
-        {/* 학습언어 */}
-        <div style={{ display: isModalOpen1 ? "block" : "none" }}>
-          <LangModal isOpen={isModalOpen1} onClose={closeModal1} />
-        </div>
       </article>
-      {/* <article className={styles.article}>
-        <button type="button">
-          <img className={styles.Copy} src={Copy} alt="복사" />
-        </button>
-      </article> */}
-      <footer className={styles.articleDesc}>
-        <div className={styles.articleInfo}>
-          <img className={styles.articleImg} src={Becareful} alt="주의" />
-          <span>내용이 정확하지 않을 수 있습니다</span>
-        </div>
-      </footer>
+      <Bottom />
     </>
   );
 };

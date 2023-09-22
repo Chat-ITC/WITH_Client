@@ -1,25 +1,25 @@
 .Sub_content {
   width: 100%;
   background-color: #fff;
-  margin: 0 auto;
-  overflow: hidden;
+  margin-top: 130px;
   border: 1px solid #bababa;
   border-radius: 6px;
-  z-index: 2;
   overflow-y: auto;
+  float: left;
 }
 
 .HomeSubTitle {
-  width: 100%;
+  width: 95%;
   height: 45px;
   text-align: center;
   font-size: 24px;
+  margin: 0 auto;
 }
 
 .HomeSubBtn {
-  width: 90%;
+  width: 95%;
   height: 40px;
   font-weight: 700;
-  padding: 5px 15px;
+  padding: 5px 10px;
   text-align: center;
 }
