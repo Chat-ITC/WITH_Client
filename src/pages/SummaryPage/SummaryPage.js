@@ -88,9 +88,8 @@ const SummaryPage = () => {
   const [isScrappedChange, setIsScrappedChange] = useState("NO");
 
   //클립보드 복사
-  const [copied, setCopied] = useState(false);
   const handleCopy = () => {
-    setCopied(true);
+    alert("텍스트가 클립보드에 복사되었습니다.")
   };
 
   //위치 저장
@@ -222,7 +221,7 @@ const SummaryPage = () => {
           </Link>
         </div>
         <div className={styles.S}>
-          <CopyToClipboard text={data} onCopy={handleCopy}>
+          <CopyToClipboard text={data} onCopy={handleCopy} disabled={!btnOn}>
             <button type="button" disabled={!btnOn}>
               <img className={styles.RightImg1} src={Copy} alt="복사" />
             </button>
