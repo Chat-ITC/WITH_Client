@@ -216,18 +216,6 @@ const SummaryPage = () => {
     }
   };
 
-  //복사버튼
-  const copyHandle = () => {
-    navigator.clipboard
-      .writeText(codeBlock)
-      .then(() => {
-        alert("클립보드에 복사되었습니다.");
-      })
-      .catch((error) => {
-        console.error("클립보드 복사 실패:", error);
-      });
-  };
-
   return (
     <div > 
       <header className={styles.SumTitle}>
@@ -237,7 +225,7 @@ const SummaryPage = () => {
           </Link>
         </div>
         <div className={styles.S}>
-          <CopyToClipboard text={codeBlock} onCopy={handleCopy}>
+          <CopyToClipboard text={data} onCopy={handleCopy}>
           <button type="button"  disabled={!btnOn}>
             <img className={styles.RightImg} src={Copy} alt="복사" />
           </button>
