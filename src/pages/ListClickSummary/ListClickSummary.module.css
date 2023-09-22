@@ -5,27 +5,14 @@
   height: 70px;
 }
 
-.SumLeft {
-  width: 90px;
-  height: 70px;
-  padding-left: 15px;
-  margin-top: 50px;
-}
-
-.SumRight {
-  width: 90px;
-  height: 70px;
-  padding-right: 15px;
-}
-
 .RightImg {
   margin-top: 20px;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 28px;
 }
 
 .RightImg:first-child {
-  margin-right: 7px;
+  margin-right: 4px;
 }
 
 .selectLang {

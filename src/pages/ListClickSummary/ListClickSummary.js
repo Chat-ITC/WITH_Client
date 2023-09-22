@@ -20,15 +20,13 @@ const ListClickSummary = () => {
   const { content, isScrapped, id } = location.state;
 
   // 이전 페이지 경로를 가져오려면 다음과 같이 사용합니다.
-  const previousPath = location.state?.from || '/default-path';
+  const previousPath = location.state?.from || "/default-path";
 
   //내용과 코드
   const [scrapId, setScrapId] = useState(null);
   const [scrapCheck, setScrapCheck] = useState(0);
   const [codeBlock, setCodeBlock] = useState(null);
   const [isScrappedChange, setIsScrappedChange] = useState(isScrapped);
-
-
 
   useEffect(() => {
     setScrapId(id);
@@ -103,32 +101,23 @@ const ListClickSummary = () => {
     console.log("복사 버튼이 클릭되었습니다!");
   };
 
-
   return (
     <>
       <header className={styles.SumTitle}>
-        <div className={styles.SumLeft}>
-          <Link to="/HomePage" className={styles.BackHome} >
-            <img src={Back} alt="뒤로가기" />
-          </Link>
-        </div>
-        <div className={styles.SumRight}>
-          <div className={styles.S}>
-            <button type="button" onClick={copyHandle}>
-              <img className={styles.RightImg} src={Copy} alt="복사" />
-            </button>
-            <button type="button" onClick={scrapHandle}>
-              {isScrappedChange === "NO" || isScrappedChange === "No" ? (
-                <img className={styles.RightImg} src={Star} alt="텅 빈 별" />
-              ) : (
-                <img
-                  className={styles.RightImg}
-                  src={FillStar}
-                  alt="꽉 찬 별"
-                />
-              )}
-            </button>
-          </div>
+        <Link to="/HomePage" className={styles.BackHome}>
+          <img src={Back} alt="뒤로가기" />
+        </Link>
+        <div className={styles.S}>
+          <button type="button" onClick={copyHandle}>
+            <img className={styles.RightImg} src={Copy} alt="복사" />
+          </button>
+          <button type="button" onClick={scrapHandle}>
+            {isScrappedChange === "NO" || isScrappedChange === "No" ? (
+              <img className={styles.RightImg} src={Star} alt="텅 빈 별" />
+            ) : (
+              <img className={styles.RightImg} src={FillStar} alt="꽉 찬 별" />
+            )}
+          </button>
         </div>
       </header>
       <article className={styles.article}>
