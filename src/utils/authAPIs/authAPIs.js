@@ -2,6 +2,11 @@ import axios from 'axios';
 
 export const kakaoLoginReq = async (code) => {
   axios.defaults.withCredentials = true;
+  // 타임아웃을 추가할 함수를 만듭니다.
+  const addTimeout = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  // 원하는 대기 시간 (예: 3초) 동안 대기한 후에 요청을 보냅니다.
+  await addTimeout(3000);
   const response = await axios.post(
     `${process.env.REACT_APP_SERVER_URL}/kakao/callback?code=${code}`
   );
