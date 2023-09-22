@@ -2,7 +2,6 @@
 import styles from "./MyPage.module.css";
 import SwitchOff from "../../assets/icons/switchOff.svg";
 import SwitchOn from "../../assets/icons/switch.png";
-import Scrab from "../../assets/icons/clip.png";
 import FillStar from "../../assets/AddInfoIcons/FillStar.png";
 import Recent from "../../assets/icons/recent.png";
 import Tier from "../../assets/icons/tier.png";
@@ -18,7 +17,6 @@ import Javascript from "../../assets/AddInfoIcons/JavaScript.png";
 import Ruby from "../../assets/AddInfoIcons/Ruby.png";
 import Django from "../../assets/icons/Django.png";
 import Go from "../../assets/AddInfoIcons/Go.png";
-import Swift from "../../assets/AddInfoIcons/swift.png";
 import R from "../../assets/AddInfoIcons/R.png";
 import Spring_Boot from "../../assets/icons/Spring_boot.png";
 import Dart from "../../assets/icons/Dart.png";
@@ -28,7 +26,7 @@ import react from "../../assets/icons/React.png";
 
 //modal
 import Abil from "../../Modal/Ability/Ability";
-import LangModal from "../../Modal/LangModal/LangModal";
+import LangModal from "../../Modal/Lang2/Lang2";
 //component
 import Bottom from "../../component/Bottom/Bottom";
 //library
@@ -41,7 +39,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { useRef } from "react";
 
 const MyPage = () => {
-  const [logoLoca, setLogoLoca] = useState('mypage');
+  const [logoLoca, setLogoLoca] = useState("mypage");
   console.log(logoLoca);
   const languageImages = [
     { language: "Unknown", image: Unknown },
@@ -238,7 +236,7 @@ const MyPage = () => {
 
   //정보 받아오기
   useEffect(() => {
-    setLogoLoca('mypage');
+    setLogoLoca("mypage");
     // authReq 함수를 호출하고 데이터를 받아옵니다.
     authReq()
       .then((response) => {
@@ -395,7 +393,7 @@ const MyPage = () => {
         <Abil isOpen={isModalOpen2} onClose={closeModal2}></Abil>
       </div>
 
-      <Bottom logo = {logoLoca}/>
+      <Bottom logo={logoLoca} />
     </Fragment>
   );
 };
