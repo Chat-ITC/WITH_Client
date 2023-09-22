@@ -176,5 +176,5 @@
 }
 
 .fullscreenBackgroundLoading {
-  background-color: #ffffff; /* 로딩 중일 때 배경색 변경 (예: 흰색) */
+  background-color: #ab0b0b; /* 로딩 중일 때 배경색 변경 (예: 흰색) */
 }
