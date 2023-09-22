@@ -3,12 +3,29 @@ import styles from "./MyPage.module.css";
 import SwitchOff from "../../assets/icons/switchOff.svg";
 import SwitchOn from "../../assets/icons/switch.png";
 import Scrab from "../../assets/icons/clip.png";
-import FillStar from "../../assets/AddInfoIcons/FillStar.png"
+import FillStar from "../../assets/AddInfoIcons/FillStar.png";
 import Recent from "../../assets/icons/recent.png";
-import C from "../../assets/icons/C.png";
 import Tier from "../../assets/icons/tier.png";
 import Question from "../../assets/icons/question.png";
 import Logout from "../../assets/icons/logout.png";
+//Programing Language
+import Unknown from "../../assets/AddInfoIcons/unknown.png";
+import CPlus from "../../assets/AddInfoIcons/c++.png";
+import Python from "../../assets/AddInfoIcons/python.png";
+import Java from "../../assets/AddInfoIcons/java.png";
+import C from "../../assets/AddInfoIcons/C.png";
+import Javascript from "../../assets/AddInfoIcons/JavaScript.png";
+import Ruby from "../../assets/AddInfoIcons/Ruby.png";
+import Django from "../../assets/icons/Django.png";
+import Go from "../../assets/AddInfoIcons/Go.png";
+import Swift from "../../assets/AddInfoIcons/swift.png";
+import R from "../../assets/AddInfoIcons/R.png";
+import Spring_Boot from "../../assets/icons/Spring_boot.png";
+import Dart from "../../assets/icons/Dart.png";
+import Kotlin from "../../assets/icons/Kotlin.png";
+import SQL from "../../assets/icons/SQL.png";
+import react from "../../assets/icons/React.png";
+
 //modal
 import Abil from "../../Modal/Ability/Ability";
 import LangModal from "../../Modal/LangModal/LangModal";
@@ -20,14 +37,31 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from "react";
-import {
-  BmodalRef1rowserRouter as Router,
-  Route,
-  Link,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { useRef } from "react";
 
 const MyPage = () => {
+  const languageImages = [
+    { language: "Unknown", image: Unknown },
+    { language: "C", image: C },
+    { language: "C++", image: CPlus },
+    { language: "Dart", image: Dart },
+    { language: "Django", image: Django },
+    { language: "Go", image: Go },
+    { language: "Java", image: Java },
+    { language: "Javascript", image: Javascript },
+    { language: "Kotlin", image: Kotlin },
+    { language: "Python", image: Python },
+    { language: "R", image: R },
+    { language: "React", image: React },
+    { language: "Ruby", image: Ruby },
+    { language: "Spring-boot", image: Spring_Boot },
+    { language: "SQL", image: SQL },
+  ];
+
+  //이미지 가져오기
+  const [selectedLanguage, setSelectedLanguage] = useState(null);
+
   const navigate = useNavigate();
   const modalRef1 = useRef(null);
   const modalRef2 = useRef(null);
