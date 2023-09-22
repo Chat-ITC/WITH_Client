@@ -279,10 +279,7 @@ const SummaryPage = () => {
           ""
         )}
         {/* 학습언어 */}
-        <div
-          className={styles.HomePage_Lang}
-          style={{ display: isModalOpen1 ? "block" : "none" }}
-        >
+        <div style={{ display: isModalOpen1 ? "block" : "none" }}>
           <LangModal isOpen={isModalOpen1} onClose={closeModal1} />
         </div>
       </article>
@@ -291,8 +288,8 @@ const SummaryPage = () => {
           <img className={styles.Copy} src={Copy} alt="복사" />
         </button>
       </article> */}
-      <footer>
-        <div className={styles.articleDesc}>
+      <footer className={styles.articleDesc}>
+        <div className={styles.articleInfo}>
           <img className={styles.articleImg} src={Becareful} alt="주의" />
           <span>내용이 정확하지 않을 수 있습니다</span>
         </div>
