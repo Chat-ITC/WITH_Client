@@ -20,24 +20,28 @@
   }
 
 .article{
-
+    justify-content: center;
     padding: 20px;
     display: block;
     width: 360px;
     height: 500px;
     margin: 0 auto;
-  font-size: 22px;
+    font-size: 22px;
+}
+
+.footer{
+    margin: 0, 0, auto;
+
 }
 
 .buttonO{
-    margin: 8 auto;
+    margin-bottom: 15px;
     width: 320px;
     height: 50px;
     background-color: rgb(154, 218, 89);
 }
 
 .buttonX{
-    margin: 8 auto;
     width: 320px;
     height: 50px;
     background-color: rgb(220, 51, 51);

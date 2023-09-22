@@ -21,7 +21,7 @@ const QuizSelect = () => {
                 {content}
             </article>
 
-            <footer>
+            <footer className={styles.footer}>
 
                 <button className={styles.buttonO}>
                     O
