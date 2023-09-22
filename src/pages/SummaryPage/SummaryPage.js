@@ -219,7 +219,7 @@ const SummaryPage = () => {
   };
 
   return (
-    <div  className={backColor}> 
+    <div className={backColor}> 
       <header className={styles.SumTitle}>
         <div className={styles.S1}>
           <Link type="button" to={lastLocation}>
