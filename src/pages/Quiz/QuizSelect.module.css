@@ -37,6 +37,7 @@
 }
 
 .buttonO{
+    border-radius: 15px;
     color: #fff;
     margin-bottom: 15px;
     width: 320px;
@@ -45,6 +46,7 @@
 }
 
 .buttonX{
+    border-radius: 15px;
     color: #fff;
     width: 320px;
     height: 50px;
