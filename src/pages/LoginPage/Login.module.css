@@ -12,6 +12,7 @@
 
 .Login_section {
   width: 100%;
+  height: px;
   bottom: 0;
   position: fixed;
   text-align: center;
@@ -19,7 +20,7 @@
 
 .Login_buttons {
   max-width: 300px;
-  margin: 0 auto;
+  margin: 0 auto 25px;
   display: flex;
   justify-content: space-around;
   align-items: center;
