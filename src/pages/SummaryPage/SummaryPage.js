@@ -12,8 +12,9 @@ import axios from "axios";
 import Bottom from "../../component/Bottom/Bottom";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import DynamicCodeBlock from "../../component/DynamicCodeBlock/DynamicCodeBlock";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import CopyToClipboard from "react-copy-to-clipboard";
+import { BrowserRouter as Router, Route, Link } from 
+"react-router-dom";
 //modal
 import SelectModal from "../../Modal/SelectModal/SelectModal";
 import LangModal from "../../Modal/LangModal/LangModal";
@@ -88,6 +89,12 @@ const SummaryPage = () => {
   const [scrapId, setScrapId] = useState(null);
   const [scrapCheck, setScrapCheck] = useState(0);
   const [isScrappedChange, setIsScrappedChange] = useState("NO");
+
+  //클립보드 복사
+  const [copied, setCopied] = useState(false);
+  const handleCopy = () => {
+    setCopied(true);
+  };
 
   //위치 저장
   const [lastLocation, setLastLocation] = useState(null);
@@ -230,9 +237,12 @@ const SummaryPage = () => {
           </Link>
         </div>
         <div className={styles.S}>
-          <button type="button" onClick={copyHandle} disabled={!btnOn}>
+          <CopyToClipboard text={codeBlock} onCopy={handleCopy}>
+          <button type="button"  disabled={!btnOn}>
             <img className={styles.RightImg} src={Copy} alt="복사" />
           </button>
+          </CopyToClipboard>
+
           <button type="button" onClick={scrapHandle} disabled={!btnOn}>
             {isScrappedChange === "NO" || isScrappedChange === "No" ? (
               <img className={styles.RightImg} src={Star} alt="텅 빈 별" />
