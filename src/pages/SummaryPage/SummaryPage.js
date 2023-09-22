@@ -219,7 +219,7 @@ const SummaryPage = () => {
   };
 
   return (
-    <div className={backColor}> 
+    <div > 
       <header className={styles.SumTitle}>
         <div className={styles.S1}>
           <Link type="button" to={lastLocation}>
@@ -239,7 +239,7 @@ const SummaryPage = () => {
           </button>
         </div>
       </header>
-      <article className={styles.article}>
+      <article className={backColor}>
         <SelectModal isOpen={isModalOpen} closeModal={closeModal}>
           <div className={styles.HomeMainModal}>
             <div className={styles.SelectPart}>
