@@ -19,6 +19,8 @@ import RadioTest from "./pages/RadioTestPage/RadioTest";
 import ScrapPage from "./pages/ScrapPage/ScrapPage";
 import Record from "./pages/RecordPage/RecordPage";
 import SumPage from "./pages/SumPage/SumPage";
+import QuizSelect from "./pages/Quiz/QuizSelect";
+
 
 import ListClickSummary from "./pages/ListClickSummary/ListClickSummary";
 
@@ -60,6 +62,7 @@ function App() {
           <Route path="/SumPage" element={<SumPage />} />
           <Route path="/ScrapItem" element={<ScrapItem />} />
           <Route path="/QuizCom" element={<QuizCom />} />
+          <Route path="/QuizSelect" element={<QuizSelect />} />
           <Route path="/HistoryItem" element={<HistoryItem />} />
           <Route path="/SelectModal" element={<SelectModal />} />
           <Route exact path="/kakao/callback" element={<KakaoRedirection />} />

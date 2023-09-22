@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 const Quiz = (props) => {
   const [logoLoca, setLogoLoca] = useState('mypage');
   console.log(logoLoca);
-
+  const location = "/Quiz";
   const { quizTarget } = props; //유저 실력 넣기
 
   const [quizLevel, setQuizLevel] = useState(null);
@@ -77,16 +77,16 @@ const Quiz = (props) => {
       });
   }, []);
 
-  const handleIdCheck = (contentProp, isScrappedProp, idProp) => {
+  const handleIdCheck = (answerProp, contentProp, titleProp) => {
+    console.log(answerProp);
     console.log(contentProp);
-    console.log(isScrappedProp);
-    console.log(idProp);
-    navigate("/ListClickSummary", {
+    console.log(titleProp);
+    navigate("/QuizSelect", {
       state: {
+        answer: answerProp,
         content: contentProp,
-        isScrapped: isScrappedProp,
-        id: idProp,
-
+        title: titleProp,
+        location: location
       },
     });
   };
@@ -129,18 +129,18 @@ const Quiz = (props) => {
                 key={index}
                 onClick={() =>
                   handleIdCheck(
+                    dataList.answer,
                     dataList.content,
-                    dataList.isScrapped,
-                    dataList.id
+                    dataList.title
                   )
                 }
               >
 
                 <QuizItem
                   key={index}
-                  title={dataList.title} // 수정된 부분
-                  content={dataList.content}
                   answer={dataList.answer}
+                  title={dataList.title} // 수정된 부분
+                  content={dataList.content}   
                 />
               </li>
             ))}

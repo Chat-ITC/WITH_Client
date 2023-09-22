@@ -30,7 +30,7 @@ const Login = () => {
 
   //네이버 로그인을 처리하는 핸들러 함수. 클릭시 네이버 로그인 링크로 리다이력션.
   const naverLoginHandler = () => {
-    alert("카카오로 로그인 해주세요");
+    alert("기능은 구현했지만 사업자등록증을 발급받지 못 해, 관리자 아이디 외 로그인이 불가능합니다. 카카오로 로그인 부탁드립니다.");
     // window.location.href = NAVER_LINK;
   };
 
