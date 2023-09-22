@@ -91,7 +91,7 @@ const SummaryPage = () => {
     const formData = new FormData();
 
     formData.append("imageFile", file);
-    formData.append("question", printQuestion);
+    formData.append("question", question);
     formData.append("fav_language", language);
     console.log("file: ", file);
     console.log("question: ", question);
