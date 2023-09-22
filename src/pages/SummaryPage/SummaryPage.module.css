@@ -24,7 +24,6 @@
 }
 
 .RightImg {
-  margin-top: 20px;
   width: 30px;
   height: 30px;
 }
@@ -154,4 +153,8 @@
 
 .SelectBtn:last-child {
   margin-bottom: 0;
+}
+
+.S {
+  width: 100px;
 }
