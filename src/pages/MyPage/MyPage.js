@@ -42,13 +42,6 @@ const MyPage = () => {
   const [logoLoca, setLogoLoca] = useState("mypage");
   const [changeLanguage, setChangeLanguage] = useState(null);
 
-
-  useEffect(() => {
-    if (changeLanguage === null) {
-      setChangeLanguage(userInfo.skill_language);
-    }
-  }, [changeLanguage]);
-
   const handleLanguageChange = (word) => {
     switch (word) {
       case "상관없음":
@@ -284,6 +277,8 @@ const MyPage = () => {
       .then((response) => {
         // 데이터를 성공적으로 받아왔을 때 처리
         setUserInfo(response.data);
+        handleLanguageChange(response.data.skill_language);
+
         console.log(userInfo);
       })
       .catch((error) => {
