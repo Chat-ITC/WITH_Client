@@ -10,11 +10,37 @@ const QuizSelect = () => {
     const location = useLocation();
     const { answer, content, title } = location.state;
 
+    const buttonOHandle = () =>{
+        if(answer === '참'){
+            alert("정답입니다!!");
+
+        }
+        else {
+            alert("오답입니다!!");
+        }
+
+
+    };
+
+    const buttonXHandle = () =>{
+        if(answer === '거짓'){
+            alert("정답입니다!!");
+
+        }
+        else {
+            alert("오답입니다!!");
+        }
+
+
+    };
+
+ 
+
 
     return (
         <>
             <header className={styles.Quiz_header}>
-                <h1 className={styles.BackTitle}>{title}</h1>
+                <p className={styles.BackTitle}>{title}</p>
             </header>
 
             <article className={styles.article}>
@@ -23,11 +49,11 @@ const QuizSelect = () => {
 
             <footer className={styles.footer}>
 
-                <button className={styles.buttonO}>
+                <button className={styles.buttonO} onClick={buttonOHandle}>
                     O
                 </button>
 
-                <button className={styles.buttonX}>
+                <button className={styles.buttonX} onClick={buttonXHandle}>
                     X
                 </button>
 

@@ -2,7 +2,7 @@
     width: 100%;
     height: 70px;
     border-bottom: 1px solid #000;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 700;
     text-align: center;
     padding-top: 15px;
@@ -16,10 +16,11 @@
   }
   
 .BackTitle {
-    font-size: 28px;
+    font-size: 22px;
   }
 
 .article{
+    font-weight: bold;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,7 +39,7 @@
 
 .buttonO{
     font-weight: bold;
-    font-size: 22px;
+    font-size: 23px;
     border-radius: 15px;
     color: #fff;
     margin-bottom: 15px;
@@ -49,7 +50,7 @@
 
 .buttonX{
     font-weight: bold;
-    font-size: 22px;
+    font-size: 23px;
     border-radius: 15px;
     color: #fff;
     width: 320px;
