@@ -8,7 +8,7 @@
   padding-top: 10px;
   position: fixed;
   top: 0;
-  z-index: -1;
+  z-index: 4;
 }
 
 .article {
@@ -174,7 +174,7 @@
   min-height: 100vh;
   background-color: #8e8e8e86; /* 로딩 중 배경색 설정 */
   transition: background-color 0.3s ease; /* 배경색 전환 효과 추가 */
-  z-index: 4;
+  z-index: 7;
 }
 
 .fullscreenBackgroundLoading {
