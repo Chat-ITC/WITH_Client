@@ -54,6 +54,8 @@
   height: 40px;
   display: block;
   filter: "none";
+  font-weight: 700;
+  color: "#bababa";
 }
 
 .clickStr {
