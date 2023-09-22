@@ -12,7 +12,8 @@ import { useNavigate } from "react-router-dom";
 
 
 const Quiz = (props) => {
-  const logoLoca = 'quiz';
+  const [logoLoca, setLogoLoca] = useState('mypage');
+  console.log(logoLoca);
 
   const { quizTarget } = props; //유저 실력 넣기
 
@@ -44,6 +45,7 @@ const Quiz = (props) => {
   };
 
   useEffect(() => {
+    setLogoLoca('quiz');
     // roadQuiz 함수를 호출하고 데이터를 받아옵니다.
     roadQuiz()
       .then((response) => {
@@ -145,7 +147,7 @@ const Quiz = (props) => {
         </ul>
       </div>
 
-      <Bottom logoLoca = {logoLoca}/>
+      <Bottom logo = {logoLoca}/>
     </>
   );
 };

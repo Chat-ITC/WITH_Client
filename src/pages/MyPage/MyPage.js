@@ -41,7 +41,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { useRef } from "react";
 
 const MyPage = () => {
-  const logoLoca = 'mypage';
+  const [logoLoca, setLogoLoca] = useState('mypage');
+  console.log(logoLoca);
   const languageImages = [
     { language: "Unknown", image: Unknown },
     { language: "C", image: C },
@@ -237,6 +238,7 @@ const MyPage = () => {
 
   //정보 받아오기
   useEffect(() => {
+    setLogoLoca('mypage');
     // authReq 함수를 호출하고 데이터를 받아옵니다.
     authReq()
       .then((response) => {
@@ -393,7 +395,7 @@ const MyPage = () => {
         <Abil isOpen={isModalOpen2} onClose={closeModal2}></Abil>
       </div>
 
-      <Bottom logoLoca = {logoLoca}/>
+      <Bottom logo = {logoLoca}/>
     </Fragment>
   );
 };
