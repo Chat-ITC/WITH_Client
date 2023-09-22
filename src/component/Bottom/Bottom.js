@@ -5,109 +5,113 @@ import styles from "./Bottom.module.css";
 import Quiz from "../../assets/icons/quiz.png";
 import Logo from "../../assets/AddInfoIcons/NotLofo.png";
 import MyPage from "../../assets/icons/mypage.png";
+import { useEffect } from "react";
 
 import { useState } from "react";
 
-const Bottom = ({ props }) => {
-  let imgQuizClick;
-  let imgHomeClick;
-  let imgMyPageClick;
-  let strQuizClick;
-  let strHomeClick;
-  let strMyPageClick;
+const Bottom = ({ logo }) => {
+  const [imgQuizClick, setImgQuizClick] = useState(styles.nonClickImg);
+  const [strQuizClick, setStrQuizClick] = useState(styles.nonclickStr);
+  const [imgHomeClick, setImgHomeClick] = useState(styles.nonClickImg);
+  const [strHomeClick, setStrHomeClick] = useState(styles.nonclickStr);
+  const [imgMyPageClick, setImgMyPageClick] = useState(styles.nonClickImg);
+  const [strMyPageClick, setStrMyPageClick] = useState(styles.nonclickStr);
+  console.log(logo);
 
 
-  switch (props.logoLoca) {
-    case 'quiz':
-      imgQuizClick = styles.clickImg;
-      strQuizClick = styles.clickStr;
-      imgHomeClick = styles.nonClickImg;
-      strHomeClick = styles.nonclickStr;
-      imgMyPageClick = styles.nonClickImg;
-      strMyPageClick = styles.nonclickStr;
 
-      break;
-    case 'home':
-      imgQuizClick = styles.nonClickImg;
-      strQuizClick = styles.nonclickStr
-      imgHomeClick = styles.clickImg;
-      strHomeClick = styles.clickStr
-      imgMyPageClick = styles.nonClickImg;
-      strMyPageClick = styles.nonclickStr
-      break;
-    case 'mypage':
-      imgQuizClick = styles.nonClickImg;
-      strQuizClick = styles.nonclickStr
-      imgHomeClick = styles.nonClickImg;
-      strHomeClick = styles.nonclickStr
-      imgMyPageClick = styles.clickImg;
-      strMyPageClick = styles.clickStr
-      break;
-    default:
-      break;
-  }
+
+  useEffect(() => {
+    switch (logo) {
+      case 'quiz':
+        setImgQuizClick(styles.clickImg);
+        setStrQuizClick(styles.clickStr);
+        setImgHomeClick(styles.nonClickImg);
+        setStrHomeClick(styles.nonclickStr);
+        setImgMyPageClick(styles.nonClickImg);
+        setStrMyPageClick(styles.nonclickStr);
+        break;
+      case 'home':
+        setImgQuizClick(styles.nonClickImg);
+        setStrQuizClick(styles.nonclickStr);
+        setImgHomeClick(styles.clickImg);
+        setStrHomeClick(styles.clickStr);
+        setImgMyPageClick(styles.nonClickImg);
+        setStrMyPageClick(styles.nonclickStr);
+        break;
+      case 'mypage':
+        setImgQuizClick(styles.nonClickImg);
+        setStrQuizClick(styles.nonclickStr);
+        setImgHomeClick(styles.nonClickImg);
+        setStrHomeClick(styles.nonclickStr);
+        setImgMyPageClick(styles.clickImg);
+        setStrMyPageClick(styles.clickStr);
+        break;
+      default:
+        break;
+    }
+  }, [logo]); // logo가 변경될 때만 useEffect가 실행됩니다.
+
 
   return (
     <div className={styles.bottomContainer}>
-      <nav>
-        <ul className={styles.BottomInfo}>
-          <link to="/Quiz">
-            <li className={styles.bottomLink}>
-              <img
+    <nav>
+      <ul className={styles.BottomInfo}>
+        <Link to="/Quiz">
+          <li className={styles.bottomLink}>
+            <img
+              className={imgQuizClick}
+              src={Quiz}
+              alt="퀴즈"
+            />
+            <div
+              className={strQuizClick}
 
-                className={imgQuizClick}
-                src={Quiz}
-                alt="퀴즈"
-              />
-              <div
-                className={strQuizClick}
+            >
+              퀴즈
+            </div>
 
-              >
-                퀴즈
-              </div>
+          </li>
+        </Link>
+        <Link to="/HomePage">
+          <li className={styles.bottomLink}>
 
-            </li>
-          </link>
-          <link to="/Home">
-            <li className={styles.bottomLink}>
+            <img
 
-              <img
+              className={imgHomeClick}
+              src={Logo}
+              alt="홈"
+            />
+            <div
+              className={strHomeClick}
 
-                className={imgHomeClick}
-                src={Logo}
-                alt="홈"
-              />
-              <div
-                className={strHomeClick}
+            >
+              홈
+            </div>
+          </li>
+        </Link>
+        <Link to="/MyPage">
+          <li className={styles.bottomLink}>
 
-              >
-                홈
-              </div>
-            </li>
-          </link>
-          <link to="/MyPage">
-            <li className={styles.bottomLink}>
-
-              <img
+            <img
 
 
-                className={imgMyPageClick}
-                src={MyPage}
-                alt="내 정보"
-              />
-              <div
-                className={strMyPageClick}
+              className={imgMyPageClick}
+              src={MyPage}
+              alt="내 정보"
+            />
+            <div
+              className={strMyPageClick}
 
-              >
-                내 정보
-              </div>
+            >
+              내 정보
+            </div>
 
-            </li>
-          </link>
-        </ul>
-      </nav>
-    </div>
-  );
+          </li>
+        </Link>
+      </ul>
+    </nav>
+  </div>
+);
 };
-
 export default Bottom;

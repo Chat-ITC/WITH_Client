@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://coding-friends-client-21s6.vercel.app";
+axios.defaults.baseURL = "https://with-citc.vercel.app/";
 axios.defaults.withCredentials = true;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
