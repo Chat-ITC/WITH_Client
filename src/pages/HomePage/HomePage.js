@@ -1,7 +1,7 @@
 //css
 import styles from "./HomePage.module.css";
 //png
-import Logo from "../../assets/logo/Logo.png";
+import Logo from "../../assets/loginButtons/Logo.png";
 import Camera from "../../assets/etc/addimage.png";
 import Down from "../../assets/icons/Down.png";
 //component
@@ -173,34 +173,32 @@ const HomePage = () => {
           <img className={styles.main_img} src={Logo} alt="내 옆에 코딩친구" />
         </header>
 
-        <div className={styles.camera_border}>
-          <div className={styles.camera}>
-            <input
-              type="file"
-              accept="image/*"
-              capture="camera, environment"
-              style={{ display: "none" }} // 요소를 화면에 표시하지 않음
-              ref={fileInputRef} // ref를 사용하여 요소 참조
-              onChange={handleFileChange} // 파일 선택 시 이벤트 핸들러 호출
-            />
-            <button className={styles.Camera_Btn} onClick={handleButtonClick}>
-              <img
-                className={styles.camera_img}
-                src={Camera}
-                alt="사진 첨부 버튼"
-              />
-              <span>사진을 찍어보세요</span>
-            </button>
-          </div>
+        <div className={styles.camera}>
           <input
             type="file"
-            id="camera"
-            name="camera"
-            capture="camera"
             accept="image/*"
-            style={{ display: "none" }}
+            capture="camera, environment"
+            style={{ display: "none" }} // 요소를 화면에 표시하지 않음
+            ref={fileInputRef} // ref를 사용하여 요소 참조
+            onChange={handleFileChange} // 파일 선택 시 이벤트 핸들러 호출
           />
+          <button className={styles.Camera_Btn} onClick={handleButtonClick}>
+            <img
+              className={styles.camera_img}
+              src={Camera}
+              alt="사진 첨부 버튼"
+            />
+            <span>사진을 찍어보세요</span>
+          </button>
         </div>
+        <input
+          type="file"
+          id="camera"
+          name="camera"
+          capture="camera"
+          accept="image/*"
+          style={{ display: "none" }}
+        />
         <button className={styles.Scrap_button} onClick={openModal}>
           <span>최근 본 내역</span>
           <img className={styles.DownImg} src={Down} alt="아래 방향" />
