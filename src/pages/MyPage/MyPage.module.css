@@ -111,3 +111,24 @@
   margin: 0 auto;
   top: 240px;
 }
+
+/* Lang2.module.css (또는 해당 CSS 파일) */
+.LangModalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 배경에 음영 효과 추가 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 다른 요소 위에 표시될 수 있도록 z-index 설정 */
+}
+
+.LangModalContent {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* 모달에 그림자 효과 추가 */
+}
