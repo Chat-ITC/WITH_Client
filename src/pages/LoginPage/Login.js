@@ -36,7 +36,7 @@ const Login = () => {
   return (
     <>
       <header className={styles.Login_Header}>
-        <img className={styles.Login_img} src={WITH1} alt="로고" />
+        <img className={styles.Login_Logo1} src={WITH1} alt="로고" />
       </header>
       <footer className={styles.Login_section}>
         <span className={styles.Login_desc}>
@@ -44,10 +44,18 @@ const Login = () => {
         </span>
         <div className={styles.Login_buttons}>
           <button className={styles.Login_button} onClick={kakaoLoginHandler}>
-            <img src={kakao} alt="카카오 로그인 버튼" />
+            <img
+              className={styles.Login_img}
+              src={kakao}
+              alt="카카오 로그인 버튼"
+            />
           </button>
           <button className={styles.Login_button} onClick={naverLoginHandler}>
-            <img src={naver} alt="네이버 로그인 버튼" />
+            <img
+              className={styles.Login_img}
+              src={naver}
+              alt="네이버 로그인 버튼"
+            />
           </button>
         </div>
       </footer>
