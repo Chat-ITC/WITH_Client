@@ -40,7 +40,7 @@ import { useRef } from "react";
 
 const MyPage = () => {
   const [logoLoca, setLogoLoca] = useState("mypage");
-  const [changeLanguage, setChangeLanguage] = useState(null);
+  const [changeLanguage, setChangeLanguage] = useState(Unknown);
 
   const handleLanguageChange = (word) => {
     switch (word) {
