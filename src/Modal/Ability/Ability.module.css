@@ -4,9 +4,9 @@
   border: 1px solid #bababa;
   background-color: #fff;
   margin: 0 auto;
+  position: absolute;
   border-radius: 6px;
   padding: 10px 0;
-  padding-bottom: 10px;
   overflow: hidden;
 }
 

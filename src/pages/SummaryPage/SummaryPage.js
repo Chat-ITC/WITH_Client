@@ -187,30 +187,22 @@ const SummaryPage = () => {
   return (
     <>
       <header className={styles.SumTitle}>
-        <div className={styles.SumLeft}>
-          <div>
-            <Link type="button" to={lastLocation}>
-              <img src={Back} alt="뒤로가기" />
-            </Link>
-          </div>
+        <div className={styles.S1}>
+          <Link type="button" to={lastLocation}>
+            <img src={Back} alt="뒤로가기" />
+          </Link>
         </div>
-        <div className={styles.SumRight}>
-          <div className={styles.S}>
-            <button type="button" onClick={copyHandle}>
-              <img className={styles.RightImg} src={Copy} alt="복사" />
-            </button>
-            <button type="button" onClick={scrapHandle}>
-              {isScrappedChange === "NO" || isScrappedChange === "No" ? (
-                <img className={styles.RightImg} src={Star} alt="텅 빈 별" />
-              ) : (
-                <img
-                  className={styles.RightImg}
-                  src={FillStar}
-                  alt="꽉 찬 별"
-                />
-              )}
-            </button>
-          </div>
+        <div className={styles.S}>
+          <button type="button" onClick={copyHandle}>
+            <img className={styles.RightImg} src={Copy} alt="복사" />
+          </button>
+          <button type="button" onClick={scrapHandle}>
+            {isScrappedChange === "NO" || isScrappedChange === "No" ? (
+              <img className={styles.RightImg} src={Star} alt="텅 빈 별" />
+            ) : (
+              <img className={styles.RightImg} src={FillStar} alt="꽉 찬 별" />
+            )}
+          </button>
         </div>
       </header>
       <article className={styles.article}>
