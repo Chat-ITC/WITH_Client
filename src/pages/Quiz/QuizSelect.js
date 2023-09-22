@@ -2,6 +2,7 @@ import styles from './QuizSelect.module.css';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import Bottom from '../../component/Bottom/Bottom';
 
 const QuizSelect = () => {
     const navigate = useNavigate();
@@ -30,9 +31,8 @@ const QuizSelect = () => {
                     X
                 </button>
 
-
             </footer>
-
+            <Bottom />
         </>
     )
 };

@@ -26,17 +26,19 @@
     width: 360px;
     height: 500px;
     margin: 0 auto;
-  font-size: 16px;
+  font-size: 22px;
 }
 
 .buttonO{
+    margin: 8 auto;
     width: 320px;
     height: 50px;
-    background-color: rgb(141, 240, 43);
+    background-color: rgb(154, 218, 89);
 }
 
 .buttonX{
+    margin: 8 auto;
     width: 320px;
     height: 50px;
-    background-color: rgb(223, 33, 33);
+    background-color: rgb(220, 51, 51);
 }
