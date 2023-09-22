@@ -1,0 +1,42 @@
+.Quiz_header {
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #000;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 15px;
+    margin: 0 auto;
+    background-color: #fff;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+.BackTitle {
+    font-size: 28px;
+  }
+
+.article{
+
+    padding: 20px;
+    display: block;
+    width: 360px;
+    height: 500px;
+    margin: 0 auto;
+  font-size: 16px;
+}
+
+.buttonO{
+    width: 320px;
+    height: 50px;
+    background-color: rgb(141, 240, 43);
+}
+
+.buttonX{
+    width: 320px;
+    height: 50px;
+    background-color: rgb(223, 33, 33);
+}

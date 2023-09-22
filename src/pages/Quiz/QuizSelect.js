@@ -1,27 +1,41 @@
+import styles from './QuizSelect.module.css';
+import axios from 'axios';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+
+const QuizSelect = () => {
+    const navigate = useNavigate();
+    axios.defaults.withCredentials = true;
+    const location = useLocation();
+    const { answer, content, title } = location.state;
 
 
+    return (
+        <>
+            <header className={styles.Quiz_header}>
+                <h1 className={styles.BackTitle}>{title}</h1>
+            </header>
+
+            <article className={styles.article}>
+                {content}
+            </article>
+
+            <footer>
+
+                <button className={styles.buttonO}>
+                    O
+                </button>
+
+                <button className={styles.buttonX}>
+                    X
+                </button>
 
 
-// const QuizSelect = () => {
-//     const navigate = useNavigate();
-//     axios.defaults.withCredentials = true;
-//     const location = useLocation();
-//     const { answer, content, title } = location.state;
-    
-//     const [scrapId, setScrapId] = useState(null);
-//     const [scrapCheck, setScrapCheck] = useState(0);
-//     const [codeBlock, setCodeBlock] = useState(null);
-//     const [isScrappedChange, setIsScrappedChange] = useState(isScrapped);
+            </footer>
+
+        </>
+    )
+};
 
 
-//     return (
-//         <>
-//             <header className={styles.}>
-//                 <h1 className={styles.}>{quizLevel}를 위한 문제</h1>
-//             </header>
-//         </>
-//     )
-// };
-
-
-// export default QuizSelect;
+export default QuizSelect;
