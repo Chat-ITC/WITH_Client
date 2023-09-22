@@ -17,6 +17,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import SelectModal from "../../Modal/SelectModal/SelectModal";
 import LangModal from "../../Modal/LangModal/LangModal";
 import SubModal from "../../Modal/Subject/Subject";
+import Skeleton from "react-loading-skeleton";
 
 const SummaryPage = () => {
   axios.defaults.withCredentials = true;
@@ -47,6 +48,8 @@ const SummaryPage = () => {
 
   //내용과 코드
   const [data, setData] = useState(null);
+  //스켈레톤 확인창
+  const [isLoading, setIsLoading] = useState(false);
 
   const [scrapId, setScrapId] = useState(null);
   const [scrapCheck, setScrapCheck] = useState(0);
@@ -56,6 +59,7 @@ const SummaryPage = () => {
   const [lastLocation, setLastLocation] = useState(null);
 
   const sendDataHandle = async () => {
+    setIsLoading(true); // 데이터 요청이 시작될 때 로딩 상태를 활성화
     console.log(question);
     console.log(language);
     closeModal();
@@ -91,6 +95,10 @@ const SummaryPage = () => {
       .catch((error) => {
         console.log("요청실패");
         console.log(error);
+      })
+      .finally(() => {
+        console.log("finally 작동 확인 코드");
+        setIsLoading(false); // 데이터 요청 완료 후 로딩 상태를 비활성화
       });
   };
 
@@ -205,17 +213,6 @@ const SummaryPage = () => {
           </div>
         </div>
       </header>
-      {/*주제 모달*/}
-      <div
-        className={styles.HomePage_Sub}
-        style={{ display: isModalOpen2 ? "block" : "none" }}
-      >
-        <SubModal isOpen={isModalOpen2} onClose={closeModal2} />
-      </div>
-      {/* 학습언어 */}
-      <div style={{ display: isModalOpen1 ? "inline" : "none" }}>
-        <LangModal isOpen={isModalOpen1} onClose={closeModal1} />
-      </div>
       <article className={styles.article}>
         <SelectModal isOpen={isModalOpen} closeModal={closeModal}>
           <div className={styles.HomeMainModal}>
@@ -230,6 +227,7 @@ const SummaryPage = () => {
                 {language}
               </button>
             </div>
+
             <div className={styles.SelectPart}>
               <span className={styles.SelectSubj}>
                 <strong className={styles.SelectSub}>주제</strong>
@@ -243,6 +241,7 @@ const SummaryPage = () => {
                 {question}
               </button>
             </div>
+
             <div className={styles.SelectBottom}>
               {/* 데이터 전송 버튼 */}
               <button
@@ -258,42 +257,59 @@ const SummaryPage = () => {
               </Link>
             </div>
           </div>
-          {/* <article className={styles.article}>
+
+          {/*주제 모달*/}
+          <div
+            className={styles.HomePage_Sub}
+            style={{ display: isModalOpen2 ? "block" : "none" }}
+          >
+            <SubModal isOpen={isModalOpen2} onClose={closeModal2} />
+          </div>
+          <Bottom />
+        </SelectModal>
+
+        {isLoading ? ( // 로딩 중이면 스켈레톤을 표시
+          <Skeleton height={630} count={5} />
+        ) : (
+          data && ( // 데이터가 있을 때만 내용을 표시
+            <div style={preWrap}>
+              <p>
+                {data.content.split(codeBlock).map((text, index) => (
+                  <React.Fragment key={index}>
+                    {text}
+                    {index < data.content.split(codeBlock).length - 1 && (
+                      <div>
+                        <pre style={codeBlockStyle}>
+                          <code style={contentStyle}>
+                            {codeBlock.replace(/```|```/g, "")}
+                          </code>
+                        </pre>
+                      </div>
+                    )}
+                  </React.Fragment>
+                ))}
+              </p>
+            </div>
+          )
+        )}
+
+        {/* 학습언어 */}
+        <div style={{ display: isModalOpen1 ? "block" : "none" }}>
+          <LangModal isOpen={isModalOpen1} onClose={closeModal1} />
+        </div>
+      </article>
+
+      {/* <article className={styles.article}>
         <button type="button">
           <img className={styles.Copy} src={Copy} alt="복사" />
         </button>
       </article> */}
-          <footer className={styles.articleDesc}>
-            <div className={styles.articleInfo}>
-              <img className={styles.articleImg} src={Becareful} alt="주의" />
-              <span>내용이 정확하지 않을 수 있습니다</span>
-            </div>
-          </footer>
-        </SelectModal>
-        {data ? (
-          <div style={preWrap}>
-            <p>
-              {data.content.split(codeBlock).map((text, index) => (
-                <React.Fragment key={index}>
-                  {text}
-                  {index < data.content.split(codeBlock).length - 1 && (
-                    <div>
-                      <pre style={codeBlockStyle}>
-                        <code style={contentStyle}>
-                          {codeBlock.replace(/```|```/g, "")}
-                        </code>
-                      </pre>
-                    </div>
-                  )}
-                </React.Fragment>
-              ))}
-            </p>
-          </div>
-        ) : (
-          ""
-        )}
-      </article>
-      <Bottom />
+      <footer className={styles.articleDesc}>
+        <div className={styles.articleInfo}>
+          <img className={styles.articleImg} src={Becareful} alt="주의" />
+          <span>내용이 정확하지 않을 수 있습니다</span>
+        </div>
+      </footer>
     </>
   );
 };
