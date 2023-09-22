@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const Quiz = (props) => {
-
+  const logoLoca = 'quiz';
 
   const { quizTarget } = props; //유저 실력 넣기
 
@@ -145,7 +145,7 @@ const Quiz = (props) => {
         </ul>
       </div>
 
-      <Bottom />
+      <Bottom logoLoca = {logoLoca}/>
     </>
   );
 };

@@ -41,6 +41,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { useRef } from "react";
 
 const MyPage = () => {
+  const logoLoca = 'mypage';
   const languageImages = [
     { language: "Unknown", image: Unknown },
     { language: "C", image: C },
@@ -392,7 +393,7 @@ const MyPage = () => {
         <Abil isOpen={isModalOpen2} onClose={closeModal2}></Abil>
       </div>
 
-      <Bottom />
+      <Bottom logoLoca = {logoLoca}/>
     </Fragment>
   );
 };
