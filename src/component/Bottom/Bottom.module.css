@@ -13,6 +13,16 @@
   border-top-right-radius: 6px;
   border-bottom: none;
   overflow: hidden;
+  text-align: center;
+}
+
+.imgQuizClick {
+  width: 60px;
+  height: 60px;
+}
+
+.bottomLink {
+  width: 50px;
 }
 
 .BottomInfo {
@@ -22,47 +32,70 @@
   padding: 10px 0;
 }
 
+.imgMyPageClick {
+  width: 40px;
+  height: 40px;
+}
+
 .bottomLink {
-  width: 60px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
 }
 
-.bottom_img {
-  width: 35px;
-  height: 35px;
-  margin: 0 auto;
-  display: block;
-}
-
-.Bottom_title {
-  text-align: center;
-  font-weight: 700;
-}
-
-.clickImg{
-  width: 35px;
-  height: 35px;
-  margin: 0 auto;
+.clickImg {
+  width: 40px;
+  height: 40px;
   display: block;
   filter: grayscale(100%);
 }
 
-.nonClickImg{
-  width: 35px;
-  height: 35px;
-  margin: 0 auto;
+.nonClickImg {
+  width: 40px;
+  height: 40px;
   display: block;
   filter: "none";
+  font-weight: 700;
+  color: "#bababa";
 }
 
-.clickStr{
+.clickStr {
   text-align: center;
+  width: 40px;
   font-weight: 700;
   color: "black";
 }
 
-.nonClickStr{
+.clickStr:nth-child(3) {
   text-align: center;
+  width: 80px;
+  padding-right: 10px;
+  font-weight: 700;
+  color: "black";
+}
+
+.nonClickStr {
+  width: 80px;
   font-weight: 700;
   color: "#bababa";
+}
+
+.clickStr1 {
+  width: 60px;
+  text-align: center;
+  font-weight: 700;
+  margin-right: 20px;
+  color: "black";
+  position: relative;
+  right: 5px;
+}
+
+.nonclickStr1 {
+  width: 90px;
+  padding-right: 30px;
+  position: relative;
+  right: 5px;
+}
+
+.strMyPageClick {
+  width: 80px;
 }
