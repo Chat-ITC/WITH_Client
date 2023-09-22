@@ -37,10 +37,9 @@
 }
 
 .main_img {
-  position: absolute;
+  position: relative;
+  top: -60px;
   margin: 15px auto;
-  width: 220px;
-  height: 120px;
 }
 
 .main_title {
