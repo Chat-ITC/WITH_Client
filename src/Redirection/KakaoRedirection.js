@@ -22,7 +22,7 @@ const KakaoRedirection = () => {
 
   const { loading, data, error } = state;
 
-  if (loading) return <p>로딩중입니다</p>;
+  if (loading) return <Loading/>;
   if (error) {
     const data = error.response.data;
     const statusCode = error.response.status;
