@@ -21,7 +21,7 @@
 }
 
 .RightImg1 {
-  width: 25px;
+  width: 20px;
   height: 25px;
 }
 
@@ -188,7 +188,7 @@
   height: 550px;
   border: 1px solid #bababa;
   border-radius: 6px;
-  margin: 2 auto;
+  margin: 0 auto;
   white-space: pre-line;
   padding: 10px 0;
   position: relative;
