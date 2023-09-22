@@ -190,7 +190,8 @@
   border-radius: 6px;
   margin: 0 auto;
   white-space: pre-line;
-  padding: 10px 0;
+  margin: 0 2px;
+  padding: 10px 10px;
   position: relative;
   overflow-y: auto;
   top: 80px;
