@@ -27,6 +27,8 @@ const SummaryPage = () => {
   const openModal = () => sestIsModalOpen(true);
   const closeModal = () => sestIsModalOpen(false);
 
+  const [btnOn, setBtnOn] = useState(false);
+
   //학습 언어
   const [isModalOpen1, sestIsModalOpen1] = useState(false);
   const openModal1 = () => sestIsModalOpen1(true);
@@ -133,6 +135,7 @@ const SummaryPage = () => {
         console.log("finally 작동 확인 코드");
         setIsLoading(false); // 데이터 요청 완료 후 로딩 상태를 비활성화
         setBackColor(styles.fullscreenBackgroundLoading);
+        setBtnOn(true);
       });
   };
 
@@ -227,10 +230,10 @@ const SummaryPage = () => {
           </Link>
         </div>
         <div className={styles.S}>
-          <button type="button" onClick={copyHandle}>
+          <button type="button" onClick={copyHandle} disabled={!btnOn}>
             <img className={styles.RightImg} src={Copy} alt="복사" />
           </button>
-          <button type="button" onClick={scrapHandle}>
+          <button type="button" onClick={scrapHandle} disabled={!btnOn}>
             {isScrappedChange === "NO" || isScrappedChange === "No" ? (
               <img className={styles.RightImg} src={Star} alt="텅 빈 별" />
             ) : (
