@@ -167,12 +167,12 @@
   width: 100px;
 }
 
-.fullscreen-background {
+.fullscreenBackground {
   min-height: 100vh;
   background-color: #616161; /* 로딩 중 배경색 설정 */
   transition: background-color 0.3s ease; /* 배경색 전환 효과 추가 */
 }
 
-.fullscreen-background.loading {
+.fullscreenBackgroundLoading {
   background-color: #ffffff; /* 로딩 중일 때 배경색 변경 (예: 흰색) */
 }

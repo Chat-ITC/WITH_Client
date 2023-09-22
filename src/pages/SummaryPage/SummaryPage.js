@@ -81,6 +81,7 @@ const SummaryPage = () => {
   const [data, setData] = useState(null);
   //스켈레톤 확인창
   const [isLoading, setIsLoading] = useState(false);
+  const [backColor, setBackColor] = useState(styles.fullscreenBackgroundLoading);
 
   const [scrapId, setScrapId] = useState(null);
   const [scrapCheck, setScrapCheck] = useState(0);
@@ -91,6 +92,7 @@ const SummaryPage = () => {
 
   const sendDataHandle = async () => {
     setIsLoading(true); // 데이터 요청이 시작될 때 로딩 상태를 활성화
+    setBackColor(styles.fullscreenBackground);
     console.log(question);
     console.log(language);
     closeModal();
@@ -130,6 +132,7 @@ const SummaryPage = () => {
       .finally(() => {
         console.log("finally 작동 확인 코드");
         setIsLoading(false); // 데이터 요청 완료 후 로딩 상태를 비활성화
+        setBackColor(styles.fullscreenBackgroundLoading);
       });
   };
 
@@ -216,7 +219,7 @@ const SummaryPage = () => {
   };
 
   return (
-    <div  className={`fullscreen-background ${isLoading ? 'loading' : ''}`}> 
+    <div  className={backColor}> 
       <header className={styles.SumTitle}>
         <div className={styles.S1}>
           <Link type="button" to={lastLocation}>
