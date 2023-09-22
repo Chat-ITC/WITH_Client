@@ -50,14 +50,19 @@
 }
 
 .clickImg {
-  width: 50px;
+  width: 45px;
   height: 50px;
   display: block;
+  transition: opacity 130ms ease-in-out;
+}
+
+.clickImg:focus,
+.clickImg:active {
   opacity: 1;
 }
 
 .nonClickImg {
-  width: 50px;
+  width: 45px;
   height: 50px;
   display: block;
   opacity: 30%;
