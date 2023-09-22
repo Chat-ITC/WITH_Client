@@ -257,16 +257,14 @@ const SummaryPage = () => {
               </Link>
             </div>
           </div>
-
-          {/*주제 모달*/}
-          <div
-            className={styles.HomePage_Sub}
-            style={{ display: isModalOpen2 ? "block" : "none" }}
-          >
-            <SubModal isOpen={isModalOpen2} onClose={closeModal2} />
-          </div>
         </SelectModal>
-
+        {/*주제 모달*/}
+        <div
+          className={styles.HomePage_Sub}
+          style={{ display: isModalOpen2 ? "block" : "none" }}
+        >
+          <SubModal isOpen={isModalOpen2} onClose={closeModal2} />
+        </div>
         {isLoading ? ( // 로딩 중이면 스켈레톤을 표시
           <Skeleton height={630} count={5} />
         ) : (
@@ -291,13 +289,11 @@ const SummaryPage = () => {
             </div>
           )
         )}
-
-        {/* 학습언어 */}
-        <div style={{ display: isModalOpen1 ? "block" : "none" }}>
-          <LangModal isOpen={isModalOpen1} onClose={closeModal1} />
-        </div>
       </article>
-
+      {/* 학습언어 */}
+      <div style={{ display: isModalOpen1 ? "block" : "none" }}>
+        <LangModal isOpen={isModalOpen1} onClose={closeModal1} />
+      </div>
       {/* <article className={styles.article}>
         <button type="button">
           <img className={styles.Copy} src={Copy} alt="복사" />

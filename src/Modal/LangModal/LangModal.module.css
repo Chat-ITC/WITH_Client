@@ -3,11 +3,12 @@
   height: 60vh;
   border: 1px solid #bababa;
   background-color: #fff;
-  margin-top: 50px;
+  margin-top: -500px;
   border-radius: 6px;
   padding-bottom: 10px;
   overflow-y: auto;
-  float: left;
+  position: absolute;
+  z-index: 3;
 }
 
 .HomeLangTitle {
