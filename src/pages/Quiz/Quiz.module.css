@@ -14,13 +14,7 @@
   left: 0;
   right: 0;
 }
-.BackBtn {
-  position: absolute;
-  top: 16px;
-  left: 5px;
-  width: 35px;
-  height: 35px;
-}
+
 
 .BackTitle {
   font-size: 28px;
