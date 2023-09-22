@@ -2,6 +2,7 @@ import styles from "./SummaryPage.module.css";
 import Back from "../../assets/AddInfoIcons/back.png";
 import Copy from "../../assets/AddInfoIcons/Copy.png";
 import Becareful from "../../assets/AddInfoIcons/Becareful.png";
+import Loading from "../../component/Loading/Loading";
 
 import Star from "../../assets/icons/clip.png";
 import FillStar from "../../assets/AddInfoIcons/FillStar.png";
@@ -288,7 +289,7 @@ const SummaryPage = () => {
           <SubModal isOpen={isModalOpen2} onClose={closeModal2} />
         </div>
         {isLoading ? ( // 로딩 중이면 스켈레톤을 표시
-          <Skeleton height={630} count={5} />
+          <Loading />
         ) : (
           data && ( // 데이터가 있을 때만 내용을 표시
             <div style={preWrap}>
