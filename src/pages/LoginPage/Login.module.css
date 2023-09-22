@@ -11,8 +11,9 @@
 }
 
 .Login_section {
+  width: 100%;
+  bottom: 0;
   position: fixed;
-  top: 400px;
   text-align: center;
 }
 
