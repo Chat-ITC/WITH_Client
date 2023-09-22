@@ -168,11 +168,11 @@
 }
 
 .fullscreenBackground {
-  position: absolute;
+  
   min-height: 100vh;
   background-color: #616161; /* 로딩 중 배경색 설정 */
   transition: background-color 0.3s ease; /* 배경색 전환 효과 추가 */
-  z-index: 999;
+  
 }
 
 .fullscreenBackgroundLoading {
