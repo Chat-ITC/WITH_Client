@@ -17,7 +17,7 @@ const QuizItem = ({
             {content}
           </p>
         </div>
-        <img src = {right} alt="오른쪽 화살표"> 
+        <img className={styles.rightImg} src = {right} alt="오른쪽 화살표"> 
         </img>
       </div>
     </>
