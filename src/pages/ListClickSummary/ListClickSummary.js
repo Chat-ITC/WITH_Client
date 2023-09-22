@@ -109,7 +109,7 @@ const ListClickSummary = () => {
         </Link>
         <div className={styles.S}>
           <button type="button" onClick={copyHandle}>
-            <img className={styles.RightImg} src={Copy} alt="복사" />
+            <img className={styles.RightImg1} src={Copy} alt="복사" />
           </button>
           <button type="button" onClick={scrapHandle}>
             {isScrappedChange === "NO" || isScrappedChange === "No" ? (
