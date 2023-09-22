@@ -13,8 +13,7 @@ import Bottom from "../../component/Bottom/Bottom";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { BrowserRouter as Router, Route, Link } from 
-"react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 //modal
 import SelectModal from "../../Modal/SelectModal/SelectModal";
 import LangModal from "../../Modal/LangModal/LangModal";
@@ -38,8 +37,8 @@ const SummaryPage = () => {
     sestIsModalOpen1(false);
   };
 
-   //전송할 글 설정
-   const sum = (quePara) => {
+  //전송할 글 설정
+  const sum = (quePara) => {
     switch (quePara) {
       case "상관없음":
         return "상관없음";
@@ -62,20 +61,16 @@ const SummaryPage = () => {
   const [isModalOpen2, sestIsModalOpen2] = useState(false);
   const openModal2 = () => sestIsModalOpen2(true);
   const closeModal2 = (quePara) => {
-    
     setQuestion(sum(quePara));
-    setPrintQuestion(quePara)
-    console.log(quePara)
-    console.log(question)
-    console.log(printQuestion)
+    setPrintQuestion(quePara);
+    console.log(quePara);
+    console.log(question);
+    console.log(printQuestion);
     sestIsModalOpen2(false);
   };
 
-
-
-
   //주제와 언어
-  const [printQuestion, setPrintQuestion] = useState("상관없음")
+  const [printQuestion, setPrintQuestion] = useState("상관없음");
   const [question, setQuestion] = useState("상관없음");
   const [language, setLanguage] = useState("없음");
   const [file, setFile] = useState(null);
@@ -84,7 +79,9 @@ const SummaryPage = () => {
   const [data, setData] = useState(null);
   //스켈레톤 확인창
   const [isLoading, setIsLoading] = useState(false);
-  const [backColor, setBackColor] = useState(styles.fullscreenBackgroundLoading);
+  const [backColor, setBackColor] = useState(
+    styles.fullscreenBackgroundLoading
+  );
 
   const [scrapId, setScrapId] = useState(null);
   const [scrapCheck, setScrapCheck] = useState(0);
@@ -217,7 +214,7 @@ const SummaryPage = () => {
   };
 
   return (
-    <div > 
+    <div>
       <header className={styles.SumTitle}>
         <div className={styles.S1}>
           <Link type="button" to={lastLocation}>
@@ -226,9 +223,9 @@ const SummaryPage = () => {
         </div>
         <div className={styles.S}>
           <CopyToClipboard text={data} onCopy={handleCopy}>
-          <button type="button"  disabled={!btnOn}>
-            <img className={styles.RightImg} src={Copy} alt="복사" />
-          </button>
+            <button type="button" disabled={!btnOn}>
+              <img className={styles.RightImg1} src={Copy} alt="복사" />
+            </button>
           </CopyToClipboard>
 
           <button type="button" onClick={scrapHandle} disabled={!btnOn}>

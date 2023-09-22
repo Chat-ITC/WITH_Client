@@ -20,6 +20,11 @@
   height: 30px;
 }
 
+.RightImg1 {
+  width: 25px;
+  height: 25px;
+}
+
 .selectLang {
   position: relative;
   left: 15px;
@@ -183,7 +188,7 @@
   height: 550px;
   border: 1px solid #bababa;
   border-radius: 6px;
-  margin: 0 auto;
+  margin: 2 auto;
   white-space: pre-line;
   padding: 10px 0;
   position: relative;
