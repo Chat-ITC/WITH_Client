@@ -40,27 +40,62 @@ import { useRef } from "react";
 
 const MyPage = () => {
   const [logoLoca, setLogoLoca] = useState("mypage");
-  console.log(logoLoca);
-  const languageImages = [
-    { language: "Unknown", image: Unknown },
-    { language: "C", image: C },
-    { language: "C++", image: CPlus },
-    { language: "Dart", image: Dart },
-    { language: "Django", image: Django },
-    { language: "Go", image: Go },
-    { language: "Java", image: Java },
-    { language: "Javascript", image: Javascript },
-    { language: "Kotlin", image: Kotlin },
-    { language: "Python", image: Python },
-    { language: "R", image: R },
-    { language: "React", image: React },
-    { language: "Ruby", image: Ruby },
-    { language: "Spring-boot", image: Spring_Boot },
-    { language: "SQL", image: SQL },
-  ];
+  const [changeLanguage, setChangeLanguage] = useState(Unknown);
 
-  //이미지 가져오기
-  const [selectedLanguage, setSelectedLanguage] = useState(null);
+  const handleLanguageChange = (word) => {
+    switch (word) {
+      case "상관없음":
+        setChangeLanguage(Unknown);
+        break;
+      case "C":
+        setChangeLanguage(C);
+        break;
+      case "C++":
+        setChangeLanguage(CPlus);
+        break;
+      case "Dart":
+        setChangeLanguage(Dart);
+        break;
+      case "Django":
+        setChangeLanguage(Django);
+        break;
+      case "Go":
+        setChangeLanguage(Go);
+        break;
+      case "Java":
+        setChangeLanguage(Java);
+        break;
+      case "JavaScript":
+        setChangeLanguage(Javascript);
+        break;
+      case "Kotlin":
+        setChangeLanguage(Kotlin);
+        break;
+      case "Python":
+        setChangeLanguage(Python);
+        break;
+      case "R":
+        setChangeLanguage(R);
+        break;
+      case "React":
+        setChangeLanguage(react);
+        break;
+      case "Ruby":
+        setChangeLanguage(Ruby);
+        break;
+      case "Spring-Boot":
+        setChangeLanguage(Spring_Boot);
+        break;
+      case "SQL":
+        setChangeLanguage(SQL);
+        break;
+      default:
+        setChangeLanguage(Unknown);
+        break;
+    }
+  }
+
+  console.log(logoLoca);
 
   const navigate = useNavigate();
   const modalRef1 = useRef(null);
@@ -103,6 +138,7 @@ const MyPage = () => {
   const closeModal = (selectedLanguage) => {
     sestIsModalOpen(false);
     if (selectedLanguage) {
+      handleLanguageChange(selectedLanguage);
       // 선택한 언어 값에 대한 작업을 수행합니다.
       console.log(`선택한 언어: ${selectedLanguage}`);
 
@@ -329,14 +365,16 @@ const MyPage = () => {
             />
             최근 본 자료
           </Link>
+
           <button
             className={styles.section_icons}
             type="button"
             onClick={openModal}
           >
-            <img className={styles.section_img} src={C} alt="학습 언어 수정" />
+            <img className={styles.section_img} src={changeLanguage} alt="학습 언어 수정" />
             <p className={styles.section_desc}>학습 언어 수정</p>
           </button>
+
         </div>
       </section>
 
