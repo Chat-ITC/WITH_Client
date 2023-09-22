@@ -6,12 +6,15 @@
   position: fixed;
   top: 0;
 }
-
 .SumLeft {
   width: 90px;
   height: 70px;
   padding-left: 15px;
   margin-top: 50px;
+}
+
+.article {
+  padding: 0 10px;
 }
 
 .SumRight {

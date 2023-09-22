@@ -265,7 +265,6 @@ const SummaryPage = () => {
           >
             <SubModal isOpen={isModalOpen2} onClose={closeModal2} />
           </div>
-          <Bottom />
         </SelectModal>
 
         {isLoading ? ( // 로딩 중이면 스켈레톤을 표시
@@ -273,7 +272,7 @@ const SummaryPage = () => {
         ) : (
           data && ( // 데이터가 있을 때만 내용을 표시
             <div style={preWrap}>
-              <p>
+              <p className={styles.content}>
                 {data.content.split(codeBlock).map((text, index) => (
                   <React.Fragment key={index}>
                     {text}
@@ -310,6 +309,7 @@ const SummaryPage = () => {
           <span>내용이 정확하지 않을 수 있습니다</span>
         </div>
       </footer>
+      <Bottom />
     </>
   );
 };
