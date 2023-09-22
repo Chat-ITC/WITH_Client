@@ -1,6 +1,6 @@
 //css
 import styles from "./QuizItem.module.css";
-
+import right from "../../assets/AddInfoIcons/right.png"
 
 
 const QuizItem = ({
@@ -17,7 +17,8 @@ const QuizItem = ({
             {content}
           </p>
         </div>
-        
+        <img src = {{right}} alt="오른쪽 화살표"> 
+        </img>
       </div>
     </>
   );
