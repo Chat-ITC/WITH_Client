@@ -37,11 +37,11 @@
 
 .main_img {
   position: absolute;
-  margin-top: 15px;
+  margin: 15px auto;
+  top: -70px;
   left: 98px;
-  width: 150px;
+  width: 220px;
   height: 120px;
-  margin-right: 10px;
 }
 
 .main_title {
