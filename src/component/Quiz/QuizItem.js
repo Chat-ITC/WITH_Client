@@ -17,11 +17,7 @@ const QuizItem = ({
             {content}
           </p>
         </div>
-        <button className={styles.btn} type="button">
-          정답
-          <br />
-          {anwer}
-        </button>
+        
       </div>
     </>
   );
