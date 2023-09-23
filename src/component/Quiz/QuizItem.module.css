@@ -1,6 +1,6 @@
 .QuizBox {
   width: 360px;
-  height: 120px;
+  height: 150px;
   border: 1px solid #bababa;
   border-radius: 6px;
   padding: 13px 8px 0;
@@ -8,6 +8,8 @@
   background-color: #fff;
   top: 410px;
   display: flex;
+  flex-direction: column;
+  overflow-y: auto;
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
