@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Background = styled.div`
   position: absolute;
@@ -7,7 +7,7 @@ export const Background = styled.div`
   top: 0;
   left: 0;
   background: #ffffffb7;
-  z-index: 999;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,6 +15,6 @@ export const Background = styled.div`
 `;
 
 export const LoadingText = styled.div`
-  font: 1rem 'Noto Sans KR';
+  font: 1rem "Noto Sans KR";
   text-align: center;
 `;

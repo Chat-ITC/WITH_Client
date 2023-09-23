@@ -1,14 +1,17 @@
 .HomeSub {
   width: 100%;
-  height: 65vh;
+  height: 400px;
   border: 1px solid #bababa;
   background-color: #fff;
-  margin-top: -450px;
-  border-radius: 6px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
   padding-bottom: 10px;
   overflow-y: auto;
-  position: absolute;
-  z-index: 3;
+  z-index: 2;
 }
 
 .HomeLangTitle {
