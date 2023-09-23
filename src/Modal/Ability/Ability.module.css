@@ -13,6 +13,11 @@
   z-index: 6;
 }
 
+.bottom {
+  position: relative;
+  z-index: 5;
+}
+
 .Abil_Desc {
   text-align: center;
   width: 390px;
