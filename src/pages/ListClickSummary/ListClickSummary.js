@@ -18,9 +18,10 @@ const ListClickSummary = () => {
   axios.defaults.withCredentials = true;
   const location = useLocation();
   const { content, isScrapped, id } = location.state;
-
+  const history = useHistory();
+  const previousPath = history.location.state && history.location.state.from.pathname;
+  console.log(previousPath);
   // 이전 페이지 경로를 가져오려면 다음과 같이 사용합니다.
-  const previousPath = location.state?.from || "/default-path";
 
   //내용과 코드
   const [scrapId, setScrapId] = useState(null);
