@@ -6,7 +6,9 @@ import styles from "./Loading.module.css";
 export const Loading = () => {
   return (
     <div className={styles.skel}>
-      <p>분석을 하는데 20초에서 1분정도 걸릴 수 있습니다.</p>
+      <p>
+        분석을 하는데 20초에서 <br /> 1분정도 걸릴 수 있습니다.
+      </p>
 
       <img src={Spinner} alt="로딩중" width="20%" />
     </div>
