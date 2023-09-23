@@ -15,17 +15,15 @@
   right: 0;
 }
 
-
 .BackTitle {
   font-size: 28px;
 }
-
 
 .historyList {
   position: fixed;
   width: 100%;
   margin: 0 auto;
-  height: 85vh;
+  height: 80%;
   overflow-y: auto;
   z-index: -1;
   margin-bottom: 40%;

@@ -17,19 +17,19 @@
   overflow: hidden;
 }
 
-.imgQuizClick {
-  width: 60px;
-  height: 60px;
-  opacity: 30%;
-}
-
 .bottomLink {
   width: 50px;
   height: 50px;
 }
 
+.imgQuizClick {
+  width: 55px;
+  height: 60px;
+  opacity: 30%;
+}
+
 .imgHomeClick {
-  width: 60px;
+  width: 55px;
   height: 60px;
   opacity: 30%;
 }
@@ -41,7 +41,7 @@
 }
 
 .imgMyPageClick {
-  width: 40px;
+  width: 55px;
   height: 40px;
 }
 
