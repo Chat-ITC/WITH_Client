@@ -58,7 +58,14 @@ const Quiz = (props) => {
         //  console.log(response.data[0].title);
         //  console.log(response.data[0].content);
         //  console.log(response.data[0].answer);
-        setQuizData(response.data.quiz);
+        if (response.data.quiz && response.data.quiz.length > 0) {
+          // response.data.quiz가 비어 있지 않을 때 실행할 코드
+          setQuizData(response.data.quiz);
+        } else {
+          // response.data.quiz가 비어 있을 때 실행할 코드
+          // 예를 들어 오류 메시지를 표시하거나 다른 처리를 수행할 수 있습니다.
+          console.log("response.data.quiz is empty");
+        }
         setQuizLevel(response.data.level)
 
 
