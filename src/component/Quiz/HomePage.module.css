@@ -1,0 +1,145 @@
+.main {
+  position: absolute;
+  width: 100%;
+  top: 40px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.historyList {
+  position: fixed;
+  top: 252px;
+  width: 100%;
+  margin: 0 auto;
+  max-height: 550px;
+  height: 58vh;
+  overflow-y: auto;
+  z-index: -1;
+  margin-bottom: 40%;
+}
+
+.Scrap_button {
+  position: absolute;
+  top: 223px;
+  right: 25px;
+  width: 130px;
+  height: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.DownImg {
+  padding-top: 3px;
+  width: 15px;
+  height: 15px;
+}
+
+.main_img {
+  position: relative;
+  top: -60px;
+  margin: 15px auto;
+}
+
+.main_title {
+  font-size: 14px;
+}
+
+.camera {
+  position: relative;
+  top: 90px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 360px;
+  height: 134px;
+  border: 1px solid #bababa;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.Camera_Btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5px auto;
+  width: 95%;
+  height: 120px;
+  background-color: #fff;
+}
+
+.camera_img {
+  width: 40px;
+  height: 40px;
+}
+
+.camera_content {
+  border: 1px solid #bababa;
+  border-radius: 4px;
+  width: 80px;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera_content_Btn {
+  margin-bottom: 4px;
+}
+
+.BtnText {
+  width: 130px;
+  height: 30px;
+  border: 1px solid #bababa;
+  position: relative;
+  top: 9px;
+  right: 0;
+  background-color: #fff;
+  font-weight: 700;
+}
+
+.BtnText:last-child {
+  border-top: none;
+}
+
+.ScarpBtn {
+  position: absolute;
+  top: 256px;
+  right: 30px;
+  width: 130px;
+  height: 30px;
+  text-align: center;
+}
+
+.DownImg {
+  width: 15px;
+  height: 15px;
+}
+
+.MainTop {
+  width: 100%;
+  position: fixed;
+  position: relative;
+  height: 223px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+}
+
+.Scrap {
+  position: absolute;
+  top: 200px;
+  display: none;
+}
+
+.emptyPart {
+  z-index: -3;
+  width: 100%;
+  height: 860;
+  background-color: #ffffff;
+  position: absolute;
+  top: 233;
+}
