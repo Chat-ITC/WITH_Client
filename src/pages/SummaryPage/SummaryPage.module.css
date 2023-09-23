@@ -82,7 +82,7 @@
   padding: 0 15px;
   position: fixed;
   top: 715px;
-  z-index: 1;
+  z-index: -1;
 }
 
 .HomePage_Sub {
