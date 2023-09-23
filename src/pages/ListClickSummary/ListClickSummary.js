@@ -4,8 +4,8 @@ import Star from "../../assets/icons/clip.png";
 import FillStar from "../../assets/AddInfoIcons/FillStar.png";
 import Copy from "../../assets/AddInfoIcons/Copy.png";
 import Becareful from "../../assets/AddInfoIcons/Becareful.png";
-import clipboardCopy from 'clipboard-copy';
 
+import CopyToClipboard from "react-copy-to-clipboard";
 import React from "react";
 import axios from "axios";
 import Bottom from "../../component/Bottom/Bottom";
@@ -20,8 +20,6 @@ const ListClickSummary = () => {
   const location = useLocation();
   const { content, isScrapped, id, locate } = location.state;
 
-
-
   console.log("locate로그 찍기", locate);
 
   //내용과 코드
@@ -29,7 +27,6 @@ const ListClickSummary = () => {
   const [scrapCheck, setScrapCheck] = useState(0);
   const [codeBlock, setCodeBlock] = useState(null);
   const [isScrappedChange, setIsScrappedChange] = useState(isScrapped);
-
 
   useEffect(() => {
     setScrapId(id);
@@ -112,11 +109,11 @@ const ListClickSummary = () => {
             <img src={Back} alt="뒤로가기" />
           </Link>
           <div className={styles.S}>
-          <CopyToClipboard text={content} onCopy={handleCopy} >
-            <button type="button" >
-              <img className={styles.RightImg1} src={Copy} alt="복사" />
-            </button>
-          </CopyToClipboard>
+            <CopyToClipboard text={content} onCopy={handleCopy}>
+              <button type="button">
+                <img className={styles.RightImg1} src={Copy} alt="복사" />
+              </button>
+            </CopyToClipboard>
             <button type="button" onClick={scrapHandle}>
               {isScrappedChange === "NO" || isScrappedChange === "No" ? (
                 <img className={styles.RightImg} src={Star} alt="텅 빈 별" />
