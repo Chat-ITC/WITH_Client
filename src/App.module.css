@@ -25,3 +25,23 @@ button {
   background-color: #fff;
   cursor: pointer;
 }
+
+@font-face {
+  font-family: "GmarkeBold";
+  font-weight: normal;
+  src: url("./assets/font/GmarketSansBold") format("truetype");
+}
+
+@font-face {
+  font-family: "GmarketLight";
+
+  src: url("./assets/font/GmarketLight") format("truetype");
+
+}
+
+@font-face {
+  font-family: "GmarketMedium";
+
+  src: url("./assets/font/GmarketMedium") format("truetype");
+  
+}
