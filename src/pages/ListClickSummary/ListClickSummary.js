@@ -12,6 +12,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 const ListClickSummary = () => {
   const navigate = useNavigate();
