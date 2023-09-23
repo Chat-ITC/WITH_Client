@@ -296,7 +296,7 @@ const SummaryPage = () => {
         ) : (
           data && ( // 데이터가 있을 때만 내용을 표시
             <div className={styles.preWrap}>
-              <p className={styles.content}>
+              <p className={"content"}>
                 {data.content.split(codeBlock).map((text, index) => (
                   <React.Fragment key={index}>
                     {text}
