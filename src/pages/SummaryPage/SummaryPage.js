@@ -236,7 +236,7 @@ const SummaryPage = () => {
           </button>
         </div>
       </header>
-      <article className={styles.backColor}>
+      <article className={backColor}>
         <SelectModal isOpen={isModalOpen} closeModal={closeModal}>
           <div className={styles.HomeMainModal}>
             <div className={styles.SelectPart}>
