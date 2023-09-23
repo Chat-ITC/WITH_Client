@@ -4,3 +4,8 @@
   justify-content: center;
   align-items: center;
 }
+
+.font {
+  font-size: 14px;
+  font-weight: 700;
+}
