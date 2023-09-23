@@ -7,7 +7,7 @@
 }
 
 .ability_section {
-  position: absolute;
+  position: fixed;
   text-align: center;
   padding: 0 15px;
   width: 100%;
@@ -74,7 +74,7 @@
 }
 
 .language_section {
-  position: absolute;
+  position: fixed;
   text-align: center;
   padding: 0 15px;
   width: 100%;
