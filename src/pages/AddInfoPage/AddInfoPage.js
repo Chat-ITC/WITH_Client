@@ -15,7 +15,6 @@ import Javascript from "../../assets/AddInfoIcons/JavaScript.png";
 import Ruby from "../../assets/AddInfoIcons/Ruby.png";
 import Django from "../../assets/icons/Django.png";
 import Go from "../../assets/AddInfoIcons/Go.png";
-import Swift from "../../assets/AddInfoIcons/swift.png";
 import R from "../../assets/AddInfoIcons/R.png";
 import Spring_Boot from "../../assets/icons/Spring_boot.png";
 import Dart from "../../assets/icons/Dart.png";
@@ -198,8 +197,9 @@ const AddInfoPage = () => {
             <label
               key={item.name}
               htmlFor={item.name}
-              className={`${styles.radioItem} ${selectedSkill === item.name ? styles.selected : ""
-                }`}
+              className={`${styles.radioItem} ${
+                selectedSkill === item.name ? styles.selected : ""
+              }`}
             >
               <div className={item.TouchEvent}>
                 <input
@@ -211,8 +211,9 @@ const AddInfoPage = () => {
                   onChange={() => handleSkillSelect(item.name)}
                 />
                 <div
-                  className={`${styles.itemContainer1} ${selectedSkill === item.name ? styles.selectedButton : ""
-                    }`}
+                  className={`${styles.itemContainer1} ${
+                    selectedSkill === item.name ? styles.selectedButton : ""
+                  }`}
                   style={{
                     backgroundImage: `url(${item.image})`,
                     backgroundRepeat: "no-repeat",
@@ -225,7 +226,7 @@ const AddInfoPage = () => {
             </label>
           ))}
         </div>
-      </section >
+      </section>
       <section className={styles.language_section}>
         <p className={styles.language_title}>배우고 싶은 언어를 선택하세요</p>
         <div className={`${styles.grid_3x5}`}>
@@ -233,8 +234,9 @@ const AddInfoPage = () => {
             <label
               key={language.name}
               htmlFor={language.name}
-              className={`${styles.button} ${selectedLanguage === language.name ? styles.selected : ""
-                }`}
+              className={`${styles.button} ${
+                selectedLanguage === language.name ? styles.selected : ""
+              }`}
             >
               <input
                 type="radio"
@@ -246,8 +248,11 @@ const AddInfoPage = () => {
                 style={{ display: "none" }}
               />
               <div
-                className={`${styles.itemContainer3} ${styles.itemContainer4} ${selectedLanguage === language.name ? styles.selectedButton : ""
-                  }`}
+                className={`${styles.itemContainer3} ${styles.itemContainer4} ${
+                  selectedLanguage === language.name
+                    ? styles.selectedButton
+                    : ""
+                }`}
               >
                 <img
                   className={styles.RadioImg}
@@ -263,7 +268,7 @@ const AddInfoPage = () => {
 
       <button
         disabled={!btnOn}
-        className={btnOn ? styles.nextButton : styles.noButton}
+        className={styles.btnOn ? styles.nextButton : styles.noButton}
         onClick={handleNextPage}
       >
         다음
