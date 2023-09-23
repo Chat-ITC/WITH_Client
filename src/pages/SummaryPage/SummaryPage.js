@@ -86,6 +86,7 @@ const SummaryPage = () => {
   const [scrapId, setScrapId] = useState(null);
   const [scrapCheck, setScrapCheck] = useState(0);
   const [isScrappedChange, setIsScrappedChange] = useState("NO");
+  const [copyData, setCopyData] =useState(null);
 
   //클립보드 복사
   const handleCopy = () => {
@@ -126,9 +127,11 @@ const SummaryPage = () => {
         console.log("요청성공");
         console.log(response.data);
         setData(response.data);
+        setCopyData(response.data.content);
         setCodeBlock(extractCodeBlock(response.data.content));
         console.log("같은지 비교하기. ", response.data.content);
         setScrapId(response.data.id);
+        
       })
       .catch((error) => {
         console.log("요청실패");
@@ -221,7 +224,7 @@ const SummaryPage = () => {
           </Link>
         </div>
         <div className={styles.S}>
-          <CopyToClipboard text={data} onCopy={handleCopy} disabled={!btnOn}>
+          <CopyToClipboard text={copyData} onCopy={handleCopy} disabled={!btnOn}>
             <button type="button" disabled={!btnOn}>
               <img className={styles.RightImg1} src={Copy} alt="복사" />
             </button>
