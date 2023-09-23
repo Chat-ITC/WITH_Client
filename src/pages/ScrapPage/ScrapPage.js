@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 
 const ScrapPage = () => {
   const navigate = useNavigate();
-  const locate = "/MyPage";
+  const locate = "/ScrapPage";
 
   const [historyData, setHistoryData] = useState([]);
 

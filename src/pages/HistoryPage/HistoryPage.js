@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 
 const HistoryPage = () => {
   const navigate = useNavigate();
-  const locate = "/MyPage";
+  const locate = "/HistoryPage";
 
   const [historyData, setHistoryData] = useState([]);
 
