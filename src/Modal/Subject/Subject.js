@@ -34,7 +34,7 @@ const SubModal = ({ isOpen, onClose }) => {
       <button className={Sub.SubExit} type="button" onClick={closeModal}>
         닫기
       </button>
-      <ul className={Sub.sub_lists}>
+      <ul className={Sub.sub_lists} isOpen={openModal} onClose={closeModal}>
         {subjects.map((subject, index) => (
           <li key={index}>
             <button
