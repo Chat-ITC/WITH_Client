@@ -125,6 +125,7 @@ const HomePage = () => {
         content: contentProp,
         isScrapped: isScrappedProp,
         id: idProp,
+        location: location,
       },
     });
   };
