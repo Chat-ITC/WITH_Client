@@ -251,7 +251,7 @@ const HomePage = () => {
       <div className={styles.emptyPart}></div>
 
       <div className={styles.historyList}>
-        <ul>
+        <ul style={{marginBottom: 62}}>
           {Array.isArray(historyData) &&
             historyData.map((dataList, index) => (
               <li

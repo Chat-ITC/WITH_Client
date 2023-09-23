@@ -200,12 +200,8 @@
   background-color: #8e8e8e86; /* 로딩 중 배경색 설정 */
   transition: background-color 0.3s ease; /* 배경색 전환 효과 추가 */
   z-index: 7;
-  width: 97%;
-  height: 515px;
-  margin: 0 auto;
-  background-color: white;
-  top: 0;
-  left: 15px;
+  
+
 }
 
 
