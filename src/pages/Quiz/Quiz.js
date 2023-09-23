@@ -50,25 +50,35 @@ const Quiz = (props) => {
     roadQuiz()
       .then((response) => {
         //map으로 배열 자체 넘기기
-        console.log(response);
-        console.log(response.data);
-        console.log(response.data.level);
-        console.log(response.data.quiz);
-        console.log(response.data.quiz[0].title);
+        // console.log(response);
+        // console.log(response.data);
+        // console.log(response.data.level);
+        // console.log(response.data.quiz);
+        // console.log(response.data.quiz[0].title);
         //  console.log(response.data[0].title);
         //  console.log(response.data[0].content);
         //  console.log(response.data[0].answer);
-        console.log("QUIZ 빈값?", response.data.quiz);
-        if (response.data.quiz === "") {
-          console.log("빈 값이다.");
+        // console.log("QUIZ 빈값?", response.data.quiz);
+        // if (response.data.quiz === "") {
+        //   console.log("빈 값이다.");
+        // }
+        // setQuizData(response.data.quiz);
+        // setQuizLevel(response.data.level)
+        if (Array.isArray(response.data.quiz) && response.data.quiz.length > 0) {
+          // 데이터가 존재하는 경우
+          setQuizData(response.data.quiz);
+          setQuizLevel(response.data.level);
+        } else {
+          // 데이터가 비어 있는 경우
+          console.log("데이터가 비어 있습니다.");
+          // 빈 데이터 처리를 수행하거나 필요에 따라 알림을 표시할 수 있습니다.
         }
-        setQuizData(response.data.quiz);
-        setQuizLevel(response.data.level)
 
 
       })
       .catch((error) => {
         const statusCode = error.response.status;
+        console.log("")
 
         if (statusCode === 401) {
           // 400 상태 코드 처리
