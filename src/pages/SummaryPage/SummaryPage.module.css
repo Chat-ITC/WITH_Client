@@ -47,6 +47,10 @@
   top: 20px;
 }
 
+.articleInfo {
+  z-index: -1;
+}
+
 .article {
   display: block;
   width: 100%;
