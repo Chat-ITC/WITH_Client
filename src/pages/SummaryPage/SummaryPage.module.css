@@ -32,10 +32,10 @@
 
 .backColor {
   position: fixed;
-  top: 50px;
+  top: 60px;
   left: 10px;
   right: 10px;
-  background-color: #3da5f5;
+  background-color: #fff;
   border: 1px solid #bababa;
   width: 95%;
   height: 600px;
