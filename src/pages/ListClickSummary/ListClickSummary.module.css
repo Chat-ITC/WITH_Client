@@ -1,13 +1,18 @@
+.header {
+  display: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: #fff;
+}
+
 .SumTitle {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  height: 70px;
-  padding-left: 15px;
-  padding-top: 10px;
-  position: fixed;
-  top: 0;
+  padding: 0 15px;
+  text-align: center;
   z-index: 4;
 }
 
@@ -30,23 +35,16 @@
 }
 
 .article {
-  display: block;
-  width: 100%;
   height: 550px;
   border: 1px solid #bababa;
   border-radius: 6px;
-  margin: 0 auto;
   white-space: pre-line;
   padding: 10px 0;
-  position: relative;
+  position: fixed;
   overflow-y: auto;
   top: 80px;
   background-color: #fff;
   z-index: 3;
-}
-
-.article:nth-child(3) {
-  margin-bottom: 0;
 }
 
 .Copy {
@@ -79,6 +77,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.info {
+  position: fixed;
+  bottom: -80px;
+  left: 10px;
 }
 
 .SelectPart {

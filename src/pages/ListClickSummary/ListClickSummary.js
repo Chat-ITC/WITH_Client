@@ -19,7 +19,7 @@ const ListClickSummary = () => {
   const location = useLocation();
   const { content, isScrapped, id, locate } = location.state;
 
-console.log("locate로그 찍기",locate);
+  console.log("locate로그 찍기", locate);
 
   //내용과 코드
   const [scrapId, setScrapId] = useState(null);
@@ -102,26 +102,32 @@ console.log("locate로그 찍기",locate);
 
   return (
     <>
-      <header className={styles.SumTitle}>
-        <Link to={locate} className={styles.BackHome}>
-          <img src={Back} alt="뒤로가기" />
-        </Link>
-        <div className={styles.S}>
-          <button type="button" onClick={copyHandle}>
-            <img className={styles.RightImg1} src={Copy} alt="복사" />
-          </button>
-          <button type="button" onClick={scrapHandle}>
-            {isScrappedChange === "NO" || isScrappedChange === "No" ? (
-              <img className={styles.RightImg} src={Star} alt="텅 빈 별" />
-            ) : (
-              <img className={styles.RightImg} src={FillStar} alt="꽉 찬 별" />
-            )}
-          </button>
+      <header className={styles.header}>
+        <div className={styles.SumTitle}>
+          <Link to={locate} className={styles.BackHome}>
+            <img src={Back} alt="뒤로가기" />
+          </Link>
+          <div className={styles.S}>
+            <button type="button" onClick={copyHandle}>
+              <img className={styles.RightImg1} src={Copy} alt="복사" />
+            </button>
+            <button type="button" onClick={scrapHandle}>
+              {isScrappedChange === "NO" || isScrappedChange === "No" ? (
+                <img className={styles.RightImg} src={Star} alt="텅 빈 별" />
+              ) : (
+                <img
+                  className={styles.RightImg}
+                  src={FillStar}
+                  alt="꽉 찬 별"
+                />
+              )}
+            </button>
+          </div>
         </div>
       </header>
       <article className={styles.article}>
         {content ? (
-          <div style={preWrap}>
+          <div style={styles.preWrap}>
             <p>
               {content.split(codeBlock).map((text, index) => (
                 <React.Fragment key={index}>
@@ -143,15 +149,10 @@ console.log("locate로그 찍기",locate);
           "데이터 불러오는 중..."
         )}
       </article>
-      {/* <article className={styles.article}>
-        <button type="button">
-          <img className={styles.Copy} src={Copy} alt="복사" />
-        </button>
-      </article> */}
+      <span className={styles.info}>내용이 정확하지 않을 수 있습니다</span>
       <footer>
         <div className={styles.articleDesc}>
           <img className={styles.articleImg} src={Becareful} alt="주의" />
-          <span>내용이 정확하지 않을 수 있습니다</span>
         </div>
       </footer>
 
