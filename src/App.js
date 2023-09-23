@@ -20,7 +20,7 @@ import ScrapPage from "./pages/ScrapPage/ScrapPage";
 import Record from "./pages/RecordPage/RecordPage";
 import SumPage from "./pages/SumPage/SumPage";
 import QuizSelect from "./pages/Quiz/QuizSelect";
-
+//백업을 위해 커밋하기 전에 작성하는 글
 
 import ListClickSummary from "./pages/ListClickSummary/ListClickSummary";
 
