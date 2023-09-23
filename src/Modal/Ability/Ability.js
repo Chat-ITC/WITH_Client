@@ -19,6 +19,7 @@ const AbilModal = ({ isOpen, onClose }) => {
     <div className={`modal ${isOpen ? "open" : ""}`}>
       <div className={Abil.Abil_title}>
         <h3 className={Abil.Abil_head}>내 실력 변경</h3>
+        <p className={Abil.Abil_Desc}>실력 선택</p>
         <ul className={Abil.Abil_lists}>
           {abilities.map((ability, index) => (
             <li key={index}>
