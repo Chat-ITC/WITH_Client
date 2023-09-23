@@ -12,6 +12,7 @@ import Bottom from "../../component/Bottom/Bottom";
 import Scrap from "../../Modal/Scrab/scrab";
 import ScrapItem from "../../component/ScrapItem/ScrapItem";
 //library
+import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import React, { useRef } from "react";
@@ -105,7 +106,7 @@ const HomePage = () => {
       fileInputRef.current.click();
     }
   };
-
+  const location = useLocation();
   const handleFileChange = (event) => {
     const file = event.target.files[0];
 
