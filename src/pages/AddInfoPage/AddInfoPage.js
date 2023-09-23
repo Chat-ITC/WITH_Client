@@ -50,7 +50,7 @@ const AddInfoPage = () => {
     const value = e;
     setSelectedLanguage(value);
   };
-  const link = ;
+ 
 
   //두개가 모두 참인경우 버튼 활성화
   useEffect(() => {
