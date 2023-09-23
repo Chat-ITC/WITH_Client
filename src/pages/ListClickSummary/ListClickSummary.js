@@ -12,16 +12,13 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useHistory } from 'react-router-dom';
 
 const ListClickSummary = () => {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   const location = useLocation();
   const { content, isScrapped, id } = location.state;
-  const history = useHistory();
-  const previousPath = history.location.state && history.location.state.from.pathname;
-  console.log(previousPath);
+ 
   // 이전 페이지 경로를 가져오려면 다음과 같이 사용합니다.
 
   //내용과 코드
