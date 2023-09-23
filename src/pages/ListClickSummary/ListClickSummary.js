@@ -17,7 +17,7 @@ const ListClickSummary = () => {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
 
-  const { content, isScrapped, id, location } = location.state;
+  const { content, isScrapped, id, locate } = location.state;
  
   // 이전 페이지 경로를 가져오려면 다음과 같이 사용합니다.
 
@@ -103,7 +103,7 @@ const ListClickSummary = () => {
   return (
     <>
       <header className={styles.SumTitle}>
-        <Link to={location} className={styles.BackHome}>
+        <Link to={locate} className={styles.BackHome}>
           <img src={Back} alt="뒤로가기" />
         </Link>
         <div className={styles.S}>
