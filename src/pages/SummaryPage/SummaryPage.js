@@ -89,7 +89,7 @@ const SummaryPage = () => {
 
   //클립보드 복사
   const handleCopy = () => {
-    alert("텍스트가 클립보드에 복사되었습니다.")
+    alert("텍스트가 클립보드에 복사되었습니다.");
   };
 
   //위치 저장
@@ -236,7 +236,7 @@ const SummaryPage = () => {
           </button>
         </div>
       </header>
-      <article className={backColor}>
+      <article className={styles.backColor}>
         <SelectModal isOpen={isModalOpen} closeModal={closeModal}>
           <div className={styles.HomeMainModal}>
             <div className={styles.SelectPart}>
