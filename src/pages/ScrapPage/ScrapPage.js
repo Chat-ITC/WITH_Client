@@ -117,7 +117,7 @@ const ScrapPage = () => {
       </header>
 
       <div className={styles.historyList}>
-        <ul className = {styles.ul}>
+        <ul className = {{marginBottom: 65}}>
           {Array.isArray(historyData) &&
             historyData.map((dataList, index) => (
               <li
