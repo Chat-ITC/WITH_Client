@@ -149,13 +149,12 @@ const ListClickSummary = () => {
           "데이터 불러오는 중..."
         )}
       </article>
-      <span className={styles.info}>내용이 정확하지 않을 수 있습니다</span>
       <footer>
         <div className={styles.articleDesc}>
           <img className={styles.articleImg} src={Becareful} alt="주의" />
         </div>
       </footer>
-
+      <div className={styles.info}>내용이 정확하지 않을 수 있습니다</div>
       <Bottom />
     </>
   );
