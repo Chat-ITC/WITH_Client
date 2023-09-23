@@ -70,7 +70,7 @@ const Quiz = (props) => {
           setQuizLevel(response.data.level);
         } else {
           // 데이터가 비어 있는 경우
-          console.log("사용자가 선택한 언어가 없습니다.");
+          alert("사용자가 선택한 언어가 없습니다.");
           setQuizLevel(response.data.level);
           navigate("/HomePage");
 
