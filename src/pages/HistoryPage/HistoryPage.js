@@ -78,7 +78,7 @@ const HistoryPage = () => {
         content: contentProp,
         isScrapped: isScrappedProp,
         id: idProp,
-        location: location
+        locate: location
       },
     });
   };
