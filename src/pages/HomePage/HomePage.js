@@ -44,7 +44,7 @@ const HomePage = () => {
 
   //history
   const [historyData, setHistoryData] = useState([]);
-  const location = "/HomePage";
+  const locate = "/HomePage";
 
   axios.defaults.withCredentials = true;
 
@@ -125,7 +125,7 @@ const HomePage = () => {
         content: contentProp,
         isScrapped: isScrappedProp,
         id: idProp,
-        location: location,
+        locate: locate,
       },
     });
   };

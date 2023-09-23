@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 
 const ScrapPage = () => {
   const navigate = useNavigate();
-  const location = "/MyPage";
+  const locate = "/MyPage";
 
   const [historyData, setHistoryData] = useState([]);
 
@@ -78,7 +78,7 @@ const ScrapPage = () => {
         content: contentProp,
         isScrapped: isScrappedProp,
         id: idProp,
-        locate: location
+        locate: locate
       },
     });
   };

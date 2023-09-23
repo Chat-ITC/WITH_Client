@@ -16,10 +16,10 @@ import { useNavigate } from "react-router-dom";
 const ListClickSummary = () => {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
-
+  const location = useLocation();
   const { content, isScrapped, id, locate } = location.state;
- 
-  // 이전 페이지 경로를 가져오려면 다음과 같이 사용합니다.
+
+console.log("locate로그 찍기",locate);
 
   //내용과 코드
   const [scrapId, setScrapId] = useState(null);
