@@ -192,6 +192,9 @@
 }
 
 .fullscreenBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   min-height: 100vh;
   background-color: #8e8e8e86; /* 로딩 중 배경색 설정 */
