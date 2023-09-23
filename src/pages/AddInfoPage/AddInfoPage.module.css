@@ -1,13 +1,11 @@
 .ability_title {
-  position: absolute;
   text-align: center;
   padding: 0 15px;
   width: 100%;
-  top: 58px;
+  margin-top: 60px;
 }
 
 .ability_section {
-  position: absolute;
   text-align: center;
   padding: 0 15px;
   width: 100%;
@@ -74,7 +72,7 @@
 }
 
 .language_section {
-  position: absolute;
+  margin-top: 40px;
   text-align: center;
   padding: 0 15px;
   width: 100%;
@@ -113,7 +111,6 @@
 }
 
 .language_section {
-  position: absolute;
   top: 240px;
   display: flex;
   flex-direction: column;
@@ -124,7 +121,7 @@
 }
 
 .language_title {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 /* CSS 파일에 다음 내용을 추가하세요. */
