@@ -4,6 +4,7 @@ import Star from "../../assets/icons/clip.png";
 import FillStar from "../../assets/AddInfoIcons/FillStar.png";
 import Copy from "../../assets/AddInfoIcons/Copy.png";
 import Becareful from "../../assets/AddInfoIcons/Becareful.png";
+import clipboardCopy from 'clipboard-copy';
 
 import React from "react";
 import axios from "axios";
@@ -28,6 +29,7 @@ const ListClickSummary = () => {
   const [scrapCheck, setScrapCheck] = useState(0);
   const [codeBlock, setCodeBlock] = useState(null);
   const [isScrappedChange, setIsScrappedChange] = useState(isScrapped);
+
 
   useEffect(() => {
     setScrapId(id);
@@ -98,8 +100,8 @@ const ListClickSummary = () => {
       console.log("요청실패");
     }
   };
-  const copyHandle = () => {
-    console.log("복사 버튼이 클릭되었습니다!");
+  const handleCopy = () => {
+    console.log("텍스트가 클립보드에 복사되었습니다.");
   };
 
   return (
