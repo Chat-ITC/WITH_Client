@@ -1,17 +1,15 @@
 .ability_title {
-  position: absolute;
   text-align: center;
   padding: 0 15px;
   width: 100%;
-  top: 58px;
+  margin-top: 58px;
 }
 
 .ability_section {
-  position: fixed;
   text-align: center;
   padding: 0 15px;
   width: 100%;
-  top: 106px;
+  margin-top: 106px;
 }
 
 .itemContainer {

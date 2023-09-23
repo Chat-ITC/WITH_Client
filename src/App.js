@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "../src/styles/screen/Reset.module.css";
 // global style
 import GlobalStyle from "./styles/GlobalStyle";
+//fonts
+import "./styles/fonts/gmarket.module.css";
 
 import ScrapItem from "./component/ScrapItem/ScrapItem";
 //pages

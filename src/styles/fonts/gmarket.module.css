@@ -1,0 +1,15 @@
+/* gmarket-font.css */
+
+@font-face {
+  font-family: "GMarket";
+  src: local("GMarket"),
+    url("../../../public/GmarketSansTTFBold.ttf") format("truetype");
+  src: local("GMarket"),
+    url("../../../public/GmarketSansTTFLight.ttf") format("truetype");
+  src: local("GMarket"),
+    url("../../../public/GmarketSansTTFLight.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 다른 CSS 스타일과 함께 필요한 스타일을 추가할 수 있습니다. */
