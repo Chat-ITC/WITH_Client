@@ -21,7 +21,7 @@ const SubModal = ({ isOpen, onClose }) => {
 
   const [isModalOpen, sestIsModalOpen] = useState(false);
   const openModal = () => sestIsModalOpen(true);
-  const closeModal = (selectedTier) => {
+  const closeModal = () => {
     sestIsModalOpen(false);
   };
 
