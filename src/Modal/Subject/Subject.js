@@ -26,7 +26,10 @@ const SubModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className={Sub.Sub_content} isOpen={openModal} onClose={closeModal}>
+    <div
+      className={Sub.Sub_content}
+      style={{ display: isModalOpen ? "block" : "none" }}
+    >
       <h2 className={Sub.HomeSubTitle}>주제</h2>
       <button className={Sub.SubExit} type="button" onClick={closeModal}>
         닫기
