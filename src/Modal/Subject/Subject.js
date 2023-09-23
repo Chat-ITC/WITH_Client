@@ -19,9 +19,18 @@ const SubModal = ({ isOpen, onClose }) => {
     }
   };
 
+  const [isModalOpen, sestIsModalOpen] = useState(false);
+  const openModal = () => sestIsModalOpen(true);
+  const closeModal = () => {
+    sestIsModalOpen(false);
+  };
+
   return (
-    <div className={Sub.Sub_content}>
+    <div className={Sub.Sub_content} isOpen={openModal} onClose={closeModal}>
       <h2 className={Sub.HomeSubTitle}>주제</h2>
+      <button className={Sub.SubExit} type="button" onClick={closeModal}>
+        닫기
+      </button>
       <ul className={Sub.sub_lists}>
         {subjects.map((subject, index) => (
           <li key={index}>
@@ -29,7 +38,6 @@ const SubModal = ({ isOpen, onClose }) => {
               className={Sub.HomeSubBtn}
               onClick={() => {
                 handleSubjectClick(subject);
-                
               }}
             >
               {subject}

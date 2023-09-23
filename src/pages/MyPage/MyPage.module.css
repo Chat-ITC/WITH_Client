@@ -101,6 +101,8 @@
   flex-shrink: 0;
   font-size: 16px;
   font-weight: 700;
+  position: relative;
+  z-index: 5;
 }
 
 .MyPage_Abil {
