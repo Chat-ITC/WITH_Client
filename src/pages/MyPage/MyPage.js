@@ -1,3 +1,4 @@
+//시작하기 전에 백업용 커밋
 //css
 import styles from "./MyPage.module.css";
 import SwitchOff from "../../assets/icons/switchOff.svg";
@@ -93,7 +94,7 @@ const MyPage = () => {
         setChangeLanguage(Unknown);
         break;
     }
-  }
+  };
 
   console.log(logoLoca);
 
@@ -370,10 +371,13 @@ const MyPage = () => {
             type="button"
             onClick={openModal}
           >
-            <img className={styles.section_img} src={changeLanguage} alt="학습 언어 수정" />
+            <img
+              className={styles.section_img}
+              src={changeLanguage}
+              alt="학습 언어 수정"
+            />
             <p className={styles.section_desc}>학습 언어 수정</p>
           </button>
-
         </div>
       </section>
 
