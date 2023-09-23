@@ -50,6 +50,7 @@ const AddInfoPage = () => {
     const value = e;
     setSelectedLanguage(value);
   };
+  const link = ;
 
   //두개가 모두 참인경우 버튼 활성화
   useEffect(() => {
@@ -73,7 +74,7 @@ const AddInfoPage = () => {
       user_level: selectedSkill,
       skill_language: selectedLanguage,
       title: "[사용 가이드]",
-      content: "https://github.com/Chat-ITC",
+      content: "https://juicy-alphabet-9f0.notion.site/WITH-20387f32a19840c19762c33074615eae?pvs=4",
       fav_language: "with",
       isScrapped: "NO",
     };
