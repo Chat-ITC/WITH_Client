@@ -1,7 +1,7 @@
 // hooks
 import { useNavigate } from "react-router-dom";
 import useAsync from "../hooks/useAsync";
-import Loading from "../component/Loading/Loading"
+import LoadingLogin from "../component/Loading/LoadingLogin"
 
 
 // API
@@ -22,7 +22,7 @@ const KakaoRedirection = () => {
 
   const { loading, data, error } = state;
 
-  if (loading) return <Loading/>;
+  if (loading) return <LoadingLogin/>;
   if (error) {
     const data = error.response.data;
     const statusCode = error.response.status;
