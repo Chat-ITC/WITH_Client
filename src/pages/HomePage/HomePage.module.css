@@ -18,6 +18,7 @@
   overflow-y: auto;
   z-index: -1;
   margin-bottom: 40%;
+  background-color: #edeaea3a;
 }
 
 .Scrap_button {
@@ -126,7 +127,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: #ffffff;
+  background-color: #edeaea3a;
 }
 
 .Scrap {
