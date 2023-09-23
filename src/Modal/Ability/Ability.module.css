@@ -13,6 +13,11 @@
   z-index: 6;
 }
 
+.info_desc {
+  position: relative;
+  z-index: -1;
+}
+
 .bottom {
   position: relative;
   z-index: 5;
